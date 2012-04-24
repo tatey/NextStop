@@ -21,6 +21,7 @@
 		5DB59CAF1546C97200417818 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59CAE1546C97200417818 /* MapViewController.m */; };
 		5DB59CB01546C97200417818 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59CAE1546C97200417818 /* MapViewController.m */; };
 		5DB59CB21546CA7B00417818 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CB11546CA7B00417818 /* MapKit.framework */; };
+		5DB59CBC1546D21200417818 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CBB1546D21200417818 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		5DB59CAD1546C97200417818 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		5DB59CAE1546C97200417818 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		5DB59CB11546CA7B00417818 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5DB59CBB1546D21200417818 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				5DB59C7F1546C8E500417818 /* UIKit.framework in Frameworks */,
 				5DB59CB21546CA7B00417818 /* MapKit.framework in Frameworks */,
 				5DB59C811546C8E500417818 /* Foundation.framework in Frameworks */,
+				5DB59CBC1546D21200417818 /* CoreLocation.framework in Frameworks */,
 				5DB59C831546C8E500417818 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,6 +108,7 @@
 				5DB59C7E1546C8E500417818 /* UIKit.framework */,
 				5DB59CB11546CA7B00417818 /* MapKit.framework */,
 				5DB59C801546C8E500417818 /* Foundation.framework */,
+				5DB59CBB1546D21200417818 /* CoreLocation.framework */,
 				5DB59C821546C8E500417818 /* CoreGraphics.framework */,
 				5DB59C961546C8E500417818 /* SenTestingKit.framework */,
 			);
