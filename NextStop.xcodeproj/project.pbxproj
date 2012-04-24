@@ -62,11 +62,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DB59C7F1546C8E500417818 /* UIKit.framework in Frameworks */,
-				5DB59CB21546CA7B00417818 /* MapKit.framework in Frameworks */,
-				5DB59C811546C8E500417818 /* Foundation.framework in Frameworks */,
-				5DB59CBC1546D21200417818 /* CoreLocation.framework in Frameworks */,
 				5DB59C831546C8E500417818 /* CoreGraphics.framework in Frameworks */,
+				5DB59CBC1546D21200417818 /* CoreLocation.framework in Frameworks */,
+				5DB59C811546C8E500417818 /* Foundation.framework in Frameworks */,
+				5DB59CB21546CA7B00417818 /* MapKit.framework in Frameworks */,
+				5DB59C7F1546C8E500417818 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,12 +105,12 @@
 		5DB59C7D1546C8E500417818 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5DB59C7E1546C8E500417818 /* UIKit.framework */,
-				5DB59CB11546CA7B00417818 /* MapKit.framework */,
-				5DB59C801546C8E500417818 /* Foundation.framework */,
 				5DB59CBB1546D21200417818 /* CoreLocation.framework */,
 				5DB59C821546C8E500417818 /* CoreGraphics.framework */,
+				5DB59C801546C8E500417818 /* Foundation.framework */,
+				5DB59CB11546CA7B00417818 /* MapKit.framework */,
 				5DB59C961546C8E500417818 /* SenTestingKit.framework */,
+				5DB59C7E1546C8E500417818 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -427,6 +427,7 @@
 				5DB59CA91546C8E500417818 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5DB59CAA1546C8E500417818 /* Build configuration list for PBXNativeTarget "NextStopTests" */ = {
 			isa = XCConfigurationList;
@@ -435,6 +436,7 @@
 				5DB59CAC1546C8E500417818 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
