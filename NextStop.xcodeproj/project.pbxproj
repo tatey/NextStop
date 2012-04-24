@@ -18,6 +18,7 @@
 		5DB59C991546C8E500417818 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C801546C8E500417818 /* Foundation.framework */; };
 		5DB59CA11546C8E500417818 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DB59C9F1546C8E500417818 /* InfoPlist.strings */; };
 		5DB59CA41546C8E500417818 /* NextStopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59CA31546C8E500417818 /* NextStopTests.m */; };
+		5DB59CB21546CA7B00417818 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CB11546CA7B00417818 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		5DB59CA01546C8E500417818 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5DB59CA21546C8E500417818 /* NextStopTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NextStopTests.h; sourceTree = "<group>"; };
 		5DB59CA31546C8E500417818 /* NextStopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NextStopTests.m; sourceTree = "<group>"; };
+		5DB59CB11546CA7B00417818 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DB59C7F1546C8E500417818 /* UIKit.framework in Frameworks */,
+				5DB59CB21546CA7B00417818 /* MapKit.framework in Frameworks */,
 				5DB59C811546C8E500417818 /* Foundation.framework in Frameworks */,
 				5DB59C831546C8E500417818 /* CoreGraphics.framework in Frameworks */,
 			);
@@ -96,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				5DB59C7E1546C8E500417818 /* UIKit.framework */,
+				5DB59CB11546CA7B00417818 /* MapKit.framework */,
 				5DB59C801546C8E500417818 /* Foundation.framework */,
 				5DB59C821546C8E500417818 /* CoreGraphics.framework */,
 				5DB59C961546C8E500417818 /* SenTestingKit.framework */,
