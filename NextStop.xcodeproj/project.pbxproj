@@ -35,17 +35,17 @@
 		5DB59C7E1546C8E500417818 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5DB59C801546C8E500417818 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DB59C821546C8E500417818 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		5DB59C861546C8E500417818 /* NextStop-Info.plist */ = {isa = PBXFileReference; path = "NextStop-Info.plist"; sourceTree = "<group>"; };
+		5DB59C861546C8E500417818 /* NextStop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NextStop-Info.plist"; sourceTree = "<group>"; };
 		5DB59C881546C8E500417818 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5DB59C8A1546C8E500417818 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5DB59C8C1546C8E500417818 /* NextStop-Prefix.pch */ = {isa = PBXFileReference; path = "NextStop-Prefix.pch"; sourceTree = "<group>"; };
-		5DB59C8D1546C8E500417818 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		5DB59C8C1546C8E500417818 /* NextStop-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NextStop-Prefix.pch"; sourceTree = "<group>"; };
+		5DB59C8D1546C8E500417818 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5DB59C8E1546C8E500417818 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5DB59C951546C8E500417818 /* NextStopTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NextStopTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DB59C961546C8E500417818 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		5DB59C9E1546C8E500417818 /* NextStopTests-Info.plist */ = {isa = PBXFileReference; path = "NextStopTests-Info.plist"; sourceTree = "<group>"; };
+		5DB59C9E1546C8E500417818 /* NextStopTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NextStopTests-Info.plist"; sourceTree = "<group>"; };
 		5DB59CA01546C8E500417818 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5DB59CA21546C8E500417818 /* NextStopTests.h */ = {isa = PBXFileReference; path = NextStopTests.h; sourceTree = "<group>"; };
+		5DB59CA21546C8E500417818 /* NextStopTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NextStopTests.h; sourceTree = "<group>"; };
 		5DB59CA31546C8E500417818 /* NextStopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NextStopTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
