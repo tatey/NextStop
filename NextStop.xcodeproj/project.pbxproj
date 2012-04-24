@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5DB59C7F1546C8E500417818 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C7E1546C8E500417818 /* UIKit.framework */; };
+		5DB59C811546C8E500417818 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C801546C8E500417818 /* Foundation.framework */; };
+		5DB59C831546C8E500417818 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C821546C8E500417818 /* CoreGraphics.framework */; };
+		5DB59C891546C8E500417818 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DB59C871546C8E500417818 /* InfoPlist.strings */; };
+		5DB59C8B1546C8E500417818 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59C8A1546C8E500417818 /* main.m */; };
+		5DB59C8F1546C8E500417818 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59C8E1546C8E500417818 /* AppDelegate.m */; };
+		5DB59C971546C8E500417818 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C961546C8E500417818 /* SenTestingKit.framework */; };
+		5DB59C981546C8E500417818 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C7E1546C8E500417818 /* UIKit.framework */; };
+		5DB59C991546C8E500417818 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C801546C8E500417818 /* Foundation.framework */; };
+		5DB59CA11546C8E500417818 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DB59C9F1546C8E500417818 /* InfoPlist.strings */; };
+		5DB59CA41546C8E500417818 /* NextStopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59CA31546C8E500417818 /* NextStopTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5DB59C9A1546C8E500417818 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5DB59C711546C8E500417818 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5DB59C791546C8E500417818;
+			remoteInfo = NextStop;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5DB59C7A1546C8E500417818 /* NextStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DB59C7E1546C8E500417818 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5DB59C801546C8E500417818 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5DB59C821546C8E500417818 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5DB59C861546C8E500417818 /* NextStop-Info.plist */ = {isa = PBXFileReference; path = "NextStop-Info.plist"; sourceTree = "<group>"; };
+		5DB59C881546C8E500417818 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5DB59C8A1546C8E500417818 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5DB59C8C1546C8E500417818 /* NextStop-Prefix.pch */ = {isa = PBXFileReference; path = "NextStop-Prefix.pch"; sourceTree = "<group>"; };
+		5DB59C8D1546C8E500417818 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		5DB59C8E1546C8E500417818 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5DB59C951546C8E500417818 /* NextStopTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NextStopTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DB59C961546C8E500417818 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5DB59C9E1546C8E500417818 /* NextStopTests-Info.plist */ = {isa = PBXFileReference; path = "NextStopTests-Info.plist"; sourceTree = "<group>"; };
+		5DB59CA01546C8E500417818 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5DB59CA21546C8E500417818 /* NextStopTests.h */ = {isa = PBXFileReference; path = NextStopTests.h; sourceTree = "<group>"; };
+		5DB59CA31546C8E500417818 /* NextStopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NextStopTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5DB59C771546C8E500417818 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DB59C7F1546C8E500417818 /* UIKit.framework in Frameworks */,
+				5DB59C811546C8E500417818 /* Foundation.framework in Frameworks */,
+				5DB59C831546C8E500417818 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DB59C911546C8E500417818 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DB59C971546C8E500417818 /* SenTestingKit.framework in Frameworks */,
+				5DB59C981546C8E500417818 /* UIKit.framework in Frameworks */,
+				5DB59C991546C8E500417818 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5DB59C6F1546C8E500417818 = {
+			isa = PBXGroup;
+			children = (
+				5DB59C841546C8E500417818 /* NextStop */,
+				5DB59C9C1546C8E500417818 /* NextStopTests */,
+				5DB59C7D1546C8E500417818 /* Frameworks */,
+				5DB59C7B1546C8E500417818 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5DB59C7B1546C8E500417818 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5DB59C7A1546C8E500417818 /* NextStop.app */,
+				5DB59C951546C8E500417818 /* NextStopTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5DB59C7D1546C8E500417818 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5DB59C7E1546C8E500417818 /* UIKit.framework */,
+				5DB59C801546C8E500417818 /* Foundation.framework */,
+				5DB59C821546C8E500417818 /* CoreGraphics.framework */,
+				5DB59C961546C8E500417818 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5DB59C841546C8E500417818 /* NextStop */ = {
+			isa = PBXGroup;
+			children = (
+				5DB59C8D1546C8E500417818 /* AppDelegate.h */,
+				5DB59C8E1546C8E500417818 /* AppDelegate.m */,
+				5DB59C851546C8E500417818 /* Supporting Files */,
+			);
+			path = NextStop;
+			sourceTree = "<group>";
+		};
+		5DB59C851546C8E500417818 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5DB59C861546C8E500417818 /* NextStop-Info.plist */,
+				5DB59C871546C8E500417818 /* InfoPlist.strings */,
+				5DB59C8A1546C8E500417818 /* main.m */,
+				5DB59C8C1546C8E500417818 /* NextStop-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5DB59C9C1546C8E500417818 /* NextStopTests */ = {
+			isa = PBXGroup;
+			children = (
+				5DB59CA21546C8E500417818 /* NextStopTests.h */,
+				5DB59CA31546C8E500417818 /* NextStopTests.m */,
+				5DB59C9D1546C8E500417818 /* Supporting Files */,
+			);
+			path = NextStopTests;
+			sourceTree = "<group>";
+		};
+		5DB59C9D1546C8E500417818 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5DB59C9E1546C8E500417818 /* NextStopTests-Info.plist */,
+				5DB59C9F1546C8E500417818 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5DB59C791546C8E500417818 /* NextStop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DB59CA71546C8E500417818 /* Build configuration list for PBXNativeTarget "NextStop" */;
+			buildPhases = (
+				5DB59C761546C8E500417818 /* Sources */,
+				5DB59C771546C8E500417818 /* Frameworks */,
+				5DB59C781546C8E500417818 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NextStop;
+			productName = NextStop;
+			productReference = 5DB59C7A1546C8E500417818 /* NextStop.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5DB59C941546C8E500417818 /* NextStopTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DB59CAA1546C8E500417818 /* Build configuration list for PBXNativeTarget "NextStopTests" */;
+			buildPhases = (
+				5DB59C901546C8E500417818 /* Sources */,
+				5DB59C911546C8E500417818 /* Frameworks */,
+				5DB59C921546C8E500417818 /* Resources */,
+				5DB59C931546C8E500417818 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5DB59C9B1546C8E500417818 /* PBXTargetDependency */,
+			);
+			name = NextStopTests;
+			productName = NextStopTests;
+			productReference = 5DB59C951546C8E500417818 /* NextStopTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5DB59C711546C8E500417818 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 5DB59C741546C8E500417818 /* Build configuration list for PBXProject "NextStop" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5DB59C6F1546C8E500417818;
+			productRefGroup = 5DB59C7B1546C8E500417818 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5DB59C791546C8E500417818 /* NextStop */,
+				5DB59C941546C8E500417818 /* NextStopTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5DB59C781546C8E500417818 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DB59C891546C8E500417818 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DB59C921546C8E500417818 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DB59CA11546C8E500417818 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5DB59C931546C8E500417818 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5DB59C761546C8E500417818 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DB59C8B1546C8E500417818 /* main.m in Sources */,
+				5DB59C8F1546C8E500417818 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DB59C901546C8E500417818 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DB59CA41546C8E500417818 /* NextStopTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5DB59C9B1546C8E500417818 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5DB59C791546C8E500417818 /* NextStop */;
+			targetProxy = 5DB59C9A1546C8E500417818 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5DB59C871546C8E500417818 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5DB59C881546C8E500417818 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5DB59C9F1546C8E500417818 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5DB59CA01546C8E500417818 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5DB59CA51546C8E500417818 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5DB59CA61546C8E500417818 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5DB59CA81546C8E500417818 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NextStop/NextStop-Prefix.pch";
+				INFOPLIST_FILE = "NextStop/NextStop-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5DB59CA91546C8E500417818 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NextStop/NextStop-Prefix.pch";
+				INFOPLIST_FILE = "NextStop/NextStop-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		5DB59CAB1546C8E500417818 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NextStop.app/NextStop";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NextStop/NextStop-Prefix.pch";
+				INFOPLIST_FILE = "NextStopTests/NextStopTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5DB59CAC1546C8E500417818 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NextStop.app/NextStop";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NextStop/NextStop-Prefix.pch";
+				INFOPLIST_FILE = "NextStopTests/NextStopTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5DB59C741546C8E500417818 /* Build configuration list for PBXProject "NextStop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DB59CA51546C8E500417818 /* Debug */,
+				5DB59CA61546C8E500417818 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5DB59CA71546C8E500417818 /* Build configuration list for PBXNativeTarget "NextStop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DB59CA81546C8E500417818 /* Debug */,
+				5DB59CA91546C8E500417818 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5DB59CAA1546C8E500417818 /* Build configuration list for PBXNativeTarget "NextStopTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DB59CAB1546C8E500417818 /* Debug */,
+				5DB59CAC1546C8E500417818 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5DB59C711546C8E500417818 /* Project object */;
+}
