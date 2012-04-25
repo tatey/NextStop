@@ -1,9 +1,12 @@
+#import <MapKit/MapKit.h>
 #import <UIKit/UIKit.h>
 
-@class MKMapView;
+@class User;
 
-@interface MapViewController : UIViewController
+@interface MapViewController : UIViewController <MKMapViewDelegate>
 
-@property (strong, nonatomic) MKMapView *mapView;
+@property (strong, nonatomic) User *user;
+
+- (id)initWithUser:(User *)user;
 
 @end
