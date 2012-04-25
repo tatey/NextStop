@@ -26,6 +26,7 @@
 		5DB59CC91546E9F000417818 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59CC71546E9F000417818 /* Annotation.m */; };
 		5DB59CCC1547826900417818 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59CCB1547826900417818 /* User.m */; };
 		5DB59CCD1547826900417818 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59CCB1547826900417818 /* User.m */; };
+		5DB59CE91547B5F500417818 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CE81547B5F500417818 /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		5DB59CC71546E9F000417818 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
 		5DB59CCA1547826900417818 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		5DB59CCB1547826900417818 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		5DB59CE81547B5F500417818 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				5DB59C811546C8E500417818 /* Foundation.framework in Frameworks */,
 				5DB59CB21546CA7B00417818 /* MapKit.framework in Frameworks */,
 				5DB59C7F1546C8E500417818 /* UIKit.framework in Frameworks */,
+				5DB59CE91547B5F500417818 /* libsqlite3.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +122,7 @@
 				5DB59CB11546CA7B00417818 /* MapKit.framework */,
 				5DB59C961546C8E500417818 /* SenTestingKit.framework */,
 				5DB59C7E1546C8E500417818 /* UIKit.framework */,
+				5DB59CE81547B5F500417818 /* libsqlite3.0.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
