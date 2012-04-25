@@ -24,6 +24,8 @@
 		5DB59CBC1546D21200417818 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CBB1546D21200417818 /* CoreLocation.framework */; };
 		5DB59CC81546E9F000417818 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59CC71546E9F000417818 /* Annotation.m */; };
 		5DB59CC91546E9F000417818 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59CC71546E9F000417818 /* Annotation.m */; };
+		5DB59CCC1547826900417818 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59CCB1547826900417818 /* User.m */; };
+		5DB59CCD1547826900417818 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59CCB1547826900417818 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		5DB59CBB1546D21200417818 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5DB59CC61546E9F000417818 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
 		5DB59CC71546E9F000417818 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
+		5DB59CCA1547826900417818 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		5DB59CCB1547826900417818 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 				5DB59C8E1546C8E500417818 /* AppDelegate.m */,
 				5DB59CAD1546C97200417818 /* MapViewController.h */,
 				5DB59CAE1546C97200417818 /* MapViewController.m */,
+				5DB59CCA1547826900417818 /* User.h */,
+				5DB59CCB1547826900417818 /* User.m */,
 				5DB59C851546C8E500417818 /* Supporting Files */,
 			);
 			path = NextStop;
@@ -272,6 +278,7 @@
 				5DB59C8F1546C8E500417818 /* AppDelegate.m in Sources */,
 				5DB59CAF1546C97200417818 /* MapViewController.m in Sources */,
 				5DB59CC81546E9F000417818 /* Annotation.m in Sources */,
+				5DB59CCC1547826900417818 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +289,7 @@
 				5DB59CA41546C8E500417818 /* NextStopTests.m in Sources */,
 				5DB59CB01546C97200417818 /* MapViewController.m in Sources */,
 				5DB59CC91546E9F000417818 /* Annotation.m in Sources */,
+				5DB59CCD1547826900417818 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
