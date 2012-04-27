@@ -1,11 +1,13 @@
 #import "Route.h"
 #import "SQLiteDB.h"
 
+#define QUERY @"SELECT * FROM routes WHERE code LIKE ? OR name LIKE ?"
+
 @implementation Route
 
 + (NSArray *)routesMatchingCodeOrName:(NSString *)codeOrName {
     SQLiteDB *db = [SQLiteDB sharedDB];
-    sqlite3_stmt *stmt = [db prepareStatementWithQuery:@"SELECT * FROM routes WHERE code LIKE ? OR name LIKE ?"];
+    sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY];
     const char *wildcard = [[NSString stringWithFormat:@"%%%@%%", codeOrName] UTF8String];
     sqlite3_bind_text(stmt, 1, wildcard, -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 2, wildcard, -1, SQLITE_STATIC);
