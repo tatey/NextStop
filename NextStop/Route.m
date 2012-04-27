@@ -20,6 +20,7 @@
 - (id)initWithStatement:(sqlite3_stmt *)stmt {
     self = [self init];
     if (self) {
+        _primaryKey = sqlite3_column_int(stmt, 0);
         _code = [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 1)];
         _name = [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 2)];
     }
@@ -34,8 +35,12 @@
     return _name;
 }
 
+- (NSUInteger)primaryKey {
+    return _primaryKey;
+}
+
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@: %p, code: %@, name: %@>", NSStringFromClass([self class]), self, self.code, self.name];
+    return [NSString stringWithFormat:@"<%@: %p, code: %@, name: %@ primaryKey: %d>", NSStringFromClass([self class]), self, self.code, self.name, self.primaryKey];
 }
 
 @end

@@ -5,10 +5,12 @@
 @private
     NSString *_code;
     NSString *_name;
+    NSUInteger _primaryKey;
 }
 
 @property (readonly) NSString *code;
 @property (readonly) NSString *name;
+@property (readonly) NSUInteger primaryKey;
 
 + (NSArray *)routesMatchingCodeOrName:(NSString *)codeOrName;
 
