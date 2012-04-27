@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5D05F312154ABC65004E7773 /* NSObject+KVOSEL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F311154ABC65004E7773 /* NSObject+KVOSEL.m */; };
 		5D05F313154ABC65004E7773 /* NSObject+KVOSEL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F311154ABC65004E7773 /* NSObject+KVOSEL.m */; };
+		5D05F316154ACA7F004E7773 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* Stop.m */; };
+		5D05F317154ACA7F004E7773 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* Stop.m */; };
 		5D2BFDBB1547F3B400D9F53E /* RoutesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */; };
 		5D2BFDBC1547F3B400D9F53E /* RoutesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */; };
 		5DB59C7F1546C8E500417818 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C7E1546C8E500417818 /* UIKit.framework */; };
@@ -51,6 +53,8 @@
 /* Begin PBXFileReference section */
 		5D05F310154ABC65004E7773 /* NSObject+KVOSEL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVOSEL.h"; sourceTree = "<group>"; };
 		5D05F311154ABC65004E7773 /* NSObject+KVOSEL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVOSEL.m"; sourceTree = "<group>"; };
+		5D05F314154ACA7F004E7773 /* Stop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stop.h; sourceTree = "<group>"; };
+		5D05F315154ACA7F004E7773 /* Stop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stop.m; sourceTree = "<group>"; };
 		5D2BFDB91547F3B400D9F53E /* RoutesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutesViewController.h; sourceTree = "<group>"; };
 		5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutesViewController.m; sourceTree = "<group>"; };
 		5DB59C7A1546C8E500417818 /* NextStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +164,8 @@
 				5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */,
 				5DD52408154800DD00011A3E /* Route.h */,
 				5DD52409154800DD00011A3E /* Route.m */,
+				5D05F314154ACA7F004E7773 /* Stop.h */,
+				5D05F315154ACA7F004E7773 /* Stop.m */,
 				5DD523FC1547FF7C00011A3E /* SQLiteDB.h */,
 				5DD523FD1547FF7C00011A3E /* SQLiteDB.m */,
 				5DB59CCA1547826900417818 /* User.h */,
@@ -323,6 +329,7 @@
 				5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */,
 				5DD5240A154800DD00011A3E /* Route.m in Sources */,
 				5D05F312154ABC65004E7773 /* NSObject+KVOSEL.m in Sources */,
+				5D05F316154ACA7F004E7773 /* Stop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +345,7 @@
 				5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */,
 				5DD5240B154800DD00011A3E /* Route.m in Sources */,
 				5D05F313154ABC65004E7773 /* NSObject+KVOSEL.m in Sources */,
+				5D05F317154ACA7F004E7773 /* Stop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
