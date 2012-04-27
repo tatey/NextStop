@@ -5,8 +5,9 @@
 
 @interface MapViewController : UIViewController <MKMapViewDelegate>
 
+@property (strong, nonatomic) NSArray *stops;
 @property (strong, nonatomic) User *user;
 
-- (id)initWithUser:(User *)user;
+- (id)initWithStops:(NSArray *)stops user:(User *)user;
 
 @end
