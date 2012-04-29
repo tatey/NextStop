@@ -2,9 +2,6 @@
 #import "Stop.h"
 #import "Trip.h"
 
-static NSString *const kRouteKey = @"route";
-static NSString *const kStopsKey = @"stops";
-
 @interface Trip () {
 @private
     NSArray *_stops;
@@ -25,17 +22,13 @@ static NSString *const kStopsKey = @"stops";
 }
 
 - (void)setRoute:(Route *)route {
-    [self willChangeValueForKey:kRouteKey];
     _route = route;
     _stops = nil; // Clear cached stops
-    [self didChangeValueForKey:kRouteKey];
 }
 
 - (NSArray *)stops {
     if (!_stops) {
-        [self willChangeValueForKey:kStopsKey];
         _stops = [Stop stopsMatchingRoute:self.route];
-        [self didChangeValueForKey:kStopsKey];
     }
     return _stops;
 }
