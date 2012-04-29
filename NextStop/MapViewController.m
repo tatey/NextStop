@@ -63,11 +63,22 @@ static NSString *const kTrackerCurrentKeyPath = @"tracker.current";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self addObserver:self forKeyPath:kTrackerCurrentKeyPath options:NSKeyValueObservingOptionNew context:@selector(trackerDidChangeCurrent:)];
+    [self zoomToFit];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [self removeObserver:self forKeyPath:kTrackerCurrentKeyPath];
     [super viewWillDisappear:animated];
+}
+
+- (void)zoomToFit {
+    int i = 0;
+    MKMapPoint points[[self.stopAnnotations count]];
+    for (id <MKAnnotation> annotation in self.stopAnnotations) {
+        points[i++] = MKMapPointForCoordinate(annotation.coordinate);
+    }
+    MKPolygon *polygon = [MKPolygon polygonWithPoints:points count:i];
+    [self.mapView setRegion:MKCoordinateRegionForMapRect([polygon boundingMapRect]) animated:YES]; 
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
