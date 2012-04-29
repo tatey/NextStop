@@ -1,19 +1,13 @@
-#import "Annotation.h"
 #import "MapViewController.h"
 #import "Stop.h"
-#import "Tracker.h"
 #import "Trip.h"
-
-#define DURATION 0.75
-
-static NSString *const kTrackerCurrentKeyPath = @"tracker.current";
+#import "User.h"
 
 @interface MapViewController ()
 
-@property (strong, nonatomic) Annotation *currentAnnotation;
 @property (strong, nonatomic) MKMapView *mapView;
-@property (strong, nonatomic) NSArray *stopAnnotations;
-@property (strong, nonatomic) Tracker *tracker;
+@property (strong, nonatomic) NSArray *stops;
+@property (strong, nonatomic) User *user;
 
 @end
 
@@ -21,10 +15,9 @@ static NSString *const kTrackerCurrentKeyPath = @"tracker.current";
 
 @synthesize trip = _trip;
 
-@synthesize currentAnnotation = _currentAnnotation;
 @synthesize mapView = _mapView;
-@synthesize stopAnnotations = _stopAnnotations;
-@synthesize tracker = _tracker;
+@synthesize stops = _stops;
+@synthesize user = _user;
 
 - (id)initWithTrip:(Trip *)trip {
     self = [self init];
@@ -36,66 +29,29 @@ static NSString *const kTrackerCurrentKeyPath = @"tracker.current";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tracker = [[Tracker alloc] init];
-    [self.tracker start];
-    NSMutableArray *stopAnnotations = [NSMutableArray arrayWithCapacity:[self.trip numberOfStops]];
-    for (Stop *stop in self.trip.stops) {
-        [stopAnnotations addObject:[stop annotation]];
-    }
-    self.currentAnnotation = [[Annotation alloc] initWithCoordinate:self.tracker.current title:NSLocalizedString(@"maps.you", nil)];
-    self.stopAnnotations = stopAnnotations;
+    self.stops = self.trip.stops;
+    self.user = [[User alloc] init];
     self.mapView = [[MKMapView alloc] initWithFrame:self.view.frame];
-    for (Annotation *annotation in self.stopAnnotations) {
-        [self.mapView addAnnotation:annotation];
-    }
-    [self.mapView addAnnotation:self.currentAnnotation];
+    [self.mapView addAnnotations:self.stops];
+    [self.mapView addAnnotation:self.user];
     [self.view addSubview:self.mapView];
 }
 
 - (void)viewDidUnload {
-    self.currentAnnotation = nil;
     self.mapView = nil;
-    self.stopAnnotations = nil;
-    self.tracker = nil;
+    self.stops = nil;
+    self.user = nil;
     [super viewDidUnload];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self addObserver:self forKeyPath:kTrackerCurrentKeyPath options:NSKeyValueObservingOptionNew context:@selector(trackerDidChangeCurrent:)];
-    [self zoomToFit];
+    [self.user startTracking];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [self removeObserver:self forKeyPath:kTrackerCurrentKeyPath];
+    [self.user stopTracking];
     [super viewWillDisappear:animated];
-}
-
-- (void)zoomToFit {
-    int i = 0;
-    MKMapPoint points[[self.stopAnnotations count]];
-    for (id <MKAnnotation> annotation in self.stopAnnotations) {
-        points[i++] = MKMapPointForCoordinate(annotation.coordinate);
-    }
-    MKPolygon *polygon = [MKPolygon polygonWithPoints:points count:i];
-    [self.mapView setRegion:MKCoordinateRegionForMapRect([polygon boundingMapRect]) animated:YES]; 
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    #if defined (__clang__)
-        #pragma clang diagnostic push
-        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    #endif
-    [self performSelector:(SEL)context withObject:change];
-    #if defined (__clang__)
-        #pragma clang diagnostic pop
-    #endif
-}
-
-- (void)trackerDidChangeCurrent:(NSDictionary *)change {
-    [UIView animateWithDuration:DURATION delay:0 options:UIViewAnimationCurveEaseInOut animations:^{
-        self.currentAnnotation.coordinate = self.tracker.current;
-    } completion:nil];    
 }
 
 @end

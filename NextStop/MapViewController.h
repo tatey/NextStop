@@ -9,6 +9,4 @@
 
 - (id)initWithTrip:(Trip *)trip;
 
-- (void)zoomToFit;
-
 @end

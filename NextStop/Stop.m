@@ -1,4 +1,3 @@
-#import "Annotation.h"
 #import "Route.h"
 #import "Stop.h"
 #import "SQLiteDB.h"
@@ -35,10 +34,6 @@
     return self;
 }
 
-- (CLLocationCoordinate2D)coordinate {
-    return CLLocationCoordinate2DMake(_latitude, _longitude);
-}
-
 - (NSString *)name {
     return _name;
 }
@@ -47,12 +42,18 @@
     return _primaryKey;
 }
 
-- (Annotation *)annotation {
-    return [[Annotation alloc] initWithCoordinate:self.coordinate title:self.name];
-}
-
 - (NSString *)description {
     return [NSString stringWithFormat:@"<%@: %p, latitude: %f, longitude: %f, name: %@ primaryKey: %d>", NSStringFromClass([self class]), self, _latitude, _longitude, self.name, self.primaryKey];
+}
+
+#pragma mark - MKAnnotation
+
+- (NSString *)title {
+    return self.name;
+}
+
+- (CLLocationCoordinate2D)coordinate {
+    return CLLocationCoordinate2DMake(_latitude, _longitude);
 }
 
 @end
