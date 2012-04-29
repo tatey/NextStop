@@ -1,8 +1,7 @@
 #import "MapViewController.h"
 #import "Route.h"
 #import "RoutesViewController.h"
-#import "Stop.h"
-#import "User.h"
+#import "Trip.h"
 
 @implementation RoutesViewController
 
@@ -60,9 +59,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Route *route = [self.routes objectAtIndex:indexPath.row];
-    NSArray *stops = [Stop stopsMatchingRoute:route];
-    User *user = [[User alloc] initWithCoordinate:CLLocationCoordinate2DMake(-27.62795697, 152.965636) routeCode:route.code];
-    MapViewController *controller = [[MapViewController alloc] initWithStops:stops user:user];
+    Trip *trip = [[Trip alloc] initWithRoute:route];
+    MapViewController *controller = [[MapViewController alloc] initWithTrip:trip];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

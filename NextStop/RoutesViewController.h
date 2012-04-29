@@ -1,5 +1,7 @@
 #import <UIKit/UIKit.h>
 
+@class MapViewController;
+
 @interface RoutesViewController : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSArray *routes;

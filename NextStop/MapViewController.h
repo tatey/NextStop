@@ -1,13 +1,12 @@
 #import <MapKit/MapKit.h>
 #import <UIKit/UIKit.h>
 
-@class User;
+@class Trip;
 
 @interface MapViewController : UIViewController <MKMapViewDelegate>
 
-@property (strong, nonatomic) NSArray *stops;
-@property (strong, nonatomic) User *user;
+@property (strong, nonatomic) Trip *trip;
 
-- (id)initWithStops:(NSArray *)stops user:(User *)user;
+- (id)initWithTrip:(Trip *)trip;
 
 @end
