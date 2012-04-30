@@ -11,6 +11,4 @@
 
 - (id)initWithRoute:(Route *)route;
 
-- (NSInteger)numberOfStops;
-
 @end

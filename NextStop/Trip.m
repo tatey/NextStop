@@ -33,8 +33,4 @@
     return _stops;
 }
 
-- (NSInteger)numberOfStops {
-    return [self.stops count];
-}
-
 @end
