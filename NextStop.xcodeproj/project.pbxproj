@@ -11,6 +11,8 @@
 		5D05F317154ACA7F004E7773 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* Stop.m */; };
 		5D2BFDBB1547F3B400D9F53E /* RoutesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */; };
 		5D2BFDBC1547F3B400D9F53E /* RoutesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */; };
+		5D47523C154EBA5100F8CCDF /* Tracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47523B154EBA5100F8CCDF /* Tracker.m */; };
+		5DA15B1B154ECD3800FCEE13 /* Tracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47523B154EBA5100F8CCDF /* Tracker.m */; };
 		5DB59C7F1546C8E500417818 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C7E1546C8E500417818 /* UIKit.framework */; };
 		5DB59C811546C8E500417818 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C801546C8E500417818 /* Foundation.framework */; };
 		5DB59C831546C8E500417818 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C821546C8E500417818 /* CoreGraphics.framework */; };
@@ -52,6 +54,8 @@
 		5D05F315154ACA7F004E7773 /* Stop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stop.m; sourceTree = "<group>"; };
 		5D2BFDB91547F3B400D9F53E /* RoutesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutesViewController.h; sourceTree = "<group>"; };
 		5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutesViewController.m; sourceTree = "<group>"; };
+		5D47523A154EBA5100F8CCDF /* Tracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tracker.h; sourceTree = "<group>"; };
+		5D47523B154EBA5100F8CCDF /* Tracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tracker.m; sourceTree = "<group>"; };
 		5DB59C7A1546C8E500417818 /* NextStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DB59C7E1546C8E500417818 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5DB59C801546C8E500417818 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -157,6 +161,8 @@
 				5D05F315154ACA7F004E7773 /* Stop.m */,
 				5DD523FC1547FF7C00011A3E /* SQLiteDB.h */,
 				5DD523FD1547FF7C00011A3E /* SQLiteDB.m */,
+				5D47523A154EBA5100F8CCDF /* Tracker.h */,
+				5D47523B154EBA5100F8CCDF /* Tracker.m */,
 				5DB8EAB4154BDD8700EF72F9 /* Trip.h */,
 				5DB8EAB5154BDD8800EF72F9 /* Trip.m */,
 				5DB8EAD9154D6C3100EF72F9 /* User.h */,
@@ -318,6 +324,7 @@
 				5D05F316154ACA7F004E7773 /* Stop.m in Sources */,
 				5DB8EAB6154BDD8800EF72F9 /* Trip.m in Sources */,
 				5DB8EADB154D6C3100EF72F9 /* User.m in Sources */,
+				5DA15B1B154ECD3800FCEE13 /* Tracker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +339,7 @@
 				5D05F317154ACA7F004E7773 /* Stop.m in Sources */,
 				5DB8EAB7154BDD8800EF72F9 /* Trip.m in Sources */,
 				5DB8EADC154D6C3100EF72F9 /* User.m in Sources */,
+				5D47523C154EBA5100F8CCDF /* Tracker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
