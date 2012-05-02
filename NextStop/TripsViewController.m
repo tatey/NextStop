@@ -1,28 +1,29 @@
-#import "MapViewController.h"
-#import "Route.h"
-#import "RoutesViewController.h"
-#import "Trip.h"
+#import "RoutesTableViewController.h"
+#import "TripsViewController.h"
 
-@implementation RoutesViewController
+@implementation TripsViewController
 
-@synthesize routes = _routes;
+@synthesize routesController = _routesController;
 @synthesize searchBar = _searchBar;
 @synthesize searchController = _searchController;
 @synthesize tableView = _tableView;
+@synthesize trips = _trips;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.routesController = [[RoutesTableViewController alloc] init];
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    self.searchBar.delegate = self;
+    self.searchBar.delegate = self.routesController;
     self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
-    self.searchController.searchResultsDataSource = self;
-    self.searchController.searchResultsDelegate = self;
+    self.searchController.searchResultsDataSource = self.routesController;
+    self.searchController.searchResultsDelegate = self.routesController;
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, 320, 416) style:UITableViewStylePlain];
     [self.view addSubview:self.searchBar];
     [self.view addSubview:self.tableView];
 }
 
 - (void)viewDidUnload {
+    self.routesController = nil;
     self.searchBar = nil;
     self.searchController = nil;
     self.tableView = nil;
@@ -30,7 +31,7 @@
 }
 
 - (NSString *)title {
-    return NSLocalizedString(@"routes.title", nil);
+    return NSLocalizedString(@"trips.title", nil);
 }
 
 #pragma mark - UITableViewDataSource
@@ -40,34 +41,22 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.routes count];
+    return [self.trips count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *kResueID = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kResueID];
+    static NSString *ResueID = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ResueID];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kResueID];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ResueID];
     }
-    Route *route = [self.routes objectAtIndex:indexPath.row];
-    cell.textLabel.text = route.code;
-    cell.detailTextLabel.text = route.name;
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Route *route = [self.routes objectAtIndex:indexPath.row];
-    Trip *trip = [[Trip alloc] initWithRoute:route];
-    MapViewController *controller = [[MapViewController alloc] initWithTrip:trip];
-    [self.navigationController pushViewController:controller animated:YES];
-}
-
-#pragma mark - UISearchBarDelegate
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    self.routes = [Route routesMatchingCodeOrName:searchText];
+    
 }
 
 @end

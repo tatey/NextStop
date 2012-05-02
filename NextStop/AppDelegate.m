@@ -1,6 +1,6 @@
 #import "AppDelegate.h"
 #import "MapViewController.h"
-#import "RoutesViewController.h"
+#import "TripsViewController.h"
 
 @implementation AppDelegate
 
@@ -15,7 +15,7 @@
 }
 
 - (UIViewController *)rootViewController {
-    UIViewController *rootViewController = [[RoutesViewController alloc] init];
+    UIViewController *rootViewController = [[TripsViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     return navigationController;
 }

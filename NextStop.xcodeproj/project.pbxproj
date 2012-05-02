@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		5D05F316154ACA7F004E7773 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* Stop.m */; };
 		5D05F317154ACA7F004E7773 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* Stop.m */; };
-		5D2BFDBB1547F3B400D9F53E /* RoutesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */; };
-		5D2BFDBC1547F3B400D9F53E /* RoutesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */; };
+		5D0E00601551439500AAE09D /* RoutesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E005F1551439500AAE09D /* RoutesTableViewController.m */; };
+		5D0E00611551439500AAE09D /* RoutesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E005F1551439500AAE09D /* RoutesTableViewController.m */; };
+		5D2BFDBB1547F3B400D9F53E /* TripsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* TripsViewController.m */; };
+		5D2BFDBC1547F3B400D9F53E /* TripsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* TripsViewController.m */; };
 		5D47523C154EBA5100F8CCDF /* Tracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47523B154EBA5100F8CCDF /* Tracker.m */; };
 		5DA15B1B154ECD3800FCEE13 /* Tracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47523B154EBA5100F8CCDF /* Tracker.m */; };
 		5DA15B22154ED00800FCEE13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DA15B21154ED00800FCEE13 /* Localizable.strings */; };
@@ -53,8 +55,10 @@
 /* Begin PBXFileReference section */
 		5D05F314154ACA7F004E7773 /* Stop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stop.h; sourceTree = "<group>"; };
 		5D05F315154ACA7F004E7773 /* Stop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stop.m; sourceTree = "<group>"; };
-		5D2BFDB91547F3B400D9F53E /* RoutesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutesViewController.h; sourceTree = "<group>"; };
-		5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutesViewController.m; sourceTree = "<group>"; };
+		5D0E005E1551439500AAE09D /* RoutesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutesTableViewController.h; sourceTree = "<group>"; };
+		5D0E005F1551439500AAE09D /* RoutesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutesTableViewController.m; sourceTree = "<group>"; };
+		5D2BFDB91547F3B400D9F53E /* TripsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripsViewController.h; sourceTree = "<group>"; };
+		5D2BFDBA1547F3B400D9F53E /* TripsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripsViewController.m; sourceTree = "<group>"; };
 		5D47523A154EBA5100F8CCDF /* Tracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tracker.h; sourceTree = "<group>"; };
 		5D47523B154EBA5100F8CCDF /* Tracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tracker.m; sourceTree = "<group>"; };
 		5DA15B21154ED00800FCEE13 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -155,10 +159,10 @@
 				5DB59C8E1546C8E500417818 /* AppDelegate.m */,
 				5DB59CAD1546C97200417818 /* MapViewController.h */,
 				5DB59CAE1546C97200417818 /* MapViewController.m */,
-				5D2BFDB91547F3B400D9F53E /* RoutesViewController.h */,
-				5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */,
 				5DD52408154800DD00011A3E /* Route.h */,
 				5DD52409154800DD00011A3E /* Route.m */,
+				5D0E005E1551439500AAE09D /* RoutesTableViewController.h */,
+				5D0E005F1551439500AAE09D /* RoutesTableViewController.m */,
 				5D05F314154ACA7F004E7773 /* Stop.h */,
 				5D05F315154ACA7F004E7773 /* Stop.m */,
 				5DD523FC1547FF7C00011A3E /* SQLiteDB.h */,
@@ -167,6 +171,8 @@
 				5D47523B154EBA5100F8CCDF /* Tracker.m */,
 				5DB8EAB4154BDD8700EF72F9 /* Trip.h */,
 				5DB8EAB5154BDD8800EF72F9 /* Trip.m */,
+				5D2BFDB91547F3B400D9F53E /* TripsViewController.h */,
+				5D2BFDBA1547F3B400D9F53E /* TripsViewController.m */,
 				5DB8EAD9154D6C3100EF72F9 /* User.h */,
 				5DB8EADA154D6C3100EF72F9 /* User.m */,
 				5DD524051548007600011A3E /* Resources */,
@@ -322,13 +328,14 @@
 				5DB59C8B1546C8E500417818 /* main.m in Sources */,
 				5DB59C8F1546C8E500417818 /* AppDelegate.m in Sources */,
 				5DB59CAF1546C97200417818 /* MapViewController.m in Sources */,
-				5D2BFDBB1547F3B400D9F53E /* RoutesViewController.m in Sources */,
+				5D2BFDBB1547F3B400D9F53E /* TripsViewController.m in Sources */,
 				5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */,
 				5DD5240A154800DD00011A3E /* Route.m in Sources */,
 				5D05F316154ACA7F004E7773 /* Stop.m in Sources */,
 				5DB8EAB6154BDD8800EF72F9 /* Trip.m in Sources */,
 				5DB8EADB154D6C3100EF72F9 /* User.m in Sources */,
 				5DA15B1B154ECD3800FCEE13 /* Tracker.m in Sources */,
+				5D0E00601551439500AAE09D /* RoutesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,13 +344,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DB59CB01546C97200417818 /* MapViewController.m in Sources */,
-				5D2BFDBC1547F3B400D9F53E /* RoutesViewController.m in Sources */,
+				5D2BFDBC1547F3B400D9F53E /* TripsViewController.m in Sources */,
 				5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */,
 				5DD5240B154800DD00011A3E /* Route.m in Sources */,
 				5D05F317154ACA7F004E7773 /* Stop.m in Sources */,
 				5DB8EAB7154BDD8800EF72F9 /* Trip.m in Sources */,
 				5DB8EADC154D6C3100EF72F9 /* User.m in Sources */,
 				5D47523C154EBA5100F8CCDF /* Tracker.m in Sources */,
+				5D0E00611551439500AAE09D /* RoutesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
