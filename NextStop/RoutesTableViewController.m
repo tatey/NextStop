@@ -1,14 +1,22 @@
-#import "Route.h"
 #import "RoutesTableViewController.h"
 
 @implementation RoutesTableViewController
 
+@synthesize direction = _direction;
 @synthesize routes = _routes;
 
 - (id)init {
     self = [super init];
     if (self) {
         self.routes = [NSArray array];
+    }
+    return self;
+}
+
+- (id)initWithDirection:(RouteDirection)direction {
+    self = [self init];
+    if (self) {
+        self.direction = direction;
     }
     return self;
 }
@@ -44,7 +52,7 @@
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    self.routes = [Route routesMatchingCodeOrName:searchText];
+    self.routes = [Route routesMatchingCodeOrName:searchText direction:self.direction];
 }
 
 @end

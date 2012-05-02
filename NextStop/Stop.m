@@ -2,7 +2,8 @@
 #import "Stop.h"
 #import "SQLiteDB.h"
 
-#define QUERY @"SELECT DISTINCT stops.* FROM stops "                 \
+#define QUERY @"SELECT DISTINCT stops.* "                            \
+               "FROM stops "                                         \
                "INNER JOIN services ON services.stop_id = stops.id " \
                "INNER JOIN routes ON services.route_id = routes.id " \
                "WHERE stops.latitude IS NOT NULL AND "               \
