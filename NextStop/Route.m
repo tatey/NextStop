@@ -6,6 +6,10 @@
                "WHERE (code LIKE ? OR name LIKE ?) " \
                "      AND direction = ? "            \
 
+static inline const char * RouteStringToWildcardUTF8String(NSString *string) {
+    return [[NSString stringWithFormat:@"%%%@%%", string] UTF8String];
+}
+
 static inline const char * RouteDirectionToUTF8String(RouteDirection direction) {
     switch (direction) {
         case RouteInboundDirection:
@@ -20,9 +24,8 @@ static inline const char * RouteDirectionToUTF8String(RouteDirection direction) 
 + (NSArray *)routesMatchingCodeOrName:(NSString *)codeOrName direction:(RouteDirection)direction {
     SQLiteDB *db = [SQLiteDB sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY];
-    const char *wildcard = [[NSString stringWithFormat:@"%%%@%%", codeOrName] UTF8String];
-    sqlite3_bind_text(stmt, 1, wildcard, -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 2, wildcard, -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 1, RouteStringToWildcardUTF8String(codeOrName), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, RouteStringToWildcardUTF8String(codeOrName), -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 3, RouteDirectionToUTF8String(direction), -1, SQLITE_STATIC);
     NSMutableArray *routes = [NSMutableArray array];
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
