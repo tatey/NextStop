@@ -32,8 +32,9 @@
     self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
     self.searchController.searchResultsDataSource = self.routesController;
     self.searchController.searchResultsDelegate = self.routesController;
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, 320, 416) style:UITableViewStylePlain];
-    [self.view addSubview:self.searchBar];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 416) style:UITableViewStylePlain];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
 }
 
@@ -44,6 +45,8 @@
     self.tableView = nil;
     [super viewDidUnload];
 }
+
+#pragma mark - Actions
 
 - (void)directionControlValueDidChange:(UISegmentedControl *)control {
     RouteDirection direction = control.selectedSegmentIndex;
@@ -71,6 +74,14 @@
 }
 
 #pragma mark - UITableViewDelegate
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return self.searchBar;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return self.searchBar.frame.size.height;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
