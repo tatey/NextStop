@@ -1,4 +1,10 @@
+// Controls
+"controls.dismiss" = "Dismiss";
+
+// Models
+"route.directions.inbound" = "Inbound";
+"route.directions.outbound" = "Outbound";
+
+// View Controllers
 "maps.alerts.titles.approaching" = "Approaching";
 "maps.alerts.messages.approaching" = "Bus stop is approaching. Get ready to get off.";
-
-"controls.dismiss" = "Dismiss";
