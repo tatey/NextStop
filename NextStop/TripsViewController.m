@@ -29,6 +29,7 @@
     self.routesController = [[RoutesTableViewController alloc] init];
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     self.searchBar.delegate = self.routesController;
+    self.searchBar.placeholder = NSLocalizedString(@"trips.search.placeholder", nil);
     self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
     self.searchController.searchResultsDataSource = self.routesController;
     self.searchController.searchResultsDelegate = self.routesController;

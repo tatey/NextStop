@@ -8,3 +8,4 @@
 // View Controllers
 "maps.alerts.titles.approaching" = "Approaching";
 "maps.alerts.messages.approaching" = "Bus stop is approaching. Get ready to get off.";
+"trips.search.placeholder" = "137 or Parkinson Express...";
