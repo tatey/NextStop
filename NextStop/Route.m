@@ -4,7 +4,6 @@
 #define QUERY @"SELECT routes.* "                    \
                "FROM routes "                        \
                "WHERE (code LIKE ? OR name LIKE ?) " \
-               "      AND direction = ? "            \
 
 static inline const char * RouteStringToWildcardUTF8String(NSString *string) {
     return [[NSString stringWithFormat:@"%%%@%%", string] UTF8String];
@@ -21,12 +20,11 @@ static inline const char * RouteDirectionToUTF8String(RouteDirection direction) 
 
 @implementation Route
 
-+ (NSArray *)routesMatchingCodeOrName:(NSString *)codeOrName direction:(RouteDirection)direction {
++ (NSArray *)routesMatchingCodeOrName:(NSString *)codeOrName {
     SQLiteDB *db = [SQLiteDB sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY];
     sqlite3_bind_text(stmt, 1, RouteStringToWildcardUTF8String(codeOrName), -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 2, RouteStringToWildcardUTF8String(codeOrName), -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 3, RouteDirectionToUTF8String(direction), -1, SQLITE_STATIC);
     NSMutableArray *routes = [NSMutableArray array];
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
         Route *route = [[self alloc] initWithStatement:stmt];

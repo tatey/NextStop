@@ -26,7 +26,7 @@ static inline NSString * RouteDirectionToString(RouteDirection direction) {
 @property (readonly) NSString *name;
 @property (readonly) NSUInteger primaryKey;
 
-+ (NSArray *)routesMatchingCodeOrName:(NSString *)codeOrName direction:(RouteDirection)direction;
++ (NSArray *)routesMatchingCodeOrName:(NSString *)codeOrName;
 
 - (id)initWithStatement:(sqlite3_stmt *)stmt;
 

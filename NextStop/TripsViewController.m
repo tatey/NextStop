@@ -3,29 +3,14 @@
 
 @implementation TripsViewController
 
-@synthesize direction = _direction;
-@synthesize directionControl = _directionControl;
 @synthesize routesController = _routesController;
 @synthesize searchBar = _searchBar;
 @synthesize searchController = _searchController;
 @synthesize tableView = _tableView;
 @synthesize trips = _trips;
 
-- (id)initWithDirection:(RouteDirection)direction {
-    self = [super init];
-    if (self) {
-        self.direction = direction;
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.directionControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:NSLocalizedString(RouteDirectionToString(RouteInboundDirection), nil), NSLocalizedString(RouteDirectionToString(RouteOutboundDirection), nil), nil]];
-    self.directionControl.segmentedControlStyle = UISegmentedControlStyleBar;
-    self.directionControl.selectedSegmentIndex = self.direction;
-    [self.directionControl addTarget:self action:@selector(directionControlValueDidChange:) forControlEvents:UIControlEventValueChanged];
-    self.navigationItem.titleView = self.directionControl;
     self.routesController = [[RoutesTableViewController alloc] init];
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     self.searchBar.delegate = self.routesController;
@@ -47,12 +32,8 @@
     [super viewDidUnload];
 }
 
-#pragma mark - Actions
-
-- (void)directionControlValueDidChange:(UISegmentedControl *)control {
-    RouteDirection direction = control.selectedSegmentIndex;
-    self.direction = direction;
-    self.routesController.direction = direction;
+- (NSString *)title {
+    return NSLocalizedString(@"trips.title", nil);
 }
 
 #pragma mark - UITableViewDataSource

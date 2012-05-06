@@ -16,7 +16,7 @@
 }
 
 - (UIViewController *)rootViewController {
-    UIViewController *rootViewController = [[TripsViewController alloc] initWithDirection:RouteInboundDirection];
+    UIViewController *rootViewController = [[TripsViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     return navigationController;
 }
