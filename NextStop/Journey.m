@@ -1,14 +1,14 @@
 #import "Route.h"
 #import "Stop.h"
-#import "Trip.h"
+#import "Journey.h"
 
-@interface Trip () {
+@interface Journey () {
 @private
     NSArray *_stops;
 }
 @end
 
-@implementation Trip
+@implementation Journey
 
 @synthesize destination = _destination;
 @synthesize route = _route;

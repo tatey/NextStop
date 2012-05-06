@@ -1,10 +1,10 @@
 #import "MapViewController.h"
+#import "Journey.h"
 #import "Stop.h"
 #import "Tracker.h"
-#import "Trip.h"
 #import "User.h"
 
-static NSString *kTripDestinationKeyPath = @"trip.destination";
+static NSString *kJourneyDestinationKeyPath = @"journey.destination";
 
 @interface MapViewController ()
 
@@ -17,7 +17,7 @@ static NSString *kTripDestinationKeyPath = @"trip.destination";
 
 @implementation MapViewController
 
-@synthesize trip = _trip;
+@synthesize journey = _journey;
 
 @synthesize mapView = _mapView;
 @synthesize stops = _stops;
@@ -27,27 +27,27 @@ static NSString *kTripDestinationKeyPath = @"trip.destination";
 - (id)init {
     self = [super init];
     if (self) {
-        [self addObserver:self forKeyPath:kTripDestinationKeyPath options:0 context:@selector(tripDestinationDidChange:)];
+        [self addObserver:self forKeyPath:kJourneyDestinationKeyPath options:0 context:@selector(journeyDestinationDidChange:)];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willApproachDestination:) name:TrackerWillApproachDestinationNotification object:nil];
     }
     return self;
 }
 
-- (id)initWithTrip:(Trip *)trip {
+- (id)initWithJourney:(Journey *)journey {
     self = [self init];
     if (self) {
-        self.trip = trip;
+        self.journey = journey;
     }
     return self;
 }
 
 - (void)dealloc {
-    [self removeObserver:self forKeyPath:kTripDestinationKeyPath];
+    [self removeObserver:self forKeyPath:kJourneyDestinationKeyPath];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.stops = self.trip.stops;
+    self.stops = self.journey.stops;
     self.user = [[User alloc] init];
     self.mapView = [[MKMapView alloc] initWithFrame:self.view.frame];
     self.mapView.delegate = self;
@@ -84,9 +84,9 @@ static NSString *kTripDestinationKeyPath = @"trip.destination";
     #endif
 }
 
-- (void)tripDestinationDidChange:(NSDictionary *)change {
-    if (self.trip.destination) {
-        self.tracker = [[Tracker alloc] initWithDestination:self.trip.destination.coordinate];
+- (void)journeyDestinationDidChange:(NSDictionary *)change {
+    if (self.journey.destination) {
+        self.tracker = [[Tracker alloc] initWithDestination:self.journey.destination.coordinate];
         [self.tracker start];
     } else {
         self.tracker = nil;
@@ -102,7 +102,7 @@ static NSString *kTripDestinationKeyPath = @"trip.destination";
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
     for (Stop *stop in self.stops) {
         if (stop == view.annotation) {
-            self.trip.destination = stop;
+            self.journey.destination = stop;
             break;
         }
     }

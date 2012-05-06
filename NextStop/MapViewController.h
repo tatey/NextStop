@@ -1,12 +1,12 @@
 #import <MapKit/MapKit.h>
 #import <UIKit/UIKit.h>
 
-@class Trip;
+@class Journey;
 
 @interface MapViewController : UIViewController <MKMapViewDelegate>
 
-@property (strong, nonatomic) Trip *trip;
+@property (strong, nonatomic) Journey *journey;
 
-- (id)initWithTrip:(Trip *)trip;
+- (id)initWithJourney:(Journey *)journey;
 
 @end

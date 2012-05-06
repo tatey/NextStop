@@ -3,7 +3,7 @@
 @class Route;
 @class Stop;
 
-@interface Trip : NSObject
+@interface Journey : NSObject
 
 @property (strong, nonatomic) Stop *destination;
 @property (strong, nonatomic) Route *route;

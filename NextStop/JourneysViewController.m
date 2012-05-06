@@ -1,13 +1,13 @@
-#import "RoutesTableViewController.h"
 #import "JourneysViewController.h"
+#import "RoutesTableViewController.h"
 
 @implementation JourneysViewController
 
+@synthesize journeys = _journeys;
 @synthesize routesController = _routesController;
 @synthesize searchBar = _searchBar;
 @synthesize searchController = _searchController;
 @synthesize tableView = _tableView;
-@synthesize journeys = _journeys;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
