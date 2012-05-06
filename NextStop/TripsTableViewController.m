@@ -1,6 +1,6 @@
-#import "RoutesTableViewController.h"
+#import "TripsTableViewController.h"
 
-@implementation RoutesTableViewController
+@implementation TripsTableViewController
 
 @synthesize trips = _trips;
 
