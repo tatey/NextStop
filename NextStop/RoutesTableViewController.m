@@ -2,12 +2,12 @@
 
 @implementation RoutesTableViewController
 
-@synthesize routes = _routes;
+@synthesize trips = _trips;
 
 - (id)init {
     self = [super init];
     if (self) {
-        self.routes = [NSArray array];
+        self.trips = [NSArray array];
     }
     return self;
 }
@@ -19,7 +19,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.routes count];
+    return [self.trips count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -28,9 +28,9 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ResueID];
     }
-    Route *route = [self.routes objectAtIndex:indexPath.row];
-    cell.textLabel.text = route.code;
-    cell.detailTextLabel.text = route.name;
+    Trip *trip = [self.trips objectAtIndex:indexPath.row];
+    cell.textLabel.text = trip.code;
+    cell.detailTextLabel.text = trip.name;
     return cell;
 }
 
@@ -43,7 +43,7 @@
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    self.routes = [Route routesMatchingCodeOrName:searchText];
+    self.trips = [Trip tripsMatchingCodeOrName:searchText];
 }
 
 @end

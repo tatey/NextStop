@@ -38,8 +38,8 @@
 		5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteDB.m */; };
 		5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteDB.m */; };
 		5DD52407154800BC00011A3E /* NextStop.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5DD52406154800BC00011A3E /* NextStop.sqlite */; };
-		5DD5240A154800DD00011A3E /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD52409154800DD00011A3E /* Route.m */; };
-		5DD5240B154800DD00011A3E /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD52409154800DD00011A3E /* Route.m */; };
+		5DD5240A154800DD00011A3E /* Trip.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD52409154800DD00011A3E /* Trip.m */; };
+		5DD5240B154800DD00011A3E /* Trip.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD52409154800DD00011A3E /* Trip.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,8 +88,8 @@
 		5DD523FC1547FF7C00011A3E /* SQLiteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteDB.h; sourceTree = "<group>"; };
 		5DD523FD1547FF7C00011A3E /* SQLiteDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteDB.m; sourceTree = "<group>"; };
 		5DD52406154800BC00011A3E /* NextStop.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = NextStop.sqlite; sourceTree = "<group>"; };
-		5DD52408154800DD00011A3E /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
-		5DD52409154800DD00011A3E /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
+		5DD52408154800DD00011A3E /* Trip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trip.h; sourceTree = "<group>"; };
+		5DD52409154800DD00011A3E /* Trip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trip.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,8 +159,8 @@
 				5DB59C8E1546C8E500417818 /* AppDelegate.m */,
 				5DB59CAD1546C97200417818 /* MapViewController.h */,
 				5DB59CAE1546C97200417818 /* MapViewController.m */,
-				5DD52408154800DD00011A3E /* Route.h */,
-				5DD52409154800DD00011A3E /* Route.m */,
+				5DD52408154800DD00011A3E /* Trip.h */,
+				5DD52409154800DD00011A3E /* Trip.m */,
 				5D0E005E1551439500AAE09D /* RoutesTableViewController.h */,
 				5D0E005F1551439500AAE09D /* RoutesTableViewController.m */,
 				5D05F314154ACA7F004E7773 /* Stop.h */,
@@ -330,7 +330,7 @@
 				5DB59CAF1546C97200417818 /* MapViewController.m in Sources */,
 				5D2BFDBB1547F3B400D9F53E /* JourneysViewController.m in Sources */,
 				5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */,
-				5DD5240A154800DD00011A3E /* Route.m in Sources */,
+				5DD5240A154800DD00011A3E /* Trip.m in Sources */,
 				5D05F316154ACA7F004E7773 /* Stop.m in Sources */,
 				5DB8EAB6154BDD8800EF72F9 /* Journey.m in Sources */,
 				5DB8EADB154D6C3100EF72F9 /* User.m in Sources */,
@@ -346,7 +346,7 @@
 				5DB59CB01546C97200417818 /* MapViewController.m in Sources */,
 				5D2BFDBC1547F3B400D9F53E /* JourneysViewController.m in Sources */,
 				5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */,
-				5DD5240B154800DD00011A3E /* Route.m in Sources */,
+				5DD5240B154800DD00011A3E /* Trip.m in Sources */,
 				5D05F317154ACA7F004E7773 /* Stop.m in Sources */,
 				5DB8EAB7154BDD8800EF72F9 /* Journey.m in Sources */,
 				5DB8EADC154D6C3100EF72F9 /* User.m in Sources */,

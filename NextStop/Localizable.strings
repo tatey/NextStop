@@ -2,8 +2,8 @@
 "controls.dismiss" = "Dismiss";
 
 // Models
-"route.directions.inbound" = "Inbound";
-"route.directions.outbound" = "Outbound";
+"trip.directions.inbound" = "Inbound";
+"trip.directions.outbound" = "Outbound";
 
 // View Controllers
 "journeys.search.placeholder" = "Try 130 or City BUZ";

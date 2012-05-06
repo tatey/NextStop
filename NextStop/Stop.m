@@ -1,6 +1,6 @@
-#import "Route.h"
 #import "Stop.h"
 #import "SQLiteDB.h"
+#import "Trip.h"
 
 #define QUERY @"SELECT DISTINCT stops.* "                            \
                "FROM stops "                                         \
@@ -12,10 +12,10 @@
 
 @implementation Stop
 
-+ (NSArray *)stopsMatchingRoute:(Route *)route {
++ (NSArray *)stopsMatchingTrip:(Trip *)trip {
     SQLiteDB *db = [SQLiteDB sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY];    
-    sqlite3_bind_int(stmt, 1, route.primaryKey);
+    sqlite3_bind_int(stmt, 1, trip.primaryKey);
     NSMutableArray *stops = [NSMutableArray array];
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
         Stop *stop = [[self alloc] initWithStatement:stmt];

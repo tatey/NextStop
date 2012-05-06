@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
-#import "Route.h"
+#import "Trip.h"
 
 @interface RoutesTableViewController : NSObject <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) NSArray *routes;
+@property (strong, nonatomic) NSArray *trips;
 
 @end

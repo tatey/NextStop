@@ -3,7 +3,7 @@
 #import <MapKit/MapKit.h>
 #import <sqlite3.h>
 
-@class Route;
+@class Trip;
 
 @interface Stop : NSObject <MKAnnotation> {
 @private 
@@ -16,7 +16,7 @@
 @property (readonly) NSString *name;
 @property (readonly) NSUInteger primaryKey;
 
-+ (NSArray *)stopsMatchingRoute:(Route *)route;
++ (NSArray *)stopsMatchingTrip:(Trip *)trip;
 
 - (id)initWithStatement:(sqlite3_stmt *)stmt;
 

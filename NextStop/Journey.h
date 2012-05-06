@@ -1,14 +1,14 @@
 #import <Foundation/Foundation.h>
 
-@class Route;
 @class Stop;
+@class Trip;
 
 @interface Journey : NSObject
 
 @property (strong, nonatomic) Stop *destination;
-@property (strong, nonatomic) Route *route;
+@property (strong, nonatomic) Trip *trip;
 @property (readonly) NSArray *stops;
 
-- (id)initWithRoute:(Route *)route;
+- (id)initWithTrip:(Trip *)trip;
 
 @end

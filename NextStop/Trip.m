@@ -1,33 +1,33 @@
-#import "Route.h"
 #import "SQLiteDB.h"
+#import "Trip.h"
 
 #define QUERY @"SELECT routes.* "                    \
                "FROM routes "                        \
                "WHERE (code LIKE ? OR name LIKE ?) " \
 
-static inline const char * RouteStringToWildcardUTF8String(NSString *string) {
+static inline const char * TripStringToWildcardUTF8String(NSString *string) {
     return [[NSString stringWithFormat:@"%%%@%%", string] UTF8String];
 }
 
-static inline const char * RouteDirectionToUTF8String(RouteDirection direction) {
+static inline const char * TripDirectionToUTF8String(TripDirection direction) {
     switch (direction) {
-        case RouteInboundDirection:
+        case TripInboundDirection:
             return [@"inbound" UTF8String];
-        case RouteOutboundDirection:
+        case TripOutboundDirection:
             return [@"outbound" UTF8String];
     }
 }
 
-@implementation Route
+@implementation Trip
 
-+ (NSArray *)routesMatchingCodeOrName:(NSString *)codeOrName {
++ (NSArray *)tripsMatchingCodeOrName:(NSString *)codeOrName {
     SQLiteDB *db = [SQLiteDB sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY];
-    sqlite3_bind_text(stmt, 1, RouteStringToWildcardUTF8String(codeOrName), -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 2, RouteStringToWildcardUTF8String(codeOrName), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 1, TripStringToWildcardUTF8String(codeOrName), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, TripStringToWildcardUTF8String(codeOrName), -1, SQLITE_STATIC);
     NSMutableArray *routes = [NSMutableArray array];
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
-        Route *route = [[self alloc] initWithStatement:stmt];
+        Trip *route = [[self alloc] initWithStatement:stmt];
         [routes addObject:route];
     }];
     return [routes copy];

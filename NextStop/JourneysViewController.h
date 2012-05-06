@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
-#import "Route.h"
+#import "Trip.h"
 
 @class RoutesTableViewController;
 
