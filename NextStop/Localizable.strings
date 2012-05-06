@@ -6,7 +6,7 @@
 "route.directions.outbound" = "Outbound";
 
 // View Controllers
+"journeys.search.placeholder" = "Try 130 or City BUZ";
+"journeys.title" = "Journeys";
 "maps.alerts.titles.approaching" = "Approaching";
 "maps.alerts.messages.approaching" = "Bus stop is approaching. Get ready to get off.";
-"trips.search.placeholder" = "Try 130 or City BUZ";
-"trips.title" = "Trips";
