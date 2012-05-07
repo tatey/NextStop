@@ -16,6 +16,8 @@
 		5D47523C154EBA5100F8CCDF /* Tracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47523B154EBA5100F8CCDF /* Tracker.m */; };
 		5DA15B1B154ECD3800FCEE13 /* Tracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47523B154EBA5100F8CCDF /* Tracker.m */; };
 		5DA15B22154ED00800FCEE13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DA15B21154ED00800FCEE13 /* Localizable.strings */; };
+		5DA866A81556C25E00FB1ACF /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA866A71556C25E00FB1ACF /* Route.m */; };
+		5DA866A91556C25E00FB1ACF /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA866A71556C25E00FB1ACF /* Route.m */; };
 		5DB59C7F1546C8E500417818 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C7E1546C8E500417818 /* UIKit.framework */; };
 		5DB59C811546C8E500417818 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C801546C8E500417818 /* Foundation.framework */; };
 		5DB59C831546C8E500417818 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C821546C8E500417818 /* CoreGraphics.framework */; };
@@ -62,6 +64,8 @@
 		5D47523A154EBA5100F8CCDF /* Tracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tracker.h; sourceTree = "<group>"; };
 		5D47523B154EBA5100F8CCDF /* Tracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tracker.m; sourceTree = "<group>"; };
 		5DA15B21154ED00800FCEE13 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		5DA866A61556C25E00FB1ACF /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
+		5DA866A71556C25E00FB1ACF /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
 		5DB59C7A1546C8E500417818 /* NextStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DB59C7E1546C8E500417818 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5DB59C801546C8E500417818 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -163,6 +167,8 @@
 				5D2BFDBA1547F3B400D9F53E /* JourneysViewController.m */,
 				5DB59CAD1546C97200417818 /* MapViewController.h */,
 				5DB59CAE1546C97200417818 /* MapViewController.m */,
+				5DA866A61556C25E00FB1ACF /* Route.h */,
+				5DA866A71556C25E00FB1ACF /* Route.m */,
 				5D05F314154ACA7F004E7773 /* Stop.h */,
 				5D05F315154ACA7F004E7773 /* Stop.m */,
 				5DD523FC1547FF7C00011A3E /* SQLiteDB.h */,
@@ -336,6 +342,7 @@
 				5DB8EADB154D6C3100EF72F9 /* User.m in Sources */,
 				5DA15B1B154ECD3800FCEE13 /* Tracker.m in Sources */,
 				5D0E00601551439500AAE09D /* TripsTableViewController.m in Sources */,
+				5DA866A81556C25E00FB1ACF /* Route.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +359,7 @@
 				5DB8EADC154D6C3100EF72F9 /* User.m in Sources */,
 				5D47523C154EBA5100F8CCDF /* Tracker.m in Sources */,
 				5D0E00611551439500AAE09D /* TripsTableViewController.m in Sources */,
+				5DA866A91556C25E00FB1ACF /* Route.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
