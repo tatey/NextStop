@@ -57,4 +57,8 @@ static inline const char * RouteStringToWildcardUTF8String(NSString *string) {
     return _primaryKey;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<%@: %p, shortName: %@, longName: %@ primaryKey: %d>", NSStringFromClass([self class]), self, self.shortName, self.longName, self.primaryKey];
+}
+
 @end
