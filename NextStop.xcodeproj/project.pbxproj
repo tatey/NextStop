@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		5D05F316154ACA7F004E7773 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* Stop.m */; };
 		5D05F317154ACA7F004E7773 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* Stop.m */; };
-		5D0E00601551439500AAE09D /* TripsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E005F1551439500AAE09D /* TripsTableViewController.m */; };
-		5D0E00611551439500AAE09D /* TripsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E005F1551439500AAE09D /* TripsTableViewController.m */; };
 		5D2BFDBB1547F3B400D9F53E /* JourneysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* JourneysViewController.m */; };
 		5D2BFDBC1547F3B400D9F53E /* JourneysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* JourneysViewController.m */; };
 		5D47523C154EBA5100F8CCDF /* Tracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47523B154EBA5100F8CCDF /* Tracker.m */; };
 		5DA15B1B154ECD3800FCEE13 /* Tracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47523B154EBA5100F8CCDF /* Tracker.m */; };
 		5DA15B22154ED00800FCEE13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DA15B21154ED00800FCEE13 /* Localizable.strings */; };
+		5DA3C18E1557CA7C00A49A4E /* RoutesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */; };
+		5DA3C18F1557CA7E00A49A4E /* RoutesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */; };
 		5DA866A81556C25E00FB1ACF /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA866A71556C25E00FB1ACF /* Route.m */; };
 		5DA866A91556C25E00FB1ACF /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA866A71556C25E00FB1ACF /* Route.m */; };
 		5DB59C7F1546C8E500417818 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C7E1546C8E500417818 /* UIKit.framework */; };
@@ -57,13 +57,13 @@
 /* Begin PBXFileReference section */
 		5D05F314154ACA7F004E7773 /* Stop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stop.h; sourceTree = "<group>"; };
 		5D05F315154ACA7F004E7773 /* Stop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stop.m; sourceTree = "<group>"; };
-		5D0E005E1551439500AAE09D /* TripsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripsTableViewController.h; sourceTree = "<group>"; };
-		5D0E005F1551439500AAE09D /* TripsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripsTableViewController.m; sourceTree = "<group>"; };
 		5D2BFDB91547F3B400D9F53E /* JourneysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JourneysViewController.h; sourceTree = "<group>"; };
 		5D2BFDBA1547F3B400D9F53E /* JourneysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JourneysViewController.m; sourceTree = "<group>"; };
 		5D47523A154EBA5100F8CCDF /* Tracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tracker.h; sourceTree = "<group>"; };
 		5D47523B154EBA5100F8CCDF /* Tracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tracker.m; sourceTree = "<group>"; };
 		5DA15B21154ED00800FCEE13 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		5DA3C18C1557CA7C00A49A4E /* RoutesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutesTableViewController.h; sourceTree = "<group>"; };
+		5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutesTableViewController.m; sourceTree = "<group>"; };
 		5DA866A61556C25E00FB1ACF /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
 		5DA866A71556C25E00FB1ACF /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
 		5DB59C7A1546C8E500417818 /* NextStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +169,8 @@
 				5DB59CAE1546C97200417818 /* MapViewController.m */,
 				5DA866A61556C25E00FB1ACF /* Route.h */,
 				5DA866A71556C25E00FB1ACF /* Route.m */,
+				5DA3C18C1557CA7C00A49A4E /* RoutesTableViewController.h */,
+				5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */,
 				5D05F314154ACA7F004E7773 /* Stop.h */,
 				5D05F315154ACA7F004E7773 /* Stop.m */,
 				5DD523FC1547FF7C00011A3E /* SQLiteDB.h */,
@@ -177,8 +179,6 @@
 				5D47523B154EBA5100F8CCDF /* Tracker.m */,
 				5DD52408154800DD00011A3E /* Trip.h */,
 				5DD52409154800DD00011A3E /* Trip.m */,
-				5D0E005E1551439500AAE09D /* TripsTableViewController.h */,
-				5D0E005F1551439500AAE09D /* TripsTableViewController.m */,
 				5DB8EAD9154D6C3100EF72F9 /* User.h */,
 				5DB8EADA154D6C3100EF72F9 /* User.m */,
 				5DD524051548007600011A3E /* Resources */,
@@ -341,8 +341,8 @@
 				5DB8EAB6154BDD8800EF72F9 /* Journey.m in Sources */,
 				5DB8EADB154D6C3100EF72F9 /* User.m in Sources */,
 				5DA15B1B154ECD3800FCEE13 /* Tracker.m in Sources */,
-				5D0E00601551439500AAE09D /* TripsTableViewController.m in Sources */,
 				5DA866A81556C25E00FB1ACF /* Route.m in Sources */,
+				5DA3C18F1557CA7E00A49A4E /* RoutesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,8 +358,8 @@
 				5DB8EAB7154BDD8800EF72F9 /* Journey.m in Sources */,
 				5DB8EADC154D6C3100EF72F9 /* User.m in Sources */,
 				5D47523C154EBA5100F8CCDF /* Tracker.m in Sources */,
-				5D0E00611551439500AAE09D /* TripsTableViewController.m in Sources */,
 				5DA866A91556C25E00FB1ACF /* Route.m in Sources */,
+				5DA3C18E1557CA7C00A49A4E /* RoutesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

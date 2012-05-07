@@ -1,23 +1,23 @@
 #import "JourneysViewController.h"
-#import "TripsTableViewController.h"
+#import "RoutesTableViewController.h"
 
 @implementation JourneysViewController
 
 @synthesize journeys = _journeys;
+@synthesize routesController = _routesController;
 @synthesize searchBar = _searchBar;
 @synthesize searchController = _searchController;
 @synthesize tableView = _tableView;
-@synthesize tripsController = _tripsController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tripsController = [[TripsTableViewController alloc] init];
+    self.routesController = [[RoutesTableViewController alloc] init];
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    self.searchBar.delegate = self.tripsController;
+    self.searchBar.delegate = self.routesController;
     self.searchBar.placeholder = NSLocalizedString(@"journeys.search.placeholder", nil);
     self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
-    self.searchController.searchResultsDataSource = self.tripsController;
-    self.searchController.searchResultsDelegate = self.tripsController;
+    self.searchController.searchResultsDataSource = self.routesController;
+    self.searchController.searchResultsDelegate = self.routesController;
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 416) style:UITableViewStylePlain];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -25,7 +25,7 @@
 }
 
 - (void)viewDidUnload {
-    self.tripsController = nil;
+    self.routesController = nil;
     self.searchBar = nil;
     self.searchController = nil;
     self.tableView = nil;

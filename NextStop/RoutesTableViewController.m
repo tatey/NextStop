@@ -1,13 +1,13 @@
-#import "TripsTableViewController.h"
+#import "RoutesTableViewController.h"
 
-@implementation TripsTableViewController
+@implementation RoutesTableViewController
 
-@synthesize trips = _trips;
+@synthesize routes = _routes;
 
 - (id)init {
     self = [super init];
     if (self) {
-        self.trips = [NSArray array];
+        self.routes = [NSArray array];
     }
     return self;
 }
@@ -19,7 +19,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.trips count];
+    return [self.routes count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -28,9 +28,9 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ResueID];
     }
-    Trip *trip = [self.trips objectAtIndex:indexPath.row];
-    cell.textLabel.text = trip.code;
-    cell.detailTextLabel.text = trip.name;
+    Route *route = [self.routes objectAtIndex:indexPath.row];
+    cell.textLabel.text = route.shortName;
+    cell.detailTextLabel.text = route.longName;
     return cell;
 }
 
@@ -43,7 +43,7 @@
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    self.trips = [Trip tripsMatchingCodeOrName:searchText];
+    self.routes = [Route routesMatchingShortNameOrLongName:searchText];
 }
 
 @end
