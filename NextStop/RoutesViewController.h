@@ -3,9 +3,9 @@
 
 @class RoutesTableViewController;
 
-@interface JourneysViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface RoutesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) NSArray *journeys;
+@property (strong, nonatomic) NSArray *routes;
 @property (strong, nonatomic) RoutesTableViewController *routesController;
 @property (strong, nonatomic) UISearchBar *searchBar;
 @property (strong, nonatomic) UISearchDisplayController *searchController;
