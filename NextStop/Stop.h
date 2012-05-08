@@ -5,19 +5,11 @@
 
 @class Trip;
 
-@interface Stop : NSObject <MKAnnotation> {
-@private 
-    CLLocationDegrees _latitude;
-    CLLocationDegrees _longitude;
-    NSString *_name;
-    NSUInteger _primaryKey;
-}
+@interface Stop : NSObject <MKAnnotation>
 
 @property (readonly) NSString *name;
 @property (readonly) NSUInteger primaryKey;
 
-+ (NSArray *)stopsMatchingTrip:(Trip *)trip;
-
-- (id)initWithStatement:(sqlite3_stmt *)stmt;
++ (NSArray *)stopsBelongingToTrip:(Trip *)trip;
 
 @end

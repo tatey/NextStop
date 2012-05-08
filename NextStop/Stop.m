@@ -5,14 +5,26 @@
 #define QUERY @"SELECT DISTINCT stops.* "                            \
                "FROM stops "                                         \
                "INNER JOIN services ON services.stop_id = stops.id " \
-               "INNER JOIN routes ON services.route_id = routes.id " \
+               "INNER JOIN trips ON services.trip_id = trips.id "    \
                "WHERE stops.latitude IS NOT NULL AND "               \
                "      stops.longitude IS NOT NULL AND "              \
-               "      routes.id = ? "                                \
+               "      trips.id = ?; "                                \
+
+@interface Stop () {
+@private 
+    NSUInteger _primaryKey;
+    CLLocationDegrees _latitude;
+    CLLocationDegrees _longitude;
+    NSString *_name;
+}
+
+- (id)initWithStatement:(sqlite3_stmt *)stmt;
+
+@end
 
 @implementation Stop
 
-+ (NSArray *)stopsMatchingTrip:(Trip *)trip {
++ (NSArray *)stopsBelongingToTrip:(Trip *)trip {
     SQLiteDB *db = [SQLiteDB sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY];    
     sqlite3_bind_int(stmt, 1, trip.primaryKey);
@@ -30,7 +42,7 @@
         _primaryKey = sqlite3_column_int(stmt, 0);
         _latitude = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 3)] doubleValue];
         _longitude = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 4)] doubleValue];
-        _name = [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 1)];
+        _name = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 1)] copy];
     }
     return self;
 }
@@ -44,7 +56,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@: %p, latitude: %f, longitude: %f, name: %@ primaryKey: %d>", NSStringFromClass([self class]), self, _latitude, _longitude, self.name, self.primaryKey];
+    return [NSString stringWithFormat:@"<%@: %p, primaryKey: %d, latitude: %f, longitude: %f, name: %@>", NSStringFromClass([self class]), self, self.primaryKey, _latitude, _longitude, self.name];
 }
 
 #pragma mark - MKAnnotation
