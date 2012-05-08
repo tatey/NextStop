@@ -3,8 +3,8 @@
 @interface Route : NSObject
 
 @property (readonly) NSString *longName;
-@property (readonly) NSString *shortName;
 @property (readonly) NSUInteger primaryKey;
+@property (readonly) NSString *shortName;
 
 + (NSArray *)routesMatchingShortNameOrLongName:(NSString *)searchText;
 

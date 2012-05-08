@@ -1,9 +1,9 @@
 #import "Route.h"
 #import "SQLiteDB.h"
 
-#define QUERY @"SELECT * "                                      \
-               "FROM routes "                                   \
-               "WHERE (short_name LIKE ? OR long_name LIKE ?) " \
+#define QUERY @"SELECT routes.* "                                              \
+               "FROM routes "                                                  \
+               "WHERE (routes.short_name LIKE ? OR routes.long_name LIKE ?); " \
 
 static inline const char * RouteStringToWildcardUTF8String(NSString *string) {
     return [[NSString stringWithFormat:@"%%%@%%", string] UTF8String];
@@ -12,8 +12,8 @@ static inline const char * RouteStringToWildcardUTF8String(NSString *string) {
 @interface Route () {
 @private
     NSString *_longName;
-    NSString *_shortName;
     NSUInteger _primaryKey;
+    NSString *_shortName;
 }
 
 - (id)initWithStatement:(sqlite3_stmt *)stmt;
@@ -38,9 +38,9 @@ static inline const char * RouteStringToWildcardUTF8String(NSString *string) {
 - (id)initWithStatement:(sqlite3_stmt *)stmt {
     self = [self init];
     if (self) {
+        _longName = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 2)] copy];
         _primaryKey = sqlite3_column_int(stmt, 0);
         _shortName = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 1)] copy];
-        _longName = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 2)] copy];
     }
     return self;
 }
@@ -58,7 +58,7 @@ static inline const char * RouteStringToWildcardUTF8String(NSString *string) {
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@: %p, shortName: %@, longName: %@ primaryKey: %d>", NSStringFromClass([self class]), self, self.shortName, self.longName, self.primaryKey];
+    return [NSString stringWithFormat:@"<%@: %p, longName: %@ primaryKey: %d, shortName: %@>", NSStringFromClass([self class]), self, self.longName, self.primaryKey, self.shortName];
 }
 
 @end
