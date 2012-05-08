@@ -56,11 +56,11 @@ static NSString *const kStopsKey = @"stops";
 }
 
 - (NSArray *)stops {
-    if (!_headings) {
+    if (!_stops) {
         Trip *trip = [self selectedTrip];
-        _headings = [trip stops];
+        _stops = [trip stops];
     }
-    return _headings;
+    return _stops;
 }
 
 - (NSString *)name {
