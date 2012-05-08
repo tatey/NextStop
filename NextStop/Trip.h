@@ -7,7 +7,7 @@ typedef enum {
     TripUnknownHeading,
 } TripHeading;
 
-static inline NSString * TripHeadingToString(TripHeading heading) {
+static inline NSString * TripHeadingToLocalizableString(TripHeading heading) {
     switch (heading) {
         case TripInboundHeading:
             return @"trip.headings.inbound";
