@@ -75,7 +75,6 @@ static inline CLLocationDistance Haversin(CLLocationDegrees lat1, CLLocationDegr
 }
 
 - (void)currentDidChange:(NSDictionary *)change {
-    NSLog(@"change");
     if (Haversin(self.current.latitude, self.current.longitude, self.destination.latitude, self.destination.longitude) <= RADIUS) {
         [[NSNotificationCenter defaultCenter] postNotificationName:TrackerWillApproachDestinationNotification object:self];
     }
