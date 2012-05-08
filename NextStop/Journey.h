@@ -11,4 +11,6 @@
 
 - (id)initWithRoute:(Route *)route;
 
+- (NSString *)name;
+
 @end

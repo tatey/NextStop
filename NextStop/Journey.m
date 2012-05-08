@@ -63,6 +63,10 @@ static NSString *const kStopsKey = @"stops";
     return _headings;
 }
 
+- (NSString *)name {
+    return self.route.shortName;
+}
+
 - (NSArray *)trips {
     if (!_trips) {
         _trips = [Trip tripsBelongingToRoute:self.route];
