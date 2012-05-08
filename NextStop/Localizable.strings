@@ -1,9 +1,7 @@
-// Controls
-"controls.dismiss" = "Dismiss";
-
 // Models
-"trip.directions.inbound" = "Inbound";
-"trip.directions.outbound" = "Outbound";
+"trip.headings.inbound" = "Inbound";
+"trip.headings.outbound" = "Outbound";
+"trip.headings.unknown" = "Unknown";
 
 // View Controllers
 "maps.alerts.titles.approaching" = "Approaching";
