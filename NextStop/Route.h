@@ -8,4 +8,6 @@
 
 + (NSArray *)routesMatchingShortNameOrLongName:(NSString *)searchText;
 
+- (NSArray *)trips;
+
 @end

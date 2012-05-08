@@ -69,7 +69,7 @@ static NSString *const kStopsKey = @"stops";
 
 - (NSArray *)trips {
     if (!_trips) {
-        _trips = [Trip tripsBelongingToRoute:self.route];
+        _trips = [self.route trips];
     }
     return _trips;
 }
