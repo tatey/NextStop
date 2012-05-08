@@ -2,32 +2,33 @@
 #import <sqlite3.h>
 
 typedef enum {
-    TripInboundDirection,
-    TripOutboundDirection,
-} TripDirection;
+    TripInboundHeading,
+    TripOutboundHeading,
+    TripUnknownHeading,
+} TripHeading;
 
-static inline NSString * RouteDirectionToString(TripDirection direction) {
-    switch (direction) {
-        case TripInboundDirection:
-            return @"trip.directions.inbound";
-        case TripOutboundDirection:
-            return @"trip.directions.outbound";
+static inline NSString * TripHeadingToString(TripHeading heading) {
+    switch (heading) {
+        case TripInboundHeading:
+            return @"trip.headings.inbound";
+        case TripOutboundHeading:
+            return @"trip.headings.outbound";
+        case TripUnknownHeading:
+            return @"trip.headings.unknown";
     }
 }
 
-@interface Trip : NSObject {
-@private
-    NSString *_code;
-    NSString *_name;
-    NSUInteger _primaryKey;
-}
+@class Route;
 
-@property (readonly) NSString *code;
-@property (readonly) NSString *name;
+@interface Trip : NSObject
+
+@property (readonly) NSString *longName;
 @property (readonly) NSUInteger primaryKey;
+@property (readonly) NSString *shortName;
+@property (readonly) TripHeading heading;
 
-+ (NSArray *)tripsMatchingCodeOrName:(NSString *)codeOrName;
++ (NSArray *)tripsBelongingToRoute:(Route *)route;
 
-- (id)initWithStatement:(sqlite3_stmt *)stmt;
+- (NSArray *)stops;
 
 @end

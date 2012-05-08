@@ -1,62 +1,76 @@
+#import "Route.h"
+#import "Stop.h"
 #import "SQLiteDB.h"
 #import "Trip.h"
 
-#define QUERY @"SELECT routes.* "                    \
-               "FROM routes "                        \
-               "WHERE (code LIKE ? OR name LIKE ?) " \
+#define QUERY @"SELECT trips.* "           \
+               "FROM trips "               \
+               "WHERE trips.route_id = ?;" \
 
-static inline const char * TripStringToWildcardUTF8String(NSString *string) {
-    return [[NSString stringWithFormat:@"%%%@%%", string] UTF8String];
+static NSString *const kInbound = @"inbound";
+static NSString *const kOutbound = @"outbound";
+
+@interface Trip () {
+@private
+    NSString *_heading;
+    NSString *_longName;
+    NSUInteger _primaryKey;
+    NSString *_shortName;
 }
 
-static inline const char * TripDirectionToUTF8String(TripDirection direction) {
-    switch (direction) {
-        case TripInboundDirection:
-            return [@"inbound" UTF8String];
-        case TripOutboundDirection:
-            return [@"outbound" UTF8String];
-    }
-}
+- (id)initWithStatement:(sqlite3_stmt *)stmt;
+
+@end
 
 @implementation Trip
 
-+ (NSArray *)tripsMatchingCodeOrName:(NSString *)codeOrName {
++ (NSArray *)tripsBelongingToRoute:(Route *)route {
     SQLiteDB *db = [SQLiteDB sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY];
-    sqlite3_bind_text(stmt, 1, TripStringToWildcardUTF8String(codeOrName), -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 2, TripStringToWildcardUTF8String(codeOrName), -1, SQLITE_STATIC);
-    NSMutableArray *routes = [NSMutableArray array];
+    sqlite3_bind_int(stmt, 1, route.primaryKey);
+    NSMutableArray *trips = [NSMutableArray array];
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
-        Trip *route = [[self alloc] initWithStatement:stmt];
-        [routes addObject:route];
+        Trip *trip = [[Trip alloc] initWithStatement:stmt];
+        [trips addObject:trip];
     }];
-    return [routes copy];
+    return [trips copy];
 }
 
 - (id)initWithStatement:(sqlite3_stmt *)stmt {
     self = [self init];
     if (self) {
+        _heading = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 3)] copy];
+        _longName = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 2)] copy];
         _primaryKey = sqlite3_column_int(stmt, 0);
-        _code = [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 1)];
-        _name = [NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 2)];
+        _shortName = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 1)] copy];
     }
     return self;
 }
 
-- (NSString *)code {
-    return _code;
+- (TripHeading)heading {
+    if ([_heading isEqualToString:kInbound]) return TripInboundHeading;
+    if ([_heading isEqualToString:kOutbound]) return TripOutboundHeading;
+    return TripUnknownHeading;
 }
 
-- (NSString *)name {
-    return _name;
+- (NSString *)shortName {
+    return _shortName;
+}
+
+- (NSString *)longName {
+    return _longName;
 }
 
 - (NSUInteger)primaryKey {
     return _primaryKey;
 }
 
+- (NSArray *)stops {
+    return [Stop stopsBelongingToTrip:self];
+}
+
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@: %p, code: %@, name: %@ primaryKey: %d>", NSStringFromClass([self class]), self, self.code, self.name, self.primaryKey];
+    return [NSString stringWithFormat:@"<%@: %p, longName: %@, primaryKey: %d, shortName: %@>", NSStringFromClass([self class]), self, self.longName, self.primaryKey, self.shortName];
 }
 
 @end
