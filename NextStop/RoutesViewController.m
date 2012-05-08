@@ -1,3 +1,5 @@
+#import "MapViewController.h"
+#import "Route.h"
 #import "RoutesTableViewController.h"
 #import "RoutesViewController.h"
 
@@ -11,7 +13,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.routesController = [[RoutesTableViewController alloc] init];
+    self.routesController = [[RoutesTableViewController alloc] initWithDelegate:self];
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     self.searchBar.delegate = self.routesController;
     self.searchBar.placeholder = NSLocalizedString(@"routes.search.placeholder", nil);
@@ -34,6 +36,13 @@
 
 - (NSString *)title {
     return NSLocalizedString(@"routes.title", nil);
+}
+
+#pragma mark - RoutesTableViewDelegate
+
+- (void)routesTableViewController:(RoutesTableViewController *)routesTableViewController didSelectRoute:(Route *)route {
+    MapViewController *mapViewController = [[MapViewController alloc] initWithRoute:route];
+    [self.navigationController pushViewController:mapViewController animated:YES];
 }
 
 #pragma mark - UITableViewDataSource

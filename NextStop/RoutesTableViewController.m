@@ -1,13 +1,23 @@
 #import "RoutesTableViewController.h"
+#import "RoutesTableViewControllerDelegate.h"
 
 @implementation RoutesTableViewController
 
+@synthesize delegate = _delegate;
 @synthesize routes = _routes;
 
 - (id)init {
     self = [super init];
     if (self) {
         self.routes = [NSArray array];
+    }
+    return self;
+}
+
+- (id)initWithDelegate:(id <RoutesTableViewDelegate>)delegate {
+    self = [self init];
+    if (self) {
+        self.delegate = delegate;
     }
     return self;
 }
@@ -37,7 +47,8 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    Route *route = [self.routes objectAtIndex:indexPath.row];
+    [self.delegate routesTableViewController:self didSelectRoute:route];
 }
 
 #pragma mark - UISearchBarDelegate

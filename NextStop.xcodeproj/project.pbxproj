@@ -33,8 +33,6 @@
 		5DB59CB21546CA7B00417818 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CB11546CA7B00417818 /* MapKit.framework */; };
 		5DB59CBC1546D21200417818 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CBB1546D21200417818 /* CoreLocation.framework */; };
 		5DB59CE91547B5F500417818 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CE81547B5F500417818 /* libsqlite3.0.dylib */; };
-		5DB8EAB6154BDD8800EF72F9 /* Journey.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB8EAB5154BDD8800EF72F9 /* Journey.m */; };
-		5DB8EAB7154BDD8800EF72F9 /* Journey.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB8EAB5154BDD8800EF72F9 /* Journey.m */; };
 		5DB8EADB154D6C3100EF72F9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB8EADA154D6C3100EF72F9 /* User.m */; };
 		5DB8EADC154D6C3100EF72F9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB8EADA154D6C3100EF72F9 /* User.m */; };
 		5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteDB.m */; };
@@ -57,6 +55,7 @@
 /* Begin PBXFileReference section */
 		5D05F314154ACA7F004E7773 /* Stop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stop.h; sourceTree = "<group>"; };
 		5D05F315154ACA7F004E7773 /* Stop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stop.m; sourceTree = "<group>"; };
+		5D0C806D1557CF640078BC9C /* RoutesTableViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutesTableViewControllerDelegate.h; sourceTree = "<group>"; };
 		5D2BFDB91547F3B400D9F53E /* RoutesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutesViewController.h; sourceTree = "<group>"; };
 		5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutesViewController.m; sourceTree = "<group>"; };
 		5D47523A154EBA5100F8CCDF /* Tracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tracker.h; sourceTree = "<group>"; };
@@ -85,8 +84,6 @@
 		5DB59CB11546CA7B00417818 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5DB59CBB1546D21200417818 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5DB59CE81547B5F500417818 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		5DB8EAB4154BDD8700EF72F9 /* Journey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journey.h; sourceTree = "<group>"; };
-		5DB8EAB5154BDD8800EF72F9 /* Journey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journey.m; sourceTree = "<group>"; };
 		5DB8EAD9154D6C3100EF72F9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		5DB8EADA154D6C3100EF72F9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		5DD523FC1547FF7C00011A3E /* SQLiteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteDB.h; sourceTree = "<group>"; };
@@ -161,14 +158,13 @@
 			children = (
 				5DB59C8D1546C8E500417818 /* AppDelegate.h */,
 				5DB59C8E1546C8E500417818 /* AppDelegate.m */,
-				5DB8EAB4154BDD8700EF72F9 /* Journey.h */,
-				5DB8EAB5154BDD8800EF72F9 /* Journey.m */,
 				5DB59CAD1546C97200417818 /* MapViewController.h */,
 				5DB59CAE1546C97200417818 /* MapViewController.m */,
 				5DA866A61556C25E00FB1ACF /* Route.h */,
 				5DA866A71556C25E00FB1ACF /* Route.m */,
 				5DA3C18C1557CA7C00A49A4E /* RoutesTableViewController.h */,
 				5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */,
+				5D0C806D1557CF640078BC9C /* RoutesTableViewControllerDelegate.h */,
 				5D2BFDB91547F3B400D9F53E /* RoutesViewController.h */,
 				5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */,
 				5D05F314154ACA7F004E7773 /* Stop.h */,
@@ -338,7 +334,6 @@
 				5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */,
 				5DD5240A154800DD00011A3E /* Trip.m in Sources */,
 				5D05F316154ACA7F004E7773 /* Stop.m in Sources */,
-				5DB8EAB6154BDD8800EF72F9 /* Journey.m in Sources */,
 				5DB8EADB154D6C3100EF72F9 /* User.m in Sources */,
 				5DA15B1B154ECD3800FCEE13 /* Tracker.m in Sources */,
 				5DA866A81556C25E00FB1ACF /* Route.m in Sources */,
@@ -355,7 +350,6 @@
 				5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */,
 				5DD5240B154800DD00011A3E /* Trip.m in Sources */,
 				5D05F317154ACA7F004E7773 /* Stop.m in Sources */,
-				5DB8EAB7154BDD8800EF72F9 /* Journey.m in Sources */,
 				5DB8EADC154D6C3100EF72F9 /* User.m in Sources */,
 				5D47523C154EBA5100F8CCDF /* Tracker.m in Sources */,
 				5DA866A91556C25E00FB1ACF /* Route.m in Sources */,

@@ -1,9 +1,10 @@
 #import <UIKit/UIKit.h>
+#import "RoutesTableViewControllerDelegate.h"
 #import "Trip.h"
 
 @class RoutesTableViewController;
 
-@interface RoutesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface RoutesViewController : UIViewController <RoutesTableViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSArray *routes;
 @property (strong, nonatomic) RoutesTableViewController *routesController;
