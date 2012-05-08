@@ -46,8 +46,8 @@ static NSString *const kStopsKey = @"stops";
     if (!_headings) {
         NSArray *trips = [self trips];
         NSMutableArray *headings = [NSMutableArray arrayWithCapacity:[trips count]];
-        for (Trip *trip in headings) {
-            NSString *heading = TripHeadingToString(trip.heading);
+        for (Trip *trip in trips) {
+            NSString *heading = NSLocalizedString(TripHeadingToLocalizableString(trip.heading), nil);
             [headings addObject:heading];
         }
         _headings = [headings copy];
