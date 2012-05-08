@@ -1,62 +1,77 @@
+#import "Journey.h"
 #import "MapViewController.h"
 #import "Stop.h"
-#import "Tracker.h"
-#import "Trip.h"
-#import "User.h"
 
 @interface MapViewController ()
 
+@property (strong, nonatomic) UISegmentedControl *headingsControl;
 @property (strong, nonatomic) MKMapView *mapView;
 @property (strong, nonatomic) NSArray *stops;
-@property (strong, nonatomic) Tracker *tracker;
-@property (strong, nonatomic) User *user;
 
 @end
 
 @implementation MapViewController
 
 // Public
-@synthesize route = _route;
+@synthesize journey = _journey;
 
 // Private
+@synthesize headingsControl = _headingsControl;
 @synthesize mapView = _mapView;
 @synthesize stops = _stops;
-@synthesize tracker = _tracker;
-@synthesize user = _user;
 
-- (id)initWithRoute:(Route *)route {
+- (id)initWithJourney:(Journey *)journey {
     self = [self init];
     if (self) {
-        self.route = route;
+        self.journey = journey;
     }
     return self;
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    self.user = [[User alloc] init];
-    self.mapView = [[MKMapView alloc] initWithFrame:self.view.frame];
+    [super viewDidLoad];    
+    // Toolbar with segmented control.
+    self.headingsControl = [[UISegmentedControl alloc] initWithItems:self.journey.headings];
+    self.headingsControl.segmentedControlStyle = UISegmentedControlStyleBar;    
+    self.headingsControl.selectedSegmentIndex = self.journey.selectedHeadingIndex;
+    [self.headingsControl addTarget:self action:@selector(headingControlValueDidChange:) forControlEvents:UIControlEventValueChanged];
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *segmentedControl = [[UIBarButtonItem alloc] initWithCustomView:self.headingsControl];
+    self.toolbarItems = [NSArray arrayWithObjects:flexibleSpace, segmentedControl, flexibleSpace, nil];
+    // MapView and annotations.
+    self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds]; // TODO: Resize to be within bounds of navigation bar and toolbar.
     self.mapView.delegate = self;
-    [self.mapView addAnnotations:self.stops];
-    [self.mapView addAnnotation:self.user];
+    [self.mapView addAnnotations:self.journey.stops];
     [self.view addSubview:self.mapView];
 }
 
 - (void)viewDidUnload {
+    self.headingsControl = nil;
     self.mapView = nil;
     self.stops = nil;
-    self.user = nil;
     [super viewDidUnload];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.user startTracking];
+    self.navigationController.toolbarHidden = NO;
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [self.user stopTracking];
-    [super viewWillDisappear:animated];
+- (void)viewDidDisappear:(BOOL)animated {
+    self.navigationController.toolbarHidden = YES;
+    [super viewDidDisappear:animated];
+}
+
+- (NSString *)title {
+    return self.journey.name;
+}
+     
+#pragma mark - Actions
+     
+- (void)headingControlValueDidChange:(UISegmentedControl *)segmentedControl {
+    [self.mapView removeAnnotations:self.journey.stops];
+    self.journey.selectedHeadingIndex = segmentedControl.selectedSegmentIndex;
+    [self.mapView addAnnotations:self.journey.stops];
 }
 
 @end
