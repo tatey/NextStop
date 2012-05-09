@@ -1,16 +1,29 @@
 #import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
 
-extern NSString *const TrackerWillApproachDestinationNotification;
+typedef enum {
+    TrackerAccuracyBestLocationMode,
+    TrackerPowerConservationLocationMode,
+} TrackerLocationMode;
 
-@interface Tracker : NSObject <CLLocationManagerDelegate>
+@protocol TrackerDelegate;
+
+@interface Tracker : NSObject <CLLocationManagerDelegate, NSCoding>
+
+@property (weak, nonatomic) id <TrackerDelegate> delegate;
 
 @property (assign, nonatomic) CLLocationCoordinate2D current;
-@property (assign, nonatomic) CLLocationCoordinate2D destination;
+@property (assign, nonatomic) CLLocationCoordinate2D target;
 
-- (id)initWithDestination:(CLLocationCoordinate2D)destination;
+@property (readonly) BOOL isMonitoringProximityToTarget;
+@property (readonly) BOOL isUpdatingCurrent;
 
-- (void)start;
-- (void)stop;
+- (id)initWithDelegate:(id <TrackerDelegate>)delegate;
+
+- (void)startMonitoringProximityToTarget;
+- (void)stopMonitoringProximityToTarget;
+
+- (void)startUpdatingCurrent:(TrackerLocationMode)mode;
+- (void)stopUpdatingCurrent;
 
 @end

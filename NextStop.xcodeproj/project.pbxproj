@@ -60,6 +60,7 @@
 		5D0C806D1557CF640078BC9C /* RoutesTableViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutesTableViewControllerDelegate.h; sourceTree = "<group>"; };
 		5D2BFDB91547F3B400D9F53E /* RoutesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutesViewController.h; sourceTree = "<group>"; };
 		5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutesViewController.m; sourceTree = "<group>"; };
+		5D32CB5D155A9E02008D66A4 /* TrackerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrackerDelegate.h; sourceTree = "<group>"; };
 		5D47523A154EBA5100F8CCDF /* Tracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tracker.h; sourceTree = "<group>"; };
 		5D47523B154EBA5100F8CCDF /* Tracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tracker.m; sourceTree = "<group>"; };
 		5D93E9C81559320100116A94 /* Journey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journey.h; sourceTree = "<group>"; };
@@ -179,6 +180,7 @@
 				5DD523FD1547FF7C00011A3E /* SQLiteDB.m */,
 				5D47523A154EBA5100F8CCDF /* Tracker.h */,
 				5D47523B154EBA5100F8CCDF /* Tracker.m */,
+				5D32CB5D155A9E02008D66A4 /* TrackerDelegate.h */,
 				5DD52408154800DD00011A3E /* Trip.h */,
 				5DD52409154800DD00011A3E /* Trip.m */,
 				5DB8EAD9154D6C3100EF72F9 /* User.h */,
