@@ -49,7 +49,8 @@ static inline MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *an
     UIBarButtonItem *segmentedControl = [[UIBarButtonItem alloc] initWithCustomView:self.headingsControl];
     self.toolbarItems = [NSArray arrayWithObjects:flexibleSpace, segmentedControl, flexibleSpace, nil];
     // MapView and annotations.
-    self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds]; // TODO: Resize to be within bounds of navigation bar and toolbar.
+    self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
+    self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
     [self.mapView addAnnotations:self.journey.stops];
     [self.view addSubview:self.mapView];
