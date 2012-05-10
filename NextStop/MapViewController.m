@@ -2,10 +2,22 @@
 #import "MapViewController.h"
 #import "Stop.h"
 
+static inline MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotations) {
+    NSInteger count = 0;
+    MKMapPoint points[[annotations count]];
+    for (id <MKAnnotation> annotation in annotations) {
+        points[count++] = MKMapPointForCoordinate(annotation.coordinate);
+    }
+    MKPolygon *polygon = [MKPolygon polygonWithPoints:points count:count];
+    return MKCoordinateRegionForMapRect([polygon boundingMapRect]);
+}
+
 @interface MapViewController ()
 
 @property (strong, nonatomic) UISegmentedControl *headingsControl;
 @property (strong, nonatomic) MKMapView *mapView;
+
+- (void)zoomToFitStops:(BOOL)animated;
 
 @end
 
@@ -41,6 +53,8 @@
     self.mapView.delegate = self;
     [self.mapView addAnnotations:self.journey.stops];
     [self.view addSubview:self.mapView];
+    // Default zoom.
+    [self zoomToFitStops:NO];
 }
 
 - (void)viewDidUnload {
@@ -61,6 +75,10 @@
 
 - (NSString *)title {
     return self.journey.name;
+}
+
+- (void)zoomToFitStops:(BOOL)animated {
+    [self.mapView setRegion:CoordinateRegionMakeWithAnnotations(self.journey.stops) animated:animated];
 }
      
 #pragma mark - Actions
