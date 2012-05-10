@@ -6,7 +6,6 @@
 
 @property (strong, nonatomic) UISegmentedControl *headingsControl;
 @property (strong, nonatomic) MKMapView *mapView;
-@property (strong, nonatomic) NSArray *stops;
 
 @end
 
@@ -18,7 +17,6 @@
 // Private
 @synthesize headingsControl = _headingsControl;
 @synthesize mapView = _mapView;
-@synthesize stops = _stops;
 
 - (id)initWithJourney:(Journey *)journey {
     self = [self init];
@@ -48,7 +46,6 @@
 - (void)viewDidUnload {
     self.headingsControl = nil;
     self.mapView = nil;
-    self.stops = nil;
     [super viewDidUnload];
 }
 
