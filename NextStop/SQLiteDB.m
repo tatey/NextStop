@@ -18,7 +18,7 @@
 - (id)initWithPath:(NSString *)path {
     self = [self init];
     if (self) {
-        sqlite3_open([path UTF8String], &_db);
+        sqlite3_open_v2([path UTF8String], &_db, SQLITE_OPEN_READONLY, NULL);
     }
     return self;
 }
