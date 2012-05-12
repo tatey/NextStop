@@ -17,8 +17,8 @@ static inline MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *an
 @interface MapViewController ()
 
 @property (strong, nonatomic) UISegmentedControl *headingsControl;
+@property (strong, nonatomic) UIToolbar *headingsToolbar;
 @property (strong, nonatomic) MKMapView *mapView;
-@property (strong, nonatomic) UIToolbar *toolbar;
 
 - (void)zoomToFitStops:(BOOL)animated;
 
@@ -31,8 +31,8 @@ static inline MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *an
 
 // Private
 @synthesize headingsControl = _headingsControl;
+@synthesize headingsToolbar = _toolbar;
 @synthesize mapView = _mapView;
-@synthesize toolbar = _toolbar;
 
 - (id)initWithJourney:(Journey *)journey {
     self = [self init];
@@ -44,10 +44,10 @@ static inline MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *an
 
 - (void)viewDidLoad {
     [super viewDidLoad];    
-    // Toolbar.
-    self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.size.height - TOOLBAR_HEIGHT, self.view.bounds.size.width, TOOLBAR_HEIGHT)];
-    self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth;
-    [self.view addSubview:self.toolbar];
+    // Headings toolbar.
+    self.headingsToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.size.height - TOOLBAR_HEIGHT, self.view.bounds.size.width, TOOLBAR_HEIGHT)];
+    self.headingsToolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth;
+    [self.view addSubview:self.headingsToolbar];
     // Headings control.
     self.headingsControl = [[UISegmentedControl alloc] initWithItems:self.journey.headings];
     self.headingsControl.segmentedControlStyle = UISegmentedControlStyleBar;    
@@ -55,7 +55,7 @@ static inline MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *an
     [self.headingsControl addTarget:self action:@selector(headingControlValueDidChange:) forControlEvents:UIControlEventValueChanged];
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *segmentedControl = [[UIBarButtonItem alloc] initWithCustomView:self.headingsControl];
-    self.toolbar.items = [NSArray arrayWithObjects:flexibleSpace, segmentedControl, flexibleSpace, nil];
+    self.headingsToolbar.items = [NSArray arrayWithObjects:flexibleSpace, segmentedControl, flexibleSpace, nil];
     // MapView and annotations.
     self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height - TOOLBAR_HEIGHT)];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
@@ -69,7 +69,7 @@ static inline MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *an
 - (void)viewDidUnload {
     self.headingsControl = nil;
     self.mapView = nil;
-    self.toolbar = nil;
+    self.headingsToolbar = nil;
     [super viewDidUnload];
 }
 
