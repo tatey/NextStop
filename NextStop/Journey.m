@@ -7,9 +7,9 @@ static NSString *const kStopsKey = @"stops";
 
 @interface Journey () {
 @private
-    NSArray *_headings;
-    NSArray *_stops;
-    NSArray *_trips;
+    __strong NSArray *_headings;
+    __strong NSArray *_stops;
+    __strong NSArray *_trips;
 }
 
 @property (readonly) NSArray *trips;

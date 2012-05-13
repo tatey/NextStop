@@ -12,9 +12,9 @@ static inline const char * RouteStringToWildcardUTF8String(NSString *string) {
 
 @interface Route () {
 @private
-    NSString *_longName;
+    __strong NSString *_longName;
     NSUInteger _primaryKey;
-    NSString *_shortName;
+    __strong NSString *_shortName;
 }
 
 - (id)initWithStatement:(sqlite3_stmt *)stmt;

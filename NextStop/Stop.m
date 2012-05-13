@@ -15,7 +15,7 @@
     NSUInteger _primaryKey;
     CLLocationDegrees _latitude;
     CLLocationDegrees _longitude;
-    NSString *_name;
+    __strong NSString *_name;
 }
 
 - (id)initWithStatement:(sqlite3_stmt *)stmt;

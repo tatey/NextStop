@@ -12,10 +12,10 @@ static NSString *const kOutbound = @"outbound";
 
 @interface Trip () {
 @private
-    NSString *_heading;
-    NSString *_longName;
+    __strong NSString *_heading;
+    __strong NSString *_longName;
     NSUInteger _primaryKey;
-    NSString *_shortName;
+    __strong NSString *_shortName;
 }
 
 - (id)initWithStatement:(sqlite3_stmt *)stmt;
