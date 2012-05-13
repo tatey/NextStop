@@ -68,8 +68,8 @@ static inline MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *an
 
 - (void)viewDidUnload {
     self.headingsControl = nil;
-    self.mapView = nil;
     self.headingsToolbar = nil;
+    self.mapView = nil;
     [super viewDidUnload];
 }
 
