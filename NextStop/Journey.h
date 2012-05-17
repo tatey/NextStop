@@ -6,7 +6,7 @@
 @interface Journey : NSObject <NSCoding>
 
 @property (readonly) NSArray *headings;
-@property (assign, nonatomic, getter = isMonitoringProximityToTarget) BOOL monitorProximityToTarget;
+@property (assign, nonatomic) BOOL monitorProximityToTarget;
 @property (strong, nonatomic) Route *route;
 @property (assign, nonatomic) NSInteger selectedHeadingIndex;
 @property (readonly) NSArray *stops;

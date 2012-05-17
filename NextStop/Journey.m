@@ -1,6 +1,11 @@
 #import "Journey.h"
+#import "Proximity.h"
+#import "ProximityCenter.h"
 #import "Route.h"
+#import "Stop.h"
 #import "Trip.h"
+
+#define RADIUS 500 // Meters
 
 static NSString *const kHeadingsKey = @"headings";
 static NSString *const kStopsKey = @"stops";
@@ -16,18 +21,28 @@ static NSString *const kTargetArchiveKey = @"me.nextstop.archive.journey.target"
     __strong NSArray *_trips;
 }
 
+@property (strong, nonatomic) Proximity *proximity;
+@property (weak, nonatomic) ProximityCenter *proximityCenter;
 @property (readonly) NSArray *trips;
 
 - (Trip *)selectedTrip;
+
+- (void)startMonitoringProximityToTarget;
+- (void)stopMonitoringProximityToTarget;
 
 @end
 
 @implementation Journey
 
+// Public
 @synthesize monitorProximityToTarget = _monitorProximityToTarget;
 @synthesize route = _route;
 @synthesize selectedHeadingIndex = _selectedHeadingIndex;
 @synthesize target = _target;
+
+// Private
+@synthesize proximity = _proximity;
+@synthesize proximityCenter = _proximityCenter;
 
 - (id)initWithRoute:(Route *)route {
     self = [self init];
@@ -61,16 +76,19 @@ static NSString *const kTargetArchiveKey = @"me.nextstop.archive.journey.target"
     return _headings;
 }
 
+- (ProximityCenter *)proximityCenter {
+    if (!_proximityCenter) {
+        _proximityCenter = [ProximityCenter defaultCenter];
+    }
+    return _proximityCenter;
+}
+
 - (NSArray *)stops {
     if (!_stops) {
         Trip *trip = [self selectedTrip];
         _stops = [trip stops];
     }
     return _stops;
-}
-
-- (NSString *)name {
-    return self.route.shortName;
 }
 
 - (NSArray *)trips {
@@ -80,8 +98,40 @@ static NSString *const kTargetArchiveKey = @"me.nextstop.archive.journey.target"
     return _trips;
 }
 
+- (NSString *)name {
+    return self.route.shortName;
+}
+
+- (void)setMonitorProximityToTarget:(BOOL)monitorProximityToTarget {
+    _monitorProximityToTarget = monitorProximityToTarget;
+    if (monitorProximityToTarget) {
+        [self startMonitoringProximityToTarget];
+    } else {
+        [self stopMonitoringProximityToTarget];
+    }
+}
+
+- (void)setTarget:(Stop *)target {
+    _target = target;
+    [self stopMonitoringProximityToTarget];
+    if (target) {
+        [self startMonitoringProximityToTarget];
+    }
+}
+
 - (Trip *)selectedTrip {
     return [self.trips objectAtIndex:self.selectedHeadingIndex];    
+}
+
+- (void)startMonitoringProximityToTarget {
+    if (!self.monitorProximityToTarget || !self.target) return;
+    self.proximity = [[Proximity alloc] initWithJourney:self radius:RADIUS target:self.target.coordinate];
+    [self.proximityCenter addProximity:self.proximity];
+}
+
+- (void)stopMonitoringProximityToTarget {
+    [self.proximityCenter removeProximity:self.proximity];
+    self.proximity = nil;
 }
 
 #pragma mark - NSCoding
