@@ -20,6 +20,7 @@ static NSString *const kStopsKey = @"stops";
 
 @implementation Journey
 
+@synthesize monitorProximityToTarget = _monitorProximityToTarget;
 @synthesize route = _route;
 @synthesize selectedHeadingIndex = _selectedHeadingIndex;
 @synthesize target = _target;

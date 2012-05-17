@@ -19,6 +19,7 @@ static inline MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *an
 @property (strong, nonatomic) UISegmentedControl *headingsControl;
 @property (strong, nonatomic) UIToolbar *headingsToolbar;
 @property (strong, nonatomic) MKMapView *mapView;
+@property (strong, nonatomic) UISwitch *proximitySwitch;
 
 - (void)zoomToFitStops:(BOOL)animated;
 
@@ -33,6 +34,7 @@ static inline MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *an
 @synthesize headingsControl = _headingsControl;
 @synthesize headingsToolbar = _toolbar;
 @synthesize mapView = _mapView;
+@synthesize proximitySwitch = _proximitySwitch;
 
 - (id)initWithJourney:(Journey *)journey {
     self = [self init];
@@ -62,6 +64,11 @@ static inline MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *an
     self.mapView.delegate = self;
     [self.mapView addAnnotations:self.journey.stops];
     [self.view addSubview:self.mapView];
+    // Proximity switch.
+    self.proximitySwitch = [[UISwitch alloc] init];
+    [self.proximitySwitch addTarget:self action:@selector(proximitySwitchValueDidChange:) forControlEvents:UIControlEventValueChanged];
+    UIBarButtonItem *proximitySwitchBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.proximitySwitch];
+    self.navigationItem.rightBarButtonItem = proximitySwitchBarButtonItem;
     // Default zoom.
     [self zoomToFitStops:NO];
 }
@@ -87,6 +94,10 @@ static inline MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *an
     [self.mapView removeAnnotations:self.journey.stops];
     self.journey.selectedHeadingIndex = segmentedControl.selectedSegmentIndex;
     [self.mapView addAnnotations:self.journey.stops];
+}
+
+- (void)proximitySwitchValueDidChange:(UISwitch *)aSwitch {    
+    self.journey.monitorProximityToTarget = aSwitch.on;
 }
 
 #pragma mark - MKMapViewDelegate
