@@ -1,3 +1,4 @@
+#import <CoreLocation/CoreLocation.h>
 #import "Stop.h"
 #import "SQLiteDB.h"
 #import "Trip.h"
@@ -9,6 +10,11 @@
                "WHERE stops.latitude IS NOT NULL AND "               \
                "      stops.longitude IS NOT NULL AND "              \
                "      trips.id = ?; "                                \
+
+static NSString *const kPrimaryKeyArchiveKey = @"me.nextstop.archive.stop.primary_key";
+static NSString *const kLatitudeArchiveKey = @"me.nextstop.archive.stop.latitude";
+static NSString *const kLongitudeArchiveKey = @"me.nextstop.archive.stop.longitude";
+static NSString *const kNameArchiveKey = @"me.nextstop.archive.stop.name";
 
 @interface Stop () {
 @private 
@@ -67,6 +73,26 @@
 
 - (CLLocationCoordinate2D)coordinate {
     return CLLocationCoordinate2DMake(_latitude, _longitude);
+}
+
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [self init];
+    if (self) {
+        _primaryKey = [coder decodeIntegerForKey:kPrimaryKeyArchiveKey];
+        _latitude = [coder decodeDoubleForKey:kLatitudeArchiveKey];
+        _longitude = [coder decodeDoubleForKey:kLongitudeArchiveKey];
+        _name = [[coder decodeObjectForKey:kNameArchiveKey] copy];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeInteger:_primaryKey forKey:kPrimaryKeyArchiveKey];
+    [coder encodeDouble:_latitude forKey:kLatitudeArchiveKey];
+    [coder encodeDouble:_longitude forKey:kLongitudeArchiveKey];
+    [coder encodeObject:_name forKey:kNameArchiveKey];
 }
 
 @end
