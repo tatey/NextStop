@@ -3,7 +3,7 @@
 @class Route;
 @class Stop;
 
-@interface Journey : NSObject
+@interface Journey : NSObject <NSCoding>
 
 @property (readonly) NSArray *headings;
 @property (assign, nonatomic, getter = isMonitoringProximityToTarget) BOOL monitorProximityToTarget;

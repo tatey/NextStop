@@ -5,6 +5,10 @@
 static NSString *const kHeadingsKey = @"headings";
 static NSString *const kStopsKey = @"stops";
 
+static NSString *const kRouteArchiveKey = @"me.nextstop.archive.journey.route";
+static NSString *const kSelectedHeadingIndexArchiveKey = @"me.nextstop.archive.journey.selected_heading_index";
+static NSString *const kTargetArchiveKey = @"me.nextstop.archive.journey.target";
+
 @interface Journey () {
 @private
     __strong NSArray *_headings;
@@ -78,6 +82,23 @@ static NSString *const kStopsKey = @"stops";
 
 - (Trip *)selectedTrip {
     return [self.trips objectAtIndex:self.selectedHeadingIndex];    
+}
+
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [self initWithRoute:[coder decodeObjectForKey:kRouteArchiveKey]];
+    if (self) {
+        self.selectedHeadingIndex = [coder decodeIntegerForKey:kSelectedHeadingIndexArchiveKey];
+        self.target = [coder decodeObjectForKey:kTargetArchiveKey];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:self.route forKey:kRouteArchiveKey];
+    [coder encodeInteger:self.selectedHeadingIndex forKey:kSelectedHeadingIndexArchiveKey];
+    [coder encodeObject:self.target forKey:kTargetArchiveKey];
 }
 
 @end
