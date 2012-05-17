@@ -11,10 +11,8 @@
 		5D05F317154ACA7F004E7773 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* Stop.m */; };
 		5D2BFDBB1547F3B400D9F53E /* RoutesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */; };
 		5D2BFDBC1547F3B400D9F53E /* RoutesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */; };
-		5D47523C154EBA5100F8CCDF /* Tracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47523B154EBA5100F8CCDF /* Tracker.m */; };
 		5D93E9CA1559320100116A94 /* Journey.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D93E9C91559320100116A94 /* Journey.m */; };
 		5D93E9CB1559320100116A94 /* Journey.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D93E9C91559320100116A94 /* Journey.m */; };
-		5DA15B1B154ECD3800FCEE13 /* Tracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47523B154EBA5100F8CCDF /* Tracker.m */; };
 		5DA15B22154ED00800FCEE13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DA15B21154ED00800FCEE13 /* Localizable.strings */; };
 		5DA3C18E1557CA7C00A49A4E /* RoutesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */; };
 		5DA3C18F1557CA7E00A49A4E /* RoutesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */; };
@@ -58,9 +56,6 @@
 		5D0C806D1557CF640078BC9C /* RoutesTableViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutesTableViewControllerDelegate.h; sourceTree = "<group>"; };
 		5D2BFDB91547F3B400D9F53E /* RoutesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutesViewController.h; sourceTree = "<group>"; };
 		5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutesViewController.m; sourceTree = "<group>"; };
-		5D32CB5D155A9E02008D66A4 /* TrackerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrackerDelegate.h; sourceTree = "<group>"; };
-		5D47523A154EBA5100F8CCDF /* Tracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tracker.h; sourceTree = "<group>"; };
-		5D47523B154EBA5100F8CCDF /* Tracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tracker.m; sourceTree = "<group>"; };
 		5D93E9C81559320100116A94 /* Journey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journey.h; sourceTree = "<group>"; };
 		5D93E9C91559320100116A94 /* Journey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journey.m; sourceTree = "<group>"; };
 		5DA15B21154ED00800FCEE13 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -174,9 +169,6 @@
 				5D05F315154ACA7F004E7773 /* Stop.m */,
 				5DD523FC1547FF7C00011A3E /* SQLiteDB.h */,
 				5DD523FD1547FF7C00011A3E /* SQLiteDB.m */,
-				5D47523A154EBA5100F8CCDF /* Tracker.h */,
-				5D47523B154EBA5100F8CCDF /* Tracker.m */,
-				5D32CB5D155A9E02008D66A4 /* TrackerDelegate.h */,
 				5DD52408154800DD00011A3E /* Trip.h */,
 				5DD52409154800DD00011A3E /* Trip.m */,
 				5DD524051548007600011A3E /* Resources */,
@@ -336,7 +328,6 @@
 				5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */,
 				5DD5240A154800DD00011A3E /* Trip.m in Sources */,
 				5D05F316154ACA7F004E7773 /* Stop.m in Sources */,
-				5DA15B1B154ECD3800FCEE13 /* Tracker.m in Sources */,
 				5DA866A81556C25E00FB1ACF /* Route.m in Sources */,
 				5DA3C18F1557CA7E00A49A4E /* RoutesTableViewController.m in Sources */,
 				5D93E9CA1559320100116A94 /* Journey.m in Sources */,
@@ -352,7 +343,6 @@
 				5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */,
 				5DD5240B154800DD00011A3E /* Trip.m in Sources */,
 				5D05F317154ACA7F004E7773 /* Stop.m in Sources */,
-				5D47523C154EBA5100F8CCDF /* Tracker.m in Sources */,
 				5DA866A91556C25E00FB1ACF /* Route.m in Sources */,
 				5DA3C18E1557CA7C00A49A4E /* RoutesTableViewController.m in Sources */,
 				5D93E9CB1559320100116A94 /* Journey.m in Sources */,
