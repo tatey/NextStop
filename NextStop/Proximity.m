@@ -5,7 +5,7 @@
 
 static NSString *const kCurrentKeyPath = @"current";
 
-static NSString *kJourneyArchiveKey = @"me.nextstop.archive.proximity.journey";
+static NSString *kDelegateArchiveKey = @"me.nextstop.archive.proximity.delegate";
 static NSString *kRadiusArchiveKey = @"me.nextstop.archive.proximity.radius";
 static NSString *kTargetLatitudeArchiveKey = @"me.nextstop.archive.proximity.target_latitude";
 static NSString *kTargetLongitudeArchiveKey = @"me.nextstop.archive.proximity.target_longitude";
@@ -24,18 +24,18 @@ static CLLocationDistance Haversin(CLLocationCoordinate2D c1, CLLocationCoordina
 
 @implementation Proximity
 
-@synthesize journey = _journey;
+@synthesize delegate = _delegate;
 @synthesize radius = _radius;
 @synthesize target = _target;
 
-- (id)initWithJourney:(Journey *)journey radius:(CLLocationDistance)radius target:(CLLocationCoordinate2D)target {
+- (id)initWithDelegate:(id <NSCoding, ProximityDelegate>)delegate radius:(CLLocationDistance)radius target:(CLLocationCoordinate2D)target {
     self = [self init];
     if (self) {
-        self.journey = journey;
+        self.delegate = delegate;
         self.radius = radius;
         self.target = target;
     }
-    return self;    
+    return self;
 }
 
 - (BOOL)isCoordinateInProximityToTarget:(CLLocationCoordinate2D)coordinate {
@@ -45,15 +45,15 @@ static CLLocationDistance Haversin(CLLocationCoordinate2D c1, CLLocationCoordina
 #pragma mark - NSCoding
 
 - (id)initWithCoder:(NSCoder *)coder {
-    Journey *journey = [coder decodeObjectForKey:kJourneyArchiveKey];
+    id <NSCoding, ProximityDelegate> delegate = [coder decodeObjectForKey:kDelegateArchiveKey];
     CLLocationDistance radius = [coder decodeDoubleForKey:kRadiusArchiveKey];
     CLLocationCoordinate2D target = CLLocationCoordinate2DMake([coder decodeDoubleForKey:kTargetLatitudeArchiveKey], [coder decodeDoubleForKey:kTargetLongitudeArchiveKey]);
-    self = [self initWithJourney:journey radius:radius target:target];
+    self = [self initWithDelegate:delegate radius:radius target:target];
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-    [coder encodeObject:self.journey forKey:kJourneyArchiveKey];
+    [coder encodeObject:self.delegate forKey:kDelegateArchiveKey];
     [coder encodeDouble:self.radius forKey:kRadiusArchiveKey];
     [coder encodeDouble:self.target.latitude forKey:kTargetLatitudeArchiveKey];
     [coder encodeDouble:self.target.longitude forKey:kTargetLongitudeArchiveKey];

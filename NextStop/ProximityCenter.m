@@ -2,8 +2,6 @@
 #import "Proximity.h"
 #import "ProximityCenter.h"
 
-NSString *const ProximityDidApproachTargetNotification = @"me.nextstop.notification.approach";
-
 static NSString *const kCurrentKeyPath = @"current";
 
 static NSString *const kProximitiesArchiveKey = @"me.nextstop.archive.proximity_center.proximities";
@@ -83,7 +81,7 @@ static NSString *const kProximitiesArchiveKey = @"me.nextstop.archive.proximity_
 - (void)proximitiesInRadiusToTargets {
     for (Proximity *proximity in self.proximities) {
         if ([proximity isCoordinateInProximityToTarget:self.current]) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:ProximityDidApproachTargetNotification object:proximity.journey];
+            [proximity.delegate proximityDidApproachTarget:proximity];
         }
     }
 }

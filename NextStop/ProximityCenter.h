@@ -6,8 +6,6 @@ typedef enum {
     ProximityPowerBestMode,
 } ProximityMode;
 
-extern NSString *const ProximityDidApproachTargetNotification;
-
 @class Proximity;
 
 @interface ProximityCenter : NSObject <NSCoding>

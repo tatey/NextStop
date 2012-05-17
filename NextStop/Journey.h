@@ -1,9 +1,12 @@
 #import <Foundation/Foundation.h>
+#import "Proximity.h"
+
+extern NSString *const JourneyDidApproachTargetNotification;
 
 @class Route;
 @class Stop;
 
-@interface Journey : NSObject <NSCoding>
+@interface Journey : NSObject <NSCoding, ProximityDelegate>
 
 @property (readonly) NSArray *headings;
 @property (assign, nonatomic) BOOL monitorProximityToTarget;

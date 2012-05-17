@@ -1,11 +1,12 @@
 #import "Journey.h"
-#import "Proximity.h"
 #import "ProximityCenter.h"
 #import "Route.h"
 #import "Stop.h"
 #import "Trip.h"
 
 #define RADIUS 500 // Meters
+
+NSString *const JourneyDidApproachTargetNotification = @"me.nextstop.notification.journey.approach";
 
 static NSString *const kHeadingsKey = @"headings";
 static NSString *const kStopsKey = @"stops";
@@ -125,7 +126,7 @@ static NSString *const kTargetArchiveKey = @"me.nextstop.archive.journey.target"
 
 - (void)startMonitoringProximityToTarget {
     if (!self.monitorProximityToTarget || !self.target) return;
-    self.proximity = [[Proximity alloc] initWithJourney:self radius:RADIUS target:self.target.coordinate];
+    self.proximity = [[Proximity alloc] initWithDelegate:self radius:RADIUS target:self.target.coordinate];
     [self.proximityCenter addProximity:self.proximity];
 }
 
@@ -149,6 +150,13 @@ static NSString *const kTargetArchiveKey = @"me.nextstop.archive.journey.target"
     [coder encodeObject:self.route forKey:kRouteArchiveKey];
     [coder encodeInteger:self.selectedHeadingIndex forKey:kSelectedHeadingIndexArchiveKey];
     [coder encodeObject:self.target forKey:kTargetArchiveKey];
+}
+
+#pragma mark - ProximityDelegate
+
+- (void)proximityDidApproachTarget:(Proximity *)proximity {
+    self.monitorProximityToTarget = NO;
+    [[NSNotificationCenter defaultCenter] postNotificationName:JourneyDidApproachTargetNotification object:self];
 }
 
 @end
