@@ -89,4 +89,15 @@ static inline MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *an
     [self.mapView addAnnotations:self.journey.stops];
 }
 
+#pragma mark - MKMapViewDelegate
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    for (Stop *stop in self.journey.stops) {
+        if (stop == view.annotation) {
+            self.journey.target = stop;
+            break;
+        }
+    }
+}
+
 @end

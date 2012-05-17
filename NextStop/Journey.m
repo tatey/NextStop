@@ -22,6 +22,7 @@ static NSString *const kStopsKey = @"stops";
 
 @synthesize route = _route;
 @synthesize selectedHeadingIndex = _selectedHeadingIndex;
+@synthesize target = _target;
 
 - (id)initWithRoute:(Route *)route {
     self = [self init];
