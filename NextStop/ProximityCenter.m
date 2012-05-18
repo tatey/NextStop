@@ -1,4 +1,5 @@
 #import "Journey.h"
+#import "NSObject+KVOSEL.h"
 #import "Proximity.h"
 #import "ProximityCenter.h"
 
@@ -84,17 +85,6 @@ static NSString *const kProximitiesArchiveKey = @"me.nextstop.archive.proximity_
             [proximity.delegate proximityDidApproachTarget:proximity];
         }
     }
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    #if defined (__clang__)
-        #pragma clang diagnostic push
-        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    #endif
-    [self performSelector:(SEL)context];
-    #if defined (__clang__)
-        #pragma clang diagnostic pop
-    #endif
 }
 
 #pragma mark - CLLocationManagerDelegate
