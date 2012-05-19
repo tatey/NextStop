@@ -80,6 +80,16 @@ static inline MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *an
     [super viewDidUnload];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showApproachingTargetAlert:) name:JourneyDidApproachTargetNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super viewWillDisappear:animated];
+}
+
 - (NSString *)title {
     return self.journey.name;
 }
@@ -98,6 +108,13 @@ static inline MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *an
 
 - (void)proximitySwitchValueDidChange:(UISwitch *)aSwitch {    
     self.journey.monitorProximityToTarget = aSwitch.on;
+}
+
+#pragma mark - Notifications
+
+- (void)showApproachingTargetAlert:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alerts.titles.approaching", nil) message:NSLocalizedString(@"alerts.messages.approaching", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"controls.dismiss", nil) otherButtonTitles:nil];
+    [alert show];
 }
 
 #pragma mark - MKMapViewDelegate
