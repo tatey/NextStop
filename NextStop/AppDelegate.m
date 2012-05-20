@@ -1,10 +1,12 @@
 #import "AppDelegate.h"
+#import "BackgroundNotifier.h"
 #import "MapViewController.h"
 #import "ProximityCenter.h"
 #import "RoutesViewController.h"
 
 @interface AppDelegate ()
 
+@property (strong, nonatomic) BackgroundNotifier *backgroundNotifier; 
 @property (weak, nonatomic) ProximityCenter *proximityCenter;
 @property (strong, nonatomic) UIViewController *rootViewController;
 
@@ -16,10 +18,12 @@
 @synthesize window = _window;
 
 // Private
+@synthesize backgroundNotifier = _backgroundNotifier;
 @synthesize proximityCenter = _proximityCenter;
 @synthesize rootViewController = _rootViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.backgroundNotifier = [[BackgroundNotifier alloc] initWithApplication:application];
     if ([launchOptions objectForKey:UIApplicationLaunchOptionsLocationKey]) {
         self.proximityCenter.mode = ProximityPowerBestMode;
     } else {
