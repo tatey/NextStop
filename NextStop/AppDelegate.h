@@ -4,6 +4,4 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-- (UIViewController *)rootViewController;
-
 @end
