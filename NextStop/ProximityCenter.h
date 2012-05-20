@@ -11,13 +11,12 @@ typedef enum {
 @interface ProximityCenter : NSObject <NSCoding>
 
 @property (assign, nonatomic) CLLocationCoordinate2D current;
+@property (assign, nonatomic) ProximityMode mode;
+@property (readonly, nonatomic) NSInteger proximityCount;
 
 + (id)defaultCenter;
 
 - (void)addProximity:(Proximity *)proximity;
 - (void)removeProximity:(Proximity *)proximity;
-
-- (void)startUpdatingCurrent:(ProximityMode)mode;
-- (void)stopUpdatingCurrent;
 
 @end

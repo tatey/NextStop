@@ -4,6 +4,8 @@
 #import "ProximityCenter.h"
 
 static NSString *const kCurrentKeyPath = @"current";
+static NSString *const kModeKeyPath = @"mode";
+static NSString *const kProximityCountKeyPath = @"proximityCount";
 
 static NSString *const kProximitiesArchiveKey = @"me.nextstop.archive.proximity_center.proximities";
 
@@ -12,7 +14,12 @@ static NSString *const kProximitiesArchiveKey = @"me.nextstop.archive.proximity_
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (copy, nonatomic) NSMutableArray *proximities;
 
+- (void)modeDidChangeValue;
+- (void)proximityCountDidChange;
 - (void)proximitiesInRadiusToTargets;
+
+- (void)startUpdatingCurrent:(ProximityMode)mode;
+- (void)stopUpdatingCurrent;
 
 @end
 
@@ -20,6 +27,7 @@ static NSString *const kProximitiesArchiveKey = @"me.nextstop.archive.proximity_
 
 // Public
 @synthesize current = _current;
+@synthesize mode = _mode;
 
 // Private
 @synthesize locationManager = _locationManager;
@@ -38,12 +46,16 @@ static NSString *const kProximitiesArchiveKey = @"me.nextstop.archive.proximity_
     self = [super init];
     if (self) {
         [self addObserver:self forKeyPath:kCurrentKeyPath options:NSKeyValueObservingOptionNew context:@selector(proximitiesInRadiusToTargets)];
+        [self addObserver:self forKeyPath:kModeKeyPath options:NSKeyValueObservingOptionNew context:@selector(modeDidChangeValue)];
+        [self addObserver:self forKeyPath:kProximityCountKeyPath options:NSKeyValueObservingOptionNew context:@selector(proximityCountDidChange)];
     }
     return self;
 }
 
 - (void)dealloc {
     [self removeObserver:self forKeyPath:kCurrentKeyPath];
+    [self removeObserver:self forKeyPath:kModeKeyPath];
+    [self removeObserver:self forKeyPath:kProximityCountKeyPath];
 }
 
 - (NSMutableArray *)proximities {
@@ -53,12 +65,20 @@ static NSString *const kProximitiesArchiveKey = @"me.nextstop.archive.proximity_
     return _proximities;
 }
 
+- (NSInteger)proximityCount {
+    return [self.proximities count];
+}
+
 - (void)addProximity:(Proximity *)proximity {
+    [self willChangeValueForKey:kProximityCountKeyPath];
     [self.proximities addObject:proximity];
+    [self didChangeValueForKey:kProximityCountKeyPath];
 }
 
 - (void)removeProximity:(Proximity *)proximity {
+    [self willChangeValueForKey:kProximityCountKeyPath];
     [self.proximities removeObject:proximity];
+    [self didChangeValueForKey:kProximityCountKeyPath];
 }
 
 - (void)startUpdatingCurrent:(ProximityMode)mode {
@@ -77,6 +97,21 @@ static NSString *const kProximitiesArchiveKey = @"me.nextstop.archive.proximity_
 - (void)stopUpdatingCurrent {
     [self.locationManager stopUpdatingLocation];
     [self.locationManager stopMonitoringSignificantLocationChanges];
+}
+
+#pragma mark - Events
+
+- (void)modeDidChangeValue {
+    if (self.proximityCount == 0) return;
+    [self startUpdatingCurrent:self.mode];
+}
+
+- (void)proximityCountDidChange {
+    if (self.proximityCount > 0) {
+        [self startUpdatingCurrent:self.mode];
+    } else {
+        [self stopUpdatingCurrent];
+    }
 }
 
 - (void)proximitiesInRadiusToTargets {
