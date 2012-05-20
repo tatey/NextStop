@@ -41,7 +41,10 @@
 }
 
 - (ProximityCenter *)proximityCenter {
-    return [ProximityCenter defaultCenter];
+    if (!_proximityCenter) {
+        _proximityCenter = [ProximityCenter defaultCenter];
+    }
+    return _proximityCenter;
 }
 
 - (UIViewController *)rootViewController {
