@@ -62,6 +62,7 @@ static inline MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *an
     self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height - TOOLBAR_HEIGHT)];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
+    self.mapView.showsUserLocation = YES;
     [self.mapView addAnnotations:self.journey.stops];
     [self.view addSubview:self.mapView];
     // Proximity switch.
