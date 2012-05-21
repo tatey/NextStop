@@ -58,6 +58,14 @@ static NSString *const kProximitiesArchiveKey = @"me.nextstop.archive.proximity_
     [self removeObserver:self forKeyPath:kProximityCountKeyPath];
 }
 
+- (CLLocationManager *)locationManager {
+    if (!_locationManager) {
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.delegate = self;
+    }
+    return _locationManager;
+}
+
 - (NSMutableArray *)proximities {
     if (!_proximities) {
         _proximities = [NSMutableArray array];
