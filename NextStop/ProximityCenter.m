@@ -3,6 +3,8 @@
 #import "Proximity.h"
 #import "ProximityCenter.h"
 
+#define DISTANCE_FILTER 100 // Meters
+
 static NSString *const kCurrentKeyPath = @"current";
 static NSString *const kModeKeyPath = @"mode";
 static NSString *const kProximityCountKeyPath = @"proximityCount";
@@ -62,6 +64,7 @@ static NSString *const kProximitiesArchiveKey = @"me.nextstop.archive.proximity_
     if (!_locationManager) {
         _locationManager = [[CLLocationManager alloc] init];
         _locationManager.delegate = self;
+        _locationManager.distanceFilter = DISTANCE_FILTER;
     }
     return _locationManager;
 }
@@ -92,19 +95,16 @@ static NSString *const kProximitiesArchiveKey = @"me.nextstop.archive.proximity_
 - (void)startUpdatingCurrent:(ProximityMode)mode {
     switch (mode) {
         case ProximityAccuracyBestMode:
-            [self.locationManager stopMonitoringSignificantLocationChanges];
             [self.locationManager startUpdatingLocation];
             break;
         case ProximityPowerBestMode:
-            [self.locationManager stopUpdatingLocation];
-            [self.locationManager startMonitoringSignificantLocationChanges];
+            [self.locationManager startUpdatingLocation];
             break;
     }
 }
 
 - (void)stopUpdatingCurrent {
     [self.locationManager stopUpdatingLocation];
-    [self.locationManager stopMonitoringSignificantLocationChanges];
 }
 
 #pragma mark - Events
