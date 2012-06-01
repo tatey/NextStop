@@ -3,8 +3,6 @@
 #import "Proximity.h"
 #import "ProximityCenter.h"
 
-#define DISTANCE_FILTER 100 // Meters
-
 static NSString *const kCurrentKeyPath = @"current";
 static NSString *const kModeKeyPath = @"mode";
 static NSString *const kProximityCountKeyPath = @"proximityCount";
@@ -64,7 +62,7 @@ static NSString *const kProximitiesArchiveKey = @"me.nextstop.archive.proximity_
     if (!_locationManager) {
         _locationManager = [[CLLocationManager alloc] init];
         _locationManager.delegate = self;
-        _locationManager.distanceFilter = DISTANCE_FILTER;
+        _locationManager.distanceFilter = kCLLocationAccuracyNearestTenMeters;
     }
     return _locationManager;
 }
