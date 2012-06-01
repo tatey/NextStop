@@ -20,6 +20,8 @@
 		5DA3C18F1557CA7E00A49A4E /* RoutesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */; };
 		5DA866A81556C25E00FB1ACF /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA866A71556C25E00FB1ACF /* Route.m */; };
 		5DA866A91556C25E00FB1ACF /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA866A71556C25E00FB1ACF /* Route.m */; };
+		5DB0AE101578C83E00D43B2E /* Taringa.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DB0AE0E1578C83E00D43B2E /* Taringa.gpx */; };
+		5DB0AE111578C83E00D43B2E /* Toowoong.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DB0AE0F1578C83E00D43B2E /* Toowoong.gpx */; };
 		5DB59C7F1546C8E500417818 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C7E1546C8E500417818 /* UIKit.framework */; };
 		5DB59C811546C8E500417818 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C801546C8E500417818 /* Foundation.framework */; };
 		5DB59C831546C8E500417818 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C821546C8E500417818 /* CoreGraphics.framework */; };
@@ -71,6 +73,8 @@
 		5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutesTableViewController.m; sourceTree = "<group>"; };
 		5DA866A61556C25E00FB1ACF /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
 		5DA866A71556C25E00FB1ACF /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
+		5DB0AE0E1578C83E00D43B2E /* Taringa.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Taringa.gpx; sourceTree = "<group>"; };
+		5DB0AE0F1578C83E00D43B2E /* Toowoong.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Toowoong.gpx; sourceTree = "<group>"; };
 		5DB59C7A1546C8E500417818 /* NextStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DB59C7E1546C8E500417818 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5DB59C801546C8E500417818 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -205,6 +209,8 @@
 				5DB59C8A1546C8E500417818 /* main.m */,
 				5DB59C8C1546C8E500417818 /* NextStop-Prefix.pch */,
 				5DA15B21154ED00800FCEE13 /* Localizable.strings */,
+				5DB0AE0E1578C83E00D43B2E /* Taringa.gpx */,
+				5DB0AE0F1578C83E00D43B2E /* Toowoong.gpx */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -307,6 +313,8 @@
 				5DB59C891546C8E500417818 /* InfoPlist.strings in Resources */,
 				5DD52407154800BC00011A3E /* NextStop.sqlite in Resources */,
 				5DA15B22154ED00800FCEE13 /* Localizable.strings in Resources */,
+				5DB0AE101578C83E00D43B2E /* Taringa.gpx in Resources */,
+				5DB0AE111578C83E00D43B2E /* Toowoong.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
