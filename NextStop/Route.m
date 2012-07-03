@@ -10,7 +10,7 @@ static NSString *const kLongNameArchiveKey = @"me.nextstop.archive.route.long_na
 static NSString *const kPrimaryKeyArchiveKey = @"me.nextstop.archive.route.primary_key";
 static NSString *const kShortNameArchiveKey = @"me.nextstop.archive.route.short_name";
 
-static inline const char * RouteStringToWildcardUTF8String(NSString *string) {
+static const char * RouteStringToWildcardUTF8String(NSString *string) {
     return [[NSString stringWithFormat:@"%%%@%%", string] UTF8String];
 }
 

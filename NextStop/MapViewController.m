@@ -4,7 +4,7 @@
 
 #define TOOLBAR_HEIGHT 44
 
-static inline MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotations) {
+static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotations) {
     NSInteger count = 0;
     MKMapPoint points[[annotations count]];
     for (id <MKAnnotation> annotation in annotations) {

@@ -14,7 +14,7 @@ typedef enum {
     TripUnknownDirection,
 } TripDirection;
 
-static inline NSString * TripDirectionToLocalizableString(TripDirection direction) {
+static NSString * TripDirectionToLocalizableString(TripDirection direction) {
     switch (direction) {
         case TripInboundDirection:
             return @"trip.directions.inbound";
