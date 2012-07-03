@@ -1,7 +1,15 @@
 // Models
-"trip.headings.inbound" = "Inbound";
-"trip.headings.outbound" = "Outbound";
-"trip.headings.unknown" = "Unknown";
+"trip.directions.inbound" = "Inbound";
+"trip.directions.outbound" = "Outbound";
+"trip.directions.unknown" = "Unknown";
+"trip.directions.counter_clockwise" = "Counter Clockwise";
+"trip.directions.clockwise" = "Clockwise";
+"trip.directions.inward" = "Inward";
+"trip.directions.outward" = "Outward";
+"trip.directions.south" = "South";
+"trip.directions.north" = "North";
+"trip.directions.east" = "East";
+"trip.directions.west" = "West";
 
 // View Controllers
 "maps.alerts.titles.approaching" = "Approaching";

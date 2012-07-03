@@ -69,7 +69,7 @@ static NSString *const kTargetArchiveKey = @"me.nextstop.archive.journey.target"
         NSArray *trips = [self trips];
         NSMutableArray *headings = [NSMutableArray arrayWithCapacity:[trips count]];
         for (Trip *trip in trips) {
-            NSString *heading = NSLocalizedString(TripHeadingToLocalizableString(trip.heading), nil);
+            NSString *heading = NSLocalizedString(TripDirectionToLocalizableString(trip.direction), nil);
             [headings addObject:heading];
         }
         _headings = [headings copy];
