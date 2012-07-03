@@ -3,13 +3,11 @@
 #import "SQLiteDB.h"
 #import "Trip.h"
 
-#define QUERY @"SELECT DISTINCT stops.* "                            \
-               "FROM stops "                                         \
-               "INNER JOIN services ON services.stop_id = stops.id " \
-               "INNER JOIN trips ON services.trip_id = trips.id "    \
-               "WHERE stops.latitude IS NOT NULL AND "               \
-               "      stops.longitude IS NOT NULL AND "              \
-               "      trips.id = ?; "                                \
+#define QUERY @"SELECT DISTINCT stops.* "                                \
+               "FROM stops "                                             \
+               "INNER JOIN stop_times ON stop_times.stop_id = stops.id " \
+               "INNER JOIN trips ON stop_times.trip_id = trips.id "      \
+               "WHERE trips.id = ?; "                                    \
 
 static NSString *const kPrimaryKeyArchiveKey = @"me.nextstop.archive.stop.primary_key";
 static NSString *const kLatitudeArchiveKey = @"me.nextstop.archive.stop.latitude";
@@ -48,7 +46,7 @@ static NSString *const kNameArchiveKey = @"me.nextstop.archive.stop.name";
         _primaryKey = sqlite3_column_int(stmt, 0);
         _latitude = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 3)] doubleValue];
         _longitude = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 4)] doubleValue];
-        _name = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 1)] copy];
+        _name = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 2)] copy];
     }
     return self;
 }

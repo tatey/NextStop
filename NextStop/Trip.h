@@ -22,9 +22,7 @@ static inline NSString * TripHeadingToLocalizableString(TripHeading heading) {
 
 @interface Trip : NSObject
 
-@property (readonly) NSString *longName;
 @property (readonly) NSUInteger primaryKey;
-@property (readonly) NSString *shortName;
 @property (readonly) TripHeading heading;
 
 + (NSArray *)tripsBelongingToRoute:(Route *)route;
