@@ -1,3 +1,6 @@
+// Controls
+"controls.dismiss" = "Dismiss";
+
 // Models
 "trip.directions.inbound" = "Inbound";
 "trip.directions.outbound" = "Outbound";
@@ -11,8 +14,12 @@
 "trip.directions.east" = "East";
 "trip.directions.west" = "West";
 
+// Notifications
+"notifications.action.approaching" = "Check";
+"notifications.body.approaching" = "Stop is approaching.";
+
 // View Controllers
-"maps.alerts.titles.approaching" = "Approaching";
-"maps.alerts.messages.approaching" = "Bus stop is approaching. Get ready to get off.";
-"routes.search.placeholder" = "Try 130 or City BUZ";
+"maps.alerts.titles.approaching" = "Stop is approaching";
+"maps.alerts.messages.approaching" = "Prepare to get off soon.";
+"routes.search.placeholder" = "Try 130 or Sunnybank";
 "routes.title" = "Routes";

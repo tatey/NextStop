@@ -20,8 +20,8 @@
 
 - (void)journeyDidApproach:(id)sender {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertAction = NSLocalizedString(@"local_notification.action.approaching", nil);
-    notification.alertBody = NSLocalizedString(@"local_notification.body.approaching", nil);
+    notification.alertAction = NSLocalizedString(@"notifications.action.approaching", nil);
+    notification.alertBody = NSLocalizedString(@"notifications.body.approaching", nil);
     notification.soundName = UILocalNotificationDefaultSoundName;
     [self.application presentLocalNotificationNow:notification];
 }
