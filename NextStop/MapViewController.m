@@ -87,12 +87,16 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self addObserver:self forKeyPath:kJourneyMonitorProximityToTargetKeyPath options:NSKeyValueObservingOptionNew context:@selector(journeyProximityToTargetDidChange)];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showApproachingTargetAlert:) name:JourneyDidApproachTargetNotification object:nil];
+    [self applicationWillEnterForeground:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self removeObserver:self forKeyPath:kJourneyMonitorProximityToTargetKeyPath];
+    [self applicationDidEnterBackground:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
     [super viewWillDisappear:animated];
 }
 
@@ -117,6 +121,14 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 }
 
 #pragma mark - Notifications
+
+- (void)applicationDidEnterBackground:(NSNotification *)notification {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:JourneyDidApproachTargetNotification object:nil];
+}
+
+- (void)applicationWillEnterForeground:(NSNotification *)notification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showApproachingTargetAlert:) name:JourneyDidApproachTargetNotification object:nil];
+}
 
 - (void)journeyProximityToTargetDidChange {
     self.proximitySwitch.on = self.journey.monitorProximityToTarget;
