@@ -107,7 +107,7 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
     [self.mapView addAnnotations:self.journey.stops];
 }
 
-- (void)proximitySwitchValueDidChange:(UISwitch *)aSwitch {    
+- (void)proximitySwitchValueDidChange:(UISwitch *)aSwitch {
     self.journey.monitorProximityToTarget = aSwitch.on;
 }
 
