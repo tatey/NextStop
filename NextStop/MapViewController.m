@@ -1,8 +1,11 @@
 #import "Journey.h"
 #import "MapViewController.h"
+#import "NSObject+KVOSEL.h"
 #import "Stop.h"
 
 #define TOOLBAR_HEIGHT 44
+
+static NSString *const kJourneyMonitorProximityToTargetKeyPath = @"journey.monitorProximityToTarget";
 
 static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotations) {
     NSInteger count = 0;
@@ -83,11 +86,13 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self addObserver:self forKeyPath:kJourneyMonitorProximityToTargetKeyPath options:NSKeyValueObservingOptionNew context:@selector(journeyProximityToTargetDidChange)];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showApproachingTargetAlert:) name:JourneyDidApproachTargetNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self removeObserver:self forKeyPath:kJourneyMonitorProximityToTargetKeyPath];
     [super viewWillDisappear:animated];
 }
 
@@ -112,6 +117,10 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 }
 
 #pragma mark - Notifications
+
+- (void)journeyProximityToTargetDidChange {
+    self.proximitySwitch.on = self.journey.monitorProximityToTarget;
+}
 
 - (void)showApproachingTargetAlert:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alerts.titles.approaching", nil) message:NSLocalizedString(@"alerts.messages.approaching", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"controls.dismiss", nil) otherButtonTitles:nil];
