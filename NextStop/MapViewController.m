@@ -131,7 +131,7 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 }
 
 - (void)journeyProximityToTargetDidChange {
-    self.proximitySwitch.on = self.journey.monitorProximityToTarget;
+    [self.proximitySwitch setOn:self.journey.monitorProximityToTarget animated:YES];
 }
 
 - (void)showApproachingTargetAlert:(NSNotification *)notification {
