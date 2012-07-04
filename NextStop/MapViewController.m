@@ -122,7 +122,7 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
     self.proximitySwitch.on = self.journey.monitorProximityToTarget;
 }
 
-- (void)showApproachingTargetAlert:(id)sender {
+- (void)showApproachingTargetAlert:(NSNotification *)notification {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"maps.alerts.titles.approaching", nil) message:NSLocalizedString(@"maps.alerts.messages.approaching", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"controls.dismiss", nil) otherButtonTitles:nil];
     [alert show];
 }
