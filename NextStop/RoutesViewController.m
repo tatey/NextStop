@@ -1,7 +1,7 @@
-#import "Journey.h"
 #import "MapViewController.h"
 #import "Route.h"
 #import "RoutesTableViewController.h"
+#import "RouteTracker.h"
 #import "RoutesViewController.h"
 
 @implementation RoutesViewController
@@ -42,8 +42,8 @@
 #pragma mark - RoutesTableViewDelegate
 
 - (void)routesTableViewController:(RoutesTableViewController *)routesTableViewController didSelectRoute:(Route *)route {
-    Journey *journey = [[Journey alloc] initWithRoute:route];
-    MapViewController *mapViewController = [[MapViewController alloc] initWithJourney:journey];
+    RouteTracker *routeTracker = [[RouteTracker alloc] initWithRoute:route];
+    MapViewController *mapViewController = [[MapViewController alloc] initWithRouteTracker:routeTracker];
     [self.navigationController pushViewController:mapViewController animated:YES];
 }
 

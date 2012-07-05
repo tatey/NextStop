@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D05CCFE15A598F00011A165 /* TripTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05CCFD15A598F00011A165 /* TripTracker.m */; };
+		5D05CD0215A59E1F0011A165 /* RouteTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05CD0115A59E1F0011A165 /* RouteTracker.m */; };
 		5D05F316154ACA7F004E7773 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* Stop.m */; };
 		5D05F317154ACA7F004E7773 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* Stop.m */; };
 		5D2BFDBB1547F3B400D9F53E /* RoutesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */; };
 		5D2BFDBC1547F3B400D9F53E /* RoutesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */; };
 		5D54CDFA15668DA1005D0170 /* NSObject+KVOSEL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D54CDF915668DA1005D0170 /* NSObject+KVOSEL.m */; };
 		5D7D8A831568C5D0004DFB54 /* BackgroundNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */; };
-		5D93E9CA1559320100116A94 /* Journey.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D93E9C91559320100116A94 /* Journey.m */; };
-		5D93E9CB1559320100116A94 /* Journey.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D93E9C91559320100116A94 /* Journey.m */; };
 		5DA15B22154ED00800FCEE13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DA15B21154ED00800FCEE13 /* Localizable.strings */; };
 		5DA3C18E1557CA7C00A49A4E /* RoutesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */; };
 		5DA3C18F1557CA7E00A49A4E /* RoutesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */; };
@@ -57,6 +57,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D05CCFC15A598F00011A165 /* TripTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripTracker.h; sourceTree = "<group>"; };
+		5D05CCFD15A598F00011A165 /* TripTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripTracker.m; sourceTree = "<group>"; };
+		5D05CD0015A59E1F0011A165 /* RouteTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteTracker.h; sourceTree = "<group>"; };
+		5D05CD0115A59E1F0011A165 /* RouteTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteTracker.m; sourceTree = "<group>"; };
 		5D05F314154ACA7F004E7773 /* Stop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stop.h; sourceTree = "<group>"; };
 		5D05F315154ACA7F004E7773 /* Stop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stop.m; sourceTree = "<group>"; };
 		5D0C806D1557CF640078BC9C /* RoutesTableViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutesTableViewControllerDelegate.h; sourceTree = "<group>"; };
@@ -66,8 +70,6 @@
 		5D54CDF915668DA1005D0170 /* NSObject+KVOSEL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVOSEL.m"; sourceTree = "<group>"; };
 		5D7D8A811568C5D0004DFB54 /* BackgroundNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundNotifier.h; sourceTree = "<group>"; };
 		5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundNotifier.m; sourceTree = "<group>"; };
-		5D93E9C81559320100116A94 /* Journey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journey.h; sourceTree = "<group>"; };
-		5D93E9C91559320100116A94 /* Journey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journey.m; sourceTree = "<group>"; };
 		5DA15B21154ED00800FCEE13 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		5DA3C18C1557CA7C00A49A4E /* RoutesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutesTableViewController.h; sourceTree = "<group>"; };
 		5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutesTableViewController.m; sourceTree = "<group>"; };
@@ -172,8 +174,6 @@
 				5DB59C8E1546C8E500417818 /* AppDelegate.m */,
 				5D7D8A811568C5D0004DFB54 /* BackgroundNotifier.h */,
 				5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */,
-				5D93E9C81559320100116A94 /* Journey.h */,
-				5D93E9C91559320100116A94 /* Journey.m */,
 				5D54CDF815668DA1005D0170 /* NSObject+KVOSEL.h */,
 				5D54CDF915668DA1005D0170 /* NSObject+KVOSEL.m */,
 				5DB59CAD1546C97200417818 /* MapViewController.h */,
@@ -184,6 +184,8 @@
 				5DCFB37315611AED0036B36A /* ProximityCenter.m */,
 				5DA866A61556C25E00FB1ACF /* Route.h */,
 				5DA866A71556C25E00FB1ACF /* Route.m */,
+				5D05CD0015A59E1F0011A165 /* RouteTracker.h */,
+				5D05CD0115A59E1F0011A165 /* RouteTracker.m */,
 				5DA3C18C1557CA7C00A49A4E /* RoutesTableViewController.h */,
 				5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */,
 				5D0C806D1557CF640078BC9C /* RoutesTableViewControllerDelegate.h */,
@@ -195,6 +197,8 @@
 				5DD523FD1547FF7C00011A3E /* SQLiteDB.m */,
 				5DD52408154800DD00011A3E /* Trip.h */,
 				5DD52409154800DD00011A3E /* Trip.m */,
+				5D05CCFC15A598F00011A165 /* TripTracker.h */,
+				5D05CCFD15A598F00011A165 /* TripTracker.m */,
 				5DD524051548007600011A3E /* Resources */,
 				5DB59C851546C8E500417818 /* Supporting Files */,
 			);
@@ -358,11 +362,12 @@
 				5D05F316154ACA7F004E7773 /* Stop.m in Sources */,
 				5DA866A81556C25E00FB1ACF /* Route.m in Sources */,
 				5DA3C18F1557CA7E00A49A4E /* RoutesTableViewController.m in Sources */,
-				5D93E9CA1559320100116A94 /* Journey.m in Sources */,
 				5DCFB37415611AED0036B36A /* ProximityCenter.m in Sources */,
 				5DCFB37715611B070036B36A /* Proximity.m in Sources */,
 				5D54CDFA15668DA1005D0170 /* NSObject+KVOSEL.m in Sources */,
 				5D7D8A831568C5D0004DFB54 /* BackgroundNotifier.m in Sources */,
+				5D05CCFE15A598F00011A165 /* TripTracker.m in Sources */,
+				5D05CD0215A59E1F0011A165 /* RouteTracker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +382,6 @@
 				5D05F317154ACA7F004E7773 /* Stop.m in Sources */,
 				5DA866A91556C25E00FB1ACF /* Route.m in Sources */,
 				5DA3C18E1557CA7C00A49A4E /* RoutesTableViewController.m in Sources */,
-				5D93E9CB1559320100116A94 /* Journey.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

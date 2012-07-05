@@ -1,4 +1,3 @@
-#import "Journey.h"
 #import "NSObject+KVOSEL.h"
 #import "Proximity.h"
 #import "ProximityCenter.h"
