@@ -19,8 +19,8 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 
 @interface MapViewController ()
 
-@property (strong, nonatomic) UISegmentedControl *headingsControl;
-@property (strong, nonatomic) UIToolbar *headingsToolbar;
+@property (strong, nonatomic) UISegmentedControl *directionsControl;
+@property (strong, nonatomic) UIToolbar *directionsToolbar;
 @property (strong, nonatomic) MKMapView *mapView;
 @property (strong, nonatomic) UISwitch *proximitySwitch;
 
@@ -34,8 +34,8 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 @synthesize journey = _journey;
 
 // Private
-@synthesize headingsControl = _headingsControl;
-@synthesize headingsToolbar = _toolbar;
+@synthesize directionsControl = _directionsControl;
+@synthesize directionsToolbar = _directionsToolbar;
 @synthesize mapView = _mapView;
 @synthesize proximitySwitch = _proximitySwitch;
 
@@ -49,18 +49,18 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 
 - (void)viewDidLoad {
     [super viewDidLoad];    
-    // Headings toolbar.
-    self.headingsToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.size.height - TOOLBAR_HEIGHT, self.view.bounds.size.width, TOOLBAR_HEIGHT)];
-    self.headingsToolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth;
-    [self.view addSubview:self.headingsToolbar];
-    // Headings control.
-    self.headingsControl = [[UISegmentedControl alloc] initWithItems:self.journey.headings];
-    self.headingsControl.segmentedControlStyle = UISegmentedControlStyleBar;    
-    self.headingsControl.selectedSegmentIndex = self.journey.selectedHeadingIndex;
-    [self.headingsControl addTarget:self action:@selector(headingControlValueDidChange:) forControlEvents:UIControlEventValueChanged];
+    // Directions toolbar.
+    self.directionsToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.size.height - TOOLBAR_HEIGHT, self.view.bounds.size.width, TOOLBAR_HEIGHT)];
+    self.directionsToolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth;
+    [self.view addSubview:self.directionsToolbar];
+    // Directions control.
+    self.directionsControl = [[UISegmentedControl alloc] initWithItems:self.journey.directions];
+    self.directionsControl.segmentedControlStyle = UISegmentedControlStyleBar;
+    self.directionsControl.selectedSegmentIndex = self.journey.selectedDirectionIndex;
+    [self.directionsControl addTarget:self action:@selector(directionControlValueDidChange:) forControlEvents:UIControlEventValueChanged];
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *segmentedControl = [[UIBarButtonItem alloc] initWithCustomView:self.headingsControl];
-    self.headingsToolbar.items = [NSArray arrayWithObjects:flexibleSpace, segmentedControl, flexibleSpace, nil];
+    UIBarButtonItem *segmentedControl = [[UIBarButtonItem alloc] initWithCustomView:self.directionsControl];
+    self.directionsToolbar.items = [NSArray arrayWithObjects:flexibleSpace, segmentedControl, flexibleSpace, nil];
     // MapView and annotations.
     self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height - TOOLBAR_HEIGHT)];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
@@ -78,8 +78,8 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 }
 
 - (void)viewDidUnload {
-    self.headingsControl = nil;
-    self.headingsToolbar = nil;
+    self.directionsControl = nil;
+    self.directionsToolbar = nil;
     self.mapView = nil;
     [super viewDidUnload];
 }
@@ -110,9 +110,9 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
      
 #pragma mark - Actions
      
-- (void)headingControlValueDidChange:(UISegmentedControl *)segmentedControl {
+- (void)directionControlValueDidChange:(UISegmentedControl *)segmentedControl {
     [self.mapView removeAnnotations:self.journey.stops];
-    self.journey.selectedHeadingIndex = segmentedControl.selectedSegmentIndex;
+    self.journey.selectedDirectionIndex = segmentedControl.selectedSegmentIndex;
     [self.mapView addAnnotations:self.journey.stops];
 }
 

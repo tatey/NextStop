@@ -8,16 +8,16 @@
 
 NSString *const JourneyDidApproachTargetNotification = @"me.nextstop.notification.journey.approach";
 
-static NSString *const kHeadingsKey = @"headings";
+static NSString *const kDirectionsKey = @"directions";
 static NSString *const kStopsKey = @"stops";
 
 static NSString *const kRouteArchiveKey = @"me.nextstop.archive.journey.route";
-static NSString *const kSelectedHeadingIndexArchiveKey = @"me.nextstop.archive.journey.selected_heading_index";
+static NSString *const kSelectedDirectionIndexArchiveKey = @"me.nextstop.archive.journey.selected_direction_index";
 static NSString *const kTargetArchiveKey = @"me.nextstop.archive.journey.target";
 
 @interface Journey () {
 @private
-    __strong NSArray *_headings;
+    __strong NSArray *_directions;
     __strong NSArray *_stops;
     __strong NSArray *_trips;
 }
@@ -38,7 +38,7 @@ static NSString *const kTargetArchiveKey = @"me.nextstop.archive.journey.target"
 // Public
 @synthesize monitorProximityToTarget = _monitorProximityToTarget;
 @synthesize route = _route;
-@synthesize selectedHeadingIndex = _selectedHeadingIndex;
+@synthesize selectedDirectionIndex = _selectedDirectionIndex;
 @synthesize target = _target;
 
 // Private
@@ -53,28 +53,28 @@ static NSString *const kTargetArchiveKey = @"me.nextstop.archive.journey.target"
     return self;
 }
 
-- (void)setSelectedHeadingIndex:(NSInteger)selectedHeadingIndex {
-    [self willChangeValueForKey:kHeadingsKey];
+- (void)setSelectedDirectionIndex:(NSInteger)selectedDirectionIndex {
+    [self willChangeValueForKey:kDirectionsKey];
     [self willChangeValueForKey:kStopsKey];
-    _selectedHeadingIndex = selectedHeadingIndex;
-    _headings = nil; // Clear cache
+    _selectedDirectionIndex = selectedDirectionIndex;
+    _directions = nil; // Clear cache
     _stops = nil; // Clear cache
     _trips = nil; // Clear cache
-    [self didChangeValueForKey:kHeadingsKey];
+    [self didChangeValueForKey:kDirectionsKey];
     [self didChangeValueForKey:kStopsKey];
 }
 
-- (NSArray *)headings {
-    if (!_headings) {
+- (NSArray *)directions {
+    if (!_directions) {
         NSArray *trips = [self trips];
-        NSMutableArray *headings = [NSMutableArray arrayWithCapacity:[trips count]];
+        NSMutableArray *directions = [NSMutableArray arrayWithCapacity:[trips count]];
         for (Trip *trip in trips) {
-            NSString *heading = NSLocalizedString(TripDirectionToLocalizableString(trip.direction), nil);
-            [headings addObject:heading];
+            NSString *direction = NSLocalizedString(TripDirectionToLocalizableString(trip.direction), nil);
+            [directions addObject:direction];
         }
-        _headings = [headings copy];
+        _directions = [directions copy];
     }
-    return _headings;
+    return _directions;
 }
 
 - (ProximityCenter *)proximityCenter {
@@ -121,7 +121,7 @@ static NSString *const kTargetArchiveKey = @"me.nextstop.archive.journey.target"
 }
 
 - (Trip *)selectedTrip {
-    return [self.trips objectAtIndex:self.selectedHeadingIndex];    
+    return [self.trips objectAtIndex:self.selectedDirectionIndex];
 }
 
 - (void)startMonitoringProximityToTarget {
@@ -140,7 +140,7 @@ static NSString *const kTargetArchiveKey = @"me.nextstop.archive.journey.target"
 - (id)initWithCoder:(NSCoder *)coder {
     self = [self initWithRoute:[coder decodeObjectForKey:kRouteArchiveKey]];
     if (self) {
-        self.selectedHeadingIndex = [coder decodeIntegerForKey:kSelectedHeadingIndexArchiveKey];
+        self.selectedDirectionIndex = [coder decodeIntegerForKey:kSelectedDirectionIndexArchiveKey];
         self.target = [coder decodeObjectForKey:kTargetArchiveKey];
     }
     return self;
@@ -148,7 +148,7 @@ static NSString *const kTargetArchiveKey = @"me.nextstop.archive.journey.target"
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:self.route forKey:kRouteArchiveKey];
-    [coder encodeInteger:self.selectedHeadingIndex forKey:kSelectedHeadingIndexArchiveKey];
+    [coder encodeInteger:self.selectedDirectionIndex forKey:kSelectedDirectionIndexArchiveKey];
     [coder encodeObject:self.target forKey:kTargetArchiveKey];
 }
 

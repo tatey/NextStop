@@ -8,10 +8,10 @@ extern NSString *const JourneyDidApproachTargetNotification;
 
 @interface Journey : NSObject <NSCoding, ProximityDelegate>
 
-@property (readonly) NSArray *headings;
+@property (readonly) NSArray *directions;
 @property (assign, nonatomic) BOOL monitorProximityToTarget;
 @property (strong, nonatomic) Route *route;
-@property (assign, nonatomic) NSInteger selectedHeadingIndex;
+@property (assign, nonatomic) NSInteger selectedDirectionIndex;
 @property (readonly) NSArray *stops;
 @property (strong, nonatomic) Stop *target;
 
