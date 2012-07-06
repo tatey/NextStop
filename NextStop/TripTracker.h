@@ -9,11 +9,10 @@ extern NSString *const TripTrackerDidApproachTargetNotification;
 @interface TripTracker : NSObject <ProximityDelegate>
 
 @property (assign, nonatomic) BOOL monitorProximityToTarget;
+@property (readonly) NSArray *stops;
 @property (strong, nonatomic) Stop *target;
 @property (strong, nonatomic) Trip *trip;
 
 - (id)initWithTrip:(Trip *)trip;
-
-- (NSArray *)stops;
 
 @end

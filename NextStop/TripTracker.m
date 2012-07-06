@@ -7,7 +7,12 @@
 
 NSString *const TripTrackerDidApproachTargetNotification = @"me.nextstop.notifications.trip_tracker.approach";
 
-@interface TripTracker ()
+static NSString *const kStopsKey = @"stops";
+
+@interface TripTracker () {
+@private
+    __strong NSArray *_stops;
+}
 
 @property (strong, nonatomic) Proximity *proximity;
 @property (readonly) ProximityCenter *proximityCenter;
@@ -40,6 +45,13 @@ NSString *const TripTrackerDidApproachTargetNotification = @"me.nextstop.notific
     return [ProximityCenter defaultCenter];
 }
 
+- (NSArray *)stops {
+    if (!_stops) {
+        _stops = [self.trip stops];
+    }
+    return _stops;
+}
+
 - (void)setMonitorProximityToTarget:(BOOL)monitorProximityToTarget {
     _monitorProximityToTarget = monitorProximityToTarget;
     if (monitorProximityToTarget) {
@@ -57,6 +69,13 @@ NSString *const TripTrackerDidApproachTargetNotification = @"me.nextstop.notific
     }
 }
 
+- (void)setTrip:(Trip *)trip {
+    _trip = trip;
+    [self willChangeValueForKey:kStopsKey];
+    _stops = nil; // Clear cache
+    [self didChangeValueForKey:kStopsKey];
+}
+
 - (void)startMonitoringProximityToTarget {
     if (!self.monitorProximityToTarget || !self.target) return;
     self.proximity = [[Proximity alloc] initWithDelegate:self radius:RADIUS target:self.target.coordinate];
@@ -66,10 +85,6 @@ NSString *const TripTrackerDidApproachTargetNotification = @"me.nextstop.notific
 - (void)stopMonitoringProximityToTarget {
     [self.proximityCenter removeProximity:self.proximity];
     self.proximity = nil;
-}
-
-- (NSArray *)stops {
-    return [self.trip stops];
 }
 
 #pragma mark - ProximityDelegate

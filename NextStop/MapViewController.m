@@ -69,7 +69,7 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
-    [self.mapView addAnnotations:[self.tripTracker stops]];
+    [self.mapView addAnnotations:self.tripTracker.stops];
     [self.view addSubview:self.mapView];
     // Proximity switch.
     self.proximitySwitch = [[UISwitch alloc] init];
@@ -108,15 +108,15 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 }
 
 - (void)zoomToFitStops:(BOOL)animated {
-    [self.mapView setRegion:CoordinateRegionMakeWithAnnotations([self.tripTracker stops]) animated:animated];
+    [self.mapView setRegion:CoordinateRegionMakeWithAnnotations(self.tripTracker.stops) animated:animated];
 }
      
 #pragma mark - Actions
      
 - (void)directionControlValueDidChange:(UISegmentedControl *)segmentedControl {
-    [self.mapView removeAnnotations:[self.tripTracker stops]];
+    [self.mapView removeAnnotations:self.tripTracker.stops];
     self.routeTracker.selectedDirectionIndex = segmentedControl.selectedSegmentIndex;
-    [self.mapView addAnnotations:[self.tripTracker stops]];
+    [self.mapView addAnnotations:self.tripTracker.stops];
 }
 
 - (void)proximitySwitchValueDidChange:(UISwitch *)aSwitch {
@@ -145,7 +145,7 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 #pragma mark - MKMapViewDelegate
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-    for (Stop *stop in [self.tripTracker stops]) {
+    for (Stop *stop in self.tripTracker.stops) {
         if (stop == view.annotation) {
             self.tripTracker.target = stop;
             break;
