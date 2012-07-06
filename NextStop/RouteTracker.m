@@ -1,14 +1,17 @@
 #import "Route.h"
 #import "RouteTracker.h"
 #import "Trip.h"
+#import "TripTracker.h"
 
 static NSString *const kDirectionsKey = @"directions";
 static NSString *const kTripsKey = @"trips";
+static NSString *const kTripTrackers = @"tripTrackers";
 
 @interface RouteTracker () {
 @private
     __strong NSArray *_directions;
     __strong NSArray *_trips;
+    __strong NSArray *_tripTrackers;
 }
 
 @end
@@ -19,6 +22,7 @@ static NSString *const kTripsKey = @"trips";
 @synthesize route = _route;
 @synthesize selectedDirectionIndex = _selectedDirectionIndex;
 @synthesize trips = _trips;
+@synthesize tripTrackers = _tripTrackers;
 
 - (id)initWithRoute:(Route *)route {
     self = [self init];
@@ -30,9 +34,8 @@ static NSString *const kTripsKey = @"trips";
 
 - (NSArray *)directions {
     if (!_directions) {
-        NSArray *trips = [self trips];
-        NSMutableArray *directions = [NSMutableArray arrayWithCapacity:[trips count]];
-        for (Trip *trip in trips) {
+        NSMutableArray *directions = [NSMutableArray arrayWithCapacity:[self.trips count]];
+        for (Trip *trip in self.trips) {
             NSString *direction = NSLocalizedString(TripDirectionToLocalizableString(trip.direction), nil);
             [directions addObject:direction];
         }
@@ -48,18 +51,37 @@ static NSString *const kTripsKey = @"trips";
     return _trips;
 }
 
+- (NSArray *)tripTrackers {
+    if (!_tripTrackers) {
+        NSMutableArray *tripTrackers = [NSMutableArray arrayWithCapacity:[self.trips count]];
+        for (Trip *trip in self.trips) {
+            TripTracker *tripTracker = [[TripTracker alloc] initWithTrip:trip];
+            [tripTrackers addObject:tripTracker];
+        }
+        _tripTrackers = [tripTrackers copy];
+    }
+    return _tripTrackers;
+}
+
 - (void)setRoute:(Route *)route {
     _route = route;
     [self willChangeValueForKey:kDirectionsKey];
     [self willChangeValueForKey:kTripsKey];
+    [self willChangeValueForKey:kTripTrackers];
     _directions = nil; // Clear cache
     _trips = nil; // Clear cache
+    _tripTrackers = nil; // Clear cache
     [self didChangeValueForKey:kDirectionsKey];
     [self didChangeValueForKey:kTripsKey];
+    [self didChangeValueForKey:kTripTrackers];
 }
 
 - (NSString *)name {
     return self.route.shortName;
+}
+
+- (TripTracker *)selectedTripTracker {
+    return [self.tripTrackers objectAtIndex:self.selectedDirectionIndex];
 }
 
 @end

@@ -46,6 +46,7 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
     self = [self init];
     if (self) {
         self.routeTracker = routeTracker;
+        self.tripTracker = [self.routeTracker selectedTripTracker];
     }
     return self;
 }
@@ -116,6 +117,7 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 - (void)directionControlValueDidChange:(UISegmentedControl *)segmentedControl {
     [self.mapView removeAnnotations:self.tripTracker.stops];
     self.routeTracker.selectedDirectionIndex = segmentedControl.selectedSegmentIndex;
+    self.tripTracker = [self.routeTracker selectedTripTracker];
     [self.mapView addAnnotations:self.tripTracker.stops];
 }
 
