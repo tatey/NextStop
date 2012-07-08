@@ -1,5 +1,5 @@
 #import "MapViewController.h"
-#import "Route.h"
+#import "RouteRecord.h"
 #import "RoutesTableViewController.h"
 #import "RouteManager.h"
 #import "RoutesViewController.h"
@@ -35,7 +35,7 @@
 
 #pragma mark - RoutesTableViewDelegate
 
-- (void)routesTableViewController:(RoutesTableViewController *)routesTableViewController didSelectRoute:(Route *)route {
+- (void)routesTableViewController:(RoutesTableViewController *)routesTableViewController didSelectRoute:(RouteRecord *)route {
     RouteManager *routeManager = [[RouteManager alloc] initWithRoute:route];
     MapViewController *mapViewController = [[MapViewController alloc] initWithRouteManager:routeManager];
     [self.navigationController pushViewController:mapViewController animated:YES];

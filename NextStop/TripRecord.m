@@ -1,7 +1,7 @@
-#import "Route.h"
-#import "Stop.h"
+#import "RouteRecord.h"
+#import "StopRecord.h"
 #import "SQLiteDB.h"
-#import "Trip.h"
+#import "TripRecord.h"
 
 #define QUERY @"SELECT trips.* "          \
                "FROM trips "              \
@@ -19,7 +19,7 @@ static NSString *const kNorth = @"north";
 static NSString *const kEast = @"east";
 static NSString *const kWest = @"west";
 
-@interface Trip () {
+@interface TripRecord () {
 @private
     __strong NSString *_direction;
     NSUInteger _primaryKey;
@@ -29,15 +29,15 @@ static NSString *const kWest = @"west";
 
 @end
 
-@implementation Trip
+@implementation TripRecord
 
-+ (NSArray *)tripsBelongingToRoute:(Route *)route {
++ (NSArray *)tripsBelongingToRoute:(RouteRecord *)route {
     SQLiteDB *db = [SQLiteDB sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY];
     sqlite3_bind_int(stmt, 1, route.primaryKey);
     NSMutableArray *trips = [NSMutableArray array];
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
-        Trip *trip = [[Trip alloc] initWithStatement:stmt];
+        TripRecord *trip = [[TripRecord alloc] initWithStatement:stmt];
         [trips addObject:trip];
     }];
     return [trips copy];
@@ -52,18 +52,18 @@ static NSString *const kWest = @"west";
     return self;
 }
 
-- (TripDirection)direction {
-    if ([_direction isEqualToString:kInbound]) return TripInboundDirection;
-    if ([_direction isEqualToString:kOutbound]) return TripOutboundDirection;
-    if ([_direction isEqualToString:kInward]) return TripInwardDirection;
-    if ([_direction isEqualToString:kOutward]) return TripOutwardDirection;
-    if ([_direction isEqualToString:kCounterClockwise]) return TripCounterClockwiseDirection;
-    if ([_direction isEqualToString:kClockwise]) return TripClockwiseDirection;
-    if ([_direction isEqualToString:kSouth]) return TripSouthDirection;
-    if ([_direction isEqualToString:kNorth]) return TripNorthDirection;
-    if ([_direction isEqualToString:kEast]) return TripEastDirection;
-    if ([_direction isEqualToString:kWest]) return TripWestDirection;
-    return TripUnknownDirection;
+- (TripRecordDirection)direction {
+    if ([_direction isEqualToString:kInbound]) return TripRecordInboundDirection;
+    if ([_direction isEqualToString:kOutbound]) return TripRecordOutboundDirection;
+    if ([_direction isEqualToString:kInward]) return TripRecordInwardDirection;
+    if ([_direction isEqualToString:kOutward]) return TripRecordOutwardDirection;
+    if ([_direction isEqualToString:kCounterClockwise]) return TripRecordCounterClockwiseDirection;
+    if ([_direction isEqualToString:kClockwise]) return TripRecordClockwiseDirection;
+    if ([_direction isEqualToString:kSouth]) return TripRecordSouthDirection;
+    if ([_direction isEqualToString:kNorth]) return TripRecordNorthDirection;
+    if ([_direction isEqualToString:kEast]) return TripRecordEastDirection;
+    if ([_direction isEqualToString:kWest]) return TripRecordWestDirection;
+    return TripRecordUnknownDirection;
 }
 
 - (NSUInteger)primaryKey {
@@ -71,7 +71,7 @@ static NSString *const kWest = @"west";
 }
 
 - (NSArray *)stops {
-    return [Stop stopsBelongingToTrip:self];
+    return [StopRecord stopsBelongingToTrip:self];
 }
 
 - (NSString *)description {

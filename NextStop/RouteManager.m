@@ -1,6 +1,6 @@
-#import "Route.h"
+#import "RouteRecord.h"
 #import "RouteManager.h"
-#import "Trip.h"
+#import "TripRecord.h"
 #import "TripTracker.h"
 
 static NSString *const kDirectionsKey = @"directions";
@@ -24,7 +24,7 @@ static NSString *const kTripTrackers = @"tripTrackers";
 @synthesize trips = _trips;
 @synthesize tripTrackers = _tripTrackers;
 
-- (id)initWithRoute:(Route *)route {
+- (id)initWithRoute:(RouteRecord *)route {
     self = [self init];
     if (self) {
         self.route = route;
@@ -35,8 +35,8 @@ static NSString *const kTripTrackers = @"tripTrackers";
 - (NSArray *)directions {
     if (!_directions) {
         NSMutableArray *directions = [NSMutableArray arrayWithCapacity:[self.trips count]];
-        for (Trip *trip in self.trips) {
-            NSString *direction = NSLocalizedString(TripDirectionToLocalizableString(trip.direction), nil);
+        for (TripRecord *trip in self.trips) {
+            NSString *direction = NSLocalizedString(TripRecordDirectionToLocalizableString(trip.direction), nil);
             [directions addObject:direction];
         }
         _directions = [directions copy];
@@ -54,7 +54,7 @@ static NSString *const kTripTrackers = @"tripTrackers";
 - (NSArray *)tripTrackers {
     if (!_tripTrackers) {
         NSMutableArray *tripTrackers = [NSMutableArray arrayWithCapacity:[self.trips count]];
-        for (Trip *trip in self.trips) {
+        for (TripRecord *trip in self.trips) {
             TripTracker *tripTracker = [[TripTracker alloc] initWithTrip:trip];
             [tripTrackers addObject:tripTracker];
         }
@@ -63,7 +63,7 @@ static NSString *const kTripTrackers = @"tripTrackers";
     return _tripTrackers;
 }
 
-- (void)setRoute:(Route *)route {
+- (void)setRoute:(RouteRecord *)route {
     _route = route;
     [self willChangeValueForKey:kDirectionsKey];
     [self willChangeValueForKey:kTripsKey];

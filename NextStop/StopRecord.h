@@ -1,13 +1,13 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@class Trip;
+@class TripRecord;
 
-@interface Stop : NSObject <MKAnnotation, NSCoding>
+@interface StopRecord : NSObject <MKAnnotation, NSCoding>
 
 @property (readonly) NSString *name;
 @property (readonly) NSUInteger primaryKey;
 
-+ (NSArray *)stopsBelongingToTrip:(Trip *)trip;
++ (NSArray *)stopsBelongingToTrip:(TripRecord *)trip;
 
 @end

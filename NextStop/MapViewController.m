@@ -1,7 +1,7 @@
 #import "MapViewController.h"
 #import "NSObject+KVOSEL.h"
 #import "RouteManager.h"
-#import "Stop.h"
+#import "StopRecord.h"
 #import "TripTracker.h"
 
 #define TOOLBAR_HEIGHT 44
@@ -146,7 +146,7 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 #pragma mark - MKMapViewDelegate
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-    for (Stop *stop in self.tripTracker.stops) {
+    for (StopRecord *stop in self.tripTracker.stops) {
         if (stop == view.annotation) {
             self.tripTracker.target = stop;
             break;

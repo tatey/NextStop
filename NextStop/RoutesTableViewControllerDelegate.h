@@ -1,10 +1,10 @@
 #import <Foundation/Foundation.h>
 
-@class Route;
+@class RouteRecord;
 @class RoutesTableViewController;
 
 @protocol RoutesTableViewDelegate <NSObject>
 
-- (void)routesTableViewController:(RoutesTableViewController *)routesTableViewController didSelectRoute:(Route *)route;
+- (void)routesTableViewController:(RoutesTableViewController *)routesTableViewController didSelectRoute:(RouteRecord *)route;
 
 @end

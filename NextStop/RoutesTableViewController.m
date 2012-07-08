@@ -38,7 +38,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ResueID];
     }
-    Route *route = [self.routes objectAtIndex:indexPath.row];
+    RouteRecord *route = [self.routes objectAtIndex:indexPath.row];
     cell.textLabel.text = route.shortName;
     cell.detailTextLabel.text = route.longName;
     return cell;
@@ -47,14 +47,14 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Route *route = [self.routes objectAtIndex:indexPath.row];
+    RouteRecord *route = [self.routes objectAtIndex:indexPath.row];
     [self.delegate routesTableViewController:self didSelectRoute:route];
 }
 
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    self.routes = [Route routesMatchingShortNameOrLongName:searchText];
+    self.routes = [RouteRecord routesMatchingShortNameOrLongName:searchText];
 }
 
 @end

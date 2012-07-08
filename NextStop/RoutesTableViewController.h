@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "Route.h"
+#import "RouteRecord.h"
 
 @protocol RoutesTableViewDelegate;
 

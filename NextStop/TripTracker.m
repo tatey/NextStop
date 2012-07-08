@@ -1,6 +1,6 @@
 #import "ProximityCenter.h"
-#import "Stop.h"
-#import "Trip.h"
+#import "StopRecord.h"
+#import "TripRecord.h"
 #import "TripTracker.h"
 
 #define RADIUS 500 // Meters
@@ -33,7 +33,7 @@ static NSString *const kStopsKey = @"stops";
 @synthesize proximity = _proximity;
 @synthesize proximityCenter = _proximityCenter;
 
-- (id)initWithTrip:(Trip *)trip {
+- (id)initWithTrip:(TripRecord *)trip {
     self = [self init];
     if (self) {
         self.trip = trip;
@@ -61,7 +61,7 @@ static NSString *const kStopsKey = @"stops";
     }
 }
 
-- (void)setTarget:(Stop *)target {
+- (void)setTarget:(StopRecord *)target {
     _target = target;
     [self stopMonitoringProximityToTarget];
     if (target) {
@@ -69,7 +69,7 @@ static NSString *const kStopsKey = @"stops";
     }
 }
 
-- (void)setTrip:(Trip *)trip {
+- (void)setTrip:(TripRecord *)trip {
     _trip = trip;
     [self willChangeValueForKey:kStopsKey];
     _stops = nil; // Clear cache

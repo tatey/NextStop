@@ -1,20 +1,20 @@
-#import "Route.h"
+#import "RouteRecord.h"
 #import "SQLiteDB.h"
-#import "Trip.h"
+#import "TripRecord.h"
 
 #define QUERY @"SELECT routes.* "                                              \
                "FROM routes "                                                  \
                "WHERE (routes.short_name LIKE ? OR routes.long_name LIKE ?); " \
 
-static NSString *const kLongNameArchiveKey = @"me.nextstop.archive.route.long_name";
-static NSString *const kPrimaryKeyArchiveKey = @"me.nextstop.archive.route.primary_key";
-static NSString *const kShortNameArchiveKey = @"me.nextstop.archive.route.short_name";
+static NSString *const kLongNameArchiveKey = @"me.nextstop.archive.route_record.long_name";
+static NSString *const kPrimaryKeyArchiveKey = @"me.nextstop.archive.route_record.primary_key";
+static NSString *const kShortNameArchiveKey = @"me.nextstop.archive.route_record.short_name";
 
-static const char * RouteStringToWildcardUTF8String(NSString *string) {
+static const char * RouteRecordStringToWildcardUTF8String(NSString *string) {
     return [[NSString stringWithFormat:@"%%%@%%", string] UTF8String];
 }
 
-@interface Route () {
+@interface RouteRecord () {
 @private
     __strong NSString *_longName;
     NSUInteger _primaryKey;
@@ -25,16 +25,16 @@ static const char * RouteStringToWildcardUTF8String(NSString *string) {
     
 @end
 
-@implementation Route
+@implementation RouteRecord
 
 + (NSArray *)routesMatchingShortNameOrLongName:(NSString *)searchText {
     SQLiteDB *db = [SQLiteDB sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY];
-    sqlite3_bind_text(stmt, 1, RouteStringToWildcardUTF8String(searchText), -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 2, RouteStringToWildcardUTF8String(searchText), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 1, RouteRecordStringToWildcardUTF8String(searchText), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, RouteRecordStringToWildcardUTF8String(searchText), -1, SQLITE_STATIC);
     NSMutableArray *routes = [NSMutableArray array];
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
-        Route *route = [[self alloc] initWithStatement:stmt];
+        RouteRecord *route = [[self alloc] initWithStatement:stmt];
         [routes addObject:route];
     }];
     return [routes copy];
@@ -63,7 +63,7 @@ static const char * RouteStringToWildcardUTF8String(NSString *string) {
 }
 
 - (NSArray *)trips {
-    return [Trip tripsBelongingToRoute:self];
+    return [TripRecord tripsBelongingToRoute:self];
 }
 
 - (NSString *)description {

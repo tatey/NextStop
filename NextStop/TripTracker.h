@@ -3,16 +3,16 @@
 
 extern NSString *const TripTrackerDidApproachTargetNotification;
 
-@class Stop;
-@class Trip;
+@class StopRecord;
+@class TripRecord;
 
 @interface TripTracker : NSObject <ProximityDelegate>
 
 @property (assign, nonatomic, getter = isMonitoringProximityToTarget) BOOL monitorProximityToTarget;
 @property (readonly) NSArray *stops;
-@property (strong, nonatomic) Stop *target;
-@property (strong, nonatomic) Trip *trip;
+@property (strong, nonatomic) StopRecord *target;
+@property (strong, nonatomic) TripRecord *trip;
 
-- (id)initWithTrip:(Trip *)trip;
+- (id)initWithTrip:(TripRecord *)trip;
 
 @end
