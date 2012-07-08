@@ -90,7 +90,7 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self addObserver:self forKeyPath:kTripTrackerMonitorProximityToTargetKeyPath options:NSKeyValueObservingOptionNew context:@selector(journeyProximityToTargetDidChange)];
+    [self addObserver:self forKeyPath:kTripTrackerMonitorProximityToTargetKeyPath options:NSKeyValueObservingOptionNew context:@selector(tripTrackerProximityToTargetDidChange)];
     [self applicationWillEnterForeground:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
@@ -135,7 +135,7 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showApproachingTargetAlert:) name:TripTrackerDidApproachTargetNotification object:nil];
 }
 
-- (void)journeyProximityToTargetDidChange {
+- (void)tripTrackerProximityToTargetDidChange {
     [self.proximitySwitch setOn:self.tripTracker.isMonitoringProximityToTarget animated:YES];
 }
 
