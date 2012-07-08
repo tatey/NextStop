@@ -10,7 +10,6 @@
 @synthesize routesController = _routesController;
 @synthesize searchBar = _searchBar;
 @synthesize searchController = _searchController;
-@synthesize tableView = _tableView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,17 +20,12 @@
     self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
     self.searchController.searchResultsDataSource = self.routesController;
     self.searchController.searchResultsDelegate = self.routesController;
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 416) style:UITableViewStylePlain];
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    [self.view addSubview:self.tableView];
 }
 
 - (void)viewDidUnload {
     self.routesController = nil;
     self.searchBar = nil;
     self.searchController = nil;
-    self.tableView = nil;
     [super viewDidUnload];
 }
 
@@ -48,10 +42,6 @@
 }
 
 #pragma mark - UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.routes count];

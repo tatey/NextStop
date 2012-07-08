@@ -3,12 +3,11 @@
 
 @class RoutesTableViewController;
 
-@interface RoutesViewController : UIViewController <RoutesTableViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface RoutesViewController : UITableViewController <RoutesTableViewDelegate>
 
 @property (strong, nonatomic) NSArray *routes;
 @property (strong, nonatomic) RoutesTableViewController *routesController;
 @property (strong, nonatomic) UISearchBar *searchBar;
 @property (strong, nonatomic) UISearchDisplayController *searchController;
-@property (strong, nonatomic) UITableView *tableView;
 
 @end
