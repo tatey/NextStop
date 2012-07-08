@@ -3,7 +3,7 @@
 @class Route;
 @class TripTracker;
 
-@interface RouteTracker : NSObject
+@interface RouteManager : NSObject
 
 @property (readonly) NSArray *directions;
 @property (strong, nonatomic) Route *route;

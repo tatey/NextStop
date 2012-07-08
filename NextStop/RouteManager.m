@@ -1,5 +1,5 @@
 #import "Route.h"
-#import "RouteTracker.h"
+#import "RouteManager.h"
 #import "Trip.h"
 #import "TripTracker.h"
 
@@ -7,7 +7,7 @@ static NSString *const kDirectionsKey = @"directions";
 static NSString *const kTripsKey = @"trips";
 static NSString *const kTripTrackers = @"tripTrackers";
 
-@interface RouteTracker () {
+@interface RouteManager () {
 @private
     __strong NSArray *_directions;
     __strong NSArray *_trips;
@@ -16,7 +16,7 @@ static NSString *const kTripTrackers = @"tripTrackers";
 
 @end
 
-@implementation RouteTracker
+@implementation RouteManager
 
 @synthesize directions = _directions;
 @synthesize route = _route;

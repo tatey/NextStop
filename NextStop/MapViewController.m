@@ -1,8 +1,7 @@
 #import "MapViewController.h"
 #import "NSObject+KVOSEL.h"
-#import "RouteTracker.h"
+#import "RouteManager.h"
 #import "Stop.h"
-#import "RouteTracker.h"
 #import "TripTracker.h"
 
 #define TOOLBAR_HEIGHT 44
@@ -33,7 +32,7 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 @implementation MapViewController
 
 // Public
-@synthesize routeTracker = _routeTracker;
+@synthesize routeManager = _routeManager;
 @synthesize tripTracker = _tripTracker;
 
 // Private
@@ -42,11 +41,11 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 @synthesize mapView = _mapView;
 @synthesize proximitySwitch = _proximitySwitch;
 
-- (id)initWithRouteTracker:(RouteTracker *)routeTracker {
+- (id)initWithRouteManager:(RouteManager *)routeManager {
     self = [self init];
     if (self) {
-        self.routeTracker = routeTracker;
-        self.tripTracker = [self.routeTracker selectedTripTracker];
+        self.routeManager = routeManager;
+        self.tripTracker = [self.routeManager selectedTripTracker];
     }
     return self;
 }
@@ -58,9 +57,9 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
     self.directionsToolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.directionsToolbar];
     // Directions control.
-    self.directionsControl = [[UISegmentedControl alloc] initWithItems:self.routeTracker.directions];
+    self.directionsControl = [[UISegmentedControl alloc] initWithItems:self.routeManager.directions];
     self.directionsControl.segmentedControlStyle = UISegmentedControlStyleBar;
-    self.directionsControl.selectedSegmentIndex = self.routeTracker.selectedDirectionIndex;
+    self.directionsControl.selectedSegmentIndex = self.routeManager.selectedDirectionIndex;
     [self.directionsControl addTarget:self action:@selector(directionControlValueDidChange:) forControlEvents:UIControlEventValueChanged];
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *segmentedControl = [[UIBarButtonItem alloc] initWithCustomView:self.directionsControl];
@@ -105,7 +104,7 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 }
 
 - (NSString *)title {
-    return [self.routeTracker name];
+    return [self.routeManager name];
 }
 
 - (void)zoomToFitStops:(BOOL)animated {
@@ -116,8 +115,8 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
      
 - (void)directionControlValueDidChange:(UISegmentedControl *)segmentedControl {
     [self.mapView removeAnnotations:self.tripTracker.stops];
-    self.routeTracker.selectedDirectionIndex = segmentedControl.selectedSegmentIndex;
-    self.tripTracker = [self.routeTracker selectedTripTracker];
+    self.routeManager.selectedDirectionIndex = segmentedControl.selectedSegmentIndex;
+    self.tripTracker = [self.routeManager selectedTripTracker];
     [self.mapView addAnnotations:self.tripTracker.stops];
 }
 
