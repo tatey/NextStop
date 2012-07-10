@@ -1,3 +1,0 @@
-[submodule "Vendors/LZMA"]
-	path = Vendors/LZMA
-	url = git://github.com/tatey/LZMA.git
