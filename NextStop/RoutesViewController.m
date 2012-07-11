@@ -6,6 +6,7 @@
 
 @implementation RoutesViewController
 
+@synthesize managedObjectContext = _managedObjectContext;
 @synthesize routes = _routes;
 @synthesize routesController = _routesController;
 @synthesize searchBar = _searchBar;

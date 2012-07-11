@@ -1,3 +1,4 @@
+#import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
 #import "RoutesTableViewControllerDelegate.h"
 
@@ -5,6 +6,7 @@
 
 @interface RoutesViewController : UITableViewController <RoutesTableViewDelegate>
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSArray *routes;
 @property (strong, nonatomic) RoutesTableViewController *routesController;
 @property (strong, nonatomic) UISearchBar *searchBar;

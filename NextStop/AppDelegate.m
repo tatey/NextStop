@@ -1,5 +1,6 @@
 #import "AppDelegate.h"
 #import "BackgroundNotifier.h"
+#import "DataManager.h"
 #import "MapViewController.h"
 #import "ProximityCenter.h"
 #import "RoutesViewController.h"
@@ -7,6 +8,7 @@
 @interface AppDelegate ()
 
 @property (strong, nonatomic) BackgroundNotifier *backgroundNotifier; 
+@property (strong, nonatomic) DataManager *dataManager;
 @property (weak, nonatomic) ProximityCenter *proximityCenter;
 @property (strong, nonatomic) UIViewController *rootViewController;
 
@@ -19,6 +21,7 @@
 
 // Private
 @synthesize backgroundNotifier = _backgroundNotifier;
+@synthesize dataManager = _dataManager;
 @synthesize proximityCenter = _proximityCenter;
 @synthesize rootViewController = _rootViewController;
 
@@ -44,6 +47,13 @@
     self.proximityCenter.mode = ProximityAccuracyBestMode;
 }
 
+- (DataManager *)dataManager {
+    if (!_dataManager) {
+        _dataManager = [[DataManager alloc] init];
+    }
+    return _dataManager;
+}
+
 - (ProximityCenter *)proximityCenter {
     if (!_proximityCenter) {
         _proximityCenter = [ProximityCenter defaultCenter];
@@ -53,7 +63,8 @@
 
 - (UIViewController *)rootViewController {
     if (!_rootViewController) {
-        UIViewController *rootViewController = [[RoutesViewController alloc] init];
+        RoutesViewController *rootViewController = [[RoutesViewController alloc] init];
+        rootViewController.managedObjectContext = self.dataManager.managedObjectContext;
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
         _rootViewController = navigationController;
     }
