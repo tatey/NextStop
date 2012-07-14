@@ -42,4 +42,14 @@
     return _persistentStoreCoordinator;
 }
 
+- (void)save {
+    NSError *error = nil;
+    if (self.managedObjectContext != nil) {
+        if ([self.managedObjectContext hasChanges] && ![self.managedObjectContext save:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
+
 @end

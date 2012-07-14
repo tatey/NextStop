@@ -40,6 +40,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    [self.dataManager save];
     self.proximityCenter.mode = ProximityPowerBestMode;
 }
 
