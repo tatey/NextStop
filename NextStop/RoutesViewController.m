@@ -1,8 +1,11 @@
 #import "MapViewController.h"
+#import "RouteManager.h"
 #import "RouteRecord.h"
 #import "RoutesTableViewController.h"
 #import "RouteManager.h"
 #import "RoutesViewController.h"
+
+static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches.routes";
 
 @implementation RoutesViewController
 
@@ -14,6 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.routes = [RouteManager routesInManagedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:kFetchedResultsControllerCacheName];
+    NSError *error = nil;
+    if (![self.routes performFetch:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+		abort();
+    }
     self.routesController = [[RoutesTableViewController alloc] initWithDelegate:self managedObjectContext:self.managedObjectContext];
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     self.searchBar.delegate = self.routesController;
@@ -24,6 +33,7 @@
 }
 
 - (void)viewDidUnload {
+    self.routes = nil;
     self.routesController = nil;
     self.searchBar = nil;
     self.searchController = nil;
@@ -45,7 +55,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.routes count];
+    return [[self.routes.sections objectAtIndex:section] numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
