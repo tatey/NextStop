@@ -102,6 +102,13 @@ static NSString *const kTripTrackers = @"tripTrackers";
     return _tripTrackers;
 }
 
+- (RouteRecord *)route {
+    if (!_route) {
+        _route = [RouteRecord routeMatchingPrimaryKey:self.routeId];
+    }
+    return _route;
+}
+
 - (void)setRoute:(RouteRecord *)route {
     _route = route;
     self.routeId = route.primaryKey;
