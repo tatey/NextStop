@@ -4,7 +4,7 @@
 
 @class RoutesTableViewController;
 
-@interface RoutesViewController : UITableViewController <RoutesTableViewDelegate>
+@interface RoutesViewController : UITableViewController <NSFetchedResultsControllerDelegate, RoutesTableViewDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *routes;

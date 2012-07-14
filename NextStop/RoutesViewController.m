@@ -18,6 +18,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.routes = [RouteManager routesInManagedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:kFetchedResultsControllerCacheName];
+    self.routes.delegate = self;
     NSError *error = nil;
     if (![self.routes performFetch:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
@@ -42,6 +43,14 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 
 - (NSString *)title {
     return NSLocalizedString(@"routes.title", nil);
+}
+
+#pragma mark - NSFetchedResultsControllerDelegate
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    if (type == NSFetchedResultsChangeInsert) {
+        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationTop];
+    }
 }
 
 #pragma mark - RoutesTableViewDelegate
