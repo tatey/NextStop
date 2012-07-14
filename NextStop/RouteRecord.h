@@ -6,6 +6,7 @@
 @property (readonly) NSUInteger primaryKey;
 @property (readonly) NSString *shortName;
 
++ (RouteRecord *)routeMatchingPrimaryKey:(NSInteger)primaryKey;
 + (NSArray *)routesMatchingShortNameOrLongName:(NSString *)searchText;
 
 - (NSArray *)trips;

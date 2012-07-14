@@ -2,9 +2,13 @@
 #import "SQLiteDB.h"
 #import "TripRecord.h"
 
-#define QUERY @"SELECT routes.* "                                              \
-               "FROM routes "                                                  \
-               "WHERE (routes.short_name LIKE ? OR routes.long_name LIKE ?); " \
+#define QUERY1 @"SELECT routes.*"      \
+                "FROM routes"          \
+                "WHERE routes.id = ?;" \
+
+#define QUERY2 @"SELECT routes.* "                                              \
+                "FROM routes "                                                  \
+                "WHERE (routes.short_name LIKE ? OR routes.long_name LIKE ?); " \
 
 static NSString *const kLongNameArchiveKey = @"me.nextstop.archive.route_record.long_name";
 static NSString *const kPrimaryKeyArchiveKey = @"me.nextstop.archive.route_record.primary_key";
@@ -27,9 +31,20 @@ static const char * RouteRecordStringToWildcardUTF8String(NSString *string) {
 
 @implementation RouteRecord
 
++ (RouteRecord *)routeMatchingPrimaryKey:(NSInteger)primaryKey {
+    SQLiteDB *db = [SQLiteDB sharedDB];
+    sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY1];
+    sqlite3_bind_int(stmt, 1, primaryKey);
+    __block RouteRecord *route = nil;
+    [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
+        route = [[self alloc] initWithStatement:stmt];
+    }];
+    return route;
+}
+
 + (NSArray *)routesMatchingShortNameOrLongName:(NSString *)searchText {
     SQLiteDB *db = [SQLiteDB sharedDB];
-    sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY];
+    sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY2];
     sqlite3_bind_text(stmt, 1, RouteRecordStringToWildcardUTF8String(searchText), -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 2, RouteRecordStringToWildcardUTF8String(searchText), -1, SQLITE_STATIC);
     NSMutableArray *routes = [NSMutableArray array];
