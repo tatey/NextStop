@@ -39,6 +39,29 @@ static NSString *const kTripTrackers = @"tripTrackers";
     return [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:sectionNameKeyPath cacheName:name];
 }
 
++ (id)routeMatchingRoute:(RouteRecord *)route managedObjectContext:(NSManagedObjectContext *)context {
+    NSEntityDescription *entity = [NSEntityDescription entityForName:kEntityName inManagedObjectContext:context];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"routeId == %d", route.primaryKey];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    request.entity = entity;
+    request.predicate = predicate;
+    NSError *error = nil;
+    NSArray *routes = [context executeFetchRequest:request error:&error];
+    if (!routes) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    return [routes lastObject];
+}
+
++ (id)routeMatchingOrInsertingRoute:(RouteRecord *)route managedObjectContext:(NSManagedObjectContext *)context {
+    RouteManager *routeManager = [self routeMatchingRoute:route managedObjectContext:context];
+    if (!routeManager) {
+        routeManager = [[self alloc] initWithRoute:route insertIntoManagedObjectContext:context];
+    }
+    return routeManager;
+}
+
 - (id)initWithRoute:(RouteRecord *)route insertIntoManagedObjectContext:(NSManagedObjectContext *)context {
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:kEntityName inManagedObjectContext:context];
     self = [self initWithEntity:entityDescription insertIntoManagedObjectContext:context];

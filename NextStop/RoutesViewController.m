@@ -47,7 +47,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 #pragma mark - RoutesTableViewDelegate
 
 - (void)routesTableViewController:(RoutesTableViewController *)routesTableViewController didSelectRoute:(RouteRecord *)route {
-    RouteManager *routeManager = [[RouteManager alloc] initWithRoute:route insertIntoManagedObjectContext:self.managedObjectContext];
+    RouteManager *routeManager = [RouteManager routeMatchingOrInsertingRoute:route managedObjectContext:self.managedObjectContext];
     MapViewController *mapViewController = [[MapViewController alloc] initWithRouteManager:routeManager];
     [self.navigationController pushViewController:mapViewController animated:YES];
 }
