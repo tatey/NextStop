@@ -64,6 +64,10 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ResueID];
     }
+    RouteManager *routeManager = [self.routes objectAtIndexPath:indexPath];
+    RouteRecord *routeRecord = routeManager.route;
+    cell.textLabel.text = routeRecord.shortName;
+    cell.detailTextLabel.text = routeRecord.longName;
     return cell;
 }
 
