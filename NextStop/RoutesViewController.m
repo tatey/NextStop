@@ -91,7 +91,9 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    RouteManager *routeManager = [self.routes objectAtIndexPath:indexPath];
+    MapViewController *mapViewController = [[MapViewController alloc] initWithRouteManager:routeManager];
+    [self.navigationController pushViewController:mapViewController animated:YES];
 }
 
 @end
