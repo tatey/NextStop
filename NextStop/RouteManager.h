@@ -13,6 +13,8 @@
 @property (readonly) NSArray *tripTrackers;
 @property (strong, nonatomic) NSDate *updatedAt;
 
++ (NSFetchedResultsController *)routesInManagedObjectContext:(NSManagedObjectContext *)context sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)name;
+
 - (id)initWithRoute:(RouteRecord *)route insertIntoManagedObjectContext:(NSManagedObjectContext *)context;
 
 - (NSString *)name;

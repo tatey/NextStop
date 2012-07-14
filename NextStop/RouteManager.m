@@ -3,9 +3,8 @@
 #import "TripRecord.h"
 #import "TripTracker.h"
 
-static NSString *const kEntityName = @"Route";
-
 static NSString *const kDirectionsKey = @"directions";
+static NSString *const kEntityName = @"Route";
 static NSString *const kTripsKey = @"trips";
 static NSString *const kTripTrackers = @"tripTrackers";
 
@@ -30,6 +29,15 @@ static NSString *const kTripTrackers = @"tripTrackers";
 @synthesize route = _route;
 @synthesize trips = _trips;
 @synthesize tripTrackers = _tripTrackers;
+
++ (NSFetchedResultsController *)routesInManagedObjectContext:(NSManagedObjectContext *)context sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)name {
+    NSEntityDescription *entity = [NSEntityDescription entityForName:kEntityName inManagedObjectContext:context];
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"updatedAt" ascending:NO];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    request.entity = entity;
+    request.sortDescriptors = [NSArray arrayWithObject:sort];
+    return [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:sectionNameKeyPath cacheName:name];
+}
 
 - (id)initWithRoute:(RouteRecord *)route insertIntoManagedObjectContext:(NSManagedObjectContext *)context {
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:kEntityName inManagedObjectContext:context];
