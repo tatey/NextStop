@@ -14,7 +14,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.routesController = [[RoutesTableViewController alloc] initWithDelegate:self];
+    self.routesController = [[RoutesTableViewController alloc] initWithDelegate:self managedObjectContext:self.managedObjectContext];
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     self.searchBar.delegate = self.routesController;
     self.searchBar.placeholder = NSLocalizedString(@"routes.search.placeholder", nil);
@@ -37,7 +37,7 @@
 #pragma mark - RoutesTableViewDelegate
 
 - (void)routesTableViewController:(RoutesTableViewController *)routesTableViewController didSelectRoute:(RouteRecord *)route {
-    RouteManager *routeManager = [[RouteManager alloc] initWithRoute:route];
+    RouteManager *routeManager = [[RouteManager alloc] initWithRoute:route insertIntoManagedObjectContext:self.managedObjectContext];
     MapViewController *mapViewController = [[MapViewController alloc] initWithRouteManager:routeManager];
     [self.navigationController pushViewController:mapViewController animated:YES];
 }

@@ -3,6 +3,8 @@
 #import "TripRecord.h"
 #import "TripTracker.h"
 
+static NSString *const kEntityName = @"Route";
+
 static NSString *const kDirectionsKey = @"directions";
 static NSString *const kTripsKey = @"trips";
 static NSString *const kTripTrackers = @"tripTrackers";
@@ -14,18 +16,24 @@ static NSString *const kTripTrackers = @"tripTrackers";
     __strong NSArray *_tripTrackers;
 }
 
+@property (assign, nonatomic) NSInteger routeId;
+
 @end
 
 @implementation RouteManager
 
+@dynamic routeId;
+@dynamic selectedDirectionIndex;
+@dynamic updatedAt;
+
 @synthesize directions = _directions;
 @synthesize route = _route;
-@synthesize selectedDirectionIndex = _selectedDirectionIndex;
 @synthesize trips = _trips;
 @synthesize tripTrackers = _tripTrackers;
 
-- (id)initWithRoute:(RouteRecord *)route {
-    self = [self init];
+- (id)initWithRoute:(RouteRecord *)route insertIntoManagedObjectContext:(NSManagedObjectContext *)context {
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:kEntityName inManagedObjectContext:context];
+    self = [self initWithEntity:entityDescription insertIntoManagedObjectContext:context];
     if (self) {
         self.route = route;
     }
@@ -65,6 +73,7 @@ static NSString *const kTripTrackers = @"tripTrackers";
 
 - (void)setRoute:(RouteRecord *)route {
     _route = route;
+    self.routeId = route.primaryKey;
     [self willChangeValueForKey:kDirectionsKey];
     [self willChangeValueForKey:kTripsKey];
     [self willChangeValueForKey:kTripTrackers];

@@ -4,6 +4,7 @@
 @implementation RoutesTableViewController
 
 @synthesize delegate = _delegate;
+@synthesize managedObjectContext = _managedObjectContext;
 @synthesize routes = _routes;
 
 - (id)init {
@@ -14,10 +15,11 @@
     return self;
 }
 
-- (id)initWithDelegate:(id <RoutesTableViewDelegate>)delegate {
+- (id)initWithDelegate:(id<RoutesTableViewDelegate>)delegate managedObjectContext:(NSManagedObjectContext *)context {
     self = [self init];
     if (self) {
         self.delegate = delegate;
+        self.managedObjectContext = context;
     }
     return self;
 }
