@@ -2,9 +2,10 @@
 #import "SQLiteDB.h"
 #import "TripRecord.h"
 
-#define QUERY1 @"SELECT routes.*"      \
-                "FROM routes"          \
-                "WHERE routes.id = ?;" \
+#define QUERY1 @"SELECT routes.* "     \
+                "FROM routes "         \
+                "WHERE routes.id = ? " \
+                "LIMIT 1; "            \
 
 #define QUERY2 @"SELECT routes.* "                                              \
                 "FROM routes "                                                  \
