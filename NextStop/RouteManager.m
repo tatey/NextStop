@@ -67,6 +67,7 @@ static NSString *const kTripTrackers = @"tripTrackers";
     self = [self initWithEntity:entityDescription insertIntoManagedObjectContext:context];
     if (self) {
         self.route = route;
+        [self touch];
     }
     return self;
 }
@@ -129,6 +130,10 @@ static NSString *const kTripTrackers = @"tripTrackers";
 
 - (TripTracker *)selectedTripTracker {
     return [self.tripTrackers objectAtIndex:self.selectedDirectionIndex];
+}
+
+- (void)touch {
+    self.updatedAt = [NSDate date];
 }
 
 @end

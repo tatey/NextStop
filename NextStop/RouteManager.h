@@ -21,5 +21,6 @@
 
 - (NSString *)name;
 - (TripTracker *)selectedTripTracker;
+- (void)touch;
 
 @end
