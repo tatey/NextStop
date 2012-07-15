@@ -205,7 +205,6 @@
 		5DB59C6F1546C8E500417818 = {
 			isa = PBXGroup;
 			children = (
-				5D9AAB1815ADAFBE00E2E077 /* CoreData.framework */,
 				5DB59C841546C8E500417818 /* NextStop */,
 				5DB59C9C1546C8E500417818 /* NextStopTests */,
 				5DB59C7D1546C8E500417818 /* Frameworks */,
@@ -225,8 +224,9 @@
 		5DB59C7D1546C8E500417818 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5DB59CBB1546D21200417818 /* CoreLocation.framework */,
+				5D9AAB1815ADAFBE00E2E077 /* CoreData.framework */,
 				5DB59C821546C8E500417818 /* CoreGraphics.framework */,
+				5DB59CBB1546D21200417818 /* CoreLocation.framework */,
 				5DB59C801546C8E500417818 /* Foundation.framework */,
 				5DB59CB11546CA7B00417818 /* MapKit.framework */,
 				5DB59C961546C8E500417818 /* SenTestingKit.framework */,
