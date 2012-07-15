@@ -41,6 +41,10 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     [super viewDidUnload];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    self.searchController.active = NO;
+}
+
 - (NSString *)title {
     return NSLocalizedString(@"routes.title", nil);
 }
