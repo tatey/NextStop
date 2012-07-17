@@ -1,7 +1,7 @@
 #import <CoreLocation/CoreLocation.h>
+#import "DirectionRecord.h"
 #import "StopRecord.h"
 #import "SQLiteDB.h"
-#import "TripRecord.h"
 
 #define QUERY @"SELECT DISTINCT stops.* "                                \
                "FROM stops "                                             \
@@ -28,16 +28,27 @@ static NSString *const kNameArchiveKey = @"me.nextstop.archive.stop_record.name"
 
 @implementation StopRecord
 
-+ (NSArray *)stopsBelongingToTrip:(TripRecord *)trip {
++ (NSArray *)stopsBelongingToDirection:(DirectionRecord *)direction {
     SQLiteDB *db = [SQLiteDB sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY];    
-    sqlite3_bind_int(stmt, 1, trip.primaryKey);
+    sqlite3_bind_int(stmt, 1, direction.primaryKey);
     NSMutableArray *stops = [NSMutableArray array];
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
         StopRecord *stop = [[self alloc] initWithStatement:stmt];
         [stops addObject:stop];
     }];
     return [stops copy];
+}
+
++ (id)stopMatchingPrimaryKey:(NSInteger)primaryKey {
+    SQLiteDB *db = [SQLiteDB sharedDB];
+    sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY];
+    sqlite3_bind_int(stmt, 1, primaryKey);
+    __block StopRecord *stop = nil;
+    [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
+        stop = [[self alloc] initWithStatement:stmt];
+    }];
+    return stop;
 }
 
 - (id)initWithStatement:(sqlite3_stmt *)stmt {

@@ -1,19 +1,14 @@
+#import "DirectionManagedObject.h"
+#import "DirectionRecord.h"
 #import "RouteRecord.h"
 #import "RouteManager.h"
-#import "TripRecord.h"
-#import "TripTracker.h"
+
+static NSString *const kEntityName = @"Route";
 
 static NSString *const kDirectionsKey = @"directions";
-static NSString *const kEntityName = @"Route";
-static NSString *const kTripsKey = @"trips";
-static NSString *const kTripTrackers = @"tripTrackers";
+static NSString *const kSelectedDirectionKey = @"selectedDirection";
 
-@interface RouteManager () {
-@private
-    __strong NSArray *_directions;
-    __strong NSArray *_trips;
-    __strong NSArray *_tripTrackers;
-}
+@interface RouteManager ()
 
 @property (assign, nonatomic) NSInteger routeId;
 
@@ -21,14 +16,15 @@ static NSString *const kTripTrackers = @"tripTrackers";
 
 @implementation RouteManager
 
-@dynamic routeId;
-@dynamic selectedDirectionIndex;
+// Public
+@dynamic directions;
+@dynamic selectedDirection;
 @dynamic updatedAt;
 
-@synthesize directions = _directions;
 @synthesize route = _route;
-@synthesize trips = _trips;
-@synthesize tripTrackers = _tripTrackers;
+
+// Private
+@dynamic routeId;
 
 + (NSFetchedResultsController *)routesInManagedObjectContext:(NSManagedObjectContext *)context sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)name {
     NSEntityDescription *entity = [NSEntityDescription entityForName:kEntityName inManagedObjectContext:context];
@@ -72,35 +68,32 @@ static NSString *const kTripTrackers = @"tripTrackers";
     return self;
 }
 
-- (NSArray *)directions {
-    if (!_directions) {
-        NSMutableArray *directions = [NSMutableArray arrayWithCapacity:[self.trips count]];
-        for (TripRecord *trip in self.trips) {
-            NSString *direction = NSLocalizedString(TripRecordDirectionToLocalizableString(trip.direction), nil);
-            [directions addObject:direction];
+- (NSMutableOrderedSet *)directions {
+    [self willAccessValueForKey:kDirectionsKey];
+    NSMutableOrderedSet *directions = [self mutableOrderedSetValueForKey:kDirectionsKey];
+    [self didAccessValueForKey:kDirectionsKey];
+    if ([directions count] == 0) {
+        NSArray *records = [DirectionRecord directionsBelongingToRoute:self.route];
+        for (DirectionRecord *record in records) {
+            DirectionManagedObject *managedObject = [[DirectionManagedObject alloc] initWithDirection:record managedObjectContext:self.managedObjectContext];
+            [directions addObject:managedObject];
         }
-        _directions = [directions copy];
     }
-    return _directions;
+    return directions;
 }
 
-- (NSArray *)trips {
-    if (!_trips) {
-        _trips = [self.route trips];
+- (void)buildDirections:(NSManagedObjectContext *)context {
+    NSArray *records = [DirectionRecord directionsBelongingToRoute:self.route];
+    for (DirectionRecord *record in records) {
+        DirectionManagedObject *managedObject = [[DirectionManagedObject alloc] initWithDirection:record managedObjectContext:self.managedObjectContext];
+        [self.directions addObject:managedObject];
     }
-    return _trips;
 }
 
-- (NSArray *)tripTrackers {
-    if (!_tripTrackers) {
-        NSMutableArray *tripTrackers = [NSMutableArray arrayWithCapacity:[self.trips count]];
-        for (TripRecord *trip in self.trips) {
-            TripTracker *tripTracker = [[TripTracker alloc] initWithTrip:trip];
-            [tripTrackers addObject:tripTracker];
-        }
-        _tripTrackers = [tripTrackers copy];
-    }
-    return _tripTrackers;
+- (void)setRoute:(RouteRecord *)route {
+    _route = route;
+    self.routeId = route.primaryKey;
+    // TODO: Delete directions
 }
 
 - (RouteRecord *)route {
@@ -110,26 +103,39 @@ static NSString *const kTripTrackers = @"tripTrackers";
     return _route;
 }
 
-- (void)setRoute:(RouteRecord *)route {
-    _route = route;
-    self.routeId = route.primaryKey;
-    [self willChangeValueForKey:kDirectionsKey];
-    [self willChangeValueForKey:kTripsKey];
-    [self willChangeValueForKey:kTripTrackers];
-    _directions = nil; // Clear cache
-    _trips = nil; // Clear cache
-    _tripTrackers = nil; // Clear cache
-    [self didChangeValueForKey:kDirectionsKey];
-    [self didChangeValueForKey:kTripsKey];
-    [self didChangeValueForKey:kTripTrackers];
+- (DirectionManagedObject *)selectedDirection {
+    [self willAccessValueForKey:kSelectedDirectionKey];
+    DirectionManagedObject *selectedDirection = [self primitiveValueForKey:kSelectedDirectionKey];
+    [self didAccessValueForKey:kSelectedDirectionKey];
+    if (!selectedDirection) {
+        selectedDirection = [self.directions lastObject];
+        [self setPrimitiveValue:selectedDirection forKey:kSelectedDirectionKey];
+    }
+    return selectedDirection;
+}
+
+- (NSArray *)headsigns {
+    NSMutableArray *headsigns = [NSMutableArray arrayWithCapacity:[self.directions count]];
+    for (DirectionManagedObject *direction in self.directions) {
+        [headsigns addObject:[direction headsign]];
+    }
+    return [headsigns copy];
+}
+
+- (NSUInteger)indexOfDirection:(DirectionManagedObject *)direction {
+    return [self.directions indexOfObject:direction];
+}
+
+- (NSUInteger)indexOfSelectedDirection {
+    return [self indexOfDirection:self.selectedDirection];
+}
+
+- (void)setDirectionAtIndex:(NSUInteger)index {
+    self.selectedDirection = [self.directions objectAtIndex:index];
 }
 
 - (NSString *)name {
     return self.route.shortName;
-}
-
-- (TripTracker *)selectedTripTracker {
-    return [self.tripTrackers objectAtIndex:self.selectedDirectionIndex];
 }
 
 - (void)touch {

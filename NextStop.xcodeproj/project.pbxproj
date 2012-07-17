@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D05CCFE15A598F00011A165 /* TripTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05CCFD15A598F00011A165 /* TripTracker.m */; };
 		5D05CD0215A59E1F0011A165 /* RouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05CD0115A59E1F0011A165 /* RouteManager.m */; };
 		5D05F316154ACA7F004E7773 /* StopRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* StopRecord.m */; };
 		5D05F317154ACA7F004E7773 /* StopRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* StopRecord.m */; };
@@ -47,8 +46,6 @@
 		5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteDB.m */; };
 		5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteDB.m */; };
 		5DD52407154800BC00011A3E /* NextStop.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5DD52406154800BC00011A3E /* NextStop.sqlite */; };
-		5DD5240A154800DD00011A3E /* TripRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD52409154800DD00011A3E /* TripRecord.m */; };
-		5DD5240B154800DD00011A3E /* TripRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD52409154800DD00011A3E /* TripRecord.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +59,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5D05CCFC15A598F00011A165 /* TripTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripTracker.h; sourceTree = "<group>"; };
-		5D05CCFD15A598F00011A165 /* TripTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripTracker.m; sourceTree = "<group>"; };
 		5D05CD0015A59E1F0011A165 /* RouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteManager.h; sourceTree = "<group>"; };
 		5D05CD0115A59E1F0011A165 /* RouteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteManager.m; sourceTree = "<group>"; };
 		5D05F314154ACA7F004E7773 /* StopRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopRecord.h; sourceTree = "<group>"; };
@@ -116,8 +111,6 @@
 		5DD523FC1547FF7C00011A3E /* SQLiteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteDB.h; sourceTree = "<group>"; };
 		5DD523FD1547FF7C00011A3E /* SQLiteDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteDB.m; sourceTree = "<group>"; };
 		5DD52406154800BC00011A3E /* NextStop.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = NextStop.sqlite; sourceTree = "<group>"; };
-		5DD52408154800DD00011A3E /* TripRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripRecord.h; sourceTree = "<group>"; };
-		5DD52409154800DD00011A3E /* TripRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripRecord.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,8 +150,6 @@
 				5DA866A71556C25E00FB1ACF /* RouteRecord.m */,
 				5D05F314154ACA7F004E7773 /* StopRecord.h */,
 				5D05F315154ACA7F004E7773 /* StopRecord.m */,
-				5DD52408154800DD00011A3E /* TripRecord.h */,
-				5DD52409154800DD00011A3E /* TripRecord.m */,
 			);
 			name = Records;
 			sourceTree = "<group>";
@@ -206,8 +197,6 @@
 				5D864EDD15B564C9007ADCA8 /* DirectionManagedObject.m */,
 				5D05CD0015A59E1F0011A165 /* RouteManager.h */,
 				5D05CD0115A59E1F0011A165 /* RouteManager.m */,
-				5D05CCFC15A598F00011A165 /* TripTracker.h */,
-				5D05CCFD15A598F00011A165 /* TripTracker.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -420,7 +409,6 @@
 				5DB59CAF1546C97200417818 /* MapViewController.m in Sources */,
 				5D2BFDBB1547F3B400D9F53E /* RoutesViewController.m in Sources */,
 				5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */,
-				5DD5240A154800DD00011A3E /* TripRecord.m in Sources */,
 				5D05F316154ACA7F004E7773 /* StopRecord.m in Sources */,
 				5DA866A81556C25E00FB1ACF /* RouteRecord.m in Sources */,
 				5DA3C18F1557CA7E00A49A4E /* RoutesTableViewController.m in Sources */,
@@ -428,7 +416,6 @@
 				5DCFB37715611B070036B36A /* Proximity.m in Sources */,
 				5D54CDFA15668DA1005D0170 /* NSObject+KVOSEL.m in Sources */,
 				5D7D8A831568C5D0004DFB54 /* BackgroundNotifier.m in Sources */,
-				5D05CCFE15A598F00011A165 /* TripTracker.m in Sources */,
 				5D05CD0215A59E1F0011A165 /* RouteManager.m in Sources */,
 				5D9AAB1615ADAE8C00E2E077 /* DataManager.m in Sources */,
 				5D9AAB1C15ADB11600E2E077 /* NextStop.xcdatamodeld in Sources */,
@@ -444,7 +431,6 @@
 				5DB59CB01546C97200417818 /* MapViewController.m in Sources */,
 				5D2BFDBC1547F3B400D9F53E /* RoutesViewController.m in Sources */,
 				5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */,
-				5DD5240B154800DD00011A3E /* TripRecord.m in Sources */,
 				5D05F317154ACA7F004E7773 /* StopRecord.m in Sources */,
 				5DA866A91556C25E00FB1ACF /* RouteRecord.m in Sources */,
 				5DA3C18E1557CA7C00A49A4E /* RoutesTableViewController.m in Sources */,

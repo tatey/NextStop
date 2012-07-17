@@ -9,6 +9,4 @@
 + (RouteRecord *)routeMatchingPrimaryKey:(NSInteger)primaryKey;
 + (NSArray *)routesMatchingShortNameOrLongName:(NSString *)searchText;
 
-- (NSArray *)trips;
-
 @end

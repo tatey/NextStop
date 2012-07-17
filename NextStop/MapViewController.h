@@ -1,13 +1,13 @@
 #import <MapKit/MapKit.h>
 #import <UIKit/UIKit.h>
 
+@class DirectionManagedObject;
 @class RouteManager;
-@class TripTracker;
 
 @interface MapViewController : UIViewController <MKMapViewDelegate>
 
+@property (strong, nonatomic) DirectionManagedObject *direction;
 @property (strong, nonatomic) RouteManager *routeManager;
-@property (strong, nonatomic) TripTracker *tripTracker;
 
 - (id)initWithRouteManager:(RouteManager *)routeManager;
 

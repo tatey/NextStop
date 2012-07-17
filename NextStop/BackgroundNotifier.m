@@ -1,5 +1,5 @@
 #import "BackgroundNotifier.h"
-#import "TripTracker.h"
+#import "DirectionManagedObject.h"
 
 @implementation BackgroundNotifier
 
@@ -9,7 +9,7 @@
     self = [self init];
     if (self) {
         self.application = application;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tripTrackerDidApproachTarget:) name:TripTrackerDidApproachTargetNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(directionManagedObjectDidApproachTarget:) name:DirectionManagedObjectDidApproachTargetNotification object:nil];
     }
     return self;
 }
@@ -18,7 +18,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)tripTrackerDidApproachTarget:(id)sender {
+- (void)directionManagedObjectDidApproachTarget:(id)sender {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
     notification.alertAction = NSLocalizedString(@"notifications.action.approaching", nil);
     notification.alertBody = NSLocalizedString(@"notifications.body.approaching", nil);

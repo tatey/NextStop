@@ -1,13 +1,14 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@class TripRecord;
+@class DirectionRecord;
 
 @interface StopRecord : NSObject <MKAnnotation, NSCoding>
 
 @property (readonly) NSString *name;
 @property (readonly) NSUInteger primaryKey;
 
-+ (NSArray *)stopsBelongingToTrip:(TripRecord *)trip;
++ (NSArray *)stopsBelongingToDirection:(DirectionRecord *)direction;
++ (id)stopMatchingPrimaryKey:(NSInteger)primaryKey;
 
 @end

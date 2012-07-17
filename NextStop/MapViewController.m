@@ -1,12 +1,12 @@
+#import "DirectionManagedObject.h"
 #import "MapViewController.h"
 #import "NSObject+KVOSEL.h"
 #import "RouteManager.h"
 #import "StopRecord.h"
-#import "TripTracker.h"
 
 #define TOOLBAR_HEIGHT 44
 
-static NSString *const kTripTrackerMonitorProximityToTargetKeyPath = @"tripTracker.monitorProximityToTarget";
+static NSString *const kDirectionMonitorProximityToTargetKeyPath = @"direction.monitorProximityToTarget";
 
 static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotations) {
     NSInteger count = 0;
@@ -32,8 +32,8 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 @implementation MapViewController
 
 // Public
+@synthesize direction = _direction;
 @synthesize routeManager = _routeManager;
-@synthesize tripTracker = _tripTracker;
 
 // Private
 @synthesize directionsControl = _directionsControl;
@@ -45,7 +45,7 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
     self = [self init];
     if (self) {
         self.routeManager = routeManager;
-        self.tripTracker = [self.routeManager selectedTripTracker];
+        self.direction = self.routeManager.selectedDirection;
     }
     return self;
 }
@@ -57,9 +57,9 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
     self.directionsToolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.directionsToolbar];
     // Directions control.
-    self.directionsControl = [[UISegmentedControl alloc] initWithItems:self.routeManager.directions];
+    self.directionsControl = [[UISegmentedControl alloc] initWithItems:[self.routeManager headsigns]];
     self.directionsControl.segmentedControlStyle = UISegmentedControlStyleBar;
-    self.directionsControl.selectedSegmentIndex = self.routeManager.selectedDirectionIndex;
+    self.directionsControl.selectedSegmentIndex = [self.routeManager indexOfSelectedDirection];
     [self.directionsControl addTarget:self action:@selector(directionControlValueDidChange:) forControlEvents:UIControlEventValueChanged];
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *segmentedControl = [[UIBarButtonItem alloc] initWithCustomView:self.directionsControl];
@@ -69,7 +69,7 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
-    [self.mapView addAnnotations:self.tripTracker.stops];
+    [self.mapView addAnnotations:[self.direction stops]];
     [self.view addSubview:self.mapView];
     // Proximity switch.
     self.proximitySwitch = [[UISwitch alloc] init];
@@ -89,14 +89,14 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self addObserver:self forKeyPath:kTripTrackerMonitorProximityToTargetKeyPath options:NSKeyValueObservingOptionNew context:@selector(tripTrackerProximityToTargetDidChange)];
+    [self addObserver:self forKeyPath:kDirectionMonitorProximityToTargetKeyPath options:NSKeyValueObservingOptionNew context:@selector(directionProximityToTargetDidChange)];
     [self applicationWillEnterForeground:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [self removeObserver:self forKeyPath:kTripTrackerMonitorProximityToTargetKeyPath];
+    [self removeObserver:self forKeyPath:kDirectionMonitorProximityToTargetKeyPath];
     [self applicationDidEnterBackground:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
@@ -108,34 +108,34 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 }
 
 - (void)zoomToFitStops:(BOOL)animated {
-    [self.mapView setRegion:CoordinateRegionMakeWithAnnotations(self.tripTracker.stops) animated:animated];
+    [self.mapView setRegion:CoordinateRegionMakeWithAnnotations([self.direction stops]) animated:animated];
 }
      
 #pragma mark - Actions
      
 - (void)directionControlValueDidChange:(UISegmentedControl *)segmentedControl {
-    [self.mapView removeAnnotations:self.tripTracker.stops];
-    self.routeManager.selectedDirectionIndex = segmentedControl.selectedSegmentIndex;
-    self.tripTracker = [self.routeManager selectedTripTracker];
-    [self.mapView addAnnotations:self.tripTracker.stops];
+    [self.mapView removeAnnotations:[self.direction stops]];
+    [self.routeManager setDirectionAtIndex:segmentedControl.selectedSegmentIndex];
+    self.direction = self.routeManager.selectedDirection;
+    [self.mapView addAnnotations:[self.direction stops]];
 }
 
 - (void)proximitySwitchValueDidChange:(UISwitch *)aSwitch {
-    self.tripTracker.monitorProximityToTarget = aSwitch.on;
+    self.direction.monitorProximityToTarget = aSwitch.on;
 }
 
 #pragma mark - Notifications
 
 - (void)applicationDidEnterBackground:(NSNotification *)notification {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:TripTrackerDidApproachTargetNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:DirectionManagedObjectDidApproachTargetNotification object:nil];
 }
 
 - (void)applicationWillEnterForeground:(NSNotification *)notification {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showApproachingTargetAlert:) name:TripTrackerDidApproachTargetNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showApproachingTargetAlert:) name:DirectionManagedObjectDidApproachTargetNotification object:nil];
 }
 
-- (void)tripTrackerProximityToTargetDidChange {
-    [self.proximitySwitch setOn:self.tripTracker.isMonitoringProximityToTarget animated:YES];
+- (void)directionProximityToTargetDidChange {
+    [self.proximitySwitch setOn:self.direction.isMonitoringProximityToTarget animated:YES];
 }
 
 - (void)showApproachingTargetAlert:(NSNotification *)notification {
@@ -146,9 +146,9 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 #pragma mark - MKMapViewDelegate
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-    for (StopRecord *stop in self.tripTracker.stops) {
+    for (StopRecord *stop in [self.direction stops]) {
         if (stop == view.annotation) {
-            self.tripTracker.target = stop;
+            self.direction.target = stop;
             break;
         }
     }

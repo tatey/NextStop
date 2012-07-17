@@ -1,6 +1,5 @@
 #import "RouteRecord.h"
 #import "SQLiteDB.h"
-#import "TripRecord.h"
 
 #define QUERY1 @"SELECT routes.* "     \
                 "FROM routes "         \
@@ -76,10 +75,6 @@ static const char * RouteRecordStringToWildcardUTF8String(NSString *string) {
 
 - (NSUInteger)primaryKey {
     return _primaryKey;
-}
-
-- (NSArray *)trips {
-    return [TripRecord tripsBelongingToRoute:self];
 }
 
 - (NSString *)description {
