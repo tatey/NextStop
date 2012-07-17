@@ -16,6 +16,7 @@
 		5D54CDFA15668DA1005D0170 /* NSObject+KVOSEL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D54CDF915668DA1005D0170 /* NSObject+KVOSEL.m */; };
 		5D7D8A831568C5D0004DFB54 /* BackgroundNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */; };
 		5D864EDB15B55CD4007ADCA8 /* DirectionRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D864EDA15B55CD4007ADCA8 /* DirectionRecord.m */; };
+		5D864EDE15B564C9007ADCA8 /* DirectionManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D864EDD15B564C9007ADCA8 /* DirectionManagedObject.m */; };
 		5D9AAB1615ADAE8C00E2E077 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9AAB1515ADAE8C00E2E077 /* DataManager.m */; };
 		5D9AAB1915ADAFBE00E2E077 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9AAB1815ADAFBE00E2E077 /* CoreData.framework */; };
 		5D9AAB1C15ADB11600E2E077 /* NextStop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D9AAB1A15ADB11600E2E077 /* NextStop.xcdatamodeld */; };
@@ -76,6 +77,8 @@
 		5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundNotifier.m; sourceTree = "<group>"; };
 		5D864ED915B55CD4007ADCA8 /* DirectionRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionRecord.h; sourceTree = "<group>"; };
 		5D864EDA15B55CD4007ADCA8 /* DirectionRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionRecord.m; sourceTree = "<group>"; };
+		5D864EDC15B564C9007ADCA8 /* DirectionManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionManagedObject.h; sourceTree = "<group>"; };
+		5D864EDD15B564C9007ADCA8 /* DirectionManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionManagedObject.m; sourceTree = "<group>"; };
 		5D9AAB1415ADAE8C00E2E077 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		5D9AAB1515ADAE8C00E2E077 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		5D9AAB1815ADAFBE00E2E077 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -199,6 +202,8 @@
 		5D6EB68D15A99D2D007260F8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5D864EDC15B564C9007ADCA8 /* DirectionManagedObject.h */,
+				5D864EDD15B564C9007ADCA8 /* DirectionManagedObject.m */,
 				5D05CD0015A59E1F0011A165 /* RouteManager.h */,
 				5D05CD0115A59E1F0011A165 /* RouteManager.m */,
 				5D05CCFC15A598F00011A165 /* TripTracker.h */,
@@ -428,6 +433,7 @@
 				5D9AAB1615ADAE8C00E2E077 /* DataManager.m in Sources */,
 				5D9AAB1C15ADB11600E2E077 /* NextStop.xcdatamodeld in Sources */,
 				5D864EDB15B55CD4007ADCA8 /* DirectionRecord.m in Sources */,
+				5D864EDE15B564C9007ADCA8 /* DirectionManagedObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
