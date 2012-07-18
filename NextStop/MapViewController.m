@@ -45,7 +45,7 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
     self = [self init];
     if (self) {
         self.routeManager = routeManager;
-        self.direction = self.routeManager.selectedDirection;
+        self.direction = [self.routeManager selectedDirection];
     }
     return self;
 }
@@ -59,7 +59,7 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
     // Directions control.
     self.directionsControl = [[UISegmentedControl alloc] initWithItems:[self.routeManager headsigns]];
     self.directionsControl.segmentedControlStyle = UISegmentedControlStyleBar;
-    self.directionsControl.selectedSegmentIndex = [self.routeManager indexOfSelectedDirection];
+    self.directionsControl.selectedSegmentIndex = self.routeManager.selectedDirectionIndex;
     [self.directionsControl addTarget:self action:@selector(directionControlValueDidChange:) forControlEvents:UIControlEventValueChanged];
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *segmentedControl = [[UIBarButtonItem alloc] initWithCustomView:self.directionsControl];
@@ -115,8 +115,8 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
      
 - (void)directionControlValueDidChange:(UISegmentedControl *)segmentedControl {
     [self.mapView removeAnnotations:[self.direction stops]];
-    [self.routeManager setDirectionAtIndex:segmentedControl.selectedSegmentIndex];
-    self.direction = self.routeManager.selectedDirection;
+    self.routeManager.selectedDirectionIndex = segmentedControl.selectedSegmentIndex;
+    self.direction = [self.routeManager selectedDirection];
     [self.mapView addAnnotations:[self.direction stops]];
 }
 

@@ -32,6 +32,7 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 
 // Public
 @dynamic monitorProximityToTarget;
+@dynamic routeManager;
 
 @synthesize direction = _direction;
 @synthesize target = _target;

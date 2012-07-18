@@ -6,7 +6,6 @@
 static NSString *const kEntityName = @"Route";
 
 static NSString *const kDirectionsKey = @"directions";
-static NSString *const kSelectedDirectionKey = @"selectedDirection";
 
 @interface RouteManager ()
 
@@ -18,7 +17,7 @@ static NSString *const kSelectedDirectionKey = @"selectedDirection";
 
 // Public
 @dynamic directions;
-@dynamic selectedDirection;
+@dynamic selectedDirectionIndex;
 @dynamic updatedAt;
 
 @synthesize route = _route;
@@ -97,14 +96,7 @@ static NSString *const kSelectedDirectionKey = @"selectedDirection";
 }
 
 - (DirectionManagedObject *)selectedDirection {
-    [self willAccessValueForKey:kSelectedDirectionKey];
-    DirectionManagedObject *selectedDirection = [self primitiveValueForKey:kSelectedDirectionKey];
-    [self didAccessValueForKey:kSelectedDirectionKey];
-    if (!selectedDirection) {
-        selectedDirection = [self.directions lastObject];
-        [self setPrimitiveValue:selectedDirection forKey:kSelectedDirectionKey];
-    }
-    return selectedDirection;
+    return [self.directions objectAtIndex:self.selectedDirectionIndex];
 }
 
 - (NSArray *)headsigns {
@@ -113,18 +105,6 @@ static NSString *const kSelectedDirectionKey = @"selectedDirection";
         [headsigns addObject:[direction headsign]];
     }
     return [headsigns copy];
-}
-
-- (NSUInteger)indexOfDirection:(DirectionManagedObject *)direction {
-    return [self.directions indexOfObject:direction];
-}
-
-- (NSUInteger)indexOfSelectedDirection {
-    return [self indexOfDirection:self.selectedDirection];
-}
-
-- (void)setDirectionAtIndex:(NSUInteger)index {
-    self.selectedDirection = [self.directions objectAtIndex:index];
 }
 
 - (NSString *)name {

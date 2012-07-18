@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11E53" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Direction" representedClassName="DirectionManagedObject" syncable="YES">
-        <attribute name="directionId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="monitorProximityToTarget" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="targetId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="route1" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Route" inverseName="directions" inverseEntity="Route" syncable="YES"/>
-        <relationship name="route2" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Route" inverseName="selectedDirection" inverseEntity="Route" syncable="YES"/>
+        <attribute name="directionId" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="monitorProximityToTarget" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="targetId" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <relationship name="routeManager" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Route" inverseName="directions" inverseEntity="Route" syncable="YES"/>
     </entity>
     <entity name="Route" representedClassName="RouteManager" syncable="YES">
-        <attribute name="routeId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="routeId" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="selectedDirectionIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="directions" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Direction" inverseName="route1" inverseEntity="Direction" syncable="YES"/>
-        <relationship name="selectedDirection" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Direction" inverseName="route2" inverseEntity="Direction" syncable="YES"/>
+        <relationship name="directions" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Direction" inverseName="routeManager" inverseEntity="Direction" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Direction" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Direction" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Route" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>

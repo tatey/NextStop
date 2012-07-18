@@ -8,7 +8,7 @@
 
 @property (strong, nonatomic) RouteRecord *route;
 @property (copy, nonatomic) NSMutableOrderedSet *directions;
-@property (strong, nonatomic) DirectionManagedObject *selectedDirection;
+@property (assign, nonatomic) NSInteger selectedDirectionIndex;
 @property (strong, nonatomic) NSDate *updatedAt;
 
 + (NSFetchedResultsController *)routesInManagedObjectContext:(NSManagedObjectContext *)context sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)name;
@@ -18,9 +18,7 @@
 - (id)initWithRoute:(RouteRecord *)route insertIntoManagedObjectContext:(NSManagedObjectContext *)context;
 
 - (NSArray *)headsigns;
-- (NSUInteger)indexOfDirection:(DirectionManagedObject *)direction;
-- (NSUInteger)indexOfSelectedDirection;
-- (void)setDirectionAtIndex:(NSUInteger)index;
+- (DirectionManagedObject *)selectedDirection;
 
 - (NSString *)name;
 
