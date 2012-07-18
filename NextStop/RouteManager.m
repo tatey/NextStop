@@ -76,18 +76,11 @@ static NSString *const kSelectedDirectionKey = @"selectedDirection";
         NSArray *records = [DirectionRecord directionsBelongingToRoute:self.route];
         for (DirectionRecord *record in records) {
             DirectionManagedObject *managedObject = [[DirectionManagedObject alloc] initWithDirection:record managedObjectContext:self.managedObjectContext];
+            managedObject.routeManager = self;
             [directions addObject:managedObject];
         }
     }
     return directions;
-}
-
-- (void)buildDirections:(NSManagedObjectContext *)context {
-    NSArray *records = [DirectionRecord directionsBelongingToRoute:self.route];
-    for (DirectionRecord *record in records) {
-        DirectionManagedObject *managedObject = [[DirectionManagedObject alloc] initWithDirection:record managedObjectContext:self.managedObjectContext];
-        [self.directions addObject:managedObject];
-    }
 }
 
 - (void)setRoute:(RouteRecord *)route {
