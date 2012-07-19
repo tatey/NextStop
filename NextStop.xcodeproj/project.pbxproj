@@ -41,6 +41,8 @@
 		5DB59CB21546CA7B00417818 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CB11546CA7B00417818 /* MapKit.framework */; };
 		5DB59CBC1546D21200417818 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CBB1546D21200417818 /* CoreLocation.framework */; };
 		5DB59CE91547B5F500417818 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CE81547B5F500417818 /* libsqlite3.0.dylib */; };
+		5DBDD34715B83A74001287AB /* Indooroopilly.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DBDD34615B83A74001287AB /* Indooroopilly.gpx */; };
+		5DBDD34A15B83A7F001287AB /* Brisbane.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DBDD34915B83A7F001287AB /* Brisbane.gpx */; };
 		5DCFB37415611AED0036B36A /* ProximityCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFB37315611AED0036B36A /* ProximityCenter.m */; };
 		5DCFB37715611B070036B36A /* Proximity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFB37615611B070036B36A /* Proximity.m */; };
 		5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteDB.m */; };
@@ -104,6 +106,8 @@
 		5DB59CB11546CA7B00417818 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5DB59CBB1546D21200417818 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5DB59CE81547B5F500417818 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		5DBDD34615B83A74001287AB /* Indooroopilly.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Indooroopilly.gpx; sourceTree = "<group>"; };
+		5DBDD34915B83A7F001287AB /* Brisbane.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Brisbane.gpx; sourceTree = "<group>"; };
 		5DCFB37215611AED0036B36A /* ProximityCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProximityCenter.h; sourceTree = "<group>"; };
 		5DCFB37315611AED0036B36A /* ProximityCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProximityCenter.m; sourceTree = "<group>"; };
 		5DCFB37515611B070036B36A /* Proximity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Proximity.h; sourceTree = "<group>"; };
@@ -263,6 +267,8 @@
 				5DB59C8A1546C8E500417818 /* main.m */,
 				5DB59C8C1546C8E500417818 /* NextStop-Prefix.pch */,
 				5DA15B21154ED00800FCEE13 /* Localizable.strings */,
+				5DBDD34915B83A7F001287AB /* Brisbane.gpx */,
+				5DBDD34615B83A74001287AB /* Indooroopilly.gpx */,
 				5DB0AE0E1578C83E00D43B2E /* Taringa.gpx */,
 				5DB0AE0F1578C83E00D43B2E /* Toowoong.gpx */,
 			);
@@ -370,6 +376,8 @@
 				5DA15B22154ED00800FCEE13 /* Localizable.strings in Resources */,
 				5DB0AE101578C83E00D43B2E /* Taringa.gpx in Resources */,
 				5DB0AE111578C83E00D43B2E /* Toowoong.gpx in Resources */,
+				5DBDD34715B83A74001287AB /* Indooroopilly.gpx in Resources */,
+				5DBDD34A15B83A7F001287AB /* Brisbane.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
