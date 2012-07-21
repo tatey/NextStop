@@ -6,17 +6,16 @@
 "notifications.body.approaching" = "Stop is approaching.";
 
 // Records
-"trip_record.directions.inbound" = "Inbound";
-"trip_record.directions.outbound" = "Outbound";
-"trip_record.directions.unknown" = "Unknown";
-"trip_record.directions.counter_clockwise" = "Counter Clockwise";
-"trip_record.directions.clockwise" = "Clockwise";
-"trip_record.directions.inward" = "Inward";
-"trip_record.directions.outward" = "Outward";
-"trip_record.directions.south" = "South";
-"trip_record.directions.north" = "North";
-"trip_record.directions.east" = "East";
-"trip_record.directions.west" = "West";
+"direction_record.direction.inbound" = "Inbound";
+"direction_record.direction.outbound" = "Outbound";
+"direction_recorddirection.counterclockwise" = "Counter Clockwise";
+"direction_record.direction.clockwise" = "Clockwise";
+"direction_record.direction.inward" = "Inward";
+"direction_record.direction.outward" = "Outward";
+"direction_record.direction.south" = "South";
+"direction_record.direction.north" = "North";
+"direction_record.direction.east" = "East";
+"direction_record.direction.west" = "West";
 
 // View Controllers
 "maps.alerts.titles.approaching" = "Stop is approaching";

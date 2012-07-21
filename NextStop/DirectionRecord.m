@@ -69,6 +69,11 @@
     return _stops;
 }
 
+- (NSString *)localizedHeadsign {
+    NSString *key = [NSString stringWithFormat:@"direction_record.direction.%@", self.headsign];
+    return NSLocalizedString(key, nil);
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"<%@: %p, primaryKey: %d, direction %d, headsign: %@>", NSStringFromClass([self class]), self, self.primaryKey, _direction, _headsign];
 }

@@ -17,4 +17,6 @@ typedef enum {
 + (NSArray *)directionsBelongingToRoute:(RouteRecord *)route;
 + (id)directionMatchingPrimaryKey:(NSInteger)primaryKey;
 
+- (NSString *)localizedHeadsign;
+
 @end

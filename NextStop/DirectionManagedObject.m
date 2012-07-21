@@ -103,7 +103,7 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 }
 
 - (NSString *)headsign {
-    return self.direction.headsign;
+    return [self.direction localizedHeadsign];
 }
 
 - (NSArray *)stops {
