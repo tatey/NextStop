@@ -55,8 +55,8 @@
 - (id)initWithStatement:(sqlite3_stmt *)stmt {
     self = [self init];
     if (self) {
-        _direction = DirectionRecordRegularDirection;
-        _headsign = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 1)] copy];
+        _direction = sqlite3_column_int(stmt, 1);
+        _headsign = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 2)] copy];
         _primaryKey = sqlite3_column_int(stmt, 0);
     }
     return self;
