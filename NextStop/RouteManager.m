@@ -5,8 +5,6 @@
 
 static NSString *const kEntityName = @"Route";
 
-static NSString *const kDirectionsKey = @"directions";
-
 @interface RouteManager ()
 
 @property (assign, nonatomic) NSInteger routeId;
@@ -67,25 +65,11 @@ static NSString *const kDirectionsKey = @"directions";
     return self;
 }
 
-- (NSMutableOrderedSet *)directions {
-    [self willAccessValueForKey:kDirectionsKey];
-    NSMutableOrderedSet *directions = [self mutableOrderedSetValueForKey:kDirectionsKey];
-    [self didAccessValueForKey:kDirectionsKey];
-    if ([directions count] == 0) {
-        NSArray *records = [DirectionRecord directionsBelongingToRoute:self.route];
-        for (DirectionRecord *record in records) {
-            DirectionManagedObject *managedObject = [[DirectionManagedObject alloc] initWithDirection:record managedObjectContext:self.managedObjectContext];
-            managedObject.routeManager = self;
-            [directions addObject:managedObject];
-        }
-    }
-    return directions;
-}
-
 - (void)setRoute:(RouteRecord *)route {
     _route = route;
     self.routeId = route.primaryKey;
-    // TODO: Delete directions
+    [self deleteDirectionsInManagedObjectContext:self.managedObjectContext];
+    [self.directions addObjectsFromArray:[self directionsInsertedIntoManagedObjectContext:self.managedObjectContext]];
 }
 
 - (RouteRecord *)route {
@@ -113,6 +97,23 @@ static NSString *const kDirectionsKey = @"directions";
 
 - (void)touch {
     self.updatedAt = [NSDate date];
+}
+
+- (void)deleteDirectionsInManagedObjectContext:(NSManagedObjectContext *)context {
+    for (DirectionManagedObject *managedObject in self.directions) {
+        [context deleteObject:managedObject];
+    }
+}
+
+- (NSArray *)directionsInsertedIntoManagedObjectContext:(NSManagedObjectContext *)context {
+    NSArray *records = [DirectionRecord directionsBelongingToRoute:self.route];
+    NSMutableArray *managedObjects = [NSMutableArray arrayWithCapacity:[records count]];
+    for (DirectionRecord *record in records) {
+        DirectionManagedObject *managedObject = [[DirectionManagedObject alloc] initWithDirection:record managedObjectContext:context];
+        managedObject.routeManager = self;
+        [managedObjects addObject:managedObject];
+    }
+    return [managedObjects copy];
 }
 
 @end
