@@ -74,6 +74,10 @@ static NSString *const kNameArchiveKey = @"me.nextstop.archive.stop_record.name"
     return [NSString stringWithFormat:@"<%@: %p, primaryKey: %d, latitude: %f, longitude: %f, name: %@>", NSStringFromClass([self class]), self, self.primaryKey, _latitude, _longitude, self.name];
 }
 
+- (BOOL)isEqualToStop:(StopRecord *)stop {
+    return self.primaryKey == stop.primaryKey;
+}
+
 #pragma mark - MKAnnotation
 
 - (NSString *)title {

@@ -11,4 +11,6 @@
 + (NSArray *)stopsBelongingToDirection:(DirectionRecord *)direction;
 + (id)stopMatchingPrimaryKey:(NSInteger)primaryKey;
 
+- (BOOL)isEqualToStop:(StopRecord *)stop;
+
 @end
