@@ -49,6 +49,7 @@
 		5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteDB.m */; };
 		5DD52407154800BC00011A3E /* NextStop.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5DD52406154800BC00011A3E /* NextStop.sqlite */; };
 		5DF2645215BAD5BF00FD2E6B /* NSObject+MKMapViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF2645115BAD5BF00FD2E6B /* NSObject+MKMapViewDelegate.m */; };
+		5DF5F20715BB95E8006B0882 /* StopAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF5F20615BB95E8006B0882 /* StopAnnotationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,8 @@
 		5DD52406154800BC00011A3E /* NextStop.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = NextStop.sqlite; sourceTree = "<group>"; };
 		5DF2645015BAD5BF00FD2E6B /* NSObject+MKMapViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MKMapViewDelegate.h"; sourceTree = "<group>"; };
 		5DF2645115BAD5BF00FD2E6B /* NSObject+MKMapViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MKMapViewDelegate.m"; sourceTree = "<group>"; };
+		5DF5F20515BB95E8006B0882 /* StopAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopAnnotationView.h; sourceTree = "<group>"; };
+		5DF5F20615BB95E8006B0882 /* StopAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopAnnotationView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +263,7 @@
 				5D6EB68C15A99D0B007260F8 /* Extensions */,
 				5D47CC0A15C7FDD8009ACE61 /* Models */,
 				5D6EB68B15A99CDB007260F8 /* Services */,
+				5DF5F20415BB95C7006B0882 /* Views */,
 				5DB59C8D1546C8E500417818 /* AppDelegate.h */,
 				5DB59C8E1546C8E500417818 /* AppDelegate.m */,
 				5D9AAB1415ADAE8C00E2E077 /* DataManager.h */,
@@ -312,6 +316,15 @@
 				5D9AAB1A15ADB11600E2E077 /* NextStop.xcdatamodeld */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		5DF5F20415BB95C7006B0882 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5DF5F20515BB95E8006B0882 /* StopAnnotationView.h */,
+				5DF5F20615BB95E8006B0882 /* StopAnnotationView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,6 +456,7 @@
 				5D864EDB15B55CD4007ADCA8 /* DirectionRecord.m in Sources */,
 				5D864EDE15B564C9007ADCA8 /* DirectionManagedObject.m in Sources */,
 				5DF2645215BAD5BF00FD2E6B /* NSObject+MKMapViewDelegate.m in Sources */,
+				5DF5F20715BB95E8006B0882 /* StopAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
