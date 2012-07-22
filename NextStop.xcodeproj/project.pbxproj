@@ -199,7 +199,7 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		5D6EB68D15A99D2D007260F8 /* Models */ = {
+		5D6EB68D15A99D2D007260F8 /* Managed Objects */ = {
 			isa = PBXGroup;
 			children = (
 				5D864EDC15B564C9007ADCA8 /* DirectionManagedObject.h */,
@@ -207,7 +207,7 @@
 				5D05CD0015A59E1F0011A165 /* RouteManager.h */,
 				5D05CD0115A59E1F0011A165 /* RouteManager.m */,
 			);
-			name = Models;
+			name = "Managed Objects";
 			sourceTree = "<group>";
 		};
 		5DB59C6F1546C8E500417818 = {
@@ -249,7 +249,7 @@
 			children = (
 				5D6EB68A15A99CBC007260F8 /* Controllers */,
 				5D6EB68C15A99D0B007260F8 /* Extensions */,
-				5D6EB68D15A99D2D007260F8 /* Models */,
+				5D6EB68D15A99D2D007260F8 /* Managed Objects */,
 				5D6EB68915A99C85007260F8 /* Records */,
 				5D6EB68B15A99CDB007260F8 /* Services */,
 				5DB59C8D1546C8E500417818 /* AppDelegate.h */,
