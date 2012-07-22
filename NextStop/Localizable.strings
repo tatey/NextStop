@@ -8,7 +8,7 @@
 // Records
 "direction_record.direction.inbound" = "Inbound";
 "direction_record.direction.outbound" = "Outbound";
-"direction_recorddirection.counterclockwise" = "Counter Clockwise";
+"direction_record.direction.counterclockwise" = "Counter Clockwise";
 "direction_record.direction.clockwise" = "Clockwise";
 "direction_record.direction.inward" = "Inward";
 "direction_record.direction.outward" = "Outward";
