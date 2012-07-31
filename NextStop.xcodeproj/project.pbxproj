@@ -148,6 +148,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D47CC0A15C7FDD8009ACE61 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5D6EB68D15A99D2D007260F8 /* Managed Objects */,
+				5D6EB68915A99C85007260F8 /* Records */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		5D6EB68915A99C85007260F8 /* Records */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,8 +258,7 @@
 			children = (
 				5D6EB68A15A99CBC007260F8 /* Controllers */,
 				5D6EB68C15A99D0B007260F8 /* Extensions */,
-				5D6EB68D15A99D2D007260F8 /* Managed Objects */,
-				5D6EB68915A99C85007260F8 /* Records */,
+				5D47CC0A15C7FDD8009ACE61 /* Models */,
 				5D6EB68B15A99CDB007260F8 /* Services */,
 				5DB59C8D1546C8E500417818 /* AppDelegate.h */,
 				5DB59C8E1546C8E500417818 /* AppDelegate.m */,
