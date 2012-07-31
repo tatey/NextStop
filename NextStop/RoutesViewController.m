@@ -2,7 +2,6 @@
 #import "RouteManager.h"
 #import "RouteRecord.h"
 #import "RoutesTableViewController.h"
-#import "RouteManager.h"
 #import "RoutesViewController.h"
 
 static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches.routes";
