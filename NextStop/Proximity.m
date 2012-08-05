@@ -42,6 +42,10 @@ static CLLocationDistance Haversin(CLLocationCoordinate2D c1, CLLocationCoordina
     return Haversin(coordinate, self.target) <= self.radius;    
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<%@: %p, radius: %f, target: %f,%f>", NSStringFromClass([self class]), self, self.radius, self.target.latitude, self.target.longitude];
+}
+
 #pragma mark - NSCoding
 
 - (id)initWithCoder:(NSCoder *)coder {
