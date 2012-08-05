@@ -120,7 +120,8 @@ static NSString *const kProximitiesArchiveKey = @"me.nextstop.archive.proximity_
 }
 
 - (void)proximitiesInRadiusToTargets {
-    for (Proximity *proximity in self.proximities) {
+    NSArray *proximities = [self.proximities copy];
+    for (Proximity *proximity in proximities) {
         if ([proximity isCoordinateInProximityToTarget:self.current]) {
             [proximity.delegate proximityDidApproachTarget:proximity];
         }
