@@ -115,7 +115,7 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 }
 
 - (void)startMonitoringProximityToTarget {
-    if (!self.monitorProximityToTarget || !self.target) return;
+    if (!self.isMonitoringProximityToTarget || !self.target) return;
     self.proximity = [[Proximity alloc] initWithDelegate:self radius:RADIUS target:self.target.coordinate];
     [self.proximityCenter addProximity:self.proximity];
 }
