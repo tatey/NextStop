@@ -1,7 +1,6 @@
 #import "AppDelegate.h"
 #import "BackgroundNotifier.h"
 #import "DataManager.h"
-#import "MapViewController.h"
 #import "ProximityCenter.h"
 #import "RoutesViewController.h"
 

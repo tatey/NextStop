@@ -38,8 +38,6 @@
 		5DB59C981546C8E500417818 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C7E1546C8E500417818 /* UIKit.framework */; };
 		5DB59C991546C8E500417818 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C801546C8E500417818 /* Foundation.framework */; };
 		5DB59CA11546C8E500417818 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DB59C9F1546C8E500417818 /* InfoPlist.strings */; };
-		5DB59CAF1546C97200417818 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59CAE1546C97200417818 /* MapViewController.m */; };
-		5DB59CB01546C97200417818 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59CAE1546C97200417818 /* MapViewController.m */; };
 		5DB59CB21546CA7B00417818 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CB11546CA7B00417818 /* MapKit.framework */; };
 		5DB59CBC1546D21200417818 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CBB1546D21200417818 /* CoreLocation.framework */; };
 		5DB59CE91547B5F500417818 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CE81547B5F500417818 /* libsqlite3.0.dylib */; };
@@ -109,8 +107,6 @@
 		5DB59C961546C8E500417818 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		5DB59C9E1546C8E500417818 /* NextStopTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NextStopTests-Info.plist"; sourceTree = "<group>"; };
 		5DB59CA01546C8E500417818 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5DB59CAD1546C97200417818 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		5DB59CAE1546C97200417818 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		5DB59CB11546CA7B00417818 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5DB59CBB1546D21200417818 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5DB59CE81547B5F500417818 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -182,8 +178,6 @@
 		5D6EB68A15A99CBC007260F8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5DB59CAD1546C97200417818 /* MapViewController.h */,
-				5DB59CAE1546C97200417818 /* MapViewController.m */,
 				5DA37E8D15EA262D0090FDB0 /* DirectionViewController.h */,
 				5DA37E8E15EA262D0090FDB0 /* DirectionViewController.m */,
 				5DA37E8915EA25ED0090FDB0 /* RouteViewController.h */,
@@ -450,7 +444,6 @@
 			files = (
 				5DB59C8B1546C8E500417818 /* main.m in Sources */,
 				5DB59C8F1546C8E500417818 /* AppDelegate.m in Sources */,
-				5DB59CAF1546C97200417818 /* MapViewController.m in Sources */,
 				5D2BFDBB1547F3B400D9F53E /* RoutesViewController.m in Sources */,
 				5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */,
 				5D05F316154ACA7F004E7773 /* StopRecord.m in Sources */,
@@ -476,7 +469,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DB59CB01546C97200417818 /* MapViewController.m in Sources */,
 				5D2BFDBC1547F3B400D9F53E /* RoutesViewController.m in Sources */,
 				5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */,
 				5D05F317154ACA7F004E7773 /* StopRecord.m in Sources */,

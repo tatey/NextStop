@@ -18,8 +18,6 @@
 "direction_record.direction.west" = "West";
 
 // View Controllers
-"maps.alerts.titles.approaching" = "Stop is approaching";
-"maps.alerts.messages.approaching" = "Prepare to get off soon.";
 "route.alerts.titles.approaching" = "Stop is approaching";
 "route.alerts.messages.approaching" = "Prepare to get off soon.";
 "routes.search.placeholder" = "Try 130 or Sunnybank";
