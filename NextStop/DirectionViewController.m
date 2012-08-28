@@ -5,6 +5,16 @@
 
 static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManagedObject.monitorProximityToTarget";
 
+static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotations) {
+    NSInteger count = 0;
+    MKMapPoint points[[annotations count]];
+    for (id <MKAnnotation> annotation in annotations) {
+        points[count++] = MKMapPointForCoordinate(annotation.coordinate);
+    }
+    MKPolygon *polygon = [MKPolygon polygonWithPoints:points count:count];
+    return MKCoordinateRegionForMapRect([polygon boundingMapRect]);
+}
+
 @implementation DirectionViewController {
     __weak StopAnnotationView *_cachedStopAnnotationView;
 }
@@ -27,6 +37,7 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
     [self.mapView addAnnotations:[self.directionManagedObject stops]];
+    [self.mapView setRegion:CoordinateRegionMakeWithAnnotations([self.directionManagedObject stops]) animated:NO];
     [self.view addSubview:self.mapView];
 }
 
