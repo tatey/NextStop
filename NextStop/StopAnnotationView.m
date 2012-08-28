@@ -9,6 +9,7 @@
 @implementation StopAnnotationView
 
 // Public
+@synthesize delegate = _delegate;
 @synthesize monitored = _monitored;
 @synthesize targeted = _targeted;
 
@@ -57,6 +58,7 @@
 
 - (void)monitorSwitchDidChangeValue:(UISwitch *)monitorSwitch {
     self.monitored = monitorSwitch.on;
+    [self.delegate stopAnnotationView:self monitoredDidChangeValue:monitorSwitch.on];
 }
 
 @end
