@@ -1,7 +1,7 @@
-#import "MapViewController.h"
 #import "RouteManager.h"
 #import "RouteRecord.h"
 #import "RoutesTableViewController.h"
+#import "RouteViewController.h"
 #import "RoutesViewController.h"
 
 static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches.routes";
@@ -60,8 +60,8 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 
 - (void)routesTableViewController:(RoutesTableViewController *)routesTableViewController didSelectRoute:(RouteRecord *)route {
     RouteManager *routeManager = [RouteManager routeMatchingOrInsertingRoute:route managedObjectContext:self.managedObjectContext];
-    MapViewController *mapViewController = [[MapViewController alloc] initWithRouteManager:routeManager];
-    [self.navigationController pushViewController:mapViewController animated:YES];
+    RouteViewController *routeViewController = [[RouteViewController alloc] initWithRouteMananger:routeManager];
+    [self.navigationController pushViewController:routeViewController animated:YES];
 }
 
 #pragma mark - UITableViewDataSource
@@ -95,8 +95,8 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     RouteManager *routeManager = [self.routes objectAtIndexPath:indexPath];
-    MapViewController *mapViewController = [[MapViewController alloc] initWithRouteManager:routeManager];
-    [self.navigationController pushViewController:mapViewController animated:YES];
+    RouteViewController *routeViewController = [[RouteViewController alloc] initWithRouteMananger:routeManager];
+    [self.navigationController pushViewController:routeViewController animated:YES];
 }
 
 @end
