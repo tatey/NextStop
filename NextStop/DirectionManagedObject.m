@@ -74,6 +74,7 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 }
 
 - (void)setMonitorProximityToTarget:(BOOL)monitorProximityToTarget {
+    if (self.isMonitoringProximityToTarget == monitorProximityToTarget) return;
     [self willChangeValueForKey:kMonitorProximityToTargetKey];
     [self setPrimitiveValue:[NSNumber numberWithBool:monitorProximityToTarget] forKey:kMonitorProximityToTargetKey];
     [self didChangeValueForKey:kMonitorProximityToTargetKey];
@@ -97,9 +98,7 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
     _target = target;
     self.targetId = target.primaryKey;
     [self stopMonitoringProximityToTarget];
-    if (target) {
-        [self startMonitoringProximityToTarget];
-    }
+    [self startMonitoringProximityToTarget];
 }
 
 - (NSString *)headsign {
