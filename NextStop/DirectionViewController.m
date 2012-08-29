@@ -71,6 +71,15 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 
 #pragma mark - MKMapViewDelegate
 
+- (void)mapView:(MKMapView *)mapView didDeselectStopAnnotationView:(StopAnnotationView *)stopAnnotationView {
+    [_cachedStopAnnotationView.superview bringSubviewToFront:_cachedStopAnnotationView];
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectStopAnnotationView:(StopAnnotationView *)stopAnnotationView {
+    if (_cachedStopAnnotationView == stopAnnotationView) return;
+    [_cachedStopAnnotationView.superview sendSubviewToBack:_cachedStopAnnotationView];
+}
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForStopRecord:(StopRecord *)stopRecord {
     static NSString *ReuseId = @"StopAnnotationView";
     StopAnnotationView *stopAnnotationView = (StopAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:ReuseId];
