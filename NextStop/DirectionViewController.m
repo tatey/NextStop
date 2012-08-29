@@ -32,13 +32,20 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Map view
     self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
     [self.mapView addAnnotations:[self.directionManagedObject stops]];
-    [self.mapView setRegion:CoordinateRegionMakeWithAnnotations([self.directionManagedObject stops]) animated:NO];
     [self.view addSubview:self.mapView];
+    // Zoom
+    if (self.directionManagedObject.target) {
+        [self.mapView setRegion:MKCoordinateRegionMake(self.directionManagedObject.target.coordinate, MKCoordinateSpanMake(0.05, 0.05))];
+        [self.mapView selectAnnotation:self.directionManagedObject.target animated:NO];
+    } else {
+        [self.mapView setRegion:CoordinateRegionMakeWithAnnotations([self.directionManagedObject stops])];
+    }
 }
 
 - (void)viewDidUnload {
