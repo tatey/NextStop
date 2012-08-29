@@ -36,7 +36,7 @@
         directionViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     }
     // Selected index
-    self.selectedIndex = 0;
+    self.selectedIndex = self.routeManager.selectedDirectionIndex;
 }
 
 - (void)viewDidUnload {
