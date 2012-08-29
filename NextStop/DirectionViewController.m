@@ -42,7 +42,9 @@ static MKCoordinateRegion CoordinateRegionMakeWithAnnotations(NSArray *annotatio
     // Zoom
     if (self.directionManagedObject.target) {
         [self.mapView setRegion:MKCoordinateRegionMake(self.directionManagedObject.target.coordinate, MKCoordinateSpanMake(0.05, 0.05))];
-        [self.mapView selectAnnotation:self.directionManagedObject.target animated:NO];
+        if (!self.directionManagedObject.monitorProximityToTarget) {
+            [self.mapView selectAnnotation:self.directionManagedObject.target animated:NO];
+        }
     } else {
         [self.mapView setRegion:CoordinateRegionMakeWithAnnotations([self.directionManagedObject stops])];
     }
