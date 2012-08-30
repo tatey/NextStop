@@ -8,6 +8,8 @@ extern NSString *const DirectionManagedObjectDidApproachTargetNotification;
 @class StopRecord;
 @class RouteManager;
 
+@protocol DirectionManagedObjectDelegate;
+
 @interface DirectionManagedObject : NSManagedObject <ProximityDelegate>
 
 @property (strong, nonatomic) DirectionRecord *direction;
@@ -19,5 +21,11 @@ extern NSString *const DirectionManagedObjectDidApproachTargetNotification;
 
 - (NSString *)headsign;
 - (NSArray *)stops;
+
+@end
+
+@protocol DirectionManagedObjectDelegate
+
+- (void)directionManagedObject:(DirectionManagedObject *)directionManagedObject didChangeMonitorProximityToTarget:(BOOL)monitorProximityToTarget;
 
 @end

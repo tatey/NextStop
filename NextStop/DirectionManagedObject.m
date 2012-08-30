@@ -1,6 +1,7 @@
 #import "DirectionManagedObject.h"
 #import "DirectionRecord.h"
 #import "ProximityCenter.h"
+#import "RouteManager.h"
 #import "StopRecord.h"
 
 #define RADIUS 500 // Meters
@@ -77,6 +78,7 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
     if (self.isMonitoringProximityToTarget == monitorProximityToTarget) return;
     [self willChangeValueForKey:kMonitorProximityToTargetKey];
     [self setPrimitiveValue:[NSNumber numberWithBool:monitorProximityToTarget] forKey:kMonitorProximityToTargetKey];
+    [self.routeManager directionManagedObject:self didChangeMonitorProximityToTarget:monitorProximityToTarget];
     [self didChangeValueForKey:kMonitorProximityToTargetKey];
     if (monitorProximityToTarget) {
         [self startMonitoringProximityToTarget];

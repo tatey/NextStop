@@ -7,6 +7,7 @@ static NSString *const kEntityName = @"Route";
 
 @interface RouteManager ()
 
+@property (assign, nonatomic) NSNumber *isMonitoringProximityToTarget;
 @property (assign, nonatomic) NSInteger routeId;
 
 @end
@@ -18,6 +19,7 @@ static NSString *const kEntityName = @"Route";
 @dynamic selectedDirectionIndex;
 @dynamic updatedAt;
 
+@synthesize isMonitoringProximityToTarget = _isMonitoringProximityToTarget;
 @synthesize route = _route;
 
 // Private
@@ -63,6 +65,18 @@ static NSString *const kEntityName = @"Route";
         [self touch];
     }
     return self;
+}
+
+- (NSNumber *)isMonitoringProximityToTarget {
+    if (!_isMonitoringProximityToTarget) {
+        BOOL test = NO;
+        for (DirectionManagedObject *direction in self.directions) {
+            test = direction.monitorProximityToTarget;
+            if (test) break;
+        }
+        _isMonitoringProximityToTarget = [NSNumber numberWithBool:test];
+    }
+    return _isMonitoringProximityToTarget;
 }
 
 - (void)setRoute:(RouteRecord *)route {
@@ -114,6 +128,12 @@ static NSString *const kEntityName = @"Route";
         [managedObjects addObject:managedObject];
     }
     return [managedObjects copy];
+}
+
+#pragma mark - DirectionManagedObjectDelegate
+
+- (void)directionManagedObject:(DirectionManagedObject *)directionManagedObject didChangeMonitorProximityToTarget:(BOOL)monitorProximityToTarget {
+    self.isMonitoringProximityToTarget = nil; // Clear cache
 }
 
 @end

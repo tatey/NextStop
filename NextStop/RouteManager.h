@@ -1,12 +1,13 @@
 #import <CoreData/CoreData.h>
 #import <Foundation/Foundation.h>
+#import "DirectionManagedObject.h"
 
-@class DirectionManagedObject;
 @class RouteRecord;
 
-@interface RouteManager : NSManagedObject
+@interface RouteManager : NSManagedObject <DirectionManagedObjectDelegate>
 
 @property (strong, nonatomic) RouteRecord *route;
+@property (readonly, nonatomic) NSNumber *isMonitoringProximityToTarget;
 @property (copy, nonatomic) NSMutableOrderedSet *directions;
 @property (assign, nonatomic) NSInteger selectedDirectionIndex;
 @property (strong, nonatomic) NSDate *updatedAt;
