@@ -2,13 +2,16 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "StopAnnotationView.h"
+#import "TrackButton.h"
 
 @class DirectionManagedObject;
+@class TrackButton;
 
-@interface DirectionViewController : UIViewController <MKMapViewDelegate, StopAnnotationViewDelegate>
+@interface DirectionViewController : UIViewController <MKMapViewDelegate, StopAnnotationViewDelegate, TrackButtonDelegate>
 
 @property (strong, nonatomic) DirectionManagedObject *directionManagedObject;
 @property (strong, nonatomic) MKMapView *mapView;
+@property (strong, nonatomic) TrackButton *trackButton;
 
 - (id)initWithDirectionManagedObject:(DirectionManagedObject *)directionManagedObject;
 
