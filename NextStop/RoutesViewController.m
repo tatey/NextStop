@@ -1,8 +1,11 @@
+#import "RouteCell.h"
 #import "RouteManager.h"
 #import "RouteRecord.h"
 #import "RoutesTableViewController.h"
 #import "RouteViewController.h"
 #import "RoutesViewController.h"
+
+static NSString *const kRouteCellReuseId = @"RouteCell";
 
 static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches.routes";
 
@@ -30,6 +33,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
     self.searchController.searchResultsDataSource = self.routesController;
     self.searchController.searchResultsDelegate = self.routesController;
+    [self.tableView registerNib:[UINib nibWithNibName:@"RouteCell" bundle:nil] forCellReuseIdentifier:kRouteCellReuseId];
 }
 
 - (void)viewDidUnload {
@@ -71,15 +75,8 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *ResueID = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ResueID];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ResueID];
-    }
-    RouteManager *routeManager = [self.routes objectAtIndexPath:indexPath];
-    RouteRecord *routeRecord = routeManager.route;
-    cell.textLabel.text = routeRecord.shortName;
-    cell.detailTextLabel.text = routeRecord.longName;
+    RouteCell *cell = [tableView dequeueReusableCellWithIdentifier:kRouteCellReuseId];
+    cell.routeManager = [self.routes objectAtIndexPath:indexPath];
     return cell;
 }
 
