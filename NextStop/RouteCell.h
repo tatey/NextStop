@@ -8,5 +8,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *monitoredImageView;
 @property (strong, nonatomic) RouteManager *routeManager;
 @property (weak, nonatomic) IBOutlet UILabel *shortNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *updatedAtLabel;
 
 @end

@@ -58,6 +58,9 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     if (type == NSFetchedResultsChangeInsert) {
         [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationTop];
     }
+    if (type == NSFetchedResultsChangeMove) {
+        [self.tableView moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
+    }
 }
 
 #pragma mark - RoutesTableViewDelegate
