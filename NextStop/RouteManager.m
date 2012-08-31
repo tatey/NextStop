@@ -67,6 +67,11 @@ static NSString *const kEntityName = @"Route";
     return self;
 }
 
+- (void)awakeFromInsert {
+    [super awakeFromInsert];
+    [self touch];
+}
+
 - (NSNumber *)isMonitoringProximityToTarget {
     if (!_isMonitoringProximityToTarget) {
         BOOL test = NO;
@@ -133,6 +138,7 @@ static NSString *const kEntityName = @"Route";
 #pragma mark - DirectionManagedObjectDelegate
 
 - (void)directionManagedObject:(DirectionManagedObject *)directionManagedObject didChangeMonitorProximityToTarget:(BOOL)monitorProximityToTarget {
+    if (monitorProximityToTarget) [self touch];
     self.isMonitoringProximityToTarget = nil; // Clear cache
 }
 
