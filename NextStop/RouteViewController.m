@@ -45,13 +45,19 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];    
+    [super viewWillAppear:animated];
+    // Layout children view controllers
+    for (UIViewController *viewController in self.childViewControllers) {
+        viewController.view.frame = self.view.bounds;
+    }
+    // Configure notifications
     [self applicationWillEnterForeground:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    // Configure notifications
     [self applicationDidEnterBackground:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
@@ -62,14 +68,32 @@
     return [self.routeManager name];
 }
 
-- (void)setSelectedIndex:(NSInteger)selectedIndex {
+- (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated {
     UIViewController *oldViewController = [self.childViewControllers objectAtIndex:_selectedIndex];
-    [oldViewController.view removeFromSuperview];
+    UIViewController *newViewController = [self.childViewControllers objectAtIndex:selectedIndex];
+    if (animated) {
+        UIViewAnimationOptions options;
+        if (selectedIndex < _selectedIndex) {
+            options = UIViewAnimationOptionTransitionFlipFromRight;
+        } else {
+            options = UIViewAnimationOptionTransitionFlipFromLeft;
+        }
+        self.navigationController.navigationBar.userInteractionEnabled = NO;
+        [self transitionFromViewController:oldViewController toViewController:newViewController duration:1.0 options:options animations:^{
+
+        } completion:^(BOOL finished) {
+            self.navigationController.navigationBar.userInteractionEnabled = YES;
+        }];
+    } else {
+        [oldViewController.view removeFromSuperview];
+        [self.view addSubview:newViewController.view];
+    }
     _selectedIndex = selectedIndex;
-    UIViewController *newViewController = [self.childViewControllers objectAtIndex:_selectedIndex];
-    [self.view addSubview:newViewController.view];
-    [self.view sendSubviewToBack:newViewController.view];
-    newViewController.view.frame = self.view.bounds;
+    [self.view bringSubviewToFront:self.directionsControl];
+}
+
+- (void)setSelectedIndex:(NSInteger)selectedIndex {
+    [self setSelectedIndex:selectedIndex animated:NO];
 }
 
 #pragma mark - Notifications
@@ -84,7 +108,7 @@
 
 - (void)directionsControlDidChangeValue:(UISegmentedControl *)directionsControl {
     self.routeManager.selectedDirectionIndex = directionsControl.selectedSegmentIndex;
-    self.selectedIndex = directionsControl.selectedSegmentIndex;
+    [self setSelectedIndex:directionsControl.selectedSegmentIndex animated:YES];
 }
 
 - (void)showApproachingTargetAlert:(NSNotification *)notification {
