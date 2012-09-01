@@ -6,9 +6,10 @@
                 "WHERE routes.id = ? " \
                 "LIMIT 1; "            \
 
-#define QUERY2 @"SELECT routes.* "                                              \
-                "FROM routes "                                                  \
-                "WHERE (routes.short_name LIKE ? OR routes.long_name LIKE ?); " \
+#define QUERY2 @"SELECT routes.* "                                             \
+                "FROM routes "                                                 \
+                "WHERE (routes.short_name LIKE ? OR routes.long_name LIKE ?) " \
+                "LIMIT 50; "                                                   \
 
 static NSString *const kLongNameArchiveKey = @"me.nextstop.archive.route_record.long_name";
 static NSString *const kPrimaryKeyArchiveKey = @"me.nextstop.archive.route_record.primary_key";
