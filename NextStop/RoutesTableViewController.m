@@ -1,12 +1,16 @@
 #import "RouteRecord.h"
+#import "RouteRecordCell.h"
 #import "RoutesTableViewController.h"
 #import "RoutesTableViewControllerDelegate.h"
+
+static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
 
 @implementation RoutesTableViewController
 
 @synthesize delegate = _delegate;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize routes = _routes;
+@synthesize searchDisplayController = _searchDisplayController;
 
 - (id)init {
     self = [super init];
@@ -16,13 +20,27 @@
     return self;
 }
 
-- (id)initWithDelegate:(id<RoutesTableViewDelegate>)delegate managedObjectContext:(NSManagedObjectContext *)context {
+- (id)initWithSearchBar:(UISearchBar *)searchBar contentsController:(UIViewController *)viewController managedObjectContext:(NSManagedObjectContext *)context {
     self = [self init];
     if (self) {
-        self.delegate = delegate;
+        searchBar.delegate = self;
         self.managedObjectContext = context;
+        self.searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:viewController];
+        self.searchDisplayController.delegate = self;
+        self.searchDisplayController.searchResultsDataSource = self;
+        self.searchDisplayController.searchResultsDelegate = self;
     }
     return self;
+}
+
+- (void)setSearchDisplayControllerActive:(BOOL)active {
+    self.searchDisplayController.active = active;
+}
+
+#pragma mark - UISearchDisplayDelegate
+
+- (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView {
+    [tableView registerNib:[UINib nibWithNibName:kRouteRecordCellReuseId bundle:nil] forCellReuseIdentifier:kRouteRecordCellReuseId];
 }
 
 #pragma mark - UITableViewDataSource
@@ -32,14 +50,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *ResueID = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ResueID];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ResueID];
-    }
-    RouteRecord *route = [self.routes objectAtIndex:indexPath.row];
-    cell.textLabel.text = route.shortName;
-    cell.detailTextLabel.text = route.longName;
+    RouteRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:kRouteRecordCellReuseId];
+    cell.routeRecord = [self.routes objectAtIndex:indexPath.row];
     return cell;
 }
 

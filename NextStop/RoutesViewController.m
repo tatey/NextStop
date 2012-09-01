@@ -17,7 +17,6 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 @synthesize routes = _routes;
 @synthesize routesController = _routesController;
 @synthesize searchBar = _searchBar;
-@synthesize searchController = _searchController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,13 +28,10 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 		abort();
     }
-    self.routesController = [[RoutesTableViewController alloc] initWithDelegate:self managedObjectContext:self.managedObjectContext];
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    self.searchBar.delegate = self.routesController;
     self.searchBar.placeholder = NSLocalizedString(@"routes.search.placeholder", nil);
-    self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
-    self.searchController.searchResultsDataSource = self.routesController;
-    self.searchController.searchResultsDelegate = self.routesController;
+    self.routesController = [[RoutesTableViewController alloc] initWithSearchBar:self.searchBar contentsController:self managedObjectContext:self.managedObjectContext];
+    self.routesController.delegate = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"RouteCell" bundle:nil] forCellReuseIdentifier:kRouteCellReuseId];
 }
 
@@ -43,7 +39,6 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     self.routes = nil;
     self.routesController = nil;
     self.searchBar = nil;
-    self.searchController = nil;
     [super viewDidUnload];
 }
 
@@ -53,7 +48,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    self.searchController.active = NO;
+    [self.routesController setSearchDisplayControllerActive:NO];
     [super viewDidDisappear:animated];
 }
 
