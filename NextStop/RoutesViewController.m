@@ -57,7 +57,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
     if (type == NSFetchedResultsChangeInsert) {
-        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationTop];
+        [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationTop];
     }
     if (type == NSFetchedResultsChangeMove) {
         [self.tableView moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
