@@ -44,20 +44,20 @@
     [super viewDidUnload];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    // Layout children view controllers
+- (void)viewDidLayoutSubviews {
     for (UIViewController *viewController in self.childViewControllers) {
         viewController.view.frame = self.view.bounds;
     }
-    // Configure notifications
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self applicationWillEnterForeground:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    // Configure notifications
     [self applicationDidEnterBackground:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
