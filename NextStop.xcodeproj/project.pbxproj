@@ -27,8 +27,8 @@
 		5DA15B22154ED00800FCEE13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DA15B21154ED00800FCEE13 /* Localizable.strings */; };
 		5DA37E8B15EA25ED0090FDB0 /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA37E8A15EA25ED0090FDB0 /* RouteViewController.m */; };
 		5DA37E8F15EA262D0090FDB0 /* DirectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA37E8E15EA262D0090FDB0 /* DirectionViewController.m */; };
-		5DA3C18E1557CA7C00A49A4E /* RoutesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */; };
-		5DA3C18F1557CA7E00A49A4E /* RoutesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */; };
+		5DA3C18E1557CA7C00A49A4E /* RouteSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3C18D1557CA7C00A49A4E /* RouteSearchDisplayController.m */; };
+		5DA3C18F1557CA7E00A49A4E /* RouteSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3C18D1557CA7C00A49A4E /* RouteSearchDisplayController.m */; };
 		5DA512B215F1E5F600EF91DC /* RouteRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DA512B115F1E5F600EF91DC /* RouteRecordCell.xib */; };
 		5DA512B615F1E62A00EF91DC /* RouteRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA512B515F1E62A00EF91DC /* RouteRecordCell.m */; };
 		5DA866A81556C25E00FB1ACF /* RouteRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA866A71556C25E00FB1ACF /* RouteRecord.m */; };
@@ -103,8 +103,8 @@
 		5DA37E8A15EA25ED0090FDB0 /* RouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteViewController.m; sourceTree = "<group>"; };
 		5DA37E8D15EA262D0090FDB0 /* DirectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionViewController.h; sourceTree = "<group>"; };
 		5DA37E8E15EA262D0090FDB0 /* DirectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionViewController.m; sourceTree = "<group>"; };
-		5DA3C18C1557CA7C00A49A4E /* RoutesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutesTableViewController.h; sourceTree = "<group>"; };
-		5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutesTableViewController.m; sourceTree = "<group>"; };
+		5DA3C18C1557CA7C00A49A4E /* RouteSearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteSearchDisplayController.h; sourceTree = "<group>"; };
+		5DA3C18D1557CA7C00A49A4E /* RouteSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteSearchDisplayController.m; sourceTree = "<group>"; };
 		5DA512B115F1E5F600EF91DC /* RouteRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteRecordCell.xib; sourceTree = "<group>"; };
 		5DA512B415F1E62A00EF91DC /* RouteRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteRecordCell.h; sourceTree = "<group>"; };
 		5DA512B515F1E62A00EF91DC /* RouteRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteRecordCell.m; sourceTree = "<group>"; };
@@ -259,8 +259,8 @@
 		5DA512C115F1F45C00EF91DC /* Logical Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5DA3C18C1557CA7C00A49A4E /* RoutesTableViewController.h */,
-				5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */,
+				5DA3C18C1557CA7C00A49A4E /* RouteSearchDisplayController.h */,
+				5DA3C18D1557CA7C00A49A4E /* RouteSearchDisplayController.m */,
 			);
 			name = "Logical Controllers";
 			sourceTree = "<group>";
@@ -509,7 +509,7 @@
 				5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */,
 				5D05F316154ACA7F004E7773 /* StopRecord.m in Sources */,
 				5DA866A81556C25E00FB1ACF /* RouteRecord.m in Sources */,
-				5DA3C18F1557CA7E00A49A4E /* RoutesTableViewController.m in Sources */,
+				5DA3C18F1557CA7E00A49A4E /* RouteSearchDisplayController.m in Sources */,
 				5DCFB37415611AED0036B36A /* ProximityCenter.m in Sources */,
 				5DCFB37715611B070036B36A /* Proximity.m in Sources */,
 				5D54CDFA15668DA1005D0170 /* NSObject+KVOSEL.m in Sources */,
@@ -537,7 +537,7 @@
 				5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */,
 				5D05F317154ACA7F004E7773 /* StopRecord.m in Sources */,
 				5DA866A91556C25E00FB1ACF /* RouteRecord.m in Sources */,
-				5DA3C18E1557CA7C00A49A4E /* RoutesTableViewController.m in Sources */,
+				5DA3C18E1557CA7C00A49A4E /* RouteSearchDisplayController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

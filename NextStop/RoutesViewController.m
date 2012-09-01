@@ -14,7 +14,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize routes = _routes;
-@synthesize routesController = _routesController;
+@synthesize routeSearchDisplayController = _routeSearchDisplayController;
 @synthesize searchBar = _searchBar;
 
 - (void)viewDidLoad {
@@ -29,14 +29,14 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     }
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     self.searchBar.placeholder = NSLocalizedString(@"routes.search.placeholder", nil);
-    self.routesController = [[RoutesTableViewController alloc] initWithSearchBar:self.searchBar contentsController:self managedObjectContext:self.managedObjectContext];
-    self.routesController.delegate = self;
+    self.routeSearchDisplayController = [[RouteSearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self managedObjectContext:self.managedObjectContext];
+    self.routeSearchDisplayController.delegate = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"RouteCell" bundle:nil] forCellReuseIdentifier:kRouteCellReuseId];
 }
 
 - (void)viewDidUnload {
     self.routes = nil;
-    self.routesController = nil;
+    self.routeSearchDisplayController = nil;
     self.searchBar = nil;
     [super viewDidUnload];
 }
@@ -47,7 +47,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [self.routesController setSearchDisplayControllerActive:NO];
+    [self.routeSearchDisplayController setActive:NO];
     [super viewDidDisappear:animated];
 }
 
@@ -86,9 +86,9 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     }
 }
 
-#pragma mark - RoutesTableViewDelegate
+#pragma mark - RouteSearchDisplayControllerDelegate
 
-- (void)routesTableViewController:(RoutesTableViewController *)routesTableViewController didSelectRoute:(RouteRecord *)route {
+- (void)routeSearchDisplayController:(RouteSearchDisplayController *)routeSearchDisplayController didSelectRoute:(RouteRecord *)route {
     RouteManager *routeManager = [RouteManager routeMatchingOrInsertingRoute:route managedObjectContext:self.managedObjectContext];
     RouteViewController *routeViewController = [[RouteViewController alloc] initWithRouteMananger:routeManager];
     [self.navigationController pushViewController:routeViewController animated:YES];

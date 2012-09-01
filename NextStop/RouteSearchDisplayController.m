@@ -1,10 +1,10 @@
 #import "RouteRecord.h"
 #import "RouteRecordCell.h"
-#import "RoutesTableViewController.h"
+#import "RouteSearchDisplayController.h"
 
 static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
 
-@implementation RoutesTableViewController
+@implementation RouteSearchDisplayController
 
 @synthesize delegate = _delegate;
 @synthesize managedObjectContext = _managedObjectContext;
@@ -32,7 +32,7 @@ static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
     return self;
 }
 
-- (void)setSearchDisplayControllerActive:(BOOL)active {
+- (void)setActive:(BOOL)active {
     self.searchDisplayController.active = active;
 }
 
@@ -58,7 +58,7 @@ static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     RouteRecord *route = [self.routes objectAtIndex:indexPath.row];
-    [self.delegate routesTableViewController:self didSelectRoute:route];
+    [self.delegate routeSearchDisplayController:self didSelectRoute:route];
 }
 
 #pragma mark - UISearchBarDelegate
