@@ -3,11 +3,15 @@
 #import "StopRecord.h"
 #import "SQLiteDB.h"
 
-#define QUERY @"SELECT DISTINCT stops.* "                                \
-               "FROM stops "                                             \
-               "INNER JOIN stop_times ON stop_times.stop_id = stops.id " \
-               "INNER JOIN trips ON stop_times.trip_id = trips.id "      \
-               "WHERE trips.id = ?; "                                    \
+#define QUERY1 @"SELECT DISTINCT stops.* "                                \
+               "FROM stops "                                              \
+               "INNER JOIN stop_times ON stop_times.stop_id = stops.id "  \
+               "INNER JOIN trips ON stop_times.trip_id = trips.id "       \
+               "WHERE trips.id = ?; "                                     \
+
+#define QUERY2 @"SELECT stops.* "      \
+                "FROM stops "          \
+                "WHERE stops.id = ?; " \
 
 static NSString *const kPrimaryKeyArchiveKey = @"me.nextstop.archive.stop_record.primary_key";
 static NSString *const kLatitudeArchiveKey = @"me.nextstop.archive.stop_record.latitude";
@@ -30,7 +34,7 @@ static NSString *const kNameArchiveKey = @"me.nextstop.archive.stop_record.name"
 
 + (NSArray *)stopsBelongingToDirection:(DirectionRecord *)direction {
     SQLiteDB *db = [SQLiteDB sharedDB];
-    sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY];    
+    sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY1];
     sqlite3_bind_int(stmt, 1, direction.primaryKey);
     NSMutableArray *stops = [NSMutableArray array];
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
@@ -42,7 +46,7 @@ static NSString *const kNameArchiveKey = @"me.nextstop.archive.stop_record.name"
 
 + (id)stopMatchingPrimaryKey:(NSInteger)primaryKey {
     SQLiteDB *db = [SQLiteDB sharedDB];
-    sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY];
+    sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY2];
     sqlite3_bind_int(stmt, 1, primaryKey);
     __block StopRecord *stop = nil;
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
