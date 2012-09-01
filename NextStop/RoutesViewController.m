@@ -19,6 +19,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.routes = [RouteManager routesInManagedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:kFetchedResultsControllerCacheName];
     self.routes.delegate = self;
     NSError *error = nil;
@@ -61,6 +62,9 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     if (type == NSFetchedResultsChangeMove) {
         [self.tableView moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
     }
+    if (type == NSFetchedResultsChangeDelete) {
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    }
 }
 
 #pragma mark - RoutesTableViewDelegate
@@ -72,6 +76,13 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 }
 
 #pragma mark - UITableViewDataSource
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        RouteManager *routeManager = [self.routes objectAtIndexPath:indexPath];
+        [self.managedObjectContext deleteObject:routeManager];
+    }
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [[self.routes.sections objectAtIndex:section] numberOfObjects];
