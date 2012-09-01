@@ -1,5 +1,6 @@
 #import "DirectionManagedObject.h"
 #import "DirectionViewController.h"
+#import "MKMapView+Google.h"
 #import "NSObject+MKMapViewDelegate.h"
 #import "StopRecord.h"
 
@@ -41,8 +42,8 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
     [self.mapView addAnnotations:[self.directionManagedObject stops]];
     [self.view addSubview:self.mapView];
     // Track button
-    self.trackButton = [[TrackButton alloc] initWithFrame:CGRectMake(10, 10, 30, 30)];
-    self.trackButton.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
+    self.trackButton = [[TrackButton alloc] initWithFrame:CGRectMake(8, (self.view.bounds.size.height - 29) - 8, 29, 29)];
+    self.trackButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
     self.trackButton.delegate = self;
     [self.view addSubview:self.trackButton];
     // Zoom
@@ -60,6 +61,15 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
     self.mapView = nil;
     self.trackButton = nil;
     [super viewDidUnload];
+}
+
+- (void)viewDidLayoutSubviews {
+    // Reposition Google logo
+    UIImageView *googleLogo = [self.mapView googleLogo];
+    CGRect frame = googleLogo.frame;
+    frame.origin.y = 8;
+    frame.origin.x = (self.view.bounds.size.width - frame.size.width) - 8;
+    googleLogo.frame = frame;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

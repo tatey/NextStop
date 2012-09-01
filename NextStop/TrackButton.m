@@ -19,6 +19,7 @@ static TrackButtonState TrackButtonStateNext(TrackButtonState state) {
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         self.button = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.button.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
         self.button.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
         [self.button addTarget:self action:@selector(buttonDidTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.button];
