@@ -53,6 +53,10 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
     return self;
 }
 
+- (void)prepareForDeletion {
+    self.monitorProximityToTarget = NO;
+}
+
 - (DirectionRecord *)direction {
     if (!_direction) {
         if (self.directionId) {
