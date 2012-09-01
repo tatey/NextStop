@@ -78,7 +78,6 @@
 		5D05CD0115A59E1F0011A165 /* RouteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteManager.m; sourceTree = "<group>"; };
 		5D05F314154ACA7F004E7773 /* StopRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopRecord.h; sourceTree = "<group>"; };
 		5D05F315154ACA7F004E7773 /* StopRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopRecord.m; sourceTree = "<group>"; };
-		5D0C806D1557CF640078BC9C /* RoutesTableViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutesTableViewControllerDelegate.h; sourceTree = "<group>"; };
 		5D2BFDB91547F3B400D9F53E /* RoutesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutesViewController.h; sourceTree = "<group>"; };
 		5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutesViewController.m; sourceTree = "<group>"; };
 		5D3B3F0015EE42D700E3344F /* TrackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackButton.h; sourceTree = "<group>"; };
@@ -203,15 +202,8 @@
 		5D6EB68A15A99CBC007260F8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5DA37E8D15EA262D0090FDB0 /* DirectionViewController.h */,
-				5DA37E8E15EA262D0090FDB0 /* DirectionViewController.m */,
-				5DA37E8915EA25ED0090FDB0 /* RouteViewController.h */,
-				5DA37E8A15EA25ED0090FDB0 /* RouteViewController.m */,
-				5DA3C18C1557CA7C00A49A4E /* RoutesTableViewController.h */,
-				5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */,
-				5D0C806D1557CF640078BC9C /* RoutesTableViewControllerDelegate.h */,
-				5D2BFDB91547F3B400D9F53E /* RoutesViewController.h */,
-				5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */,
+				5DA512C115F1F45C00EF91DC /* Logical Controllers */,
+				5DA512C015F1F45500EF91DC /* View Controllers */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -249,6 +241,28 @@
 				5D05CD0115A59E1F0011A165 /* RouteManager.m */,
 			);
 			name = "Managed Objects";
+			sourceTree = "<group>";
+		};
+		5DA512C015F1F45500EF91DC /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5DA37E8D15EA262D0090FDB0 /* DirectionViewController.h */,
+				5DA37E8E15EA262D0090FDB0 /* DirectionViewController.m */,
+				5DA37E8915EA25ED0090FDB0 /* RouteViewController.h */,
+				5DA37E8A15EA25ED0090FDB0 /* RouteViewController.m */,
+				5D2BFDB91547F3B400D9F53E /* RoutesViewController.h */,
+				5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		5DA512C115F1F45C00EF91DC /* Logical Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5DA3C18C1557CA7C00A49A4E /* RoutesTableViewController.h */,
+				5DA3C18D1557CA7C00A49A4E /* RoutesTableViewController.m */,
+			);
+			name = "Logical Controllers";
 			sourceTree = "<group>";
 		};
 		5DB59C6F1546C8E500417818 = {

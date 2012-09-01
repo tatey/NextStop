@@ -1,8 +1,6 @@
 #import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
-#import "RoutesTableViewControllerDelegate.h"
-
-@class RoutesTableViewController;
+#import "RoutesTableViewController.h"
 
 @interface RoutesViewController : UITableViewController <NSFetchedResultsControllerDelegate, RoutesTableViewDelegate>
 
