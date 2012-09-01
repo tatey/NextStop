@@ -9,7 +9,9 @@ static NSString *const kRouteCellReuseId = @"RouteCell";
 
 static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches.routes";
 
-@implementation RoutesViewController
+@implementation RoutesViewController {
+    __weak RouteManager *_selectedRouteManager;
+}
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize routes = _routes;
@@ -45,12 +47,35 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     [super viewDidUnload];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self expireSelectedRouteManagerAnimated];
+}
+
 - (void)viewDidDisappear:(BOOL)animated {
     self.searchController.active = NO;
+    [super viewDidDisappear:animated];
 }
 
 - (NSString *)title {
     return NSLocalizedString(@"routes.title", nil);
+}
+
+- (void)cacheSelectedRouteManager:(RouteManager *)routeManager {
+    _selectedRouteManager = routeManager;
+}
+
+- (void)expireSelectedRouteManagerAnimated {
+    if (!_selectedRouteManager) return;
+    for (RouteCell *cell in self.tableView.visibleCells) {
+        if (cell.routeManager == _selectedRouteManager) {
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+            [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+            _selectedRouteManager = nil;
+            break;
+        }
+    }
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
@@ -73,6 +98,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     RouteManager *routeManager = [RouteManager routeMatchingOrInsertingRoute:route managedObjectContext:self.managedObjectContext];
     RouteViewController *routeViewController = [[RouteViewController alloc] initWithRouteMananger:routeManager];
     [self.navigationController pushViewController:routeViewController animated:YES];
+    [self cacheSelectedRouteManager:routeManager];
 }
 
 #pragma mark - UITableViewDataSource
