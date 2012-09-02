@@ -2,8 +2,6 @@
 #import <Foundation/Foundation.h>
 #import "Proximity.h"
 
-extern NSString *const DirectionManagedObjectDidApproachTargetNotification;
-
 @class DirectionRecord;
 @class StopRecord;
 @class RouteManager;

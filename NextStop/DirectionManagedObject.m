@@ -2,11 +2,10 @@
 #import "DirectionRecord.h"
 #import "ProximityCenter.h"
 #import "RouteManager.h"
+#import "Strings.h"
 #import "StopRecord.h"
 
 #define RADIUS 500 // Meters
-
-NSString *const DirectionManagedObjectDidApproachTargetNotification = @"me.nextstop.notifications.direction_managed_object.approach";
 
 static NSString *const kEntityName = @"Direction";
 
@@ -157,7 +156,7 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 
 - (void)proximityDidApproachTarget:(Proximity *)proximity {
     self.monitorProximityToTarget = NO;
-    [[NSNotificationCenter defaultCenter] postNotificationName:DirectionManagedObjectDidApproachTargetNotification object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NXDirectionManagedObjectDidApproachTargetNotification object:self];
 }
 
 @end

@@ -21,6 +21,7 @@
 		5D4CB10C15F31B640059784A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB10A15F31B640059784A /* Icon@2x.png */; };
 		5D4CB11815F31D590059784A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB11615F31D590059784A /* Default.png */; };
 		5D4CB11915F31D590059784A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB11715F31D590059784A /* Default@2x.png */; };
+		5D4CB11C15F31DD00059784A /* Strings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4CB11B15F31DD00059784A /* Strings.m */; };
 		5D54CDFA15668DA1005D0170 /* NSObject+KVOSEL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D54CDF915668DA1005D0170 /* NSObject+KVOSEL.m */; };
 		5D7D8A831568C5D0004DFB54 /* BackgroundNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */; };
 		5D864EDB15B55CD4007ADCA8 /* DirectionRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D864EDA15B55CD4007ADCA8 /* DirectionRecord.m */; };
@@ -95,6 +96,8 @@
 		5D4CB10A15F31B640059784A /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		5D4CB11615F31D590059784A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5D4CB11715F31D590059784A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5D4CB11A15F31DD00059784A /* Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Strings.h; sourceTree = "<group>"; };
+		5D4CB11B15F31DD00059784A /* Strings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Strings.m; sourceTree = "<group>"; };
 		5D54CDF815668DA1005D0170 /* NSObject+KVOSEL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVOSEL.h"; sourceTree = "<group>"; };
 		5D54CDF915668DA1005D0170 /* NSObject+KVOSEL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVOSEL.m"; sourceTree = "<group>"; };
 		5D7D8A811568C5D0004DFB54 /* BackgroundNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundNotifier.h; sourceTree = "<group>"; };
@@ -326,6 +329,8 @@
 				5DF5F20415BB95C7006B0882 /* Views */,
 				5DB59C8D1546C8E500417818 /* AppDelegate.h */,
 				5DB59C8E1546C8E500417818 /* AppDelegate.m */,
+				5D4CB11A15F31DD00059784A /* Strings.h */,
+				5D4CB11B15F31DD00059784A /* Strings.m */,
 				5DD524051548007600011A3E /* Resources */,
 				5DB59C851546C8E500417818 /* Supporting Files */,
 			);
@@ -548,6 +553,7 @@
 				5DAA1F0115EF94FB00BB3A71 /* RouteCell.m in Sources */,
 				5DA512B615F1E62A00EF91DC /* RouteRecordCell.m in Sources */,
 				5DD7DC9015F20B3800FD2CD1 /* MKMapView+Google.m in Sources */,
+				5D4CB11C15F31DD00059784A /* Strings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 #import "BackgroundNotifier.h"
-#import "DirectionManagedObject.h"
+#import "Strings.h"
 
 @implementation BackgroundNotifier
 
@@ -9,7 +9,7 @@
     self = [self init];
     if (self) {
         self.application = application;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(directionManagedObjectDidApproachTarget:) name:DirectionManagedObjectDidApproachTargetNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(directionManagedObjectDidApproachTarget:) name:NXDirectionManagedObjectDidApproachTargetNotification object:nil];
     }
     return self;
 }

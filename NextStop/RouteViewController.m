@@ -1,8 +1,8 @@
 #import <math.h>
-#import "DirectionManagedObject.h"
 #import "DirectionViewController.h"
 #import "RouteManager.h"
 #import "RouteViewController.h"
+#import "Strings.h"
 
 @implementation RouteViewController
 
@@ -99,11 +99,11 @@
 #pragma mark - Notifications
 
 - (void)applicationDidEnterBackground:(NSNotification *)notification {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:DirectionManagedObjectDidApproachTargetNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NXDirectionManagedObjectDidApproachTargetNotification object:nil];
 }
 
 - (void)applicationWillEnterForeground:(NSNotification *)notification {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showApproachingTargetAlert:) name:DirectionManagedObjectDidApproachTargetNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showApproachingTargetAlert:) name:NXDirectionManagedObjectDidApproachTargetNotification object:nil];
 }
 
 - (void)directionsControlDidChangeValue:(UISegmentedControl *)directionsControl {
