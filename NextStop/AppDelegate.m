@@ -1,6 +1,7 @@
 #import "AppDelegate.h"
 #import "BackgroundNotifier.h"
 #import "DataManager.h"
+#import "DirectionManagedObject.h"
 #import "ProximityCenter.h"
 #import "RoutesViewController.h"
 
@@ -57,6 +58,7 @@
 - (ProximityCenter *)proximityCenter {
     if (!_proximityCenter) {
         _proximityCenter = [ProximityCenter defaultCenter];
+        [DirectionManagedObject startMonitoringProximityToTargetsInManagedObjectContext:self.dataManager.managedObjectContext];
     }
     return _proximityCenter;
 }
