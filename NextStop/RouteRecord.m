@@ -11,10 +11,6 @@
                 "WHERE (routes.short_name LIKE ? OR routes.long_name LIKE ?) " \
                 "LIMIT 50; "                                                   \
 
-static NSString *const kLongNameArchiveKey = @"me.nextstop.archive.route_record.long_name";
-static NSString *const kPrimaryKeyArchiveKey = @"me.nextstop.archive.route_record.primary_key";
-static NSString *const kShortNameArchiveKey = @"me.nextstop.archive.route_record.short_name";
-
 static const char * RouteRecordStringToWildcardUTF8String(NSString *string) {
     return [[NSString stringWithFormat:@"%%%@%%", string] UTF8String];
 }
@@ -80,24 +76,6 @@ static const char * RouteRecordStringToWildcardUTF8String(NSString *string) {
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"<%@: %p, longName: %@ primaryKey: %d, shortName: %@>", NSStringFromClass([self class]), self, self.longName, self.primaryKey, self.shortName];
-}
-
-#pragma mark - NSCoding
-
-- (id)initWithCoder:(NSCoder *)coder {
-    self = [self init];
-    if (self) {
-        _longName = [[coder decodeObjectForKey:kLongNameArchiveKey] copy];
-        _primaryKey = [coder decodeIntegerForKey:kPrimaryKeyArchiveKey];
-        _shortName = [[coder decodeObjectForKey:kShortNameArchiveKey] copy];
-    }
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)coder {
-    [coder encodeObject:_longName forKey:kLongNameArchiveKey];
-    [coder encodeInteger:_primaryKey forKey:kPrimaryKeyArchiveKey];
-    [coder encodeObject:_shortName forKey:kShortNameArchiveKey];
 }
 
 @end

@@ -8,7 +8,7 @@ typedef enum {
 
 @class Proximity;
 
-@interface ProximityCenter : NSObject <NSCoding>
+@interface ProximityCenter : NSObject
 
 @property (assign, nonatomic) CLLocationCoordinate2D current;
 @property (assign, nonatomic) ProximityMode mode;

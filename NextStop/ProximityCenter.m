@@ -6,8 +6,6 @@ static NSString *const kCurrentKeyPath = @"current";
 static NSString *const kModeKeyPath = @"mode";
 static NSString *const kProximityCountKeyPath = @"proximityCount";
 
-static NSString *const kProximitiesArchiveKey = @"me.nextstop.archive.proximity_center.proximities";
-
 @interface ProximityCenter () <CLLocationManagerDelegate>
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -132,20 +130,6 @@ static NSString *const kProximitiesArchiveKey = @"me.nextstop.archive.proximity_
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     self.current = newLocation.coordinate;
-}
-
-#pragma mark - NSCoding
-
-- (id)initWithCoder:(NSCoder *)coder {
-    self = [self init];
-    if (self) {
-        _proximities = [coder decodeObjectForKey:kProximitiesArchiveKey];
-    }
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)coder {
-    [coder encodeObject:self.proximities forKey:kProximitiesArchiveKey];
 }
 
 @end

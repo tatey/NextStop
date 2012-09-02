@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface RouteRecord : NSObject <NSCoding>
+@interface RouteRecord : NSObject
 
 @property (readonly) NSString *longName;
 @property (readonly) NSUInteger primaryKey;

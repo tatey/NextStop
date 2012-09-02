@@ -3,7 +3,7 @@
 
 @protocol ProximityDelegate;
 
-@interface Proximity : NSObject <NSCoding>
+@interface Proximity : NSObject
 
 @property (weak, nonatomic) id <NSCoding, ProximityDelegate> delegate;
 @property (assign, nonatomic) CLLocationDistance radius;

@@ -3,7 +3,7 @@
 
 @class DirectionRecord;
 
-@interface StopRecord : NSObject <MKAnnotation, NSCoding>
+@interface StopRecord : NSObject <MKAnnotation>
 
 @property (readonly) NSString *name;
 @property (readonly) NSUInteger primaryKey;

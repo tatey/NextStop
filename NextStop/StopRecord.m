@@ -13,11 +13,6 @@
                 "FROM stops "          \
                 "WHERE stops.id = ?; " \
 
-static NSString *const kPrimaryKeyArchiveKey = @"me.nextstop.archive.stop_record.primary_key";
-static NSString *const kLatitudeArchiveKey = @"me.nextstop.archive.stop_record.latitude";
-static NSString *const kLongitudeArchiveKey = @"me.nextstop.archive.stop_record.longitude";
-static NSString *const kNameArchiveKey = @"me.nextstop.archive.stop_record.name";
-
 @interface StopRecord () {
 @private 
     NSUInteger _primaryKey;
@@ -90,26 +85,6 @@ static NSString *const kNameArchiveKey = @"me.nextstop.archive.stop_record.name"
 
 - (CLLocationCoordinate2D)coordinate {
     return CLLocationCoordinate2DMake(_latitude, _longitude);
-}
-
-#pragma mark - NSCoding
-
-- (id)initWithCoder:(NSCoder *)coder {
-    self = [self init];
-    if (self) {
-        _primaryKey = [coder decodeIntegerForKey:kPrimaryKeyArchiveKey];
-        _latitude = [coder decodeDoubleForKey:kLatitudeArchiveKey];
-        _longitude = [coder decodeDoubleForKey:kLongitudeArchiveKey];
-        _name = [[coder decodeObjectForKey:kNameArchiveKey] copy];
-    }
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)coder {
-    [coder encodeInteger:_primaryKey forKey:kPrimaryKeyArchiveKey];
-    [coder encodeDouble:_latitude forKey:kLatitudeArchiveKey];
-    [coder encodeDouble:_longitude forKey:kLongitudeArchiveKey];
-    [coder encodeObject:_name forKey:kNameArchiveKey];
 }
 
 @end
