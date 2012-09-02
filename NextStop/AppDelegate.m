@@ -8,7 +8,7 @@
 @interface AppDelegate ()
 
 @property (strong, nonatomic) BackgroundNotifier *backgroundNotifier; 
-@property (strong, nonatomic) DataManager *dataManager;
+@property (weak, nonatomic) DataManager *dataManager;
 @property (weak, nonatomic) ProximityCenter *proximityCenter;
 @property (strong, nonatomic) UIViewController *rootViewController;
 
@@ -50,7 +50,7 @@
 
 - (DataManager *)dataManager {
     if (!_dataManager) {
-        _dataManager = [[DataManager alloc] init];
+        _dataManager = [DataManager defaultManager];
     }
     return _dataManager;
 }
