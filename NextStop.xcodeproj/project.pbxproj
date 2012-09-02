@@ -216,10 +216,14 @@
 			children = (
 				5D7D8A811568C5D0004DFB54 /* BackgroundNotifier.h */,
 				5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */,
+				5D9AAB1415ADAE8C00E2E077 /* DataManager.h */,
+				5D9AAB1515ADAE8C00E2E077 /* DataManager.m */,
 				5DCFB37515611B070036B36A /* Proximity.h */,
 				5DCFB37615611B070036B36A /* Proximity.m */,
 				5DCFB37215611AED0036B36A /* ProximityCenter.h */,
 				5DCFB37315611AED0036B36A /* ProximityCenter.m */,
+				5DD523FC1547FF7C00011A3E /* SQLiteDB.h */,
+				5DD523FD1547FF7C00011A3E /* SQLiteDB.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -314,10 +318,6 @@
 				5DF5F20415BB95C7006B0882 /* Views */,
 				5DB59C8D1546C8E500417818 /* AppDelegate.h */,
 				5DB59C8E1546C8E500417818 /* AppDelegate.m */,
-				5D9AAB1415ADAE8C00E2E077 /* DataManager.h */,
-				5D9AAB1515ADAE8C00E2E077 /* DataManager.m */,
-				5DD523FC1547FF7C00011A3E /* SQLiteDB.h */,
-				5DD523FD1547FF7C00011A3E /* SQLiteDB.m */,
 				5DD524051548007600011A3E /* Resources */,
 				5DB59C851546C8E500417818 /* Supporting Files */,
 			);
