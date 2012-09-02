@@ -17,6 +17,8 @@ extern NSString *const DirectionManagedObjectDidApproachTargetNotification;
 @property (strong, nonatomic) RouteManager *routeManager;
 @property (strong, nonatomic) StopRecord *target;
 
++ (void)startMonitoringProximityToTargetsInManagedObjectContext:(NSManagedObjectContext *)context;
+
 - (id)initWithDirection:(DirectionRecord *)direction managedObjectContext:(NSManagedObjectContext *)context;
 
 - (NSString *)headsign;
