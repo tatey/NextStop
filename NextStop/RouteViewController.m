@@ -5,7 +5,7 @@
 #import "RouteViewControllerItem.h"
 #import "Strings.h"
 
-#define TOOLBAR_HEIGHT 40
+#define TOOLBAR_HEIGHT 44
 
 @implementation RouteViewController
 
