@@ -8,6 +8,7 @@
 @property (strong, nonatomic) UISegmentedControl *directionsControl;
 @property (strong, nonatomic) RouteManager *routeManager;
 @property (assign, nonatomic) NSInteger selectedIndex;
+@property (strong, nonatomic) UIToolbar *toolbar;
 
 - (id)initWithRouteMananger:(RouteManager *)routeManager;
 

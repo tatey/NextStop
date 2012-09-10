@@ -2,13 +2,17 @@
 #import "DirectionViewController.h"
 #import "RouteManager.h"
 #import "RouteViewController.h"
+#import "RouteViewControllerItem.h"
 #import "Strings.h"
+
+#define TOOLBAR_HEIGHT 40
 
 @implementation RouteViewController
 
 @synthesize directionsControl = _directionsControl;
 @synthesize routeManager = _routeManager;
 @synthesize selectedIndex = _selectedIndex;
+@synthesize toolbar = _toolbar;
 
 - (id)initWithRouteMananger:(RouteManager *)routeManager {
     self = [self init];
@@ -20,6 +24,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Toolbar
+    self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - TOOLBAR_HEIGHT, self.view.bounds.size.width, TOOLBAR_HEIGHT)];
+    self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth;
+    [self.view addSubview:self.toolbar];
     // Direction control
     self.directionsControl = [[UISegmentedControl alloc] initWithItems:[self.routeManager headsigns]];
     self.directionsControl.segmentedControlStyle = UISegmentedControlStyleBar;
@@ -27,7 +35,6 @@
     self.directionsControl.frame = CGRectMake(round((self.view.frame.size.width - self.directionsControl.frame.size.width) / 2), (self.view.bounds.size.height - self.directionsControl.frame.size.height) - 7, self.directionsControl.frame.size.width, self.directionsControl.frame.size.height);
     self.directionsControl.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
     [self.directionsControl addTarget:self action:@selector(directionsControlDidChangeValue:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:self.directionsControl];
     // Direction controllers
     for (DirectionManagedObject *directionManagedObject in self.routeManager.directions) {
         DirectionViewController *directionViewController = [[DirectionViewController alloc] initWithDirectionManagedObject:directionManagedObject];
@@ -41,12 +48,15 @@
 
 - (void)viewDidUnload {
     self.directionsControl = nil;
+    self.toolbar = nil;
     [super viewDidUnload];
 }
 
 - (void)viewDidLayoutSubviews {
     for (UIViewController *viewController in self.childViewControllers) {
-        viewController.view.frame = self.view.bounds;
+        CGRect frame = self.view.bounds;
+        frame.size.height = frame.size.height - TOOLBAR_HEIGHT;
+        viewController.view.frame = frame;
     }
 }
 
@@ -69,17 +79,11 @@
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated {
-    UIViewController *oldViewController = [self.childViewControllers objectAtIndex:_selectedIndex];
-    UIViewController *newViewController = [self.childViewControllers objectAtIndex:selectedIndex];
+    DirectionViewController *oldViewController = [self.childViewControllers objectAtIndex:_selectedIndex];
+    DirectionViewController *newViewController = [self.childViewControllers objectAtIndex:selectedIndex];
     if (animated) {
-        UIViewAnimationOptions options;
-        if (selectedIndex < _selectedIndex) {
-            options = UIViewAnimationOptionTransitionFlipFromRight;
-        } else {
-            options = UIViewAnimationOptionTransitionFlipFromLeft;
-        }
         self.navigationController.navigationBar.userInteractionEnabled = NO;
-        [self transitionFromViewController:oldViewController toViewController:newViewController duration:1.0 options:options animations:^{
+        [self transitionFromViewController:oldViewController toViewController:newViewController duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
 
         } completion:^(BOOL finished) {
             self.navigationController.navigationBar.userInteractionEnabled = YES;
@@ -89,11 +93,19 @@
         [self.view addSubview:newViewController.view];
     }
     _selectedIndex = selectedIndex;
-    [self.view bringSubviewToFront:self.directionsControl];
+    [self setToolbarItemsWithRouteViewControllerItem:newViewController.routeViewControllerItem];
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
     [self setSelectedIndex:selectedIndex animated:NO];
+}
+
+- (void)setToolbarItemsWithRouteViewControllerItem:(RouteViewControllerItem *)routeViewControllerItem {
+    UIBarButtonItem *flexibleSpaceBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *directionControlBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.directionsControl];
+    self.toolbar.items = nil;
+    self.toolbar.items = @[routeViewControllerItem.leftBarButtonItem, flexibleSpaceBarButtonItem, directionControlBarButtonItem, flexibleSpaceBarButtonItem];
+    
 }
 
 #pragma mark - Notifications
