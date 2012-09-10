@@ -3,6 +3,8 @@
 ## Current
 
 * [Fix] Conserve battery by switching to "Cellular towers" when greater than 5KM from targeted stop.
+* [New] Change style of toolbar on "Route Scene".
+* [New] Change animation to crossfade when switching directions in "Route Scene".
 
 ## 0.2.0 / 2012-09-02
 
