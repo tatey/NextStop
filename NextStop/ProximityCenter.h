@@ -2,16 +2,25 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    ProximityAccuracyBestMode,
-    ProximityPowerBestMode,
-} ProximityMode;
+    ProximityCenterPrecisionBestMode,
+    ProximityCenterPowerBestMode,
+} ProximityCenterMode;
+
+static NSString *NSStringFromProximityCenterMode(ProximityCenterMode mode) {
+    switch (mode) {
+        case ProximityCenterPrecisionBestMode:
+            return @"ProximityCenterPrecisionBestMode";
+        case ProximityCenterPowerBestMode:
+            return @"ProximityCenterPowerBestMode";
+    }
+}
 
 @class Proximity;
 
 @interface ProximityCenter : NSObject
 
 @property (assign, nonatomic) CLLocationCoordinate2D current;
-@property (assign, nonatomic) ProximityMode mode;
+@property (assign, nonatomic) ProximityCenterMode proximityCenterMode;
 @property (readonly, nonatomic) NSInteger proximityCount;
 
 + (id)defaultCenter;

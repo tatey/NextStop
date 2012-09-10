@@ -20,25 +20,31 @@ static CLLocationDistance Haversin(CLLocationCoordinate2D c1, CLLocationCoordina
 @implementation Proximity
 
 @synthesize delegate = _delegate;
-@synthesize radius = _radius;
+@synthesize notificationRadius = _notificationRadius;
+@synthesize precisionRadius = _precisionRadius;
 @synthesize target = _target;
 
-- (id)initWithDelegate:(id <NSCoding, ProximityDelegate>)delegate radius:(CLLocationDistance)radius target:(CLLocationCoordinate2D)target {
+- (id)initWithDelegate:(id <ProximityDelegate>)delegate notificationRadius:(CLLocationDistance)notificationRadius precisionRadius:(CLLocationDistance)precisionRadius target:(CLLocationCoordinate2D)target {
     self = [self init];
     if (self) {
         self.delegate = delegate;
-        self.radius = radius;
+        self.notificationRadius = notificationRadius;
+        self.precisionRadius = precisionRadius;
         self.target = target;
     }
     return self;
 }
 
-- (BOOL)isCoordinateInProximityToTarget:(CLLocationCoordinate2D)coordinate {
-    return Haversin(coordinate, self.target) <= self.radius;    
+- (BOOL)isNotificationRadiusInProximityToCoordinate:(CLLocationCoordinate2D)coordinate {
+    return Haversin(coordinate, self.target) <= self.notificationRadius;
+}
+
+- (BOOL)isPrecisionRadiusInProximityToCoordinate:(CLLocationCoordinate2D)coordinate {
+    return Haversin(coordinate, self.target) <= self.precisionRadius;
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@: %p, radius: %f, target: %f,%f>", NSStringFromClass([self class]), self, self.radius, self.target.latitude, self.target.longitude];
+    return [NSString stringWithFormat:@"<%@: %p, notificationRadius: %f, precisionRadius: %f, target: %f,%f>", NSStringFromClass([self class]), self, self.notificationRadius, self.precisionRadius, self.target.latitude, self.target.longitude];
 }
 
 @end

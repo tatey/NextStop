@@ -5,7 +5,8 @@
 #import "Strings.h"
 #import "StopRecord.h"
 
-#define RADIUS 500 // Meters
+#define NOTIFICATION_RADIUS 500 // Meters
+#define PRECISION_RADIUS 5000 // Meters
 
 static NSString *const kEntityName = @"Direction";
 
@@ -143,7 +144,7 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 
 - (void)startMonitoringProximityToTarget {
     if (!self.isMonitoringProximityToTarget || !self.target) return;
-    self.proximity = [[Proximity alloc] initWithDelegate:self radius:RADIUS target:self.target.coordinate];
+    self.proximity = [[Proximity alloc] initWithDelegate:self notificationRadius:NOTIFICATION_RADIUS precisionRadius:PRECISION_RADIUS target:self.target.coordinate];
     [self.proximityCenter addProximity:self.proximity];
 }
 

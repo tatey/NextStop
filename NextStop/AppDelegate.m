@@ -28,9 +28,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.backgroundNotifier = [[BackgroundNotifier alloc] initWithApplication:application];
     if ([launchOptions objectForKey:UIApplicationLaunchOptionsLocationKey]) {
-        self.proximityCenter.mode = ProximityPowerBestMode;
+        self.proximityCenter.proximityCenterMode = ProximityCenterPowerBestMode;
     } else {
-        self.proximityCenter.mode = ProximityAccuracyBestMode;
+        self.proximityCenter.proximityCenterMode = ProximityCenterPrecisionBestMode;
     }
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -41,11 +41,11 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     [self.dataManager save];
-    self.proximityCenter.mode = ProximityPowerBestMode;
+    self.proximityCenter.proximityCenterMode = ProximityCenterPowerBestMode;
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    self.proximityCenter.mode = ProximityAccuracyBestMode;
+    self.proximityCenter.proximityCenterMode = ProximityCenterPrecisionBestMode;
 }
 
 - (DataManager *)dataManager {

@@ -2,6 +2,20 @@
 #import "Proximity.h"
 #import "ProximityCenter.h"
 
+typedef enum {
+    LocationManagerPrecisionBestMode,
+    LocationManagerPowerBestMode,
+} LocationManagerMode;
+
+static NSString *NSStringFromLocationManagerMode(LocationManagerMode mode) {
+    switch (mode) {
+        case LocationManagerPrecisionBestMode:
+            return @"LocationManagerPrecisionBestMode";
+        case LocationManagerPowerBestMode:
+            return @"LocationManagerPowerBestMode";
+    }
+}
+
 static NSString *const kCurrentKeyPath = @"current";
 static NSString *const kModeKeyPath = @"mode";
 static NSString *const kProximityCountKeyPath = @"proximityCount";
@@ -9,13 +23,17 @@ static NSString *const kProximityCountKeyPath = @"proximityCount";
 @interface ProximityCenter () <CLLocationManagerDelegate>
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (assign, nonatomic) LocationManagerMode locationManagerMode;
 @property (copy, nonatomic) NSMutableArray *proximities;
 
+- (void)notifiyDelegatesInRadiusToProximities:(NSArray *)proximities;
+- (void)setLocationManagerModeWithProximities:(NSArray *)proximities;
+
+- (void)currentDidChangeValue;
 - (void)modeDidChangeValue;
 - (void)proximityCountDidChange;
-- (void)proximitiesInRadiusToTargets;
 
-- (void)startUpdatingCurrent:(ProximityMode)mode;
+- (void)startUpdatingCurrent;
 - (void)stopUpdatingCurrent;
 
 @end
@@ -24,10 +42,11 @@ static NSString *const kProximityCountKeyPath = @"proximityCount";
 
 // Public
 @synthesize current = _current;
-@synthesize mode = _mode;
+@synthesize proximityCenterMode = _proximityCenterMode;
 
 // Private
 @synthesize locationManager = _locationManager;
+@synthesize locationManagerMode = _locationManagerMode;
 @synthesize proximities = _proximities;
 
 + (id)defaultCenter {
@@ -42,7 +61,8 @@ static NSString *const kProximityCountKeyPath = @"proximityCount";
 - (id)init {
     self = [super init];
     if (self) {
-        [self addObserver:self forKeyPath:kCurrentKeyPath options:NSKeyValueObservingOptionNew context:@selector(proximitiesInRadiusToTargets)];
+        self.locationManagerMode = LocationManagerPrecisionBestMode;
+        [self addObserver:self forKeyPath:kCurrentKeyPath options:NSKeyValueObservingOptionNew context:@selector(currentDidChangeValue)];
         [self addObserver:self forKeyPath:kModeKeyPath options:NSKeyValueObservingOptionNew context:@selector(modeDidChangeValue)];
         [self addObserver:self forKeyPath:kProximityCountKeyPath options:NSKeyValueObservingOptionNew context:@selector(proximityCountDidChange)];
     }
@@ -87,42 +107,58 @@ static NSString *const kProximityCountKeyPath = @"proximityCount";
     [self didChangeValueForKey:kProximityCountKeyPath];
 }
 
-- (void)startUpdatingCurrent:(ProximityMode)mode {
-    switch (mode) {
-        case ProximityAccuracyBestMode:
-            [self.locationManager startUpdatingLocation];
-            break;
-        case ProximityPowerBestMode:
-            [self.locationManager startUpdatingLocation];
-            break;
+- (void)startUpdatingCurrent {
+    if (self.locationManagerMode == LocationManagerPowerBestMode && self.proximityCenterMode == ProximityCenterPowerBestMode) {
+        [self.locationManager startMonitoringSignificantLocationChanges];
+        [self.locationManager stopUpdatingLocation];
+    } else {
+        [self.locationManager startUpdatingLocation];
+        [self.locationManager stopMonitoringSignificantLocationChanges];
     }
 }
 
 - (void)stopUpdatingCurrent {
+    [self.locationManager stopMonitoringSignificantLocationChanges];
     [self.locationManager stopUpdatingLocation];
+}
+
+- (void)notifiyDelegatesInRadiusToProximities:(NSArray *)proximities {
+    for (Proximity *proximity in proximities) {
+        if ([proximity isNotificationRadiusInProximityToCoordinate:self.current]) {
+            [proximity.delegate proximityDidApproachTarget:proximity];
+        }
+    }
+}
+
+- (void)setLocationManagerModeWithProximities:(NSArray *)proximities {
+    LocationManagerMode mode = LocationManagerPowerBestMode;
+    for (Proximity *proximity in proximities) {
+        if ([proximity isPrecisionRadiusInProximityToCoordinate:self.current]) {
+            mode = LocationManagerPrecisionBestMode;
+            break;
+        }
+    }
+    self.locationManagerMode = mode;
 }
 
 #pragma mark - Events
 
+- (void)currentDidChangeValue {
+    NSArray *proximities = [self.proximities copy];
+    [self notifiyDelegatesInRadiusToProximities:proximities];
+    [self setLocationManagerModeWithProximities:proximities];
+}
+
 - (void)modeDidChangeValue {
     if (self.proximityCount == 0) return;
-    [self startUpdatingCurrent:self.mode];
+    [self startUpdatingCurrent];
 }
 
 - (void)proximityCountDidChange {
     if (self.proximityCount > 0) {
-        [self startUpdatingCurrent:self.mode];
+        [self startUpdatingCurrent];
     } else {
         [self stopUpdatingCurrent];
-    }
-}
-
-- (void)proximitiesInRadiusToTargets {
-    NSArray *proximities = [self.proximities copy];
-    for (Proximity *proximity in proximities) {
-        if ([proximity isCoordinateInProximityToTarget:self.current]) {
-            [proximity.delegate proximityDidApproachTarget:proximity];
-        }
     }
 }
 

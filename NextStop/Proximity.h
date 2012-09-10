@@ -5,13 +5,15 @@
 
 @interface Proximity : NSObject
 
-@property (weak, nonatomic) id <NSCoding, ProximityDelegate> delegate;
-@property (assign, nonatomic) CLLocationDistance radius;
+@property (weak, nonatomic) id <ProximityDelegate> delegate;
+@property (assign, nonatomic) CLLocationDistance notificationRadius;
+@property (assign, nonatomic) CLLocationDistance precisionRadius;
 @property (assign, nonatomic) CLLocationCoordinate2D target;
 
-- (id)initWithDelegate:(id <ProximityDelegate>)delegate radius:(CLLocationDistance)radius target:(CLLocationCoordinate2D)target;
+- (id)initWithDelegate:(id <ProximityDelegate>)delegate notificationRadius:(CLLocationDistance)notificationRadius precisionRadius:(CLLocationDistance)precisionRadius target:(CLLocationCoordinate2D)target;
 
-- (BOOL)isCoordinateInProximityToTarget:(CLLocationCoordinate2D)coordinate;
+- (BOOL)isNotificationRadiusInProximityToCoordinate:(CLLocationCoordinate2D)coordinate;
+- (BOOL)isPrecisionRadiusInProximityToCoordinate:(CLLocationCoordinate2D)coordinate;
 
 @end
 
