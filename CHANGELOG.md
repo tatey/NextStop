@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Current
+
+* [Fix] Conserve battery by switching to "Cellular towers" when greater than 5KM from targeted stop.
+
 ## 0.2.0 / 2012-09-02
 
 * [New] Remember routes and monitored stops, even after the application is quit.
