@@ -1,6 +1,5 @@
 #import "DirectionManagedObject.h"
 #import "DirectionViewController.h"
-#import "MKMapView+Google.h"
 #import "NSObject+MKMapViewDelegate.h"
 #import "RouteViewControllerItem.h"
 #import "StopRecord.h"
@@ -69,15 +68,6 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
     self.mapView = nil;
     self.trackButton = nil;
     [super viewDidUnload];
-}
-
-- (void)viewDidLayoutSubviews {
-    // Reposition Google logo
-    UIImageView *googleLogo = [self.mapView googleLogo];
-    CGRect frame = googleLogo.frame;
-    frame.origin.y = 8;
-    frame.origin.x = (self.view.bounds.size.width - frame.size.width) - 8;
-    googleLogo.frame = frame;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
