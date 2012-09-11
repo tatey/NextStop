@@ -138,7 +138,10 @@ static NSString *const kProximityCountKeyPath = @"proximityCount";
             break;
         }
     }
-    self.locationManagerMode = mode;
+    if (self.locationManagerMode != mode) {
+        self.locationManagerMode = mode;
+        [self startUpdatingCurrent];
+    }
 }
 
 #pragma mark - Events
