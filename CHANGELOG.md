@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.1 / 2012-09-11
+
+* [Fix] Actually conserve battery.
+
 ## 0.3.0 / 2012-09-10
 
 * [Fix] Conserve battery by switching to "Cellular towers" when greater than 5KM from targeted stop.
