@@ -1,5 +1,6 @@
 #import <math.h>
 #import "DirectionViewController.h"
+#import "ModalSearchViewController.h"
 #import "RouteManager.h"
 #import "RouteViewController.h"
 #import "RouteViewControllerItem.h"
@@ -10,7 +11,9 @@
 @implementation RouteViewController
 
 @synthesize directionsControl = _directionsControl;
+@synthesize modalSearchViewController = _modalSearchViewController;
 @synthesize routeManager = _routeManager;
+@synthesize searchBarButtonItem = _searchBarButtonItem;
 @synthesize selectedIndex = _selectedIndex;
 @synthesize toolbar = _toolbar;
 
@@ -35,6 +38,13 @@
     self.directionsControl.frame = CGRectMake(round((self.view.frame.size.width - self.directionsControl.frame.size.width) / 2), (self.view.bounds.size.height - self.directionsControl.frame.size.height) - 7, self.directionsControl.frame.size.width, self.directionsControl.frame.size.height);
     self.directionsControl.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
     [self.directionsControl addTarget:self action:@selector(directionsControlDidChangeValue:) forControlEvents:UIControlEventValueChanged];
+    // Search bar button item
+    self.searchBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchBarButtonItemTapped:)];
+    self.searchBarButtonItem.style = UIBarButtonItemStyleBordered;
+    self.navigationItem.rightBarButtonItem = self.searchBarButtonItem;
+    // Modal search controller
+    self.modalSearchViewController = [[ModalSearchViewController alloc] initWithViewController:self];
+    self.modalSearchViewController.delegate = self;
     // Direction controllers
     for (DirectionManagedObject *directionManagedObject in self.routeManager.directions) {
         DirectionViewController *directionViewController = [[DirectionViewController alloc] initWithDirectionManagedObject:directionManagedObject];
@@ -48,6 +58,8 @@
 
 - (void)viewDidUnload {
     self.directionsControl = nil;
+    self.modalSearchViewController = nil;
+    self.searchBarButtonItem = nil;
     self.toolbar = nil;
     [super viewDidUnload];
 }
@@ -108,6 +120,12 @@
     
 }
 
+#pragma mark - Actions
+
+- (void)searchBarButtonItemTapped:(UIBarButtonItem *)searchBarButtonItem {
+    [self.modalSearchViewController setActive:YES animated:YES];
+}
+
 #pragma mark - Notifications
 
 - (void)applicationDidEnterBackground:(NSNotification *)notification {
@@ -126,6 +144,18 @@
 - (void)showApproachingTargetAlert:(NSNotification *)notification {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"route.alerts.titles.approaching", nil) message:NSLocalizedString(@"route.alerts.messages.approaching", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"controls.dismiss", nil) otherButtonTitles:nil];
     [alert show];
+}
+
+#pragma mark - ModalSearchViewControllerDelegate
+
+- (void)modalSearchViewControllerDelegate:(ModalSearchViewController *)controller didLoadSearchBar:(UISearchBar *)searchBar {
+    searchBar.delegate = self;
+}
+
+#pragma mark UISearchBarDelegate
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [self.modalSearchViewController setActive:NO animated:YES];
 }
 
 @end
