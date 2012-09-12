@@ -58,6 +58,7 @@
 		5DB59CB21546CA7B00417818 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CB11546CA7B00417818 /* MapKit.framework */; };
 		5DB59CBC1546D21200417818 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CBB1546D21200417818 /* CoreLocation.framework */; };
 		5DB59CE91547B5F500417818 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CE81547B5F500417818 /* libsqlite3.0.dylib */; };
+		5DB9257F1600B0EE00AE27C3 /* ModalSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB9257E1600B0ED00AE27C3 /* ModalSearchViewController.m */; };
 		5DBDD34715B83A74001287AB /* Indooroopilly.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DBDD34615B83A74001287AB /* Indooroopilly.gpx */; };
 		5DBDD34A15B83A7F001287AB /* Brisbane.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DBDD34915B83A7F001287AB /* Brisbane.gpx */; };
 		5DCFB37415611AED0036B36A /* ProximityCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFB37315611AED0036B36A /* ProximityCenter.m */; };
@@ -148,6 +149,8 @@
 		5DB59CB11546CA7B00417818 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5DB59CBB1546D21200417818 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5DB59CE81547B5F500417818 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		5DB9257D1600B0ED00AE27C3 /* ModalSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalSearchViewController.h; sourceTree = "<group>"; };
+		5DB9257E1600B0ED00AE27C3 /* ModalSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalSearchViewController.m; sourceTree = "<group>"; };
 		5DBDD34615B83A74001287AB /* Indooroopilly.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Indooroopilly.gpx; sourceTree = "<group>"; };
 		5DBDD34915B83A7F001287AB /* Brisbane.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Brisbane.gpx; sourceTree = "<group>"; };
 		5DCFB37215611AED0036B36A /* ProximityCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProximityCenter.h; sourceTree = "<group>"; };
@@ -275,6 +278,8 @@
 			children = (
 				5DA37E8D15EA262D0090FDB0 /* DirectionViewController.h */,
 				5DA37E8E15EA262D0090FDB0 /* DirectionViewController.m */,
+				5DB9257D1600B0ED00AE27C3 /* ModalSearchViewController.h */,
+				5DB9257E1600B0ED00AE27C3 /* ModalSearchViewController.m */,
 				5DA37E8915EA25ED0090FDB0 /* RouteViewController.h */,
 				5DA37E8A15EA25ED0090FDB0 /* RouteViewController.m */,
 				5D2BFDB91547F3B400D9F53E /* RoutesViewController.h */,
@@ -562,6 +567,7 @@
 				5DA512B615F1E62A00EF91DC /* RouteRecordCell.m in Sources */,
 				5D4CB11C15F31DD00059784A /* Strings.m in Sources */,
 				5D4CA1BA15FE276600915A70 /* RouteViewControllerItem.m in Sources */,
+				5DB9257F1600B0EE00AE27C3 /* ModalSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
