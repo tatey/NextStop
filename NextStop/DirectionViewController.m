@@ -3,7 +3,7 @@
 #import "DirectionRecord.h"
 #import "DirectionViewController.h"
 #import "NSObject+MKMapViewDelegate.h"
-#import "RouteViewControllerItem.h"
+#import "RouteShowViewControllerItem.h"
 #import "StopRecord.h"
 
 static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManagedObject.monitorProximityToTarget";
@@ -31,7 +31,7 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
 
 - (id)init {
     self = [super init];
-    self.routeViewControllerItem = [[RouteViewControllerItem alloc] init];
+    self.routeShowViewControllerItem = [[RouteShowViewControllerItem alloc] init];
     return self;
 }
 
@@ -60,7 +60,7 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
     self.trackButton = [[TrackButton alloc] initWithFrame:CGRectMake(8, (self.view.bounds.size.height - 29) - 8, 29, 29)];
     self.trackButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
     self.trackButton.delegate = self;
-    self.routeViewControllerItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.trackButton];
+    self.routeShowViewControllerItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.trackButton];
     // Zoom
     if (self.directionManagedObject.target) {
         [self zoomToAnnotation:self.directionManagedObject.target animated:NO];
@@ -73,7 +73,7 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
 }
 
 - (void)viewDidUnload {
-    self.routeViewControllerItem.leftBarButtonItem = nil;
+    self.routeShowViewControllerItem.leftBarButtonItem = nil;
     self.geocoder = nil;
     self.mapView = nil;
     self.modalSearchDisplayController = nil;

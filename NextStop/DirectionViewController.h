@@ -9,7 +9,7 @@
 #import "TrackButton.h"
 
 @class DirectionManagedObject;
-@class RouteViewControllerItem;
+@class RouteShowViewControllerItem;
 @class TrackButton;
 
 @interface DirectionViewController : UIViewController <DestionationAnnotationViewDelegate, ModalSearchDisplayControllerDelegate, MKMapViewDelegate, StopAnnotationViewDelegate, TrackButtonDelegate, UISearchBarDelegate>
@@ -19,7 +19,7 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) MKMapView *mapView;
 @property (strong, nonatomic) ModalSearchDisplayController *modalSearchDisplayController;
-@property (strong, nonatomic) RouteViewControllerItem *routeViewControllerItem;
+@property (strong, nonatomic) RouteShowViewControllerItem *routeShowViewControllerItem;
 @property (strong, nonatomic) TrackButton *trackButton;
 
 - (id)initWithDirectionManagedObject:(DirectionManagedObject *)directionManagedObject managedObjectContext:(NSManagedObjectContext *)context;

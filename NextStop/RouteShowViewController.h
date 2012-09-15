@@ -4,7 +4,7 @@
 
 @class RouteManagedObject;
 
-@interface RouteViewController : UIViewController
+@interface RouteShowViewController : UIViewController
 
 @property (strong, nonatomic) UISegmentedControl *directionsControl;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

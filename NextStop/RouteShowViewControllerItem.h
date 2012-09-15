@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface RouteViewControllerItem : NSObject
+@interface RouteShowViewControllerItem : NSObject
 
 @property (strong, nonatomic) UIBarButtonItem *leftBarButtonItem;
 

@@ -1,13 +1,13 @@
 #import <math.h>
 #import "DirectionViewController.h"
 #import "RouteManagedObject.h"
-#import "RouteViewController.h"
-#import "RouteViewControllerItem.h"
+#import "RouteShowViewController.h"
+#import "RouteShowViewControllerItem.h"
 #import "Strings.h"
 
 #define TOOLBAR_HEIGHT 44
 
-@implementation RouteViewController
+@implementation RouteShowViewController
 
 @synthesize directionsControl = _directionsControl;
 @synthesize managedObjectContext = _managedObjectContext;
@@ -106,18 +106,18 @@
         [self.view addSubview:newViewController.view];
     }
     _selectedIndex = selectedIndex;
-    [self setToolbarItemsWithRouteViewControllerItem:newViewController.routeViewControllerItem];
+    [self setToolbarItemsWithRouteShowViewControllerItem:newViewController.routeShowViewControllerItem];
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
     [self setSelectedIndex:selectedIndex animated:NO];
 }
 
-- (void)setToolbarItemsWithRouteViewControllerItem:(RouteViewControllerItem *)routeViewControllerItem {
+- (void)setToolbarItemsWithRouteShowViewControllerItem:(RouteShowViewControllerItem *)routeShowViewControllerItem {
     UIBarButtonItem *flexibleSpaceBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *directionControlBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.directionsControl];
     self.toolbar.items = nil;
-    self.toolbar.items = @[routeViewControllerItem.leftBarButtonItem, flexibleSpaceBarButtonItem, directionControlBarButtonItem, flexibleSpaceBarButtonItem];
+    self.toolbar.items = @[routeShowViewControllerItem.leftBarButtonItem, flexibleSpaceBarButtonItem, directionControlBarButtonItem, flexibleSpaceBarButtonItem];
     
 }
 

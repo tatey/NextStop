@@ -17,7 +17,7 @@
 		5D3B3F0A15EE4DC600E3344F /* Pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3B3F0615EE4DC600E3344F /* Pin.png */; };
 		5D3B3F0B15EE4DC600E3344F /* Pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3B3F0715EE4DC600E3344F /* Pin@2x.png */; };
 		5D3B3F0D15EE4ED700E3344F /* LocationArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3B3F0C15EE4ED700E3344F /* LocationArrow.png */; };
-		5D4CA1BA15FE276600915A70 /* RouteViewControllerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4CA1B915FE276600915A70 /* RouteViewControllerItem.m */; };
+		5D4CA1BA15FE276600915A70 /* RouteShowViewControllerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4CA1B915FE276600915A70 /* RouteShowViewControllerItem.m */; };
 		5D4CB10B15F31B640059784A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB10915F31B640059784A /* Icon.png */; };
 		5D4CB10C15F31B640059784A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB10A15F31B640059784A /* Icon@2x.png */; };
 		5D4CB11815F31D590059784A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB11615F31D590059784A /* Default.png */; };
@@ -31,7 +31,7 @@
 		5D9AAB1915ADAFBE00E2E077 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9AAB1815ADAFBE00E2E077 /* CoreData.framework */; };
 		5D9AAB1C15ADB11600E2E077 /* NextStop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D9AAB1A15ADB11600E2E077 /* NextStop.xcdatamodeld */; };
 		5DA15B22154ED00800FCEE13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DA15B21154ED00800FCEE13 /* Localizable.strings */; };
-		5DA37E8B15EA25ED0090FDB0 /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA37E8A15EA25ED0090FDB0 /* RouteViewController.m */; };
+		5DA37E8B15EA25ED0090FDB0 /* RouteShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA37E8A15EA25ED0090FDB0 /* RouteShowViewController.m */; };
 		5DA37E8F15EA262D0090FDB0 /* DirectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA37E8E15EA262D0090FDB0 /* DirectionViewController.m */; };
 		5DA3A3BD16043DD0003229B0 /* DestinationManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3A3BC16043DD0003229B0 /* DestinationManagedObject.m */; };
 		5DA3A3C016043F13003229B0 /* DestinationAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3A3BF16043F13003229B0 /* DestinationAnnotationView.m */; };
@@ -95,8 +95,8 @@
 		5D3B3F0615EE4DC600E3344F /* Pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pin.png; sourceTree = "<group>"; };
 		5D3B3F0715EE4DC600E3344F /* Pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pin@2x.png"; sourceTree = "<group>"; };
 		5D3B3F0C15EE4ED700E3344F /* LocationArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationArrow.png; sourceTree = "<group>"; };
-		5D4CA1B615FE1CAB00915A70 /* RouteViewControllerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteViewControllerItem.h; sourceTree = "<group>"; };
-		5D4CA1B915FE276600915A70 /* RouteViewControllerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteViewControllerItem.m; sourceTree = "<group>"; };
+		5D4CA1B615FE1CAB00915A70 /* RouteShowViewControllerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteShowViewControllerItem.h; sourceTree = "<group>"; };
+		5D4CA1B915FE276600915A70 /* RouteShowViewControllerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteShowViewControllerItem.m; sourceTree = "<group>"; };
 		5D4CB10915F31B640059784A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		5D4CB10A15F31B640059784A /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		5D4CB11615F31D590059784A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -116,8 +116,8 @@
 		5D9AAB1815ADAFBE00E2E077 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5D9AAB1B15ADB11600E2E077 /* NextStop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NextStop.xcdatamodel; sourceTree = "<group>"; };
 		5DA15B21154ED00800FCEE13 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		5DA37E8915EA25ED0090FDB0 /* RouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteViewController.h; sourceTree = "<group>"; };
-		5DA37E8A15EA25ED0090FDB0 /* RouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteViewController.m; sourceTree = "<group>"; };
+		5DA37E8915EA25ED0090FDB0 /* RouteShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteShowViewController.h; sourceTree = "<group>"; };
+		5DA37E8A15EA25ED0090FDB0 /* RouteShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteShowViewController.m; sourceTree = "<group>"; };
 		5DA37E8D15EA262D0090FDB0 /* DirectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionViewController.h; sourceTree = "<group>"; };
 		5DA37E8E15EA262D0090FDB0 /* DirectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionViewController.m; sourceTree = "<group>"; };
 		5DA3A3BB16043DD0003229B0 /* DestinationManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationManagedObject.h; sourceTree = "<group>"; };
@@ -216,8 +216,8 @@
 				5DA3A3D116045351003229B0 /* Haversin.h */,
 				5DB9257D1600B0ED00AE27C3 /* ModalSearchDisplayController.h */,
 				5DB9257E1600B0ED00AE27C3 /* ModalSearchDisplayController.m */,
-				5D4CA1B615FE1CAB00915A70 /* RouteViewControllerItem.h */,
-				5D4CA1B915FE276600915A70 /* RouteViewControllerItem.m */,
+				5D4CA1B615FE1CAB00915A70 /* RouteShowViewControllerItem.h */,
+				5D4CA1B915FE276600915A70 /* RouteShowViewControllerItem.m */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -290,8 +290,8 @@
 			children = (
 				5DA37E8D15EA262D0090FDB0 /* DirectionViewController.h */,
 				5DA37E8E15EA262D0090FDB0 /* DirectionViewController.m */,
-				5DA37E8915EA25ED0090FDB0 /* RouteViewController.h */,
-				5DA37E8A15EA25ED0090FDB0 /* RouteViewController.m */,
+				5DA37E8915EA25ED0090FDB0 /* RouteShowViewController.h */,
+				5DA37E8A15EA25ED0090FDB0 /* RouteShowViewController.m */,
 				5D2BFDB91547F3B400D9F53E /* RouteIndexViewController.h */,
 				5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */,
 			);
@@ -572,13 +572,13 @@
 				5D864EDE15B564C9007ADCA8 /* DirectionManagedObject.m in Sources */,
 				5DF2645215BAD5BF00FD2E6B /* NSObject+MKMapViewDelegate.m in Sources */,
 				5DF5F20715BB95E8006B0882 /* StopAnnotationView.m in Sources */,
-				5DA37E8B15EA25ED0090FDB0 /* RouteViewController.m in Sources */,
+				5DA37E8B15EA25ED0090FDB0 /* RouteShowViewController.m in Sources */,
 				5DA37E8F15EA262D0090FDB0 /* DirectionViewController.m in Sources */,
 				5D3B3F0215EE42D700E3344F /* TrackButton.m in Sources */,
 				5DAA1F0115EF94FB00BB3A71 /* RouteCell.m in Sources */,
 				5DA512B615F1E62A00EF91DC /* RouteRecordCell.m in Sources */,
 				5D4CB11C15F31DD00059784A /* Strings.m in Sources */,
-				5D4CA1BA15FE276600915A70 /* RouteViewControllerItem.m in Sources */,
+				5D4CA1BA15FE276600915A70 /* RouteShowViewControllerItem.m in Sources */,
 				5DB9257F1600B0EE00AE27C3 /* ModalSearchDisplayController.m in Sources */,
 				5DA3A3BD16043DD0003229B0 /* DestinationManagedObject.m in Sources */,
 				5DA3A3C016043F13003229B0 /* DestinationAnnotationView.m in Sources */,

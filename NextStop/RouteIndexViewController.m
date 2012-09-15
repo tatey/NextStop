@@ -1,7 +1,7 @@
 #import "RouteCell.h"
 #import "RouteManagedObject.h"
 #import "RouteRecord.h"
-#import "RouteViewController.h"
+#import "RouteShowViewController.h"
 #import "RouteIndexViewController.h"
 
 static NSString *const kRouteCellReuseId = @"RouteCell";
@@ -98,8 +98,8 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 
 - (void)routeSearchDisplayController:(RouteSearchDisplayController *)routeSearchDisplayController didSelectRoute:(RouteRecord *)route {
     RouteManagedObject *routeManagedObject = [RouteManagedObject routeMatchingOrInsertingRoute:route managedObjectContext:self.managedObjectContext];
-    RouteViewController *routeViewController = [[RouteViewController alloc] initWithRouteMananger:routeManagedObject managedObjectContext:self.managedObjectContext];
-    [self.navigationController pushViewController:routeViewController animated:YES];
+    RouteShowViewController *routeShowViewController = [[RouteShowViewController alloc] initWithRouteMananger:routeManagedObject managedObjectContext:self.managedObjectContext];
+    [self.navigationController pushViewController:routeShowViewController animated:YES];
     [self cacheSelectedRouteManagedObject:routeManagedObject];
 }
 
@@ -134,8 +134,8 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     RouteManagedObject *routeManagedObject = [self.routes objectAtIndexPath:indexPath];
-    RouteViewController *routeViewController = [[RouteViewController alloc] initWithRouteMananger:routeManagedObject managedObjectContext:self.managedObjectContext];
-    [self.navigationController pushViewController:routeViewController animated:YES];
+    RouteShowViewController *routeShowViewController = [[RouteShowViewController alloc] initWithRouteMananger:routeManagedObject managedObjectContext:self.managedObjectContext];
+    [self.navigationController pushViewController:routeShowViewController animated:YES];
 }
 
 @end
