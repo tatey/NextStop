@@ -1,8 +1,8 @@
-#import "ModalSearchViewController.h"
+#import "ModalSearchDisplayController.h"
 
 #define SEARCHBAR_HEIGHT 44
 
-@implementation ModalSearchViewController {
+@implementation ModalSearchDisplayController {
     UIModalPresentationStyle _originalModalPresentationStyle;
 }
 
@@ -28,7 +28,7 @@
     self.searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.searchBar.showsCancelButton = YES;
     [self.view addSubview:self.searchBar];
-    [self.delegate modalSearchViewControllerDelegate:self didLoadSearchBar:self.searchBar];
+    [self.delegate modalSearchDisplayController:self didLoadSearchBar:self.searchBar];
 }
 
 - (void)viewDidUnload {

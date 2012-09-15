@@ -1,12 +1,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@protocol ModalSearchViewControllerDelegate;
+@protocol ModalSearchDisplayControllerDelegate;
 
-@interface ModalSearchViewController : UIViewController
+@interface ModalSearchDisplayController : UIViewController
 
 @property (assign, nonatomic, getter=isActive) BOOL active;
-@property (weak, nonatomic) id <ModalSearchViewControllerDelegate> delegate;
+@property (weak, nonatomic) id <ModalSearchDisplayControllerDelegate> delegate;
 @property (weak, nonatomic) UIViewController *viewController;
 
 @property (strong, nonatomic) UIButton *dimmingButton;
@@ -18,8 +18,8 @@
 
 @end
 
-@protocol ModalSearchViewControllerDelegate <NSObject>
+@protocol ModalSearchDisplayControllerDelegate <NSObject>
 
-- (void)modalSearchViewControllerDelegate:(ModalSearchViewController *)controller didLoadSearchBar:(UISearchBar *)searchBar;
+- (void)modalSearchDisplayController:(ModalSearchDisplayController *)controller didLoadSearchBar:(UISearchBar *)searchBar;
 
 @end

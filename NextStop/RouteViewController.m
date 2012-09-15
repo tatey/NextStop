@@ -1,6 +1,6 @@
 #import <math.h>
 #import "DirectionViewController.h"
-#import "ModalSearchViewController.h"
+#import "ModalSearchDisplayController.h"
 #import "RouteManager.h"
 #import "RouteViewController.h"
 #import "RouteViewControllerItem.h"
@@ -11,7 +11,7 @@
 @implementation RouteViewController
 
 @synthesize directionsControl = _directionsControl;
-@synthesize modalSearchViewController = _modalSearchViewController;
+@synthesize modalSearchDisplayController = _modalSearchDisplayController;
 @synthesize routeManager = _routeManager;
 @synthesize searchBarButtonItem = _searchBarButtonItem;
 @synthesize selectedIndex = _selectedIndex;
@@ -43,8 +43,8 @@
     self.searchBarButtonItem.style = UIBarButtonItemStyleBordered;
     self.navigationItem.rightBarButtonItem = self.searchBarButtonItem;
     // Modal search controller
-    self.modalSearchViewController = [[ModalSearchViewController alloc] initWithViewController:self];
-    self.modalSearchViewController.delegate = self;
+    self.modalSearchDisplayController = [[ModalSearchDisplayController alloc] initWithViewController:self];
+    self.modalSearchDisplayController.delegate = self;
     // Direction controllers
     for (DirectionManagedObject *directionManagedObject in self.routeManager.directions) {
         DirectionViewController *directionViewController = [[DirectionViewController alloc] initWithDirectionManagedObject:directionManagedObject];
@@ -58,7 +58,7 @@
 
 - (void)viewDidUnload {
     self.directionsControl = nil;
-    self.modalSearchViewController = nil;
+    self.modalSearchDisplayController = nil;
     self.searchBarButtonItem = nil;
     self.toolbar = nil;
     [super viewDidUnload];
@@ -123,7 +123,7 @@
 #pragma mark - Actions
 
 - (void)searchBarButtonItemTapped:(UIBarButtonItem *)searchBarButtonItem {
-    [self.modalSearchViewController setActive:YES animated:YES];
+    [self.modalSearchDisplayController setActive:YES animated:YES];
 }
 
 #pragma mark - Notifications
@@ -146,16 +146,16 @@
     [alert show];
 }
 
-#pragma mark - ModalSearchViewControllerDelegate
+#pragma mark - modalSearchDisplayControllerDelegate
 
-- (void)modalSearchViewControllerDelegate:(ModalSearchViewController *)controller didLoadSearchBar:(UISearchBar *)searchBar {
+- (void)modalSearchDisplayController:(ModalSearchDisplayController *)controller didLoadSearchBar:(UISearchBar *)searchBar {
     searchBar.delegate = self;
 }
 
 #pragma mark UISearchBarDelegate
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [self.modalSearchViewController setActive:NO animated:YES];
+    [self.modalSearchDisplayController setActive:NO animated:YES];
 }
 
 @end
