@@ -4,7 +4,7 @@
 
 @class RouteRecord;
 
-@interface RouteManager : NSManagedObject <DirectionManagedObjectDelegate>
+@interface RouteManagedObject : NSManagedObject <DirectionManagedObjectDelegate>
 
 @property (strong, nonatomic) RouteRecord *route;
 @property (readonly, nonatomic) NSNumber *isMonitoringProximityToTarget;

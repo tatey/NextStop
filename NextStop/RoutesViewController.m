@@ -1,5 +1,5 @@
 #import "RouteCell.h"
-#import "RouteManager.h"
+#import "RouteManagedObject.h"
 #import "RouteRecord.h"
 #import "RouteViewController.h"
 #import "RoutesViewController.h"
@@ -9,7 +9,7 @@ static NSString *const kRouteCellReuseId = @"RouteCell";
 static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches.routes";
 
 @implementation RoutesViewController {
-    __weak RouteManager *_selectedRouteManager;
+    __weak RouteManagedObject *_selectedRouteManagedObject;
 }
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -28,7 +28,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.routes = [RouteManager routesInManagedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:kFetchedResultsControllerCacheName];
+    self.routes = [RouteManagedObject routesInManagedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:kFetchedResultsControllerCacheName];
     self.routes.delegate = self;
     NSError *error = nil;
     if (![self.routes performFetch:&error]) {
@@ -51,7 +51,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self expireSelectedRouteManagerAnimated];
+    [self expireSelectedRouteManagedObjectAnimated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -63,18 +63,18 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     return NSLocalizedString(@"routes.title", nil);
 }
 
-- (void)cacheSelectedRouteManager:(RouteManager *)routeManager {
-    _selectedRouteManager = routeManager;
+- (void)cacheSelectedRouteManagedObject:(RouteManagedObject *)routeManagedObject {
+    _selectedRouteManagedObject = routeManagedObject;
 }
 
-- (void)expireSelectedRouteManagerAnimated {
-    if (!_selectedRouteManager) return;
+- (void)expireSelectedRouteManagedObjectAnimated {
+    if (!_selectedRouteManagedObject) return;
     for (RouteCell *cell in self.tableView.visibleCells) {
-        if (cell.routeManager == _selectedRouteManager) {
+        if (cell.routeManagedObject == _selectedRouteManagedObject) {
             NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
             [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
             [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-            _selectedRouteManager = nil;
+            _selectedRouteManagedObject = nil;
             break;
         }
     }
@@ -97,18 +97,18 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 #pragma mark - RouteSearchDisplayControllerDelegate
 
 - (void)routeSearchDisplayController:(RouteSearchDisplayController *)routeSearchDisplayController didSelectRoute:(RouteRecord *)route {
-    RouteManager *routeManager = [RouteManager routeMatchingOrInsertingRoute:route managedObjectContext:self.managedObjectContext];
-    RouteViewController *routeViewController = [[RouteViewController alloc] initWithRouteMananger:routeManager managedObjectContext:self.managedObjectContext];
+    RouteManagedObject *routeManagedObject = [RouteManagedObject routeMatchingOrInsertingRoute:route managedObjectContext:self.managedObjectContext];
+    RouteViewController *routeViewController = [[RouteViewController alloc] initWithRouteMananger:routeManagedObject managedObjectContext:self.managedObjectContext];
     [self.navigationController pushViewController:routeViewController animated:YES];
-    [self cacheSelectedRouteManager:routeManager];
+    [self cacheSelectedRouteManagedObject:routeManagedObject];
 }
 
 #pragma mark - UITableViewDataSource
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        RouteManager *routeManager = [self.routes objectAtIndexPath:indexPath];
-        [self.managedObjectContext deleteObject:routeManager];
+        RouteManagedObject *routeManagedObject = [self.routes objectAtIndexPath:indexPath];
+        [self.managedObjectContext deleteObject:routeManagedObject];
     }
 }
 
@@ -118,7 +118,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RouteCell *cell = [tableView dequeueReusableCellWithIdentifier:kRouteCellReuseId];
-    cell.routeManager = [self.routes objectAtIndexPath:indexPath];
+    cell.routeManagedObject = [self.routes objectAtIndexPath:indexPath];
     return cell;
 }
 
@@ -133,8 +133,8 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    RouteManager *routeManager = [self.routes objectAtIndexPath:indexPath];
-    RouteViewController *routeViewController = [[RouteViewController alloc] initWithRouteMananger:routeManager managedObjectContext:self.managedObjectContext];
+    RouteManagedObject *routeManagedObject = [self.routes objectAtIndexPath:indexPath];
+    RouteViewController *routeViewController = [[RouteViewController alloc] initWithRouteMananger:routeManagedObject managedObjectContext:self.managedObjectContext];
     [self.navigationController pushViewController:routeViewController animated:YES];
 }
 

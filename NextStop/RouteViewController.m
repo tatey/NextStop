@@ -1,6 +1,6 @@
 #import <math.h>
 #import "DirectionViewController.h"
-#import "RouteManager.h"
+#import "RouteManagedObject.h"
 #import "RouteViewController.h"
 #import "RouteViewControllerItem.h"
 #import "Strings.h"
@@ -11,15 +11,15 @@
 
 @synthesize directionsControl = _directionsControl;
 @synthesize managedObjectContext = _managedObjectContext;
-@synthesize routeManager = _routeManager;
+@synthesize routeManagedObject = _routeManagedObject;
 @synthesize searchBarButtonItem = _searchBarButtonItem;
 @synthesize selectedIndex = _selectedIndex;
 @synthesize toolbar = _toolbar;
 
-- (id)initWithRouteMananger:(RouteManager *)routeManager managedObjectContext:(NSManagedObjectContext *)context {
+- (id)initWithRouteMananger:(RouteManagedObject *)routeManagedObject managedObjectContext:(NSManagedObjectContext *)context {
     self = [self init];
     if (self) {
-        self.routeManager = routeManager;
+        self.routeManagedObject = routeManagedObject;
         self.managedObjectContext = context;
     }
     return self;
@@ -32,9 +32,9 @@
     self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.toolbar];
     // Direction control
-    self.directionsControl = [[UISegmentedControl alloc] initWithItems:[self.routeManager headsigns]];
+    self.directionsControl = [[UISegmentedControl alloc] initWithItems:[self.routeManagedObject headsigns]];
     self.directionsControl.segmentedControlStyle = UISegmentedControlStyleBar;
-    self.directionsControl.selectedSegmentIndex = self.routeManager.selectedDirectionIndex;
+    self.directionsControl.selectedSegmentIndex = self.routeManagedObject.selectedDirectionIndex;
     self.directionsControl.frame = CGRectMake(round((self.view.frame.size.width - self.directionsControl.frame.size.width) / 2), (self.view.bounds.size.height - self.directionsControl.frame.size.height) - 7, self.directionsControl.frame.size.width, self.directionsControl.frame.size.height);
     self.directionsControl.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
     [self.directionsControl addTarget:self action:@selector(directionsControlDidChangeValue:) forControlEvents:UIControlEventValueChanged];
@@ -44,14 +44,14 @@
     self.navigationItem.rightBarButtonItem = self.searchBarButtonItem;
 
     // Direction controllers
-    for (DirectionManagedObject *directionManagedObject in self.routeManager.directions) {
+    for (DirectionManagedObject *directionManagedObject in self.routeManagedObject.directions) {
         DirectionViewController *directionViewController = [[DirectionViewController alloc] initWithDirectionManagedObject:directionManagedObject managedObjectContext:self.managedObjectContext];
         [self addChildViewController:directionViewController];
         [directionViewController didMoveToParentViewController:self];
         directionViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     }
     // Selected index
-    self.selectedIndex = self.routeManager.selectedDirectionIndex;
+    self.selectedIndex = self.routeManagedObject.selectedDirectionIndex;
 }
 
 - (void)viewDidUnload {
@@ -84,7 +84,7 @@
 }
 
 - (NSString *)title {
-    return [self.routeManager name];
+    return [self.routeManagedObject name];
 }
 
 - (DirectionViewController *)selectedDirectionViewController {
@@ -138,7 +138,7 @@
 }
 
 - (void)directionsControlDidChangeValue:(UISegmentedControl *)directionsControl {
-    self.routeManager.selectedDirectionIndex = directionsControl.selectedSegmentIndex;
+    self.routeManagedObject.selectedDirectionIndex = directionsControl.selectedSegmentIndex;
     [self setSelectedIndex:directionsControl.selectedSegmentIndex animated:YES];
 }
 

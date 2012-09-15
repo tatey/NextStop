@@ -1,18 +1,18 @@
 #import "DirectionManagedObject.h"
 #import "DirectionRecord.h"
 #import "RouteRecord.h"
-#import "RouteManager.h"
+#import "RouteManagedObject.h"
 
 static NSString *const kEntityName = @"Route";
 
-@interface RouteManager ()
+@interface RouteManagedObject ()
 
 @property (assign, nonatomic) NSNumber *isMonitoringProximityToTarget;
 @property (assign, nonatomic) NSInteger routeId;
 
 @end
 
-@implementation RouteManager
+@implementation RouteManagedObject
 
 // Public
 @dynamic directions;
@@ -50,11 +50,11 @@ static NSString *const kEntityName = @"Route";
 }
 
 + (id)routeMatchingOrInsertingRoute:(RouteRecord *)route managedObjectContext:(NSManagedObjectContext *)context {
-    RouteManager *routeManager = [self routeMatchingRoute:route managedObjectContext:context];
-    if (!routeManager) {
-        routeManager = [[self alloc] initWithRoute:route insertIntoManagedObjectContext:context];
+    RouteManagedObject *routeManagedObject = [self routeMatchingRoute:route managedObjectContext:context];
+    if (!routeManagedObject) {
+        routeManagedObject = [[self alloc] initWithRoute:route insertIntoManagedObjectContext:context];
     }
-    return routeManager;
+    return routeManagedObject;
 }
 
 - (id)initWithRoute:(RouteRecord *)route insertIntoManagedObjectContext:(NSManagedObjectContext *)context {
@@ -129,7 +129,7 @@ static NSString *const kEntityName = @"Route";
     NSMutableArray *managedObjects = [NSMutableArray arrayWithCapacity:[records count]];
     for (DirectionRecord *record in records) {
         DirectionManagedObject *managedObject = [[DirectionManagedObject alloc] initWithDirection:record managedObjectContext:context];
-        managedObject.routeManager = self;
+        managedObject.routeManagedObject = self;
         [managedObjects addObject:managedObject];
     }
     return [managedObjects copy];

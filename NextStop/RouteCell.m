@@ -1,43 +1,43 @@
 #import "NSObject+KVOSEL.h"
 #import "RouteCell.h"
-#import "RouteManager.h"
+#import "RouteManagedObject.h"
 #import "RouteRecord.h"
 
-static NSString *const kRouteManagerIsMonitorProximityToTarget = @"routeManager.isMonitoringProximityToTarget";
-static NSString *const kRouteManagerRouteLongNameKeyPath = @"routeManager.route.longName";
-static NSString *const kRouteManagerRouteShortNameKeyPath = @"routeManager.route.shortName";
-static NSString *const kRouteManagerUpdatedAtKeyPath = @"routeManager.updatedAt";
+static NSString *const kRouteManagedObjectIsMonitorProximityToTarget = @"routeManagedObject.isMonitoringProximityToTarget";
+static NSString *const kRouteManagedObjectRouteLongNameKeyPath = @"routeManagedObject.route.longName";
+static NSString *const kRouteManagedObjectRouteShortNameKeyPath = @"routeManagedObject.route.shortName";
+static NSString *const kRouteManagedObjectUpdatedAtKeyPath = @"routeManagedObject.updatedAt";
 
 @implementation RouteCell
 
 @synthesize longNameLabel = _longNameLabel;
 @synthesize monitoredImageView = _monitoredImageView;
-@synthesize routeManager = _routeManager;
+@synthesize routeManagedObject = _routeManagedObject;
 @synthesize shortNameLabel = _shortNameLabel;
 @synthesize updatedAtLabel = _updatedAtLabel;
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self addObserver:self forKeyPath:kRouteManagerIsMonitorProximityToTarget options:0 context:@selector(routeManagerIsMonitorProximityToTargetDidChange)];
-        [self addObserver:self forKeyPath:kRouteManagerRouteLongNameKeyPath options:0 context:@selector(routeManagerLongNameDidChange)];
-        [self addObserver:self forKeyPath:kRouteManagerRouteShortNameKeyPath options:0 context:@selector(routeManagerShortNameDidChange)];
-        [self addObserver:self forKeyPath:kRouteManagerUpdatedAtKeyPath options:0 context:@selector(routeManagerUpdatedAtDidChange)];
+        [self addObserver:self forKeyPath:kRouteManagedObjectIsMonitorProximityToTarget options:0 context:@selector(routeManagedObjectIsMonitorProximityToTargetDidChange)];
+        [self addObserver:self forKeyPath:kRouteManagedObjectRouteLongNameKeyPath options:0 context:@selector(routeManagedObjectLongNameDidChange)];
+        [self addObserver:self forKeyPath:kRouteManagedObjectRouteShortNameKeyPath options:0 context:@selector(routeManagedObjectShortNameDidChange)];
+        [self addObserver:self forKeyPath:kRouteManagedObjectUpdatedAtKeyPath options:0 context:@selector(routeManagedObjectUpdatedAtDidChange)];
     }
     return self;
 }
 
 - (void)dealloc {
-    [self removeObserver:self forKeyPath:kRouteManagerIsMonitorProximityToTarget];
-    [self removeObserver:self forKeyPath:kRouteManagerRouteLongNameKeyPath];
-    [self removeObserver:self forKeyPath:kRouteManagerRouteShortNameKeyPath];
+    [self removeObserver:self forKeyPath:kRouteManagedObjectIsMonitorProximityToTarget];
+    [self removeObserver:self forKeyPath:kRouteManagedObjectRouteLongNameKeyPath];
+    [self removeObserver:self forKeyPath:kRouteManagedObjectRouteShortNameKeyPath];
 }
 
 #pragma mark - Notifications
 
-- (void)routeManagerIsMonitorProximityToTargetDidChange {
+- (void)routeManagedObjectIsMonitorProximityToTargetDidChange {
     UIImage *image = nil;
-    if ([self.routeManager.isMonitoringProximityToTarget boolValue]) {
+    if ([self.routeManagedObject.isMonitoringProximityToTarget boolValue]) {
         image = [UIImage imageNamed:@"Green.png"];
     } else {
         image = [UIImage imageNamed:@"Gray.png"];
@@ -45,18 +45,18 @@ static NSString *const kRouteManagerUpdatedAtKeyPath = @"routeManager.updatedAt"
     self.monitoredImageView.image = image;
 }
 
-- (void)routeManagerLongNameDidChange {
-    self.longNameLabel.text = self.routeManager.route.longName;
+- (void)routeManagedObjectLongNameDidChange {
+    self.longNameLabel.text = self.routeManagedObject.route.longName;
 }
 
-- (void)routeManagerShortNameDidChange {
-    self.shortNameLabel.text = self.routeManager.route.shortName;
+- (void)routeManagedObjectShortNameDidChange {
+    self.shortNameLabel.text = self.routeManagedObject.route.shortName;
 }
 
-- (void)routeManagerUpdatedAtDidChange {
+- (void)routeManagedObjectUpdatedAtDidChange {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateStyle = NSDateFormatterShortStyle;
-    self.updatedAtLabel.text = [dateFormatter stringFromDate:self.routeManager.updatedAt];
+    self.updatedAtLabel.text = [dateFormatter stringFromDate:self.routeManagedObject.updatedAt];
 }
 
 @end

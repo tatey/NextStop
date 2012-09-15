@@ -5,7 +5,7 @@
 @class DestinationManagedObject;
 @class DirectionRecord;
 @class StopRecord;
-@class RouteManager;
+@class RouteManagedObject;
 
 @protocol DirectionManagedObjectDelegate;
 
@@ -14,7 +14,7 @@
 @property (strong, nonatomic) DestinationManagedObject *destination;
 @property (strong, nonatomic) DirectionRecord *direction;
 @property (assign, nonatomic, getter = isMonitoringProximityToTarget) BOOL monitorProximityToTarget;
-@property (strong, nonatomic) RouteManager *routeManager;
+@property (strong, nonatomic) RouteManagedObject *routeManagedObject;
 @property (strong, nonatomic) StopRecord *target;
 
 + (void)startMonitoringProximityToTargetsInManagedObjectContext:(NSManagedObjectContext *)context;
