@@ -1,5 +1,7 @@
 #import "DestinationManagedObject.h"
+#import "DestinationAnnotationView.h"
 #import "DirectionManagedObject.h"
+#import "DirectionRecord.h"
 #import "DirectionViewController.h"
 #import "NSObject+MKMapViewDelegate.h"
 #import "RouteViewControllerItem.h"
@@ -22,6 +24,7 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
 }
 
 @synthesize directionManagedObject = _directionManagedObject;
+@synthesize geocoder = _geocoder;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize mapView = _mapView;
 @synthesize modalSearchDisplayController = _modalSearchDisplayController;
@@ -49,7 +52,7 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
-    [self.mapView addAnnotations:[self.directionManagedObject stops]];
+    [self.mapView addAnnotations:[self.directionManagedObject annotations]];
     [self.view addSubview:self.mapView];
     // Modal search display controller
     self.modalSearchDisplayController = [[ModalSearchDisplayController alloc] initWithViewController:self.parentViewController];
@@ -72,6 +75,7 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
 
 - (void)viewDidUnload {
     self.routeViewControllerItem.leftBarButtonItem = nil;
+    self.geocoder = nil;
     self.mapView = nil;
     self.modalSearchDisplayController = nil;
     self.trackButton = nil;
@@ -86,6 +90,13 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
 - (void)viewWillDisappear:(BOOL)animated {
     [self removeObserver:self forKeyPath:kDirectionManagedObjectMonitorKeyPath];
     [super viewWillDisappear:animated];
+}
+
+- (CLGeocoder *)geocoder {
+    if (!_geocoder) {
+        _geocoder = [[CLGeocoder alloc] init];
+    }
+    return _geocoder;
 }
 
 - (void)searchBarButtonItemTapped:(UIBarButtonItem *)searchBarButtonItem {
@@ -128,6 +139,15 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
 - (void)mapView:(MKMapView *)mapView didSelectStopAnnotationView:(StopAnnotationView *)stopAnnotationView {
     if (_cachedStopAnnotationView == stopAnnotationView) return;
     [_cachedStopAnnotationView.superview sendSubviewToBack:_cachedStopAnnotationView];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForDestinationManagedObject:(DestinationManagedObject *)destination {
+    static NSString *DestinationAnnotationViewReuseId = @"DestinationAnnotationView";
+    DestinationAnnotationView *destinationAnnotationView = (DestinationAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:DestinationAnnotationViewReuseId];
+    if (!destinationAnnotationView) {
+        destinationAnnotationView = [[DestinationAnnotationView alloc] initWithAnnotation:destination reuseIdentifier:DestinationAnnotationViewReuseId];
+    }
+    return destinationAnnotationView;
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForStopRecord:(StopRecord *)stopRecord {
@@ -206,6 +226,34 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [self.modalSearchDisplayController setActive:NO animated:YES];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    UIApplication *application = [UIApplication sharedApplication];
+    application.networkActivityIndicatorVisible = YES;
+    [self.modalSearchDisplayController setActive:NO animated:YES];
+    [self.geocoder geocodeAddressString:searchBar.text completionHandler:^(NSArray *placemarks, NSError *error) {
+        CLPlacemark *placemark = [placemarks lastObject];
+        if (placemark) {
+            DestinationManagedObject *destination = [[DestinationManagedObject alloc] initWithPlacemark:placemark managedObjectContext:self.managedObjectContext];
+            StopRecord *stop = [self.directionManagedObject.direction stopClosestByLineOfSightToCoordinate:destination.coordinate];
+            if (stop) {
+                if (self.directionManagedObject.destination) {
+                    [self.mapView removeAnnotation:self.directionManagedObject.destination];
+                }
+                [self.directionManagedObject replaceDestinationWithDestination:destination];
+                [self.mapView addAnnotation:destination];
+                [self zoomToAnnotations:@[destination, stop] animated:YES];
+                [self.mapView selectAnnotation:stop animated:YES];
+            } else {
+                [self.managedObjectContext deleteObject:destination];
+                NSLog(@"No stop");
+            }
+        } else {
+            NSLog(@"%@", [error localizedDescription]);
+        }
+        application.networkActivityIndicatorVisible = NO;
+    }];
 }
 
 @end

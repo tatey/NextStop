@@ -1,4 +1,5 @@
 #import <CoreData/CoreData.h>
+#import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
@@ -13,6 +14,7 @@
 @interface DirectionViewController : UIViewController <ModalSearchDisplayControllerDelegate, MKMapViewDelegate, StopAnnotationViewDelegate, TrackButtonDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) DirectionManagedObject *directionManagedObject;
+@property (strong, nonatomic) CLGeocoder *geocoder;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) MKMapView *mapView;
 @property (strong, nonatomic) ModalSearchDisplayController *modalSearchDisplayController;
