@@ -1,5 +1,4 @@
 #import "DestinationManagedObject.h"
-#import "DestinationAnnotationView.h"
 #import "DirectionManagedObject.h"
 #import "DirectionRecord.h"
 #import "DirectionViewController.h"
@@ -146,6 +145,7 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
     DestinationAnnotationView *destinationAnnotationView = (DestinationAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:DestinationAnnotationViewReuseId];
     if (!destinationAnnotationView) {
         destinationAnnotationView = [[DestinationAnnotationView alloc] initWithAnnotation:destination reuseIdentifier:DestinationAnnotationViewReuseId];
+        destinationAnnotationView.delegate = self;
     }
     return destinationAnnotationView;
 }
@@ -180,7 +180,15 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
     }
 }
 
-#pragma mark - modalSearchDisplayControllerDelegate
+#pragma mark - DestinationAnnotationViewDelegate
+
+- (void)destinationAnnotationView:(DestinationAnnotationView *)destinationAnnotationView deleteButtonTapped:(UIButton *)deleteButton {
+    [self.mapView removeAnnotation:self.directionManagedObject.destination];
+    [self.managedObjectContext deleteObject:self.directionManagedObject.destination];
+    self.directionManagedObject.destination = nil;
+}
+
+#pragma mark - ModalSearchDisplayControllerDelegate
 
 - (void)modalSearchDisplayController:(ModalSearchDisplayController *)controller didLoadSearchBar:(UISearchBar *)searchBar {
     searchBar.delegate = self;

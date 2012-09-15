@@ -3,6 +3,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "DestinationAnnotationView.h"
 #import "ModalSearchDisplayController.h"
 #import "StopAnnotationView.h"
 #import "TrackButton.h"
@@ -11,7 +12,7 @@
 @class RouteViewControllerItem;
 @class TrackButton;
 
-@interface DirectionViewController : UIViewController <ModalSearchDisplayControllerDelegate, MKMapViewDelegate, StopAnnotationViewDelegate, TrackButtonDelegate, UISearchBarDelegate>
+@interface DirectionViewController : UIViewController <DestionationAnnotationViewDelegate, ModalSearchDisplayControllerDelegate, MKMapViewDelegate, StopAnnotationViewDelegate, TrackButtonDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) DirectionManagedObject *directionManagedObject;
 @property (strong, nonatomic) CLGeocoder *geocoder;
