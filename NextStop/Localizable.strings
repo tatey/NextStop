@@ -18,6 +18,7 @@
 "direction_record.direction.west" = "West";
 
 // View Controllers
+"direction.search.placeholder" = "Address";
 "route.alerts.titles.approaching" = "Stop is approaching";
 "route.alerts.messages.approaching" = "Prepare to get off soon.";
 "routes.search.placeholder" = "Try 130 or Sunnybank";

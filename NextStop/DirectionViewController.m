@@ -157,6 +157,7 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
 
 - (void)modalSearchDisplayController:(ModalSearchDisplayController *)controller didLoadSearchBar:(UISearchBar *)searchBar {
     searchBar.delegate = self;
+    searchBar.placeholder = NSLocalizedString(@"direction.search.placeholder", nil);
 }
 
 #pragma mark - StopAnnotationViewDelegate
