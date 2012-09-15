@@ -9,4 +9,6 @@
 @property (strong, nonatomic) RouteSearchDisplayController *routeSearchDisplayController;
 @property (strong, nonatomic) UISearchBar *searchBar;
 
+- (id)initWithManagedObjectContext:(NSManagedObjectContext *)context;
+
 @end

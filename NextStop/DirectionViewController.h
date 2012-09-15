@@ -1,3 +1,4 @@
+#import <CoreData/CoreData.h>
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
@@ -12,12 +13,13 @@
 @interface DirectionViewController : UIViewController <ModalSearchDisplayControllerDelegate, MKMapViewDelegate, StopAnnotationViewDelegate, TrackButtonDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) DirectionManagedObject *directionManagedObject;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) MKMapView *mapView;
 @property (strong, nonatomic) ModalSearchDisplayController *modalSearchDisplayController;
 @property (strong, nonatomic) RouteViewControllerItem *routeViewControllerItem;
 @property (strong, nonatomic) TrackButton *trackButton;
 
-- (id)initWithDirectionManagedObject:(DirectionManagedObject *)directionManagedObject;
+- (id)initWithDirectionManagedObject:(DirectionManagedObject *)directionManagedObject managedObjectContext:(NSManagedObjectContext *)context;
 
 - (void)searchBarButtonItemTapped:(UIBarButtonItem *)searchBarButtonItem;
 

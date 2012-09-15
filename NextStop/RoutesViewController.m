@@ -17,6 +17,14 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 @synthesize routeSearchDisplayController = _routeSearchDisplayController;
 @synthesize searchBar = _searchBar;
 
+- (id)initWithManagedObjectContext:(NSManagedObjectContext *)context {
+    self = [self init];
+    if (self) {
+        self.managedObjectContext = context;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -90,7 +98,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 
 - (void)routeSearchDisplayController:(RouteSearchDisplayController *)routeSearchDisplayController didSelectRoute:(RouteRecord *)route {
     RouteManager *routeManager = [RouteManager routeMatchingOrInsertingRoute:route managedObjectContext:self.managedObjectContext];
-    RouteViewController *routeViewController = [[RouteViewController alloc] initWithRouteMananger:routeManager];
+    RouteViewController *routeViewController = [[RouteViewController alloc] initWithRouteMananger:routeManager managedObjectContext:self.managedObjectContext];
     [self.navigationController pushViewController:routeViewController animated:YES];
     [self cacheSelectedRouteManager:routeManager];
 }
@@ -126,7 +134,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     RouteManager *routeManager = [self.routes objectAtIndexPath:indexPath];
-    RouteViewController *routeViewController = [[RouteViewController alloc] initWithRouteMananger:routeManager];
+    RouteViewController *routeViewController = [[RouteViewController alloc] initWithRouteMananger:routeManager managedObjectContext:self.managedObjectContext];
     [self.navigationController pushViewController:routeViewController animated:YES];
 }
 

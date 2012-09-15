@@ -65,8 +65,7 @@
 
 - (UIViewController *)rootViewController {
     if (!_rootViewController) {
-        RoutesViewController *rootViewController = [[RoutesViewController alloc] init];
-        rootViewController.managedObjectContext = self.dataManager.managedObjectContext;
+        RoutesViewController *rootViewController = [[RoutesViewController alloc] initWithManagedObjectContext:self.dataManager.managedObjectContext];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
         _rootViewController = navigationController;
     }

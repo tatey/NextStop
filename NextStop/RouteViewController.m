@@ -10,15 +10,17 @@
 @implementation RouteViewController
 
 @synthesize directionsControl = _directionsControl;
+@synthesize managedObjectContext = _managedObjectContext;
 @synthesize routeManager = _routeManager;
 @synthesize searchBarButtonItem = _searchBarButtonItem;
 @synthesize selectedIndex = _selectedIndex;
 @synthesize toolbar = _toolbar;
 
-- (id)initWithRouteMananger:(RouteManager *)routeManager {
+- (id)initWithRouteMananger:(RouteManager *)routeManager managedObjectContext:(NSManagedObjectContext *)context {
     self = [self init];
     if (self) {
         self.routeManager = routeManager;
+        self.managedObjectContext = context;
     }
     return self;
 }
@@ -43,7 +45,7 @@
 
     // Direction controllers
     for (DirectionManagedObject *directionManagedObject in self.routeManager.directions) {
-        DirectionViewController *directionViewController = [[DirectionViewController alloc] initWithDirectionManagedObject:directionManagedObject];
+        DirectionViewController *directionViewController = [[DirectionViewController alloc] initWithDirectionManagedObject:directionManagedObject managedObjectContext:self.managedObjectContext];
         [self addChildViewController:directionViewController];
         [directionViewController didMoveToParentViewController:self];
         directionViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;

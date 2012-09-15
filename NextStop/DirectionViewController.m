@@ -1,3 +1,4 @@
+#import "DestinationManagedObject.h"
 #import "DirectionManagedObject.h"
 #import "DirectionViewController.h"
 #import "NSObject+MKMapViewDelegate.h"
@@ -21,6 +22,7 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
 }
 
 @synthesize directionManagedObject = _directionManagedObject;
+@synthesize managedObjectContext = _managedObjectContext;
 @synthesize mapView = _mapView;
 @synthesize modalSearchDisplayController = _modalSearchDisplayController;
 @synthesize trackButton = _trackButton;
@@ -31,10 +33,11 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
     return self;
 }
 
-- (id)initWithDirectionManagedObject:(DirectionManagedObject *)directionManagedObject {
+- (id)initWithDirectionManagedObject:(DirectionManagedObject *)directionManagedObject managedObjectContext:(NSManagedObjectContext *)context {
     self = [self init];
     if (self) {
         self.directionManagedObject = directionManagedObject;
+        self.managedObjectContext = context;
     }
     return self;
 }
