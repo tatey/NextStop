@@ -5,6 +5,7 @@ typedef enum {
     DirectionRecordGoofyDirection,
 } DirectionRecordDirection;
 
+@class StopRecord;
 @class RouteRecord;
 
 @interface DirectionRecord : NSObject
@@ -17,6 +18,7 @@ typedef enum {
 + (NSArray *)directionsBelongingToRoute:(RouteRecord *)route;
 + (id)directionMatchingPrimaryKey:(NSInteger)primaryKey;
 
+- (StopRecord *)stopClosestByLineOfSightToCoordinate:(CLLocationCoordinate2D)coordinate;
 - (NSString *)localizedHeadsign;
 
 @end

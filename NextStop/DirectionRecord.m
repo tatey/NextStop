@@ -1,7 +1,11 @@
+#import <CoreLocation/CoreLocation.h>
 #import "DirectionRecord.h"
+#import "Haversin.h"
 #import "RouteRecord.h"
 #import "StopRecord.h"
 #import "SQLiteDB.h"
+
+#define MAX_DISTANCE 10000 // Meters
 
 #define QUERY1 @"SELECT trips.* "          \
                 "FROM trips "              \
@@ -67,6 +71,19 @@
         _stops = [StopRecord stopsBelongingToDirection:self];
     }
     return _stops;
+}
+
+- (StopRecord *)stopClosestByLineOfSightToCoordinate:(CLLocationCoordinate2D)coordinate {
+    StopRecord *closestStop = nil;
+    CLLocationDistance minimumDistance = MAX_DISTANCE;
+    for (StopRecord *stop in [self stops]) {
+        CLLocationDistance distance = Haversin(stop.coordinate, coordinate);
+        if (distance < minimumDistance) {
+            closestStop = stop;
+            minimumDistance = distance;
+        }
+    }
+    return closestStop;
 }
 
 - (NSString *)localizedHeadsign {
