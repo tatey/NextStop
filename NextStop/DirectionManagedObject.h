@@ -2,6 +2,7 @@
 #import <Foundation/Foundation.h>
 #import "Proximity.h"
 
+@class DestinationManagedObject;
 @class DirectionRecord;
 @class StopRecord;
 @class RouteManager;
@@ -10,6 +11,7 @@
 
 @interface DirectionManagedObject : NSManagedObject <ProximityDelegate>
 
+@property (strong, nonatomic) DestinationManagedObject *destination;
 @property (strong, nonatomic) DirectionRecord *direction;
 @property (assign, nonatomic, getter = isMonitoringProximityToTarget) BOOL monitorProximityToTarget;
 @property (strong, nonatomic) RouteManager *routeManager;
@@ -19,6 +21,9 @@
 
 - (id)initWithDirection:(DirectionRecord *)direction managedObjectContext:(NSManagedObjectContext *)context;
 
+- (void)replaceDestinationWithDestination:(DestinationManagedObject *)destination;
+
+- (NSArray *)annotations;
 - (NSString *)headsign;
 - (NSArray *)stops;
 

@@ -1,3 +1,4 @@
+#import "DestinationManagedObject.h"
 #import "DirectionManagedObject.h"
 #import "DirectionRecord.h"
 #import "ProximityCenter.h"
@@ -32,6 +33,7 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 @implementation DirectionManagedObject
 
 // Public
+@dynamic destination;
 @dynamic monitorProximityToTarget;
 @dynamic routeManager;
 
@@ -128,6 +130,22 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
     self.targetId = target.primaryKey;
     [self stopMonitoringProximityToTarget];
     [self startMonitoringProximityToTarget];
+}
+
+- (void)replaceDestinationWithDestination:(DestinationManagedObject *)destination {
+    if (self.destination) {
+        [self.managedObjectContext deleteObject:self.destination];        
+    }
+    destination.direction = self;
+    self.destination = destination;
+}
+
+- (NSArray *)annotations {
+    NSArray *annotations = [self stops];
+    if (self.destination) {
+        annotations = [annotations arrayByAddingObject:self.destination];
+    }
+    return annotations;
 }
 
 - (NSString *)headsign {
