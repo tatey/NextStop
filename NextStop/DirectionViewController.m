@@ -106,6 +106,10 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
     }
     MKPolygon *polygon = [MKPolygon polygonWithPoints:points count:count];
     MKCoordinateRegion region = MKCoordinateRegionForMapRect([polygon boundingMapRect]);
+    MKCoordinateSpan minimumSpan = MKCoordinateSpanMake(0.01, 0.01);
+    if (region.span.latitudeDelta < minimumSpan.latitudeDelta && region.span.longitudeDelta < minimumSpan.longitudeDelta) {
+        region.span = minimumSpan;
+    }
     [self.mapView setRegion:region animated:animated];
 }
 
