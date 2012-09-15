@@ -12,7 +12,7 @@
 @class RouteShowViewControllerItem;
 @class TrackButton;
 
-@interface DirectionViewController : UIViewController <DestionationAnnotationViewDelegate, ModalSearchDisplayControllerDelegate, MKMapViewDelegate, StopAnnotationViewDelegate, TrackButtonDelegate, UISearchBarDelegate>
+@interface DirectionShowViewController : UIViewController <DestionationAnnotationViewDelegate, ModalSearchDisplayControllerDelegate, MKMapViewDelegate, StopAnnotationViewDelegate, TrackButtonDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) DirectionManagedObject *directionManagedObject;
 @property (strong, nonatomic) CLGeocoder *geocoder;

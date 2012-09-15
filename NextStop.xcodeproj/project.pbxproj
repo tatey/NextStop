@@ -32,7 +32,7 @@
 		5D9AAB1C15ADB11600E2E077 /* NextStop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D9AAB1A15ADB11600E2E077 /* NextStop.xcdatamodeld */; };
 		5DA15B22154ED00800FCEE13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DA15B21154ED00800FCEE13 /* Localizable.strings */; };
 		5DA37E8B15EA25ED0090FDB0 /* RouteShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA37E8A15EA25ED0090FDB0 /* RouteShowViewController.m */; };
-		5DA37E8F15EA262D0090FDB0 /* DirectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA37E8E15EA262D0090FDB0 /* DirectionViewController.m */; };
+		5DA37E8F15EA262D0090FDB0 /* DirectionShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA37E8E15EA262D0090FDB0 /* DirectionShowViewController.m */; };
 		5DA3A3BD16043DD0003229B0 /* DestinationManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3A3BC16043DD0003229B0 /* DestinationManagedObject.m */; };
 		5DA3A3C016043F13003229B0 /* DestinationAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3A3BF16043F13003229B0 /* DestinationAnnotationView.m */; };
 		5DA3C18E1557CA7C00A49A4E /* RouteSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3C18D1557CA7C00A49A4E /* RouteSearchDisplayController.m */; };
@@ -118,8 +118,8 @@
 		5DA15B21154ED00800FCEE13 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		5DA37E8915EA25ED0090FDB0 /* RouteShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteShowViewController.h; sourceTree = "<group>"; };
 		5DA37E8A15EA25ED0090FDB0 /* RouteShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteShowViewController.m; sourceTree = "<group>"; };
-		5DA37E8D15EA262D0090FDB0 /* DirectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionViewController.h; sourceTree = "<group>"; };
-		5DA37E8E15EA262D0090FDB0 /* DirectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionViewController.m; sourceTree = "<group>"; };
+		5DA37E8D15EA262D0090FDB0 /* DirectionShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionShowViewController.h; sourceTree = "<group>"; };
+		5DA37E8E15EA262D0090FDB0 /* DirectionShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionShowViewController.m; sourceTree = "<group>"; };
 		5DA3A3BB16043DD0003229B0 /* DestinationManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationManagedObject.h; sourceTree = "<group>"; };
 		5DA3A3BC16043DD0003229B0 /* DestinationManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationManagedObject.m; sourceTree = "<group>"; };
 		5DA3A3BE16043F13003229B0 /* DestinationAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationAnnotationView.h; sourceTree = "<group>"; };
@@ -288,8 +288,8 @@
 		5DA512C015F1F45500EF91DC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5DA37E8D15EA262D0090FDB0 /* DirectionViewController.h */,
-				5DA37E8E15EA262D0090FDB0 /* DirectionViewController.m */,
+				5DA37E8D15EA262D0090FDB0 /* DirectionShowViewController.h */,
+				5DA37E8E15EA262D0090FDB0 /* DirectionShowViewController.m */,
 				5DA37E8915EA25ED0090FDB0 /* RouteShowViewController.h */,
 				5DA37E8A15EA25ED0090FDB0 /* RouteShowViewController.m */,
 				5D2BFDB91547F3B400D9F53E /* RouteIndexViewController.h */,
@@ -573,7 +573,7 @@
 				5DF2645215BAD5BF00FD2E6B /* NSObject+MKMapViewDelegate.m in Sources */,
 				5DF5F20715BB95E8006B0882 /* StopAnnotationView.m in Sources */,
 				5DA37E8B15EA25ED0090FDB0 /* RouteShowViewController.m in Sources */,
-				5DA37E8F15EA262D0090FDB0 /* DirectionViewController.m in Sources */,
+				5DA37E8F15EA262D0090FDB0 /* DirectionShowViewController.m in Sources */,
 				5D3B3F0215EE42D700E3344F /* TrackButton.m in Sources */,
 				5DAA1F0115EF94FB00BB3A71 /* RouteCell.m in Sources */,
 				5DA512B615F1E62A00EF91DC /* RouteRecordCell.m in Sources */,

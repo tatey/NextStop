@@ -1,7 +1,7 @@
 #import "DestinationManagedObject.h"
 #import "DirectionManagedObject.h"
 #import "DirectionRecord.h"
-#import "DirectionViewController.h"
+#import "DirectionShowViewController.h"
 #import "NSObject+MKMapViewDelegate.h"
 #import "RouteShowViewControllerItem.h"
 #import "StopRecord.h"
@@ -17,7 +17,7 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
         a.span.latitudeDelta == b.span.latitudeDelta && a.span.longitudeDelta == b.span.longitudeDelta;
 }
 
-@implementation DirectionViewController {
+@implementation DirectionShowViewController {
     __weak StopAnnotationView *_cachedStopAnnotationView;
     MKCoordinateRegion _targetRegion;
 }

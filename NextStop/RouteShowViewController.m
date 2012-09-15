@@ -1,5 +1,5 @@
 #import <math.h>
-#import "DirectionViewController.h"
+#import "DirectionShowViewController.h"
 #import "RouteManagedObject.h"
 #import "RouteShowViewController.h"
 #import "RouteShowViewControllerItem.h"
@@ -45,10 +45,10 @@
 
     // Direction controllers
     for (DirectionManagedObject *directionManagedObject in self.routeManagedObject.directions) {
-        DirectionViewController *directionViewController = [[DirectionViewController alloc] initWithDirectionManagedObject:directionManagedObject managedObjectContext:self.managedObjectContext];
-        [self addChildViewController:directionViewController];
-        [directionViewController didMoveToParentViewController:self];
-        directionViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        DirectionShowViewController *directionShowViewController = [[DirectionShowViewController alloc] initWithDirectionManagedObject:directionManagedObject managedObjectContext:self.managedObjectContext];
+        [self addChildViewController:directionShowViewController];
+        [directionShowViewController didMoveToParentViewController:self];
+        directionShowViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     }
     // Selected index
     self.selectedIndex = self.routeManagedObject.selectedDirectionIndex;
@@ -87,13 +87,13 @@
     return [self.routeManagedObject name];
 }
 
-- (DirectionViewController *)selectedDirectionViewController {
+- (DirectionShowViewController *)selectedDirectionShowViewController {
     return [self.childViewControllers objectAtIndex:self.selectedIndex];
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated {
-    DirectionViewController *oldViewController = [self.childViewControllers objectAtIndex:_selectedIndex];
-    DirectionViewController *newViewController = [self.childViewControllers objectAtIndex:selectedIndex];
+    DirectionShowViewController *oldViewController = [self.childViewControllers objectAtIndex:_selectedIndex];
+    DirectionShowViewController *newViewController = [self.childViewControllers objectAtIndex:selectedIndex];
     if (animated) {
         self.navigationController.navigationBar.userInteractionEnabled = NO;
         [self transitionFromViewController:oldViewController toViewController:newViewController duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
@@ -124,7 +124,7 @@
 #pragma mark - Actions
 
 - (void)searchBarButtonItemTapped:(UIBarButtonItem *)searchBarButtonItem {
-    [[self selectedDirectionViewController] searchBarButtonItemTapped:searchBarButtonItem];
+    [[self selectedDirectionShowViewController] searchBarButtonItemTapped:searchBarButtonItem];
 }
 
 #pragma mark - Notifications
