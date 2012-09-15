@@ -2,7 +2,7 @@
 #import <UIKit/UIKit.h>
 #import "RouteSearchDisplayController.h"
 
-@interface RoutesViewController : UITableViewController <NSFetchedResultsControllerDelegate, RouteSearchDisplayControllerDelegate>
+@interface RouteIndexViewController : UITableViewController <NSFetchedResultsControllerDelegate, RouteSearchDisplayControllerDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *routes;

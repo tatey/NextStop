@@ -2,13 +2,13 @@
 #import "RouteManagedObject.h"
 #import "RouteRecord.h"
 #import "RouteViewController.h"
-#import "RoutesViewController.h"
+#import "RouteIndexViewController.h"
 
 static NSString *const kRouteCellReuseId = @"RouteCell";
 
 static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches.routes";
 
-@implementation RoutesViewController {
+@implementation RouteIndexViewController {
     __weak RouteManagedObject *_selectedRouteManagedObject;
 }
 

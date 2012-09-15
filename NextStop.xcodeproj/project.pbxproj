@@ -10,8 +10,8 @@
 		5D05CD0215A59E1F0011A165 /* RouteManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05CD0115A59E1F0011A165 /* RouteManagedObject.m */; };
 		5D05F316154ACA7F004E7773 /* StopRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* StopRecord.m */; };
 		5D05F317154ACA7F004E7773 /* StopRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* StopRecord.m */; };
-		5D2BFDBB1547F3B400D9F53E /* RoutesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */; };
-		5D2BFDBC1547F3B400D9F53E /* RoutesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */; };
+		5D2BFDBB1547F3B400D9F53E /* RouteIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */; };
+		5D2BFDBC1547F3B400D9F53E /* RouteIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */; };
 		5D3B3F0215EE42D700E3344F /* TrackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B3F0115EE42D700E3344F /* TrackButton.m */; };
 		5D3B3F0815EE4DC600E3344F /* LocationArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3B3F0415EE4DC600E3344F /* LocationArrow@2x.png */; };
 		5D3B3F0A15EE4DC600E3344F /* Pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3B3F0615EE4DC600E3344F /* Pin.png */; };
@@ -87,8 +87,8 @@
 		5D05CD0115A59E1F0011A165 /* RouteManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteManagedObject.m; sourceTree = "<group>"; };
 		5D05F314154ACA7F004E7773 /* StopRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopRecord.h; sourceTree = "<group>"; };
 		5D05F315154ACA7F004E7773 /* StopRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopRecord.m; sourceTree = "<group>"; };
-		5D2BFDB91547F3B400D9F53E /* RoutesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutesViewController.h; sourceTree = "<group>"; };
-		5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutesViewController.m; sourceTree = "<group>"; };
+		5D2BFDB91547F3B400D9F53E /* RouteIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteIndexViewController.h; sourceTree = "<group>"; };
+		5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteIndexViewController.m; sourceTree = "<group>"; };
 		5D3B3F0015EE42D700E3344F /* TrackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackButton.h; sourceTree = "<group>"; };
 		5D3B3F0115EE42D700E3344F /* TrackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackButton.m; sourceTree = "<group>"; };
 		5D3B3F0415EE4DC600E3344F /* LocationArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LocationArrow@2x.png"; sourceTree = "<group>"; };
@@ -292,8 +292,8 @@
 				5DA37E8E15EA262D0090FDB0 /* DirectionViewController.m */,
 				5DA37E8915EA25ED0090FDB0 /* RouteViewController.h */,
 				5DA37E8A15EA25ED0090FDB0 /* RouteViewController.m */,
-				5D2BFDB91547F3B400D9F53E /* RoutesViewController.h */,
-				5D2BFDBA1547F3B400D9F53E /* RoutesViewController.m */,
+				5D2BFDB91547F3B400D9F53E /* RouteIndexViewController.h */,
+				5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -556,7 +556,7 @@
 			files = (
 				5DB59C8B1546C8E500417818 /* main.m in Sources */,
 				5DB59C8F1546C8E500417818 /* AppDelegate.m in Sources */,
-				5D2BFDBB1547F3B400D9F53E /* RoutesViewController.m in Sources */,
+				5D2BFDBB1547F3B400D9F53E /* RouteIndexViewController.m in Sources */,
 				5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */,
 				5D05F316154ACA7F004E7773 /* StopRecord.m in Sources */,
 				5DA866A81556C25E00FB1ACF /* RouteRecord.m in Sources */,
@@ -589,7 +589,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D2BFDBC1547F3B400D9F53E /* RoutesViewController.m in Sources */,
+				5D2BFDBC1547F3B400D9F53E /* RouteIndexViewController.m in Sources */,
 				5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */,
 				5D05F317154ACA7F004E7773 /* StopRecord.m in Sources */,
 				5DA866A91556C25E00FB1ACF /* RouteRecord.m in Sources */,

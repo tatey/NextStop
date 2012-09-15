@@ -3,7 +3,7 @@
 #import "DataManager.h"
 #import "DirectionManagedObject.h"
 #import "ProximityCenter.h"
-#import "RoutesViewController.h"
+#import "RouteIndexViewController.h"
 
 @interface AppDelegate ()
 
@@ -65,7 +65,7 @@
 
 - (UIViewController *)rootViewController {
     if (!_rootViewController) {
-        RoutesViewController *rootViewController = [[RoutesViewController alloc] initWithManagedObjectContext:self.dataManager.managedObjectContext];
+        RouteIndexViewController *rootViewController = [[RouteIndexViewController alloc] initWithManagedObjectContext:self.dataManager.managedObjectContext];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
         _rootViewController = navigationController;
     }
