@@ -22,6 +22,7 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
 
 @synthesize directionManagedObject = _directionManagedObject;
 @synthesize mapView = _mapView;
+@synthesize modalSearchDisplayController = _modalSearchDisplayController;
 @synthesize trackButton = _trackButton;
 
 - (id)init {
@@ -47,6 +48,9 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
     self.mapView.showsUserLocation = YES;
     [self.mapView addAnnotations:[self.directionManagedObject stops]];
     [self.view addSubview:self.mapView];
+    // Modal search display controller
+    self.modalSearchDisplayController = [[ModalSearchDisplayController alloc] initWithViewController:self.parentViewController];
+    self.modalSearchDisplayController.delegate = self;
     // Track button
     self.trackButton = [[TrackButton alloc] initWithFrame:CGRectMake(8, (self.view.bounds.size.height - 29) - 8, 29, 29)];
     self.trackButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
@@ -66,6 +70,7 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
 - (void)viewDidUnload {
     self.routeViewControllerItem.leftBarButtonItem = nil;
     self.mapView = nil;
+    self.modalSearchDisplayController = nil;
     self.trackButton = nil;
     [super viewDidUnload];
 }
@@ -78,6 +83,10 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
 - (void)viewWillDisappear:(BOOL)animated {
     [self removeObserver:self forKeyPath:kDirectionManagedObjectMonitorKeyPath];
     [super viewWillDisappear:animated];
+}
+
+- (void)searchBarButtonItemTapped:(UIBarButtonItem *)searchBarButtonItem {
+    [self.modalSearchDisplayController setActive:YES animated:YES];
 }
 
 - (void)zoomToAnnotation:(id <MKAnnotation>)annotation animated:(BOOL)animated {
@@ -144,6 +153,12 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
     }
 }
 
+#pragma mark - modalSearchDisplayControllerDelegate
+
+- (void)modalSearchDisplayController:(ModalSearchDisplayController *)controller didLoadSearchBar:(UISearchBar *)searchBar {
+    searchBar.delegate = self;
+}
+
 #pragma mark - StopAnnotationViewDelegate
 
 - (void)stopAnnotationView:(StopAnnotationView *)stopAnnotationView monitoredDidChangeValue:(BOOL)monitored {
@@ -177,6 +192,12 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
             _targetRegion = self.mapView.region;
             break;
     }
+}
+
+#pragma mark UISearchBarDelegate
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [self.modalSearchDisplayController setActive:NO animated:YES];
 }
 
 @end
