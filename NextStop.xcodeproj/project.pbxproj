@@ -296,12 +296,12 @@
 			children = (
 				5DA37E8D15EA262D0090FDB0 /* DirectionShowViewController.h */,
 				5DA37E8E15EA262D0090FDB0 /* DirectionShowViewController.m */,
-				5DA37E8915EA25ED0090FDB0 /* RouteShowViewController.h */,
-				5DA37E8A15EA25ED0090FDB0 /* RouteShowViewController.m */,
 				5D2BFDB91547F3B400D9F53E /* RouteIndexViewController.h */,
 				5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */,
 				5D5CA6421604DAF10006D433 /* RouteNewViewController.h */,
 				5D5CA6431604DAF10006D433 /* RouteNewViewController.m */,
+				5DA37E8915EA25ED0090FDB0 /* RouteShowViewController.h */,
+				5DA37E8A15EA25ED0090FDB0 /* RouteShowViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
