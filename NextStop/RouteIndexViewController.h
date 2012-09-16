@@ -1,13 +1,12 @@
 #import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
-#import "RouteSearchDisplayController.h"
+#import "RouteSearchViewController.h"
 
-@interface RouteIndexViewController : UITableViewController <NSFetchedResultsControllerDelegate, RouteSearchDisplayControllerDelegate>
+@interface RouteIndexViewController : UITableViewController <NSFetchedResultsControllerDelegate, RouteSearchViewControllerDelegate>
 
+@property (strong, nonatomic) UIBarButtonItem *addBarButtonItem;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *routes;
-@property (strong, nonatomic) RouteSearchDisplayController *routeSearchDisplayController;
-@property (strong, nonatomic) UISearchBar *searchBar;
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)context;
 

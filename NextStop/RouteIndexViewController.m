@@ -1,8 +1,8 @@
 #import "RouteCell.h"
 #import "RouteManagedObject.h"
 #import "RouteRecord.h"
-#import "RouteShowViewController.h"
 #import "RouteIndexViewController.h"
+#import "RouteShowViewController.h"
 
 static NSString *const kRouteCellReuseId = @"RouteCell";
 
@@ -12,10 +12,9 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     __weak RouteManagedObject *_selectedRouteManagedObject;
 }
 
+@synthesize addBarButtonItem = _addBarButtonItem;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize routes = _routes;
-@synthesize routeSearchDisplayController = _routeSearchDisplayController;
-@synthesize searchBar = _searchBar;
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)context {
     self = [self init];
@@ -27,7 +26,13 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // Add bar button item
+    self.addBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addBarButtonItemTapped:)];
+    self.addBarButtonItem.style = UIBarButtonItemStyleBordered;
+    self.navigationItem.rightBarButtonItem = self.addBarButtonItem;
+    // Edit button item
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    // Routes
     self.routes = [RouteManagedObject routesInManagedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:kFetchedResultsControllerCacheName];
     self.routes.delegate = self;
     NSError *error = nil;
@@ -35,49 +40,26 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 		abort();
     }
-    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    self.searchBar.placeholder = NSLocalizedString(@"routes.search.placeholder", nil);
-    self.routeSearchDisplayController = [[RouteSearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self managedObjectContext:self.managedObjectContext];
-    self.routeSearchDisplayController.delegate = self;
+    // Table view
     [self.tableView registerNib:[UINib nibWithNibName:@"RouteCell" bundle:nil] forCellReuseIdentifier:kRouteCellReuseId];
 }
 
 - (void)viewDidUnload {
+    self.addBarButtonItem = nil;
     self.routes = nil;
-    self.routeSearchDisplayController = nil;
-    self.searchBar = nil;
     [super viewDidUnload];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self expireSelectedRouteManagedObjectAnimated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [self.routeSearchDisplayController setActive:NO];
-    [super viewDidDisappear:animated];
 }
 
 - (NSString *)title {
     return NSLocalizedString(@"routes.title", nil);
 }
 
-- (void)cacheSelectedRouteManagedObject:(RouteManagedObject *)routeManagedObject {
-    _selectedRouteManagedObject = routeManagedObject;
-}
+#pragma mark - Actions
 
-- (void)expireSelectedRouteManagedObjectAnimated {
-    if (!_selectedRouteManagedObject) return;
-    for (RouteCell *cell in self.tableView.visibleCells) {
-        if (cell.routeManagedObject == _selectedRouteManagedObject) {
-            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-            [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-            _selectedRouteManagedObject = nil;
-            break;
-        }
-    }
+- (void)addBarButtonItemTapped:(UIBarButtonItem *)addBarButtonItem {
+    RouteSearchViewController *routeSearchViewController = [[RouteSearchViewController alloc] initWithDelegate:self];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:routeSearchViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
@@ -94,13 +76,20 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     }
 }
 
-#pragma mark - RouteSearchDisplayControllerDelegate
+#pragma mark - RouteSearchViewControllerDelegate
 
-- (void)routeSearchDisplayController:(RouteSearchDisplayController *)routeSearchDisplayController didSelectRoute:(RouteRecord *)route {
+- (void)routeSearchViewController:(RouteSearchViewController *)routeSearchViewController didSelectRoute:(RouteRecord *)route {
     RouteManagedObject *routeManagedObject = [RouteManagedObject routeMatchingOrInsertingRoute:route managedObjectContext:self.managedObjectContext];
-    RouteShowViewController *routeShowViewController = [[RouteShowViewController alloc] initWithRouteMananger:routeManagedObject managedObjectContext:self.managedObjectContext];
-    [self.navigationController pushViewController:routeShowViewController animated:YES];
-    [self cacheSelectedRouteManagedObject:routeManagedObject];
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSIndexPath *indexPath = [self.routes indexPathForObject:routeManagedObject];
+        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
+        [self.tableView.delegate tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+    }];
+}
+
+- (void)routeSearchViewControllerDidFinish:(RouteSearchViewController *)routeSearchViewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UITableViewDataSource
@@ -123,14 +112,6 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 }
 
 #pragma mark - UITableViewDelegate
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return self.searchBar;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return self.searchBar.frame.size.height;
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     RouteManagedObject *routeManagedObject = [self.routes objectAtIndexPath:indexPath];
