@@ -10,6 +10,7 @@
 		5D05CD0215A59E1F0011A165 /* RouteManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05CD0115A59E1F0011A165 /* RouteManagedObject.m */; };
 		5D05F316154ACA7F004E7773 /* StopRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* StopRecord.m */; };
 		5D05F317154ACA7F004E7773 /* StopRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* StopRecord.m */; };
+		5D1B5EE71605AA8500149AC0 /* NSArray+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B5EE61605AA8500149AC0 /* NSArray+Random.m */; };
 		5D2BFDBB1547F3B400D9F53E /* RouteIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */; };
 		5D2BFDBC1547F3B400D9F53E /* RouteIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */; };
 		5D3B3F0215EE42D700E3344F /* TrackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B3F0115EE42D700E3344F /* TrackButton.m */; };
@@ -90,6 +91,8 @@
 		5D05CD0115A59E1F0011A165 /* RouteManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteManagedObject.m; sourceTree = "<group>"; };
 		5D05F314154ACA7F004E7773 /* StopRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopRecord.h; sourceTree = "<group>"; };
 		5D05F315154ACA7F004E7773 /* StopRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopRecord.m; sourceTree = "<group>"; };
+		5D1B5EE51605AA8500149AC0 /* NSArray+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Random.h"; sourceTree = "<group>"; };
+		5D1B5EE61605AA8500149AC0 /* NSArray+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Random.m"; sourceTree = "<group>"; };
 		5D2BFDB91547F3B400D9F53E /* RouteIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteIndexViewController.h; sourceTree = "<group>"; };
 		5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteIndexViewController.m; sourceTree = "<group>"; };
 		5D3B3F0015EE42D700E3344F /* TrackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackButton.h; sourceTree = "<group>"; };
@@ -270,6 +273,8 @@
 		5D6EB68C15A99D0B007260F8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5D1B5EE51605AA8500149AC0 /* NSArray+Random.h */,
+				5D1B5EE61605AA8500149AC0 /* NSArray+Random.m */,
 				5D54CDF815668DA1005D0170 /* NSObject+KVOSEL.h */,
 				5D54CDF915668DA1005D0170 /* NSObject+KVOSEL.m */,
 				5DF2645015BAD5BF00FD2E6B /* NSObject+MKMapViewDelegate.h */,
@@ -589,6 +594,7 @@
 				5DA3A3BD16043DD0003229B0 /* DestinationManagedObject.m in Sources */,
 				5DA3A3C016043F13003229B0 /* DestinationAnnotationView.m in Sources */,
 				5D5CA6441604DAF10006D433 /* RouteNewViewController.m in Sources */,
+				5D1B5EE71605AA8500149AC0 /* NSArray+Random.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
