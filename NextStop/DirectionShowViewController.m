@@ -67,7 +67,6 @@ static NSString *NSStringFromMKCoordinateRegion(MKCoordinateRegion region) {
 }
 
 - (void)viewDidUnload {
-    self.routeShowViewControllerItem.leftBarButtonItem = nil;
     self.geocoder = nil;
     self.mapView = nil;
     self.modalSearchDisplayController = nil;

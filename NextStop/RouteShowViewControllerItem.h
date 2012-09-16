@@ -2,6 +2,6 @@
 
 @interface RouteShowViewControllerItem : NSObject
 
-@property (strong, nonatomic) UIBarButtonItem *leftBarButtonItem;
+@property (weak, nonatomic) UIBarButtonItem *leftBarButtonItem;
 
 @end
