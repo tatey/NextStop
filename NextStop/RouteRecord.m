@@ -9,7 +9,7 @@
 
 #define QUERY2 @"SELECT routes.* " \
                 "FROM routes "     \
-                "LIMIT 50; "       \
+                "LIMIT 100; "      \
 
 #define QUERY3 @"SELECT routes.* "                                             \
                 "FROM routes "                                                 \
