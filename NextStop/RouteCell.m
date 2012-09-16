@@ -38,9 +38,9 @@ static NSString *const kRouteManagedObjectUpdatedAtKeyPath = @"routeManagedObjec
 - (void)routeManagedObjectIsMonitorProximityToTargetDidChange {
     UIImage *image = nil;
     if ([self.routeManagedObject.isMonitoringProximityToTarget boolValue]) {
-        image = [UIImage imageNamed:@"Green.png"];
+        image = [UIImage imageNamed:@"BusGreen.png"];
     } else {
-        image = [UIImage imageNamed:@"Gray.png"];
+        image = [UIImage imageNamed:@"BusGray.png"];
     }
     self.monitoredImageView.image = image;
 }

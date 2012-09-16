@@ -3,6 +3,7 @@
 #import "RouteSearchViewController.h"
 
 #define SEARCH_BAR_HEIGHT 44
+#define ROW_HEIGHT 65
 
 static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
 
@@ -41,6 +42,7 @@ static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
     self.searchController.searchResultsDelegate = self;
     // Table view
     [self.tableView registerNib:[UINib nibWithNibName:kRouteRecordCellReuseId bundle:nil] forCellReuseIdentifier:kRouteRecordCellReuseId];
+    self.tableView.rowHeight = ROW_HEIGHT;
 }
 
 - (void)viewDidUnload {
@@ -69,6 +71,7 @@ static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView {
     [tableView registerNib:[UINib nibWithNibName:kRouteRecordCellReuseId bundle:nil] forCellReuseIdentifier:kRouteRecordCellReuseId];
+    tableView.rowHeight = ROW_HEIGHT;
 }
 
 #pragma mark - UITableViewDataSource

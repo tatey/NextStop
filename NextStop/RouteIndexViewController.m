@@ -4,6 +4,8 @@
 #import "RouteIndexViewController.h"
 #import "RouteShowViewController.h"
 
+#define ROW_HEIGHT 65
+
 static NSString *const kRouteCellReuseId = @"RouteCell";
 
 static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches.routes";
@@ -42,6 +44,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     }
     // Table view
     [self.tableView registerNib:[UINib nibWithNibName:@"RouteCell" bundle:nil] forCellReuseIdentifier:kRouteCellReuseId];
+    self.tableView.rowHeight = ROW_HEIGHT;
 }
 
 - (void)viewDidUnload {

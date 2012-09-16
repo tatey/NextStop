@@ -23,6 +23,12 @@
 		5D4CB11C15F31DD00059784A /* Strings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4CB11B15F31DD00059784A /* Strings.m */; };
 		5D54CDFA15668DA1005D0170 /* NSObject+KVOSEL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D54CDF915668DA1005D0170 /* NSObject+KVOSEL.m */; };
 		5D5CA6441604DAF10006D433 /* RouteSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5CA6431604DAF10006D433 /* RouteSearchViewController.m */; };
+		5D5CA6581605A04B0006D433 /* BusGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D5CA6541605A04B0006D433 /* BusGray.png */; };
+		5D5CA6591605A04B0006D433 /* BusGray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D5CA6551605A04B0006D433 /* BusGray@2x.png */; };
+		5D5CA65A1605A04B0006D433 /* BusGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D5CA6561605A04B0006D433 /* BusGreen.png */; };
+		5D5CA65B1605A04B0006D433 /* BusGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D5CA6571605A04B0006D433 /* BusGreen@2x.png */; };
+		5D5CA65E1605A16B0006D433 /* BusWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D5CA65C1605A16B0006D433 /* BusWhite.png */; };
+		5D5CA65F1605A16B0006D433 /* BusWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D5CA65D1605A16B0006D433 /* BusWhite@2x.png */; };
 		5D7D8A831568C5D0004DFB54 /* BackgroundNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */; };
 		5D864EDB15B55CD4007ADCA8 /* DirectionRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D864EDA15B55CD4007ADCA8 /* DirectionRecord.m */; };
 		5D864EDE15B564C9007ADCA8 /* DirectionManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D864EDD15B564C9007ADCA8 /* DirectionManagedObject.m */; };
@@ -102,6 +108,12 @@
 		5D54CDF915668DA1005D0170 /* NSObject+KVOSEL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVOSEL.m"; sourceTree = "<group>"; };
 		5D5CA6421604DAF10006D433 /* RouteSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteSearchViewController.h; sourceTree = "<group>"; };
 		5D5CA6431604DAF10006D433 /* RouteSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteSearchViewController.m; sourceTree = "<group>"; };
+		5D5CA6541605A04B0006D433 /* BusGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusGray.png; sourceTree = "<group>"; };
+		5D5CA6551605A04B0006D433 /* BusGray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BusGray@2x.png"; sourceTree = "<group>"; };
+		5D5CA6561605A04B0006D433 /* BusGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusGreen.png; sourceTree = "<group>"; };
+		5D5CA6571605A04B0006D433 /* BusGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BusGreen@2x.png"; sourceTree = "<group>"; };
+		5D5CA65C1605A16B0006D433 /* BusWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusWhite.png; sourceTree = "<group>"; };
+		5D5CA65D1605A16B0006D433 /* BusWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BusWhite@2x.png"; sourceTree = "<group>"; };
 		5D7D8A811568C5D0004DFB54 /* BackgroundNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundNotifier.h; sourceTree = "<group>"; };
 		5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundNotifier.m; sourceTree = "<group>"; };
 		5D864ED915B55CD4007ADCA8 /* DirectionRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionRecord.h; sourceTree = "<group>"; };
@@ -385,6 +397,12 @@
 			children = (
 				5DD52406154800BC00011A3E /* NextStop.sqlite */,
 				5D9AAB1A15ADB11600E2E077 /* NextStop.xcdatamodeld */,
+				5D5CA6541605A04B0006D433 /* BusGray.png */,
+				5D5CA6551605A04B0006D433 /* BusGray@2x.png */,
+				5D5CA6561605A04B0006D433 /* BusGreen.png */,
+				5D5CA6571605A04B0006D433 /* BusGreen@2x.png */,
+				5D5CA65C1605A16B0006D433 /* BusWhite.png */,
+				5D5CA65D1605A16B0006D433 /* BusWhite@2x.png */,
 				5DAA1F0515EFABD900BB3A71 /* Gray.png */,
 				5DAA1F0615EFABD900BB3A71 /* Green.png */,
 				5D4CB10915F31B640059784A /* Icon.png */,
@@ -503,6 +521,12 @@
 				5DA512B215F1E5F600EF91DC /* RouteRecordCell.xib in Resources */,
 				5D4CB10B15F31B640059784A /* Icon.png in Resources */,
 				5D4CB10C15F31B640059784A /* Icon@2x.png in Resources */,
+				5D5CA6581605A04B0006D433 /* BusGray.png in Resources */,
+				5D5CA6591605A04B0006D433 /* BusGray@2x.png in Resources */,
+				5D5CA65A1605A04B0006D433 /* BusGreen.png in Resources */,
+				5D5CA65B1605A04B0006D433 /* BusGreen@2x.png in Resources */,
+				5D5CA65E1605A16B0006D433 /* BusWhite.png in Resources */,
+				5D5CA65F1605A16B0006D433 /* BusWhite@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
