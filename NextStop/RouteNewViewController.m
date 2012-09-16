@@ -44,7 +44,16 @@ static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
     self.searchController.searchResultsDelegate = self;
     // Table view
     [self.tableView registerNib:[UINib nibWithNibName:kRouteRecordCellReuseId bundle:nil] forCellReuseIdentifier:kRouteRecordCellReuseId];
+    self.tableView.tableHeaderView = self.searchBar;
+    self.tableView.tableHeaderView.backgroundColor = [UIColor blackColor];
     self.tableView.rowHeight = ROW_HEIGHT;
+    CGRect frame = self.view.bounds;
+    frame.origin.y = -frame.size.height;
+    UIView *bounceView = [[UIView alloc] initWithFrame:frame];
+    bounceView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    bounceView.backgroundColor = [UIColor colorWithRed:0.8588 green:0.8824 blue:0.9098 alpha:1.0000];
+    [self.tableView addSubview:bounceView];
+    [self.tableView sendSubviewToBack:bounceView];
 }
 
 - (void)viewDidUnload {
@@ -104,24 +113,6 @@ static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
         routeRecord = [self.routes objectAtIndex:indexPath.row];
     }
     [self.delegate routeNewViewController:self didSelectRoute:routeRecord];
-}
-
-#pragma mark - UITableViewDelegate
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (tableView == self.searchController.searchResultsTableView) {
-        return nil;
-    } else {
-        return self.searchBar;
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (tableView == self.searchController.searchResultsTableView) {
-        return 0;
-    } else {
-        return self.searchBar.frame.size.height;
-    }
 }
 
 @end
