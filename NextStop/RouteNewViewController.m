@@ -1,13 +1,13 @@
 #import "RouteRecord.h"
 #import "RouteRecordCell.h"
-#import "RouteSearchViewController.h"
+#import "RouteNewViewController.h"
 
 #define SEARCH_BAR_HEIGHT 44
 #define ROW_HEIGHT 65
 
 static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
 
-@implementation RouteSearchViewController
+@implementation RouteNewViewController
 
 @synthesize cancelBarButtonItem = _cancelBarButtonItem;
 @synthesize delegate = _delegate;
@@ -16,7 +16,7 @@ static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
 @synthesize searchBar = _searchBar;
 @synthesize searchController = _searchController;
 
-- (id)initWithDelegate:(id <RouteSearchViewControllerDelegate>)delegate {
+- (id)initWithDelegate:(id <RouteNewViewControllerDelegate>)delegate {
     self = [self init];
     if (self) {
         self.delegate = delegate;
@@ -58,7 +58,7 @@ static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
 #pragma mark - Actions
 
 - (void)cancelBarButtonItemTapped:(UIBarButtonItem *)cancelBarButtomItem {
-    [self.delegate routeSearchViewControllerDidFinish:self];
+    [self.delegate routeNewViewControllerDidFinish:self];
 }
 
 #pragma mark - UISearchBarDelegate
@@ -101,7 +101,7 @@ static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
     } else {
         routeRecord = [self.routes objectAtIndex:indexPath.row];
     }
-    [self.delegate routeSearchViewController:self didSelectRoute:routeRecord];
+    [self.delegate routeNewViewController:self didSelectRoute:routeRecord];
 }
 
 #pragma mark - UITableViewDelegate

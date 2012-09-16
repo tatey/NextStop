@@ -60,8 +60,8 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 #pragma mark - Actions
 
 - (void)addBarButtonItemTapped:(UIBarButtonItem *)addBarButtonItem {
-    RouteSearchViewController *routeSearchViewController = [[RouteSearchViewController alloc] initWithDelegate:self];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:routeSearchViewController];
+    RouteNewViewController *routeNewViewController = [[RouteNewViewController alloc] initWithDelegate:self];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:routeNewViewController];
     [self presentViewController:navigationController animated:YES completion:nil];
 }
 
@@ -79,9 +79,9 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     }
 }
 
-#pragma mark - RouteSearchViewControllerDelegate
+#pragma mark - RouteNewViewControllerDelegate
 
-- (void)routeSearchViewController:(RouteSearchViewController *)routeSearchViewController didSelectRoute:(RouteRecord *)route {
+- (void)routeNewViewController:(RouteNewViewController *)routeNewViewController didSelectRoute:(RouteRecord *)route {
     RouteManagedObject *routeManagedObject = [RouteManagedObject routeMatchingOrInsertingRoute:route managedObjectContext:self.managedObjectContext];
     [self dismissViewControllerAnimated:YES completion:^{
         NSIndexPath *indexPath = [self.routes indexPathForObject:routeManagedObject];
@@ -91,7 +91,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     }];
 }
 
-- (void)routeSearchViewControllerDidFinish:(RouteSearchViewController *)routeSearchViewController {
+- (void)routeNewViewControllerDidFinish:(RouteNewViewController *)routeNewViewController {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
