@@ -53,16 +53,28 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     [super viewDidUnload];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if ([[self.routes fetchedObjects] count] == 0) {
+        [self presentRouteNewViewControllerCancelable:NO animated:YES completion:nil];
+    }
+}
+
 - (NSString *)title {
     return NSLocalizedString(@"routes.title", nil);
+}
+
+- (void)presentRouteNewViewControllerCancelable:(BOOL)cancelable animated:(BOOL)animated completion:(void (^)(void))completion {
+    RouteNewViewController *routeNewViewController = [[RouteNewViewController alloc] initWithDelegate:self];
+    routeNewViewController.cancelable = cancelable;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:routeNewViewController];
+    [self presentViewController:navigationController animated:animated completion:completion];
 }
 
 #pragma mark - Actions
 
 - (void)addBarButtonItemTapped:(UIBarButtonItem *)addBarButtonItem {
-    RouteNewViewController *routeNewViewController = [[RouteNewViewController alloc] initWithDelegate:self];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:routeNewViewController];
-    [self presentViewController:navigationController animated:YES completion:nil];
+    [self presentRouteNewViewControllerCancelable:[[self.routes fetchedObjects] count] > 0 animated:YES completion:nil];
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate

@@ -10,6 +10,7 @@ static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
 
 @implementation RouteNewViewController
 
+@synthesize cancelable = _cancelable;
 @synthesize cancelBarButtonItem = _cancelBarButtonItem;
 @synthesize delegate = _delegate;
 @synthesize routes = _routes;
@@ -27,9 +28,11 @@ static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
 
 - (void)viewDidLoad {
     // Cancel bar button item
-    self.cancelBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelBarButtonItemTapped:)];
-    self.cancelBarButtonItem.style = UIBarButtonItemStyleBordered;
-    self.navigationItem.rightBarButtonItem = self.cancelBarButtonItem;
+    if (self.cancelable) {
+        self.cancelBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelBarButtonItemTapped:)];
+        self.cancelBarButtonItem.style = UIBarButtonItemStyleBordered;
+        self.navigationItem.rightBarButtonItem = self.cancelBarButtonItem;        
+    }
     // Routes
     self.routes = [RouteRecord routes];
     // Search bar

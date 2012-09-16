@@ -7,6 +7,7 @@
 
 @interface RouteNewViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 
+@property (assign, nonatomic) BOOL cancelable;
 @property (strong, nonatomic) UIBarButtonItem *cancelBarButtonItem;
 @property (weak, nonatomic) id <RouteNewViewControllerDelegate> delegate;
 @property (strong, nonatomic) NSArray *routes;
