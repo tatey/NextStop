@@ -22,5 +22,5 @@
 "route.alerts.titles.approaching" = "Stop is approaching";
 "route.alerts.messages.approaching" = "Prepare to get off soon.";
 "routes.title" = "Routes";
-"route_search.title" = "Routes";
+"route_search.title" = "New Route";
 "route_search.search.placeholder" = "Try 130 or Sunnybank";
