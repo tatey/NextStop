@@ -6,13 +6,11 @@
 #import "DestinationAnnotationView.h"
 #import "ModalSearchDisplayController.h"
 #import "StopAnnotationView.h"
-#import "TrackButton.h"
 
 @class DirectionManagedObject;
 @class RouteShowViewControllerItem;
-@class TrackButton;
 
-@interface DirectionShowViewController : UIViewController <DestionationAnnotationViewDelegate, ModalSearchDisplayControllerDelegate, MKMapViewDelegate, StopAnnotationViewDelegate, TrackButtonDelegate, UISearchBarDelegate>
+@interface DirectionShowViewController : UIViewController <DestionationAnnotationViewDelegate, ModalSearchDisplayControllerDelegate, MKMapViewDelegate, StopAnnotationViewDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) DirectionManagedObject *directionManagedObject;
 @property (strong, nonatomic) CLGeocoder *geocoder;
@@ -20,7 +18,7 @@
 @property (strong, nonatomic) MKMapView *mapView;
 @property (strong, nonatomic) ModalSearchDisplayController *modalSearchDisplayController;
 @property (strong, nonatomic) RouteShowViewControllerItem *routeShowViewControllerItem;
-@property (strong, nonatomic) TrackButton *trackButton;
+@property (strong, nonatomic) MKUserTrackingBarButtonItem *trackingBarButtonItem;
 
 - (id)initWithDirectionManagedObject:(DirectionManagedObject *)directionManagedObject managedObjectContext:(NSManagedObjectContext *)context;
 

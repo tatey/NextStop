@@ -15,11 +15,8 @@
 		5D1B5F1D1605BA8800149AC0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1B5F1B1605BA8800149AC0 /* Default@2x.png */; };
 		5D2BFDBB1547F3B400D9F53E /* RouteIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */; };
 		5D2BFDBC1547F3B400D9F53E /* RouteIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */; };
-		5D3B3F0215EE42D700E3344F /* TrackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B3F0115EE42D700E3344F /* TrackButton.m */; };
-		5D3B3F0815EE4DC600E3344F /* LocationArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3B3F0415EE4DC600E3344F /* LocationArrow@2x.png */; };
 		5D3B3F0A15EE4DC600E3344F /* Pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3B3F0615EE4DC600E3344F /* Pin.png */; };
 		5D3B3F0B15EE4DC600E3344F /* Pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3B3F0715EE4DC600E3344F /* Pin@2x.png */; };
-		5D3B3F0D15EE4ED700E3344F /* LocationArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D3B3F0C15EE4ED700E3344F /* LocationArrow.png */; };
 		5D4CA1BA15FE276600915A70 /* RouteShowViewControllerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4CA1B915FE276600915A70 /* RouteShowViewControllerItem.m */; };
 		5D4CB10B15F31B640059784A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB10915F31B640059784A /* Icon.png */; };
 		5D4CB10C15F31B640059784A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB10A15F31B640059784A /* Icon@2x.png */; };
@@ -99,12 +96,8 @@
 		5D1B5F1B1605BA8800149AC0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5D2BFDB91547F3B400D9F53E /* RouteIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteIndexViewController.h; sourceTree = "<group>"; };
 		5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteIndexViewController.m; sourceTree = "<group>"; };
-		5D3B3F0015EE42D700E3344F /* TrackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackButton.h; sourceTree = "<group>"; };
-		5D3B3F0115EE42D700E3344F /* TrackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackButton.m; sourceTree = "<group>"; };
-		5D3B3F0415EE4DC600E3344F /* LocationArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LocationArrow@2x.png"; sourceTree = "<group>"; };
 		5D3B3F0615EE4DC600E3344F /* Pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pin.png; sourceTree = "<group>"; };
 		5D3B3F0715EE4DC600E3344F /* Pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pin@2x.png"; sourceTree = "<group>"; };
-		5D3B3F0C15EE4ED700E3344F /* LocationArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationArrow.png; sourceTree = "<group>"; };
 		5D4CA1B615FE1CAB00915A70 /* RouteShowViewControllerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteShowViewControllerItem.h; sourceTree = "<group>"; };
 		5D4CA1B915FE276600915A70 /* RouteShowViewControllerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteShowViewControllerItem.m; sourceTree = "<group>"; };
 		5D4CB10915F31B640059784A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -418,8 +411,6 @@
 				5DAA1F0615EFABD900BB3A71 /* Green.png */,
 				5D4CB10915F31B640059784A /* Icon.png */,
 				5D4CB10A15F31B640059784A /* Icon@2x.png */,
-				5D3B3F0C15EE4ED700E3344F /* LocationArrow.png */,
-				5D3B3F0415EE4DC600E3344F /* LocationArrow@2x.png */,
 				5D3B3F0615EE4DC600E3344F /* Pin.png */,
 				5D3B3F0715EE4DC600E3344F /* Pin@2x.png */,
 				5DAA1EFC15EF93D000BB3A71 /* RouteCell.xib */,
@@ -439,8 +430,6 @@
 				5DA512B515F1E62A00EF91DC /* RouteRecordCell.m */,
 				5DF5F20515BB95E8006B0882 /* StopAnnotationView.h */,
 				5DF5F20615BB95E8006B0882 /* StopAnnotationView.m */,
-				5D3B3F0015EE42D700E3344F /* TrackButton.h */,
-				5D3B3F0115EE42D700E3344F /* TrackButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -522,10 +511,8 @@
 				5DB0AE111578C83E00D43B2E /* Toowoong.gpx in Resources */,
 				5DBDD34715B83A74001287AB /* Indooroopilly.gpx in Resources */,
 				5DBDD34A15B83A7F001287AB /* Brisbane.gpx in Resources */,
-				5D3B3F0815EE4DC600E3344F /* LocationArrow@2x.png in Resources */,
 				5D3B3F0A15EE4DC600E3344F /* Pin.png in Resources */,
 				5D3B3F0B15EE4DC600E3344F /* Pin@2x.png in Resources */,
-				5D3B3F0D15EE4ED700E3344F /* LocationArrow.png in Resources */,
 				5DAA1EFD15EF93D000BB3A71 /* RouteCell.xib in Resources */,
 				5DAA1F0715EFABD900BB3A71 /* Gray.png in Resources */,
 				5DAA1F0815EFABD900BB3A71 /* Green.png in Resources */,
@@ -593,7 +580,6 @@
 				5DF5F20715BB95E8006B0882 /* StopAnnotationView.m in Sources */,
 				5DA37E8B15EA25ED0090FDB0 /* RouteShowViewController.m in Sources */,
 				5DA37E8F15EA262D0090FDB0 /* DirectionShowViewController.m in Sources */,
-				5D3B3F0215EE42D700E3344F /* TrackButton.m in Sources */,
 				5DAA1F0115EF94FB00BB3A71 /* RouteCell.m in Sources */,
 				5DA512B615F1E62A00EF91DC /* RouteRecordCell.m in Sources */,
 				5D4CB11C15F31DD00059784A /* Strings.m in Sources */,

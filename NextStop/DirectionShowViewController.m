@@ -12,14 +12,8 @@ static NSString *NSStringFromMKCoordinateRegion(MKCoordinateRegion region) {
     return [NSString stringWithFormat:@"{{%f, %f}, {%f, %f}}", region.center.latitude, region.center.longitude, region.span.latitudeDelta, region.span.longitudeDelta];
 }
 
-static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b) {
-    return a.center.latitude == b.center.latitude && a.center.longitude == b.center.longitude &&
-        a.span.latitudeDelta == b.span.latitudeDelta && a.span.longitudeDelta == b.span.longitudeDelta;
-}
-
 @implementation DirectionShowViewController {
     __weak StopAnnotationView *_cachedStopAnnotationView;
-    MKCoordinateRegion _targetRegion;
 }
 
 @synthesize directionManagedObject = _directionManagedObject;
@@ -27,7 +21,7 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize mapView = _mapView;
 @synthesize modalSearchDisplayController = _modalSearchDisplayController;
-@synthesize trackButton = _trackButton;
+@synthesize trackingBarButtonItem = _trackingBarButtonItem;
 
 - (id)init {
     self = [super init];
@@ -56,11 +50,11 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
     // Modal search display controller
     self.modalSearchDisplayController = [[ModalSearchDisplayController alloc] initWithViewController:self.parentViewController];
     self.modalSearchDisplayController.delegate = self;
-    // Track button
-    self.trackButton = [[TrackButton alloc] initWithFrame:CGRectMake(8, (self.view.bounds.size.height - 29) - 8, 29, 29)];
-    self.trackButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-    self.trackButton.delegate = self;
-    self.routeShowViewControllerItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.trackButton];
+    // Tracking bar button item
+    self.trackingBarButtonItem = [[MKUserTrackingBarButtonItem alloc] initWithMapView:self.mapView];
+    self.trackingBarButtonItem.target = self;
+    self.trackingBarButtonItem.action = @selector(trackingBarButtonItemTapped:);
+    self.routeShowViewControllerItem.leftBarButtonItem = self.trackingBarButtonItem;
     // Zoom
     if (self.directionManagedObject.target) {
         [self zoomToAnnotation:self.directionManagedObject.target animated:NO];
@@ -77,7 +71,7 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
     self.geocoder = nil;
     self.mapView = nil;
     self.modalSearchDisplayController = nil;
-    self.trackButton = nil;
+    self.trackingBarButtonItem = nil;
     [super viewDidUnload];
 }
 
@@ -121,6 +115,23 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
         region.span = minimumSpan;
     }
     [self.mapView setRegion:region animated:animated];
+}
+
+#pragma mark - Actions
+
+- (void)trackingBarButtonItemTapped:(MKUserTrackingBarButtonItem *)trackingBarButtonItem {
+    if (self.mapView.userTrackingMode == MKUserTrackingModeNone) {
+        [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
+    } else if (self.mapView.userTrackingMode == MKUserTrackingModeFollow) {
+        [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
+    } else if (self.mapView.userTrackingMode == MKUserTrackingModeFollowWithHeading) {
+        [self.mapView setUserTrackingMode:MKUserTrackingModeNone animated:NO];
+        if (self.directionManagedObject.target) {
+            [self zoomToAnnotation:self.directionManagedObject.target animated:YES];
+        } else {
+            [self zoomToAnnotations:[self.directionManagedObject stops] animated:YES];
+        }
+    }
 }
 
 #pragma mark - Notifications
@@ -168,18 +179,6 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
     return stopAnnotationView;
 }
 
-- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
-    if (self.trackButton.state == TrackButtonStopState && MKCoordinateRegionCompare(mapView.region, _targetRegion)) {
-        self.trackButton.state = TrackButtonNoneState;
-    }
-}
-
-- (void)mapView:(MKMapView *)mapView didChangeUserTrackingMode:(MKUserTrackingMode)mode animated:(BOOL)animated {
-    if (self.trackButton.state == TrackButtonUserState && mode == MKUserTrackingModeNone) {
-        self.trackButton.state = TrackButtonNoneState;
-    }
-}
-
 #pragma mark - DestinationAnnotationViewDelegate
 
 - (void)destinationAnnotationView:(DestinationAnnotationView *)destinationAnnotationView deleteButtonTapped:(UIButton *)deleteButton {
@@ -206,28 +205,6 @@ static BOOL MKCoordinateRegionCompare(MKCoordinateRegion a, MKCoordinateRegion b
         self.directionManagedObject.target = (StopRecord *)stopAnnotationView.annotation;
     }
     self.directionManagedObject.monitorProximityToTarget = monitored;
-}
-
-#pragma mark - TrackButtonDelegate
-
-- (void)trackButton:(TrackButton *)trackButton didChangeState:(TrackButtonState)state {
-    switch (state) {
-        case TrackButtonNoneState:
-            self.mapView.userTrackingMode = MKUserTrackingModeNone;
-            break;
-        case TrackButtonUserState:
-            [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
-            break;
-        case TrackButtonStopState:
-            self.mapView.userTrackingMode = MKUserTrackingModeNone;
-            if (self.directionManagedObject.target) {
-                [self zoomToAnnotation:self.directionManagedObject.target animated:YES];
-            } else {
-                [self zoomToAnnotations:[self.directionManagedObject stops] animated:YES];
-            }
-            _targetRegion = self.mapView.region;
-            break;
-    }
 }
 
 #pragma mark UISearchBarDelegate
