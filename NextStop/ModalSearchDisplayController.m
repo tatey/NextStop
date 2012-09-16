@@ -61,7 +61,7 @@
         [self.viewController presentViewController:self animated:NO completion:nil];
         [self.searchBar becomeFirstResponder];
     } else {
-        self.viewController.parentViewController.modalTransitionStyle = _originalModalPresentationStyle;
+        self.viewController.parentViewController.modalPresentationStyle = _originalModalPresentationStyle;
         [self.searchBar resignFirstResponder];
     }
 }
