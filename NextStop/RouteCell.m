@@ -56,6 +56,7 @@ static NSString *const kRouteManagedObjectUpdatedAtKeyPath = @"routeManagedObjec
 - (void)routeManagedObjectUpdatedAtDidChange {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateStyle = NSDateFormatterShortStyle;
+    [dateFormatter setDoesRelativeDateFormatting:YES];
     self.updatedAtLabel.text = [dateFormatter stringFromDate:self.routeManagedObject.updatedAt];
 }
 
