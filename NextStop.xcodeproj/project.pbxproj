@@ -10,6 +10,8 @@
 		5D05CD0215A59E1F0011A165 /* RouteManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05CD0115A59E1F0011A165 /* RouteManagedObject.m */; };
 		5D05F316154ACA7F004E7773 /* StopRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* StopRecord.m */; };
 		5D05F317154ACA7F004E7773 /* StopRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* StopRecord.m */; };
+		5D17FB261605F44100D77A9B /* SearchBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D17FB241605F44100D77A9B /* SearchBarBackground.png */; };
+		5D17FB271605F44100D77A9B /* SearchBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D17FB251605F44100D77A9B /* SearchBarBackground@2x.png */; };
 		5D1B5EE71605AA8500149AC0 /* NSArray+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B5EE61605AA8500149AC0 /* NSArray+Random.m */; };
 		5D1B5F1C1605BA8800149AC0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1B5F1A1605BA8800149AC0 /* Default.png */; };
 		5D1B5F1D1605BA8800149AC0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1B5F1B1605BA8800149AC0 /* Default@2x.png */; };
@@ -90,6 +92,8 @@
 		5D05CD0115A59E1F0011A165 /* RouteManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteManagedObject.m; sourceTree = "<group>"; };
 		5D05F314154ACA7F004E7773 /* StopRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopRecord.h; sourceTree = "<group>"; };
 		5D05F315154ACA7F004E7773 /* StopRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopRecord.m; sourceTree = "<group>"; };
+		5D17FB241605F44100D77A9B /* SearchBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchBarBackground.png; sourceTree = "<group>"; };
+		5D17FB251605F44100D77A9B /* SearchBarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchBarBackground@2x.png"; sourceTree = "<group>"; };
 		5D1B5EE51605AA8500149AC0 /* NSArray+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Random.h"; sourceTree = "<group>"; };
 		5D1B5EE61605AA8500149AC0 /* NSArray+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Random.m"; sourceTree = "<group>"; };
 		5D1B5F1A1605BA8800149AC0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -415,6 +419,8 @@
 				5D3B3F0715EE4DC600E3344F /* Pin@2x.png */,
 				5DAA1EFC15EF93D000BB3A71 /* RouteCell.xib */,
 				5DA512B115F1E5F600EF91DC /* RouteRecordCell.xib */,
+				5D17FB241605F44100D77A9B /* SearchBarBackground.png */,
+				5D17FB251605F44100D77A9B /* SearchBarBackground@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -527,6 +533,8 @@
 				5D5CA65F1605A16B0006D433 /* BusWhite@2x.png in Resources */,
 				5D1B5F1C1605BA8800149AC0 /* Default.png in Resources */,
 				5D1B5F1D1605BA8800149AC0 /* Default@2x.png in Resources */,
+				5D17FB261605F44100D77A9B /* SearchBarBackground.png in Resources */,
+				5D17FB271605F44100D77A9B /* SearchBarBackground@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

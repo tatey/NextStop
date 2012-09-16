@@ -26,6 +26,7 @@
     // Search bar
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, SEARCHBAR_HEIGHT)];
     self.searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.searchBar.backgroundImage = [UIImage imageNamed:@"SearchBarBackground.png"];
     self.searchBar.showsCancelButton = YES;
     [self.view addSubview:self.searchBar];
     [self.delegate modalSearchDisplayController:self didLoadSearchBar:self.searchBar];
