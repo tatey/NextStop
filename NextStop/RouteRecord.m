@@ -6,7 +6,11 @@
                 "WHERE routes.id = ? " \
                 "LIMIT 1; "            \
 
-#define QUERY2 @"SELECT routes.* "                                             \
+#define QUERY2 @"SELECT routes.* " \
+                "FROM routes "     \
+                "LIMIT 50; "       \
+
+#define QUERY3 @"SELECT routes.* "                                             \
                 "FROM routes "                                                 \
                 "WHERE (routes.short_name LIKE ? OR routes.long_name LIKE ?) " \
                 "LIMIT 50; "                                                   \
@@ -39,9 +43,20 @@ static const char * RouteRecordStringToWildcardUTF8String(NSString *string) {
     return route;
 }
 
-+ (NSArray *)routesMatchingShortNameOrLongName:(NSString *)searchText {
++ (NSArray *)routes {
     SQLiteDB *db = [SQLiteDB sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY2];
+    NSMutableArray *routes = [NSMutableArray array];
+    [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
+        RouteRecord *route = [[self alloc] initWithStatement:stmt];
+        [routes addObject:route];
+    }];
+    return [routes copy];
+}
+
++ (NSArray *)routesMatchingShortNameOrLongName:(NSString *)searchText {
+    SQLiteDB *db = [SQLiteDB sharedDB];
+    sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY3];
     sqlite3_bind_text(stmt, 1, RouteRecordStringToWildcardUTF8String(searchText), -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 2, RouteRecordStringToWildcardUTF8String(searchText), -1, SQLITE_STATIC);
     NSMutableArray *routes = [NSMutableArray array];
