@@ -23,4 +23,4 @@
 "route.alerts.messages.approaching" = "Prepare to get off soon.";
 "routes.title" = "Routes";
 "route_search.title" = "New Route";
-"route_search.search.placeholder" = "Try 130 or Sunnybank";
+"route_search.search.placeholder" = "Try %@ or %@";

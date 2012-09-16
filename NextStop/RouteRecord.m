@@ -1,3 +1,4 @@
+#import "NSArray+Random.h"
 #import "RouteRecord.h"
 #import "SQLiteDB.h"
 
@@ -87,6 +88,10 @@ static const char * RouteRecordStringToWildcardUTF8String(NSString *string) {
 
 - (NSUInteger)primaryKey {
     return _primaryKey;
+}
+
+- (NSString *)mediumName {
+    return [[self.longName componentsSeparatedByString:@", "] objectAtRandomIndex];
 }
 
 - (NSString *)description {

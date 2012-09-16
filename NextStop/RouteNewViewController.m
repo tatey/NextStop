@@ -1,3 +1,4 @@
+#import "NSArray+Random.h"
 #import "RouteRecord.h"
 #import "RouteRecordCell.h"
 #import "RouteNewViewController.h"
@@ -32,9 +33,10 @@ static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
     // Routes
     self.routes = [RouteRecord routes];
     // Search bar
+    RouteRecord *routeRecord = [self.routes objectAtRandomIndex];
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, SEARCH_BAR_HEIGHT)];
     self.searchBar.delegate = self;
-    self.searchBar.placeholder = NSLocalizedString(@"route_search.search.placeholder", nil);
+    self.searchBar.placeholder = [NSString stringWithFormat:NSLocalizedString(@"route_search.search.placeholder", nil), routeRecord.shortName, [routeRecord mediumName]];
     // Search controller
     self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
     self.searchController.delegate = self;
