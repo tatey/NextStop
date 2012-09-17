@@ -1,5 +1,9 @@
+// Generic
+"alerts.title.error" = "Error";
+
 // Controls
 "controls.dismiss" = "Dismiss";
+"controls.ok" = "OK";
 
 // Notifications
 "notifications.action.approaching" = "Check";
@@ -18,7 +22,9 @@
 "direction_record.direction.west" = "West";
 
 // View Controllers
-"direction.search.placeholder" = "Address";
+"direction_show.alerts.titles.found_no_result" = "No results found";
+"direction_show.alerts.titles.found_no_stop" = "No stops within %dkm found";
+"direction_show.search.placeholder" = "Address";
 "route.alerts.titles.approaching" = "Stop is approaching";
 "route.alerts.messages.approaching" = "Prepare to get off soon.";
 "routes.title" = "Routes";

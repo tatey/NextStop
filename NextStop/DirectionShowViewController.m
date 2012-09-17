@@ -190,7 +190,7 @@ static NSString *NSStringFromMKCoordinateRegion(MKCoordinateRegion region) {
 
 - (void)modalSearchDisplayController:(ModalSearchDisplayController *)controller didLoadSearchBar:(UISearchBar *)searchBar {
     searchBar.delegate = self;
-    searchBar.placeholder = NSLocalizedString(@"direction.search.placeholder", nil);
+    searchBar.placeholder = NSLocalizedString(@"direction_show.search.placeholder", nil);
 }
 
 #pragma mark - StopAnnotationViewDelegate
@@ -231,10 +231,29 @@ static NSString *NSStringFromMKCoordinateRegion(MKCoordinateRegion region) {
                 [self.mapView selectAnnotation:stop animated:YES];
             } else {
                 [self.managedObjectContext deleteObject:destination];
-                NSLog(@"No stop");
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"direction_show.alerts.titles.found_no_stop", nil), DIRECTION_RECORD_MAX_STOP_DISTANCE_METERS / 1000]
+                                                                    message:nil
+                                                                   delegate:nil
+                                                          cancelButtonTitle:NSLocalizedString(@"controls.ok", nil)
+                                                          otherButtonTitles:nil];
+                [alertView show];
             }
         } else {
-            NSLog(@"%@", [error localizedDescription]);
+            UIAlertView *alertView = nil;
+            if ([error code] == 8 || [error code] == 9) {
+                alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"direction_show.alerts.titles.found_no_result", nil)]
+                                                       message:nil
+                                                      delegate:nil
+                                             cancelButtonTitle:NSLocalizedString(@"controls.ok", nil)
+                                             otherButtonTitles:nil];
+            } else {
+                alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alerts.title.error", nil)
+                                                       message:[error localizedDescription]
+                                                      delegate:nil
+                                             cancelButtonTitle:NSLocalizedString(@"controls.ok", nil)
+                                             otherButtonTitles:nil];
+            }
+            [alertView show];
         }
         application.networkActivityIndicatorVisible = NO;
     }];

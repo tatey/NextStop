@@ -5,8 +5,6 @@
 #import "StopRecord.h"
 #import "SQLiteDB.h"
 
-#define MAX_DISTANCE 10000 // Meters
-
 #define QUERY1 @"SELECT trips.* "          \
                 "FROM trips "              \
                 "WHERE trips.route_id = ?" \
@@ -75,7 +73,7 @@
 
 - (StopRecord *)stopClosestByLineOfSightToCoordinate:(CLLocationCoordinate2D)coordinate {
     StopRecord *closestStop = nil;
-    CLLocationDistance minimumDistance = MAX_DISTANCE;
+    CLLocationDistance minimumDistance = DIRECTION_RECORD_MAX_STOP_DISTANCE_METERS;
     for (StopRecord *stop in [self stops]) {
         CLLocationDistance distance = Haversin(stop.coordinate, coordinate);
         if (distance < minimumDistance) {

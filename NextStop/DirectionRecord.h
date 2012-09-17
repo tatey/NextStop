@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
 
+#define DIRECTION_RECORD_MAX_STOP_DISTANCE_METERS 10000
+
 typedef enum {
     DirectionRecordRegularDirection,
     DirectionRecordGoofyDirection,
