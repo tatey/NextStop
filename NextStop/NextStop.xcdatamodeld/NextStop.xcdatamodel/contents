@@ -8,6 +8,10 @@
     </entity>
     <entity name="Direction" representedClassName="DirectionManagedObject" syncable="YES">
         <attribute name="directionId" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="latitudeDelta" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitudeDelta" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="monitorProximityToTarget" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="targetId" optional="YES" attributeType="Integer 32" syncable="YES"/>
         <relationship name="destination" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Destination" inverseName="direction" inverseEntity="Destination" syncable="YES"/>

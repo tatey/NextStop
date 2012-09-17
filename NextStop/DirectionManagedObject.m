@@ -1,3 +1,4 @@
+#import "CoordinateRegion.h"
 #import "DestinationManagedObject.h"
 #import "DirectionManagedObject.h"
 #import "DirectionRecord.h"
@@ -34,6 +35,10 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 
 // Public
 @dynamic destination;
+@dynamic latitude;
+@dynamic longitude;
+@dynamic latitudeDelta;
+@dynamic longitudeDelta;
 @dynamic monitorProximityToTarget;
 @dynamic routeManagedObject;
 
@@ -154,6 +159,22 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 
 - (NSArray *)stops {
     return self.direction.stops;
+}
+
+- (void)setRegion:(MKCoordinateRegion)region {
+    self.latitude = region.center.latitude;
+    self.longitude = region.center.longitude;
+    self.latitudeDelta = region.span.latitudeDelta;
+    self.longitudeDelta = region.span.longitudeDelta;
+}
+
+- (MKCoordinateRegion)region {
+    if (!self.latitude || !self.longitude || !self.latitudeDelta || !self.longitudeDelta) {
+        [self setRegion:MKCoordinateRegionForAnnotations([self stops])];
+    }
+    CLLocationCoordinate2D centerCoordinate = CLLocationCoordinate2DMake(self.latitude, self.longitude);
+    MKCoordinateSpan span = MKCoordinateSpanMake(self.latitudeDelta, self.longitudeDelta);
+    return MKCoordinateRegionMake(centerCoordinate, span);
 }
 
 - (ProximityCenter *)proximityCenter {

@@ -1,3 +1,4 @@
+#import "CoordinateRegion.h"
 #import "DestinationManagedObject.h"
 #import "DirectionManagedObject.h"
 #import "DirectionRecord.h"
@@ -7,10 +8,6 @@
 #import "StopRecord.h"
 
 static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManagedObject.monitorProximityToTarget";
-
-static NSString *NSStringFromMKCoordinateRegion(MKCoordinateRegion region) {
-    return [NSString stringWithFormat:@"{{%f, %f}, {%f, %f}}", region.center.latitude, region.center.longitude, region.span.latitudeDelta, region.span.longitudeDelta];
-}
 
 @implementation DirectionShowViewController {
     __weak StopAnnotationView *_cachedStopAnnotationView;
@@ -56,13 +53,11 @@ static NSString *NSStringFromMKCoordinateRegion(MKCoordinateRegion region) {
     self.trackingBarButtonItem.action = @selector(trackingBarButtonItemTapped:);
     self.routeShowViewControllerItem.leftBarButtonItem = self.trackingBarButtonItem;
     // Zoom
-    if (self.directionManagedObject.target) {
+    if (self.directionManagedObject.target && !self.directionManagedObject.isMonitoringProximityToTarget) {
         [self zoomToAnnotation:self.directionManagedObject.target animated:NO];
-        if (!self.directionManagedObject.monitorProximityToTarget) {
-            [self.mapView selectAnnotation:self.directionManagedObject.target animated:NO];
-        }
+        [self.mapView selectAnnotation:self.directionManagedObject.target animated:NO];
     } else {
-        [self zoomToAnnotations:[self.directionManagedObject stops] animated:NO];
+        [self.mapView setRegion:[self.directionManagedObject region] animated:NO];
     }
 }
 
@@ -81,6 +76,7 @@ static NSString *NSStringFromMKCoordinateRegion(MKCoordinateRegion region) {
 
 - (void)viewWillDisappear:(BOOL)animated {
     [self removeObserver:self forKeyPath:kDirectionManagedObjectMonitorKeyPath];
+    [self.directionManagedObject setRegion:self.mapView.region];
     [super viewWillDisappear:animated];
 }
 
@@ -102,18 +98,7 @@ static NSString *NSStringFromMKCoordinateRegion(MKCoordinateRegion region) {
 }
 
 - (void)zoomToAnnotations:(NSArray *)annotations animated:(BOOL)animated {
-    NSInteger count = 0;
-    MKMapPoint points[[annotations count]];
-    for (id <MKAnnotation> annotation in annotations) {
-        points[count++] = MKMapPointForCoordinate(annotation.coordinate);
-    }
-    MKPolygon *polygon = [MKPolygon polygonWithPoints:points count:count];
-    MKCoordinateRegion region = MKCoordinateRegionForMapRect([polygon boundingMapRect]);
-    MKCoordinateSpan minimumSpan = MKCoordinateSpanMake(0.01, 0.01);
-    if (region.span.latitudeDelta < minimumSpan.latitudeDelta && region.span.longitudeDelta < minimumSpan.longitudeDelta) {
-        region.span = minimumSpan;
-    }
-    [self.mapView setRegion:region animated:animated];
+    [self.mapView setRegion:MKCoordinateRegionForAnnotations(annotations) animated:animated];
 }
 
 #pragma mark - Actions

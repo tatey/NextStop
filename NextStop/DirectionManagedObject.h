@@ -1,5 +1,7 @@
 #import <CoreData/CoreData.h>
+#import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 #import "Proximity.h"
 
 @class DestinationManagedObject;
@@ -13,6 +15,10 @@
 
 @property (strong, nonatomic) DestinationManagedObject *destination;
 @property (strong, nonatomic) DirectionRecord *direction;
+@property (assign, nonatomic) CLLocationDegrees latitude;
+@property (assign, nonatomic) CLLocationDegrees longitude;
+@property (assign, nonatomic) CLLocationDegrees latitudeDelta;
+@property (assign, nonatomic) CLLocationDegrees longitudeDelta;
 @property (assign, nonatomic, getter = isMonitoringProximityToTarget) BOOL monitorProximityToTarget;
 @property (strong, nonatomic) RouteManagedObject *routeManagedObject;
 @property (strong, nonatomic) StopRecord *target;
@@ -26,6 +32,9 @@
 - (NSArray *)annotations;
 - (NSString *)headsign;
 - (NSArray *)stops;
+
+- (void)setRegion:(MKCoordinateRegion)region;
+- (MKCoordinateRegion)region;
 
 @end
 
