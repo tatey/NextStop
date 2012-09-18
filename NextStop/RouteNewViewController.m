@@ -27,6 +27,7 @@ static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
 }
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     // Cancel bar button item
     if (self.cancelable) {
         self.cancelBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelBarButtonItemTapped:)];
@@ -61,8 +62,10 @@ static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
 
 - (void)viewDidUnload {
     self.cancelBarButtonItem = nil;
+    self.routes = nil;
     self.searchBar = nil;
     self.searchController = nil;
+    [super viewDidUnload];
 }
 
 - (NSString *)title {
