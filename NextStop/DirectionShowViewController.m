@@ -40,7 +40,6 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
     // Map view
     self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
     [self.mapView addAnnotations:[self.directionManagedObject annotations]];
     [self.view addSubview:self.mapView];
@@ -71,10 +70,12 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.mapView.delegate = self;
     [self addObserver:self forKeyPath:kDirectionManagedObjectMonitorKeyPath options:NSKeyValueObservingOptionNew context:@selector(directionManagedObjectMonitorDidChangeValue)];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    self.mapView.delegate = nil;
     [self removeObserver:self forKeyPath:kDirectionManagedObjectMonitorKeyPath];
     [self.directionManagedObject setRegion:self.mapView.region];
     [super viewWillDisappear:animated];
