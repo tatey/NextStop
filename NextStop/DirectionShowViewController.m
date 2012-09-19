@@ -35,6 +35,10 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
     return self;
 }
 
+- (void)dealloc {
+    self.mapView.delegate = nil; // MKMapView is not ARC compliant in iOS 5. Release delegate.
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Map view

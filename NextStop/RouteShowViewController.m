@@ -42,7 +42,6 @@
     self.searchBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchBarButtonItemTapped:)];
     self.searchBarButtonItem.style = UIBarButtonItemStyleBordered;
     self.navigationItem.rightBarButtonItem = self.searchBarButtonItem;
-
     // Direction controllers
     for (DirectionManagedObject *directionManagedObject in self.routeManagedObject.directions) {
         DirectionShowViewController *directionShowViewController = [[DirectionShowViewController alloc] initWithDirectionManagedObject:directionManagedObject managedObjectContext:self.managedObjectContext];
@@ -55,6 +54,10 @@
 }
 
 - (void)viewDidUnload {
+    for (UIViewController *childViewController in self.childViewControllers) {
+        [childViewController willMoveToParentViewController:nil];
+        [childViewController removeFromParentViewController];
+    }
     self.directionsControl = nil;
     self.searchBarButtonItem = nil;
     self.toolbar = nil;
