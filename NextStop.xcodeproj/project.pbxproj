@@ -51,6 +51,8 @@
 		5DAA1F0115EF94FB00BB3A71 /* RouteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA1F0015EF94FB00BB3A71 /* RouteCell.m */; };
 		5DB0AE101578C83E00D43B2E /* Taringa.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DB0AE0E1578C83E00D43B2E /* Taringa.gpx */; };
 		5DB0AE111578C83E00D43B2E /* Toowoong.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DB0AE0F1578C83E00D43B2E /* Toowoong.gpx */; };
+		5DB23092160B4C1900F8755B /* Close.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB23090160B4C1900F8755B /* Close.png */; };
+		5DB23093160B4C1900F8755B /* Close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB23091160B4C1900F8755B /* Close@2x.png */; };
 		5DB59C7F1546C8E500417818 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C7E1546C8E500417818 /* UIKit.framework */; };
 		5DB59C811546C8E500417818 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C801546C8E500417818 /* Foundation.framework */; };
 		5DB59C831546C8E500417818 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C821546C8E500417818 /* CoreGraphics.framework */; };
@@ -151,6 +153,8 @@
 		5DAA1F0015EF94FB00BB3A71 /* RouteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteCell.m; sourceTree = "<group>"; };
 		5DB0AE0E1578C83E00D43B2E /* Taringa.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Taringa.gpx; sourceTree = "<group>"; };
 		5DB0AE0F1578C83E00D43B2E /* Toowoong.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Toowoong.gpx; sourceTree = "<group>"; };
+		5DB23090160B4C1900F8755B /* Close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Close.png; sourceTree = "<group>"; };
+		5DB23091160B4C1900F8755B /* Close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Close@2x.png"; sourceTree = "<group>"; };
 		5DB59C7A1546C8E500417818 /* NextStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DB59C7E1546C8E500417818 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5DB59C801546C8E500417818 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -413,6 +417,8 @@
 				5D5CA6571605A04B0006D433 /* BusGreen@2x.png */,
 				5D5CA65C1605A16B0006D433 /* BusWhite.png */,
 				5D5CA65D1605A16B0006D433 /* BusWhite@2x.png */,
+				5DB23090160B4C1900F8755B /* Close.png */,
+				5DB23091160B4C1900F8755B /* Close@2x.png */,
 				5D1B5F1A1605BA8800149AC0 /* Default.png */,
 				5D1B5F1B1605BA8800149AC0 /* Default@2x.png */,
 				5D0BDD39160A04C100DF3AB9 /* Default-568h@2x.png */,
@@ -535,6 +541,8 @@
 				5D17FB261605F44100D77A9B /* SearchBarBackground.png in Resources */,
 				5D17FB271605F44100D77A9B /* SearchBarBackground@2x.png in Resources */,
 				5D0BDD3A160A04C100DF3AB9 /* Default-568h@2x.png in Resources */,
+				5DB23092160B4C1900F8755B /* Close.png in Resources */,
+				5DB23093160B4C1900F8755B /* Close@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

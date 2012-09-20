@@ -7,10 +7,11 @@
     if (self) {
         self.animatesDrop = YES;
         self.canShowCallout = YES;
-        self.deleteButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        self.deleteButton.frame = CGRectMake(0, 0, 32, 32);
+        self.deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.deleteButton setImage:[UIImage imageNamed:@"Close.png"] forState:UIControlStateNormal];
         [self.deleteButton addTarget:self action:@selector(deleteButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        self.leftCalloutAccessoryView = self.deleteButton;
+        [self.deleteButton sizeToFit];
+        self.rightCalloutAccessoryView = self.deleteButton;
     }
     return self;
 }
