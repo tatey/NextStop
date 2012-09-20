@@ -100,13 +100,14 @@
     if (animated) {
         self.navigationController.navigationBar.userInteractionEnabled = NO;
         [self transitionFromViewController:oldViewController toViewController:newViewController duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-
+            [self.view sendSubviewToBack:newViewController.view];
         } completion:^(BOOL finished) {
             self.navigationController.navigationBar.userInteractionEnabled = YES;
         }];
     } else {
         [oldViewController.view removeFromSuperview];
         [self.view addSubview:newViewController.view];
+        [self.view sendSubviewToBack:newViewController.view];
     }
     _selectedIndex = selectedIndex;
     [self setToolbarItemsWithRouteShowViewControllerItem:newViewController.routeShowViewControllerItem];
