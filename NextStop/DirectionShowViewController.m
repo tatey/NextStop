@@ -1,7 +1,9 @@
 #import "CoordinateRegion.h"
+#import "Defaults.h"
 #import "DestinationManagedObject.h"
 #import "DirectionManagedObject.h"
 #import "DirectionRecord.h"
+#import "DisappearingAlertView.h"
 #import "DirectionShowViewController.h"
 #import "NSObject+MKMapViewDelegate.h"
 #import "RouteShowViewControllerItem.h"
@@ -185,6 +187,12 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
 #pragma mark - StopAnnotationViewDelegate
 
 - (void)stopAnnotationView:(StopAnnotationView *)stopAnnotationView monitoredDidChangeValue:(BOOL)monitored {
+    if (stopAnnotationView.monitored && [Defaults shouldShowFirstTimeTargetNotification]) {
+        DisappearingAlertView *disappearingAlertView = [[DisappearingAlertView alloc] initWithFrame:self.view.bounds duration:15.0 message:NSLocalizedString(@"direction_show.alerts.messages.targeted", nil)];
+        [self.view addSubview:disappearingAlertView];
+        [disappearingAlertView showAnimated:YES];
+        [Defaults didShowFirstTimeTargetNotification];
+    }
     if (!stopAnnotationView.targeted) {
         _cachedStopAnnotationView.monitored = NO;
         _cachedStopAnnotationView.targeted = NO;
@@ -192,7 +200,7 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
         stopAnnotationView.targeted = YES;
         self.directionManagedObject.target = (StopRecord *)stopAnnotationView.annotation;
     }
-    self.directionManagedObject.monitorProximityToTarget = monitored;
+    self.directionManagedObject.monitorProximityToTarget = stopAnnotationView.monitored;
 }
 
 #pragma mark UISearchBarDelegate
