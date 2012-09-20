@@ -7,6 +7,7 @@
 #import "ModalSearchDisplayController.h"
 #import "StopAnnotationView.h"
 
+@class DisappearingAlertView;
 @class DirectionManagedObject;
 @class RouteShowViewControllerItem;
 
@@ -16,6 +17,7 @@
 @property (strong, nonatomic) CLGeocoder *geocoder;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) MKMapView *mapView;
+@property (strong, nonatomic) DisappearingAlertView *locationAuthorizationAlertView;
 @property (strong, nonatomic) ModalSearchDisplayController *modalSearchDisplayController;
 @property (strong, nonatomic) RouteShowViewControllerItem *routeShowViewControllerItem;
 @property (strong, nonatomic) MKUserTrackingBarButtonItem *trackingBarButtonItem;

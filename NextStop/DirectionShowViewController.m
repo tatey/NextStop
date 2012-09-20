@@ -19,6 +19,7 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
 @synthesize geocoder = _geocoder;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize mapView = _mapView;
+@synthesize locationAuthorizationAlertView = _locationAuthorizationAlertView;
 @synthesize modalSearchDisplayController = _modalSearchDisplayController;
 @synthesize trackingBarButtonItem = _trackingBarButtonItem;
 
@@ -70,9 +71,21 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
 - (void)viewDidUnload {
     self.geocoder = nil;
     self.mapView = nil;
+    self.locationAuthorizationAlertView = nil;
     self.modalSearchDisplayController = nil;
     self.trackingBarButtonItem = nil;
     [super viewDidUnload];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self applicationWillEnterForeground:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
+    [super viewDidDisappear:animated];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -126,11 +139,34 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
 
 #pragma mark - Notifications
 
+- (void)applicationWillEnterForeground:(NSNotification *)notification {
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    if (status == kCLAuthorizationStatusNotDetermined) return;
+    if (status != kCLAuthorizationStatusAuthorized) {
+        if (!self.locationAuthorizationAlertView) {
+            self.locationAuthorizationAlertView = [[DisappearingAlertView alloc] initWithFrame:self.view.bounds message:NSLocalizedString(@"direction_show.alerts.messages.not_authorized", nil)];
+            [self.view addSubview:self.locationAuthorizationAlertView];
+            [self.locationAuthorizationAlertView showAnimated:YES];
+        }
+    } else {
+        if (self.locationAuthorizationAlertView) {
+            [self.locationAuthorizationAlertView hideAnimated:YES];
+            self.locationAuthorizationAlertView = nil;
+        }
+    }
+}
+
 - (void)directionManagedObjectMonitorDidChangeValue {
     [_cachedStopAnnotationView setMonitored:self.directionManagedObject.isMonitoringProximityToTarget animated:YES];
 }
 
 #pragma mark - MKMapViewDelegate
+
+- (void)mapView:(MKMapView *)mapView didFailToLocateUserWithError:(NSError *)error {
+    if (error.domain == kCLErrorDomain && error.code == kCLErrorDenied) {
+        [self applicationWillEnterForeground:nil];
+    }
+}
 
 - (void)mapView:(MKMapView *)mapView didDeselectStopAnnotationView:(StopAnnotationView *)stopAnnotationView {
     [_cachedStopAnnotationView.superview bringSubviewToFront:_cachedStopAnnotationView];

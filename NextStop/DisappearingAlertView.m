@@ -23,6 +23,11 @@
 @synthesize borderBottom = _borderBottom;
 @synthesize messageLabel = _messageLabel;
 
+- (id)initWithFrame:(CGRect)frame message:(NSString *)message {
+    self = [self initWithFrame:frame duration:0.0 message:message];
+    return self;
+}
+
 - (id)initWithFrame:(CGRect)frame duration:(NSTimeInterval)duration message:(NSString *)message {
     self = [self initWithFrame:frame];
     if (self) {
@@ -106,7 +111,9 @@
 }
 
 - (void)showWillComplete {
-    [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(timerDidFire:) userInfo:nil repeats:NO];
+    if (self.duration > 0.0) {
+        [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(timerDidFire:) userInfo:nil repeats:NO];        
+    }
 }
 
 - (void)timerDidFire:(NSTimer *)timer {

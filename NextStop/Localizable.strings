@@ -23,6 +23,7 @@
 "direction_record.direction.west" = "West";
 
 // View Controllers
+"direction_show.alerts.messages.not_authorized" = "Enable Location Services. Next Stop uses your current location to notify you when you reach your stop.";
 "direction_show.alerts.messages.targeted" = "You will get notified before you reach your stop, even if you put this device to sleep.";
 "direction_show.alerts.titles.found_no_result" = "No results found";
 "direction_show.alerts.titles.found_no_stop" = "No stops within %dkm found";
