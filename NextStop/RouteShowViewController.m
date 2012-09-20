@@ -100,7 +100,7 @@
     if (animated) {
         self.navigationController.navigationBar.userInteractionEnabled = NO;
         [self transitionFromViewController:oldViewController toViewController:newViewController duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-            [self.view sendSubviewToBack:newViewController.view];
+            [self.view bringSubviewToFront:self.toolbar];
         } completion:^(BOOL finished) {
             self.navigationController.navigationBar.userInteractionEnabled = YES;
         }];
