@@ -1,6 +1,7 @@
 #import "AppDelegate.h"
 #import "BackgroundNotifier.h"
 #import "DataManager.h"
+#import "Defaults.h"
 #import "DirectionManagedObject.h"
 #import "ProximityCenter.h"
 #import "RouteIndexViewController.h"
@@ -41,6 +42,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     [self.dataManager save];
+    [Defaults syncronize];
     self.proximityCenter.proximityCenterMode = ProximityCenterPowerBestMode;
 }
 

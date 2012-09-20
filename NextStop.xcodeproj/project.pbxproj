@@ -31,6 +31,7 @@
 		5D5CA65B1605A04B0006D433 /* BusGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D5CA6571605A04B0006D433 /* BusGreen@2x.png */; };
 		5D5CA65E1605A16B0006D433 /* BusWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D5CA65C1605A16B0006D433 /* BusWhite.png */; };
 		5D5CA65F1605A16B0006D433 /* BusWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D5CA65D1605A16B0006D433 /* BusWhite@2x.png */; };
+		5D658A6D160B369E00ECE4C7 /* Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D658A6C160B369E00ECE4C7 /* Defaults.m */; };
 		5D7D8A831568C5D0004DFB54 /* BackgroundNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */; };
 		5D864EDB15B55CD4007ADCA8 /* DirectionRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D864EDA15B55CD4007ADCA8 /* DirectionRecord.m */; };
 		5D864EDE15B564C9007ADCA8 /* DirectionManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D864EDD15B564C9007ADCA8 /* DirectionManagedObject.m */; };
@@ -118,6 +119,8 @@
 		5D5CA6571605A04B0006D433 /* BusGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BusGreen@2x.png"; sourceTree = "<group>"; };
 		5D5CA65C1605A16B0006D433 /* BusWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BusWhite.png; sourceTree = "<group>"; };
 		5D5CA65D1605A16B0006D433 /* BusWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BusWhite@2x.png"; sourceTree = "<group>"; };
+		5D658A6B160B369E00ECE4C7 /* Defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defaults.h; sourceTree = "<group>"; };
+		5D658A6C160B369E00ECE4C7 /* Defaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defaults.m; sourceTree = "<group>"; };
 		5D7D8A811568C5D0004DFB54 /* BackgroundNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundNotifier.h; sourceTree = "<group>"; };
 		5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundNotifier.m; sourceTree = "<group>"; };
 		5D864ED915B55CD4007ADCA8 /* DirectionRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionRecord.h; sourceTree = "<group>"; };
@@ -356,6 +359,8 @@
 				5DF5F20415BB95C7006B0882 /* Views */,
 				5DB59C8D1546C8E500417818 /* AppDelegate.h */,
 				5DB59C8E1546C8E500417818 /* AppDelegate.m */,
+				5D658A6B160B369E00ECE4C7 /* Defaults.h */,
+				5D658A6C160B369E00ECE4C7 /* Defaults.m */,
 				5D4CB11A15F31DD00059784A /* Strings.h */,
 				5D4CB11B15F31DD00059784A /* Strings.m */,
 				5DD524051548007600011A3E /* Resources */,
@@ -593,6 +598,7 @@
 				5D5CA6441604DAF10006D433 /* RouteNewViewController.m in Sources */,
 				5D1B5EE71605AA8500149AC0 /* NSArray+Random.m in Sources */,
 				5D0BDD49160A1ABC00DF3AB9 /* DisappearingAlertView.m in Sources */,
+				5D658A6D160B369E00ECE4C7 /* Defaults.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
