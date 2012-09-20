@@ -11,6 +11,7 @@
 		5D05F316154ACA7F004E7773 /* StopRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* StopRecord.m */; };
 		5D05F317154ACA7F004E7773 /* StopRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D05F315154ACA7F004E7773 /* StopRecord.m */; };
 		5D0BDD3A160A04C100DF3AB9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0BDD39160A04C100DF3AB9 /* Default-568h@2x.png */; };
+		5D0BDD49160A1ABC00DF3AB9 /* DisappearingAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0BDD48160A1ABC00DF3AB9 /* DisappearingAlertView.m */; };
 		5D17FB261605F44100D77A9B /* SearchBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D17FB241605F44100D77A9B /* SearchBarBackground.png */; };
 		5D17FB271605F44100D77A9B /* SearchBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D17FB251605F44100D77A9B /* SearchBarBackground@2x.png */; };
 		5D1B5EE71605AA8500149AC0 /* NSArray+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B5EE61605AA8500149AC0 /* NSArray+Random.m */; };
@@ -90,6 +91,8 @@
 		5D05F314154ACA7F004E7773 /* StopRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopRecord.h; sourceTree = "<group>"; };
 		5D05F315154ACA7F004E7773 /* StopRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopRecord.m; sourceTree = "<group>"; };
 		5D0BDD39160A04C100DF3AB9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5D0BDD47160A1ABC00DF3AB9 /* DisappearingAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisappearingAlertView.h; sourceTree = "<group>"; };
+		5D0BDD48160A1ABC00DF3AB9 /* DisappearingAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisappearingAlertView.m; sourceTree = "<group>"; };
 		5D16A87F1607713E00F3897E /* CoordinateRegion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoordinateRegion.h; sourceTree = "<group>"; };
 		5D17FB241605F44100D77A9B /* SearchBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchBarBackground.png; sourceTree = "<group>"; };
 		5D17FB251605F44100D77A9B /* SearchBarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchBarBackground@2x.png"; sourceTree = "<group>"; };
@@ -421,6 +424,8 @@
 		5DF5F20415BB95C7006B0882 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5D0BDD47160A1ABC00DF3AB9 /* DisappearingAlertView.h */,
+				5D0BDD48160A1ABC00DF3AB9 /* DisappearingAlertView.m */,
 				5DA3A3BE16043F13003229B0 /* DestinationAnnotationView.h */,
 				5DA3A3BF16043F13003229B0 /* DestinationAnnotationView.m */,
 				5DAA1EFF15EF94FB00BB3A71 /* RouteCell.h */,
@@ -587,6 +592,7 @@
 				5DA3A3C016043F13003229B0 /* DestinationAnnotationView.m in Sources */,
 				5D5CA6441604DAF10006D433 /* RouteNewViewController.m in Sources */,
 				5D1B5EE71605AA8500149AC0 /* NSArray+Random.m in Sources */,
+				5D0BDD49160A1ABC00DF3AB9 /* DisappearingAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
