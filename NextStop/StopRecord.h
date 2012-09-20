@@ -7,6 +7,7 @@
 
 @property (readonly) NSString *name;
 @property (readonly) NSUInteger primaryKey;
+@property (readonly) NSString *stopId;
 
 + (NSArray *)stopsBelongingToDirection:(DirectionRecord *)direction;
 + (id)stopMatchingPrimaryKey:(NSInteger)primaryKey;

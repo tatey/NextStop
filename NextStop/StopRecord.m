@@ -19,6 +19,7 @@
     CLLocationDegrees _latitude;
     CLLocationDegrees _longitude;
     __strong NSString *_name;
+    __strong NSString *_stopId;
 }
 
 - (id)initWithStatement:(sqlite3_stmt *)stmt;
@@ -57,6 +58,7 @@
         _latitude = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 3)] doubleValue];
         _longitude = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 4)] doubleValue];
         _name = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 2)] copy];
+        _stopId = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 1)] copy];
     }
     return self;
 }
@@ -70,7 +72,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@: %p, primaryKey: %d, latitude: %f, longitude: %f, name: %@>", NSStringFromClass([self class]), self, self.primaryKey, _latitude, _longitude, self.name];
+    return [NSString stringWithFormat:@"<%@: %p, primaryKey: %d, latitude: %f, longitude: %f, name: %@, stopId: %@>", NSStringFromClass([self class]), self, self.primaryKey, _latitude, _longitude, self.name, self.stopId];
 }
 
 - (BOOL)isEqualToStop:(StopRecord *)stop {
@@ -80,6 +82,10 @@
 #pragma mark - MKAnnotation
 
 - (NSString *)title {
+    return self.stopId;
+}
+
+- (NSString *)subtitle {
     return self.name;
 }
 

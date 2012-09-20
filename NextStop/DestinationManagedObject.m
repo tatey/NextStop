@@ -35,6 +35,10 @@ static NSString *const kEntityName = @"Destination";
 }
 
 - (NSString *)title {
+    return NSLocalizedString(@"destination_managed_object.title", nil);
+}
+
+- (NSString *)subtitle {
     return self.formattedAddress;
 }
 
