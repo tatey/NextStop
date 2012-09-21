@@ -8,6 +8,8 @@
 @property (weak, nonatomic) id <DestionationAnnotationViewDelegate> delegate;
 @property (strong, nonatomic) UIButton *deleteButton;
 
+- (void)hideAnimated:(void (^)(BOOL finished))completion;
+
 @end
 
 @protocol DestionationAnnotationViewDelegate <NSObject>

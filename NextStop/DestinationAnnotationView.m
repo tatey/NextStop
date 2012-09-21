@@ -1,5 +1,7 @@
 #import "DestinationAnnotationView.h"
 
+#define DURION 0.3
+
 @implementation DestinationAnnotationView
 
 - (id)initWithAnnotation:(id <MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier {
@@ -14,6 +16,14 @@
         self.rightCalloutAccessoryView = self.deleteButton;
     }
     return self;
+}
+
+- (void)hideAnimated:(void (^)(BOOL))completion {
+    [DestinationAnnotationView animateWithDuration:DURION animations:^{
+        self.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        completion(finished);
+    }];
 }
 
 - (void)deleteButtonTapped:(UIButton *)deleteButton {

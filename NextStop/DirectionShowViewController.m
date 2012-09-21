@@ -208,9 +208,11 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
 #pragma mark - DestinationAnnotationViewDelegate
 
 - (void)destinationAnnotationView:(DestinationAnnotationView *)destinationAnnotationView deleteButtonTapped:(UIButton *)deleteButton {
-    [self.mapView removeAnnotation:self.directionManagedObject.destination];
-    [self.managedObjectContext deleteObject:self.directionManagedObject.destination];
-    self.directionManagedObject.destination = nil;
+    [destinationAnnotationView hideAnimated:^(BOOL finished) {
+        [self.mapView removeAnnotation:self.directionManagedObject.destination];
+        [self.managedObjectContext deleteObject:self.directionManagedObject.destination];
+        self.directionManagedObject.destination = nil;
+    }];
 }
 
 #pragma mark - ModalSearchDisplayControllerDelegate
