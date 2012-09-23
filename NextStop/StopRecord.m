@@ -82,10 +82,6 @@
 #pragma mark - MKAnnotation
 
 - (NSString *)title {
-    return self.stopId;
-}
-
-- (NSString *)subtitle {
     return self.name;
 }
 
