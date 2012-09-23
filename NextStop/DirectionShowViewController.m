@@ -62,9 +62,11 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
     // Zoom
     if (self.directionManagedObject.target && !self.directionManagedObject.isMonitoringProximityToTarget) {
         [self zoomToAnnotation:self.directionManagedObject.target animated:NO];
-        [self.mapView selectAnnotation:self.directionManagedObject.target animated:NO];
     } else {
         [self.mapView setRegion:[self.directionManagedObject region] animated:NO];
+    }
+    if (self.directionManagedObject.target) {
+        [self.mapView selectAnnotation:self.directionManagedObject.target animated:NO];
     }
 }
 
