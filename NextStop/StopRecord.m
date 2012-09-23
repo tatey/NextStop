@@ -9,9 +9,10 @@
                 "INNER JOIN directions ON directions_stops.direction = directions.direction AND directions_stops.route_id = directions.route_id " \
                 "WHERE directions.direction = ? AND directions.route_id = ?; "                                                                    \
 
-#define QUERY2 @"SELECT stops.* "           \
-                "FROM stops "               \
-                "WHERE stops.stop_id = ?; " \
+#define QUERY2 @"SELECT stops.* "          \
+                "FROM stops "              \
+                "WHERE stops.stop_id = ? " \
+                "LIMIT 1; "                \
 
 @interface StopRecord () {
 @private 

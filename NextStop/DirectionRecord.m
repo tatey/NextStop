@@ -9,9 +9,10 @@
                 "FROM directions "                \
                 "WHERE directions.route_id = ?; " \
 
-#define QUERY2 @"SELECT directions.* "                                         \
-                "FROM directions "                                             \
-                "WHERE directions.direction = ? AND directions.route_id = ?; " \
+#define QUERY2 @"SELECT directions.* "                                        \
+                "FROM directions "                                            \
+                "WHERE directions.direction = ? AND directions.route_id = ? " \
+                "LIMIT 1; "                                                   \
 
 @interface DirectionRecord () {
 @private
