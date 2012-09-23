@@ -255,7 +255,7 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
         CLPlacemark *placemark = [placemarks lastObject];
         if (placemark) {
             DestinationManagedObject *destination = [[DestinationManagedObject alloc] initWithPlacemark:placemark managedObjectContext:self.managedObjectContext];
-            StopRecord *stop = [self.directionManagedObject.direction stopClosestByLineOfSightToCoordinate:destination.coordinate];
+            StopRecord *stop = [self.directionManagedObject.directionRecord stopClosestByLineOfSightToCoordinate:destination.coordinate];
             if (stop) {
                 if (self.directionManagedObject.destination) {
                     [self.mapView removeAnnotation:self.directionManagedObject.destination];

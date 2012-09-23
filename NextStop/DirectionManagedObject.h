@@ -14,18 +14,14 @@
 @interface DirectionManagedObject : NSManagedObject <ProximityDelegate>
 
 @property (strong, nonatomic) DestinationManagedObject *destination;
-@property (strong, nonatomic) DirectionRecord *direction;
-@property (assign, nonatomic) CLLocationDegrees latitude;
-@property (assign, nonatomic) CLLocationDegrees longitude;
-@property (assign, nonatomic) CLLocationDegrees latitudeDelta;
-@property (assign, nonatomic) CLLocationDegrees longitudeDelta;
+@property (strong, nonatomic) DirectionRecord *directionRecord;
 @property (assign, nonatomic, getter = isMonitoringProximityToTarget) BOOL monitorProximityToTarget;
 @property (strong, nonatomic) RouteManagedObject *routeManagedObject;
 @property (strong, nonatomic) StopRecord *target;
 
 + (void)startMonitoringProximityToTargetsInManagedObjectContext:(NSManagedObjectContext *)context;
 
-- (id)initWithDirection:(DirectionRecord *)direction managedObjectContext:(NSManagedObjectContext *)context;
+- (id)initWithDirectionRecord:(DirectionRecord *)directionRecord managedObjectContext:(NSManagedObjectContext *)context;
 
 - (void)replaceDestinationWithDestination:(DestinationManagedObject *)destination;
 

@@ -4,8 +4,8 @@
 #import "RouteRecord.h"
 
 static NSString *const kRouteManagedObjectIsMonitorProximityToTarget = @"routeManagedObject.isMonitoringProximityToTarget";
-static NSString *const kRouteManagedObjectRouteLongNameKeyPath = @"routeManagedObject.route.longName";
-static NSString *const kRouteManagedObjectRouteShortNameKeyPath = @"routeManagedObject.route.shortName";
+static NSString *const kRouteManagedObjectRouteLongNameKeyPath = @"routeManagedObject.routeRecord.longName";
+static NSString *const kRouteManagedObjectRouteShortNameKeyPath = @"routeManagedObject.routeRecord.shortName";
 static NSString *const kRouteManagedObjectUpdatedAtKeyPath = @"routeManagedObject.updatedAt";
 
 @implementation RouteCell
@@ -46,11 +46,11 @@ static NSString *const kRouteManagedObjectUpdatedAtKeyPath = @"routeManagedObjec
 }
 
 - (void)routeManagedObjectLongNameDidChange {
-    self.longNameLabel.text = self.routeManagedObject.route.longName;
+    self.longNameLabel.text = self.routeManagedObject.routeRecord.longName;
 }
 
 - (void)routeManagedObjectShortNameDidChange {
-    self.shortNameLabel.text = self.routeManagedObject.route.shortName;
+    self.shortNameLabel.text = self.routeManagedObject.routeRecord.shortName;
 }
 
 - (void)routeManagedObjectUpdatedAtDidChange {

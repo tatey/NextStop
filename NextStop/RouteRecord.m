@@ -2,10 +2,10 @@
 #import "RouteRecord.h"
 #import "SQLiteDB.h"
 
-#define QUERY1 @"SELECT routes.* "     \
-                "FROM routes "         \
-                "WHERE routes.id = ? " \
-                "LIMIT 1; "            \
+#define QUERY1 @"SELECT routes.* "           \
+                "FROM routes "               \
+                "WHERE routes.route_id = ? " \
+                "LIMIT 1; "                  \
 
 #define QUERY2 @"SELECT routes.* " \
                 "FROM routes "     \
@@ -23,7 +23,7 @@ static const char * RouteRecordStringToWildcardUTF8String(NSString *string) {
 @interface RouteRecord () {
 @private
     __strong NSString *_longName;
-    NSUInteger _primaryKey;
+    __strong NSString *_routeId;
     __strong NSString *_shortName;
 }
 
@@ -33,10 +33,10 @@ static const char * RouteRecordStringToWildcardUTF8String(NSString *string) {
 
 @implementation RouteRecord
 
-+ (RouteRecord *)routeMatchingPrimaryKey:(NSInteger)primaryKey {
++ (RouteRecord *)routeMatchingRouteId:(NSString *)routeId {
     SQLiteDB *db = [SQLiteDB sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY1];
-    sqlite3_bind_int(stmt, 1, primaryKey);
+    sqlite3_bind_text(stmt, 1, [routeId UTF8String], -1, SQLITE_STATIC);
     __block RouteRecord *route = nil;
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
         route = [[self alloc] initWithStatement:stmt];
@@ -72,7 +72,7 @@ static const char * RouteRecordStringToWildcardUTF8String(NSString *string) {
     self = [self init];
     if (self) {
         _longName = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 2)] copy];
-        _primaryKey = sqlite3_column_int(stmt, 0);
+        _routeId = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 0)] copy];
         _shortName = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 1)] copy];
     }
     return self;
@@ -86,8 +86,8 @@ static const char * RouteRecordStringToWildcardUTF8String(NSString *string) {
     return _shortName;
 }
 
-- (NSUInteger)primaryKey {
-    return _primaryKey;
+- (NSString *)routeId {
+    return _routeId;
 }
 
 - (NSString *)mediumName {
@@ -95,7 +95,7 @@ static const char * RouteRecordStringToWildcardUTF8String(NSString *string) {
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@: %p, longName: %@ primaryKey: %d, shortName: %@>", NSStringFromClass([self class]), self, self.longName, self.primaryKey, self.shortName];
+    return [NSString stringWithFormat:@"<%@: %p, longName: %@ routeId: %@, shortName: %@>", NSStringFromClass([self class]), self, _longName, _routeId, _shortName];
 }
 
 @end

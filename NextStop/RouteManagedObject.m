@@ -8,7 +8,7 @@ static NSString *const kEntityName = @"Route";
 @interface RouteManagedObject ()
 
 @property (assign, nonatomic) NSNumber *isMonitoringProximityToTarget;
-@property (assign, nonatomic) NSInteger routeId;
+@property (copy, nonatomic) NSString *routeId;
 
 @end
 
@@ -20,7 +20,7 @@ static NSString *const kEntityName = @"Route";
 @dynamic updatedAt;
 
 @synthesize isMonitoringProximityToTarget = _isMonitoringProximityToTarget;
-@synthesize route = _route;
+@synthesize routeRecord = _routeRecord;
 
 // Private
 @dynamic routeId;
@@ -34,9 +34,9 @@ static NSString *const kEntityName = @"Route";
     return [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:sectionNameKeyPath cacheName:name];
 }
 
-+ (id)routeMatchingRoute:(RouteRecord *)route managedObjectContext:(NSManagedObjectContext *)context {
++ (id)routeMatchingRouteRecord:(RouteRecord *)routeRecord managedObjectContext:(NSManagedObjectContext *)context {
     NSEntityDescription *entity = [NSEntityDescription entityForName:kEntityName inManagedObjectContext:context];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"routeId == %d", route.primaryKey];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"routeId == %@", routeRecord.routeId];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     request.entity = entity;
     request.predicate = predicate;
@@ -49,19 +49,19 @@ static NSString *const kEntityName = @"Route";
     return [routes lastObject];
 }
 
-+ (id)routeMatchingOrInsertingRoute:(RouteRecord *)route managedObjectContext:(NSManagedObjectContext *)context {
-    RouteManagedObject *routeManagedObject = [self routeMatchingRoute:route managedObjectContext:context];
++ (id)routeMatchingOrInsertingRouteRecord:(RouteRecord *)routeRecord managedObjectContext:(NSManagedObjectContext *)context {
+    RouteManagedObject *routeManagedObject = [self routeMatchingRouteRecord:routeRecord managedObjectContext:context];
     if (!routeManagedObject) {
-        routeManagedObject = [[self alloc] initWithRoute:route insertIntoManagedObjectContext:context];
+        routeManagedObject = [[self alloc] initWithRouteRecord:routeRecord insertIntoManagedObjectContext:context];
     }
     return routeManagedObject;
 }
 
-- (id)initWithRoute:(RouteRecord *)route insertIntoManagedObjectContext:(NSManagedObjectContext *)context {
+- (id)initWithRouteRecord:(RouteRecord *)routeRecord insertIntoManagedObjectContext:(NSManagedObjectContext *)context {
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:kEntityName inManagedObjectContext:context];
     self = [self initWithEntity:entityDescription insertIntoManagedObjectContext:context];
     if (self) {
-        self.route = route;
+        self.routeRecord = routeRecord;
         [self touch];
     }
     return self;
@@ -84,18 +84,18 @@ static NSString *const kEntityName = @"Route";
     return _isMonitoringProximityToTarget;
 }
 
-- (void)setRoute:(RouteRecord *)route {
-    _route = route;
-    self.routeId = route.primaryKey;
+- (void)setRouteRecord:(RouteRecord *)routeRecord {
+    _routeRecord = routeRecord;
+    self.routeId = routeRecord.routeId;
     [self deleteDirectionsInManagedObjectContext:self.managedObjectContext];
     [self.directions addObjectsFromArray:[self directionsInsertedIntoManagedObjectContext:self.managedObjectContext]];
 }
 
-- (RouteRecord *)route {
-    if (!_route) {
-        _route = [RouteRecord routeMatchingPrimaryKey:self.routeId];
+- (RouteRecord *)routeRecord {
+    if (!_routeRecord) {
+        _routeRecord = [RouteRecord routeMatchingRouteId:self.routeId];
     }
-    return _route;
+    return _routeRecord;
 }
 
 - (DirectionManagedObject *)selectedDirection {
@@ -111,7 +111,7 @@ static NSString *const kEntityName = @"Route";
 }
 
 - (NSString *)name {
-    return self.route.shortName;
+    return self.routeRecord.shortName;
 }
 
 - (void)touch {
@@ -125,10 +125,10 @@ static NSString *const kEntityName = @"Route";
 }
 
 - (NSArray *)directionsInsertedIntoManagedObjectContext:(NSManagedObjectContext *)context {
-    NSArray *records = [DirectionRecord directionsBelongingToRoute:self.route];
+    NSArray *records = [DirectionRecord directionsBelongingToRoute:self.routeRecord];
     NSMutableArray *managedObjects = [NSMutableArray arrayWithCapacity:[records count]];
     for (DirectionRecord *record in records) {
-        DirectionManagedObject *managedObject = [[DirectionManagedObject alloc] initWithDirection:record managedObjectContext:context];
+        DirectionManagedObject *managedObject = [[DirectionManagedObject alloc] initWithDirectionRecord:record managedObjectContext:context];
         managedObject.routeManagedObject = self;
         [managedObjects addObject:managedObject];
     }

@@ -5,19 +5,18 @@
 #import "StopRecord.h"
 #import "SQLiteDB.h"
 
-#define QUERY1 @"SELECT trips.* "          \
-                "FROM trips "              \
-                "WHERE trips.route_id = ?" \
-                "GROUP BY direction; "     \
+#define QUERY1 @"SELECT directions.* "            \
+                "FROM directions "                \
+                "WHERE directions.route_id = ?; " \
 
-#define QUERY2 @"SELECT trips.* "      \
-                "FROM trips "          \
-                "WHERE trips.id = ?; " \
+#define QUERY2 @"SELECT directions.* "                                         \
+                "FROM directions "                                             \
+                "WHERE directions.direction = ? AND directions.route_id = ?; " \
 
 @interface DirectionRecord () {
 @private
     __strong NSString *_headsign;
-    NSInteger _primaryKey;
+    __strong NSString *_routeId;
     __strong NSArray *_stops;
 }
 
@@ -28,13 +27,13 @@
 @implementation DirectionRecord
 
 @synthesize direction = _direction;
-@synthesize primaryKey = _primaryKey;
+@synthesize routeId = _routeId;
 @synthesize headsign = _headsign;
 
 + (NSArray *)directionsBelongingToRoute:(RouteRecord *)route {
     SQLiteDB *db = [SQLiteDB sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY1];
-    sqlite3_bind_int(stmt, 1, route.primaryKey);
+    sqlite3_bind_text(stmt, 1, [route.routeId UTF8String], -1, SQLITE_STATIC);
     NSMutableArray *directions = [NSMutableArray array];
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
         DirectionRecord *direction = [[self alloc] initWithStatement:stmt];
@@ -43,10 +42,11 @@
     return [directions copy];
 }
 
-+ (id)directionMatchingPrimaryKey:(NSInteger)primaryKey {
++ (id)directionMatchingDirection:(DirectionRecordDirection)direction routeId:(NSString *)routeId {
     SQLiteDB *db = [SQLiteDB sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY2];
-    sqlite3_bind_int(stmt, 1, primaryKey);
+    sqlite3_bind_int(stmt, 1, direction);
+    sqlite3_bind_text(stmt, 2, [routeId UTF8String], -1, SQLITE_STATIC);
     __block RouteRecord *route = nil;
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
         route = [[self alloc] initWithStatement:stmt];
@@ -57,9 +57,9 @@
 - (id)initWithStatement:(sqlite3_stmt *)stmt {
     self = [self init];
     if (self) {
-        _direction = sqlite3_column_int(stmt, 1);
-        _headsign = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 2)] copy];
-        _primaryKey = sqlite3_column_int(stmt, 0);
+        _direction = sqlite3_column_int(stmt, 0);
+        _headsign = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 1)] copy];
+        _routeId = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 2)] copy];
     }
     return self;
 }
@@ -90,7 +90,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@: %p, primaryKey: %d, direction %d, headsign: %@>", NSStringFromClass([self class]), self, self.primaryKey, _direction, _headsign];
+    return [NSString stringWithFormat:@"<%@: %p, direction %d, headsign: %@, routeId: %@>", NSStringFromClass([self class]), self, _direction, _headsign, _routeId];
 }
 
 @end

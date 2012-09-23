@@ -14,11 +14,11 @@ typedef enum {
 
 @property (readonly) DirectionRecordDirection direction;
 @property (readonly) NSString *headsign;
-@property (readonly) NSInteger primaryKey;
+@property (readonly) NSString *routeId;
 @property (readonly) NSArray *stops;
 
 + (NSArray *)directionsBelongingToRoute:(RouteRecord *)route;
-+ (id)directionMatchingPrimaryKey:(NSInteger)primaryKey;
++ (id)directionMatchingDirection:(DirectionRecordDirection)direction routeId:(NSString *)routeId;
 
 - (StopRecord *)stopClosestByLineOfSightToCoordinate:(CLLocationCoordinate2D)coordinate;
 - (NSString *)localizedHeadsign;

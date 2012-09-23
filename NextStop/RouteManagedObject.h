@@ -6,17 +6,17 @@
 
 @interface RouteManagedObject : NSManagedObject <DirectionManagedObjectDelegate>
 
-@property (strong, nonatomic) RouteRecord *route;
+@property (strong, nonatomic) RouteRecord *routeRecord;
 @property (readonly, nonatomic) NSNumber *isMonitoringProximityToTarget;
 @property (copy, nonatomic) NSMutableOrderedSet *directions;
 @property (assign, nonatomic) NSInteger selectedDirectionIndex;
 @property (strong, nonatomic) NSDate *updatedAt;
 
 + (NSFetchedResultsController *)routesInManagedObjectContext:(NSManagedObjectContext *)context sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)name;
-+ (id)routeMatchingRoute:(RouteRecord *)route managedObjectContext:(NSManagedObjectContext *)context;
-+ (id)routeMatchingOrInsertingRoute:(RouteRecord *)route managedObjectContext:(NSManagedObjectContext *)context;
++ (id)routeMatchingRouteRecord:(RouteRecord *)routeRecord managedObjectContext:(NSManagedObjectContext *)context;
++ (id)routeMatchingOrInsertingRouteRecord:(RouteRecord *)routeRecord managedObjectContext:(NSManagedObjectContext *)context;
 
-- (id)initWithRoute:(RouteRecord *)route insertIntoManagedObjectContext:(NSManagedObjectContext *)context;
+- (id)initWithRouteRecord:(RouteRecord *)routeRecord insertIntoManagedObjectContext:(NSManagedObjectContext *)context;
 
 - (NSArray *)headsigns;
 - (DirectionManagedObject *)selectedDirection;

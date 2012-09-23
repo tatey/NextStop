@@ -3,19 +3,18 @@
 #import "StopRecord.h"
 #import "SQLiteDB.h"
 
-#define QUERY1 @"SELECT DISTINCT stops.* "                                \
-               "FROM stops "                                              \
-               "INNER JOIN stop_times ON stop_times.stop_id = stops.id "  \
-               "INNER JOIN trips ON stop_times.trip_id = trips.id "       \
-               "WHERE trips.id = ?; "                                     \
+#define QUERY1 @"SELECT stops.* "                                                                                                                 \
+                "FROM stops "                                                                                                                     \
+                "INNER JOIN directions_stops ON directions_stops.stop_id = stops.stop_id "                                                        \
+                "INNER JOIN directions ON directions_stops.direction = directions.direction AND directions_stops.route_id = directions.route_id " \
+                "WHERE directions.direction = ? AND directions.route_id = ?; "                                                                    \
 
-#define QUERY2 @"SELECT stops.* "      \
-                "FROM stops "          \
-                "WHERE stops.id = ?; " \
+#define QUERY2 @"SELECT stops.* "           \
+                "FROM stops "               \
+                "WHERE stops.stop_id = ?; " \
 
 @interface StopRecord () {
 @private 
-    NSUInteger _primaryKey;
     CLLocationDegrees _latitude;
     CLLocationDegrees _longitude;
     __strong NSString *_name;
@@ -31,7 +30,8 @@
 + (NSArray *)stopsBelongingToDirection:(DirectionRecord *)direction {
     SQLiteDB *db = [SQLiteDB sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY1];
-    sqlite3_bind_int(stmt, 1, direction.primaryKey);
+    sqlite3_bind_int(stmt, 1, direction.direction);
+    sqlite3_bind_text(stmt, 2, [direction.routeId UTF8String], -1, SQLITE_STATIC);
     NSMutableArray *stops = [NSMutableArray array];
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
         StopRecord *stop = [[self alloc] initWithStatement:stmt];
@@ -40,10 +40,10 @@
     return [stops copy];
 }
 
-+ (id)stopMatchingPrimaryKey:(NSInteger)primaryKey {
++ (id)stopMatchingStopId:(NSString *)stopId {
     SQLiteDB *db = [SQLiteDB sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY2];
-    sqlite3_bind_int(stmt, 1, primaryKey);
+    sqlite3_bind_text(stmt, 1, [stopId UTF8String], -1, SQLITE_STATIC);
     __block StopRecord *stop = nil;
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
         stop = [[self alloc] initWithStatement:stmt];
@@ -54,11 +54,10 @@
 - (id)initWithStatement:(sqlite3_stmt *)stmt {
     self = [self init];
     if (self) {
-        _primaryKey = sqlite3_column_int(stmt, 0);
-        _latitude = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 3)] doubleValue];
-        _longitude = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 4)] doubleValue];
-        _name = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 2)] copy];
-        _stopId = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 1)] copy];
+        _latitude = sqlite3_column_double(stmt, 2);
+        _longitude = sqlite3_column_double(stmt, 3);
+        _name = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 1)] copy];
+        _stopId = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(stmt, 0)] copy];
     }
     return self;
 }
@@ -67,16 +66,16 @@
     return _name;
 }
 
-- (NSUInteger)primaryKey {
-    return _primaryKey;
+- (NSString *)stopId {
+    return _stopId;
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@: %p, primaryKey: %d, latitude: %f, longitude: %f, name: %@, stopId: %@>", NSStringFromClass([self class]), self, self.primaryKey, _latitude, _longitude, self.name, self.stopId];
+    return [NSString stringWithFormat:@"<%@: %p, latitude: %f, longitude: %f, name: %@, stopId: %@>", NSStringFromClass([self class]), self, _latitude, _longitude, _name, _stopId];
 }
 
 - (BOOL)isEqualToStop:(StopRecord *)stop {
-    return self.primaryKey == stop.primaryKey;
+    return [self.stopId isEqualToString:stop.stopId];
 }
 
 #pragma mark - MKAnnotation

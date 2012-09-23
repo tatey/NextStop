@@ -45,6 +45,8 @@
 		5DA3A3C016043F13003229B0 /* DestinationAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3A3BF16043F13003229B0 /* DestinationAnnotationView.m */; };
 		5DA512B215F1E5F600EF91DC /* RouteRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DA512B115F1E5F600EF91DC /* RouteRecordCell.xib */; };
 		5DA512B615F1E62A00EF91DC /* RouteRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA512B515F1E62A00EF91DC /* RouteRecordCell.m */; };
+		5DA5EFB3160F32FB00E49BF4 /* NextStop.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5DA5EFB2160F32FB00E49BF4 /* NextStop.sqlite */; };
+		5DA5EFB4160F32FB00E49BF4 /* NextStop.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5DA5EFB2160F32FB00E49BF4 /* NextStop.sqlite */; };
 		5DA866A81556C25E00FB1ACF /* RouteRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA866A71556C25E00FB1ACF /* RouteRecord.m */; };
 		5DA866A91556C25E00FB1ACF /* RouteRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA866A71556C25E00FB1ACF /* RouteRecord.m */; };
 		5DAA1EFD15EF93D000BB3A71 /* RouteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DAA1EFC15EF93D000BB3A71 /* RouteCell.xib */; };
@@ -73,7 +75,6 @@
 		5DCFB37715611B070036B36A /* Proximity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFB37615611B070036B36A /* Proximity.m */; };
 		5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteDB.m */; };
 		5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteDB.m */; };
-		5DD52407154800BC00011A3E /* NextStop.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5DD52406154800BC00011A3E /* NextStop.sqlite */; };
 		5DF2645215BAD5BF00FD2E6B /* NSObject+MKMapViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF2645115BAD5BF00FD2E6B /* NSObject+MKMapViewDelegate.m */; };
 		5DF5F20715BB95E8006B0882 /* StopAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF5F20615BB95E8006B0882 /* StopAnnotationView.m */; };
 /* End PBXBuildFile section */
@@ -146,6 +147,7 @@
 		5DA512B115F1E5F600EF91DC /* RouteRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteRecordCell.xib; sourceTree = "<group>"; };
 		5DA512B415F1E62A00EF91DC /* RouteRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteRecordCell.h; sourceTree = "<group>"; };
 		5DA512B515F1E62A00EF91DC /* RouteRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteRecordCell.m; sourceTree = "<group>"; };
+		5DA5EFB2160F32FB00E49BF4 /* NextStop.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = NextStop.sqlite; sourceTree = "<group>"; };
 		5DA866A61556C25E00FB1ACF /* RouteRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteRecord.h; sourceTree = "<group>"; };
 		5DA866A71556C25E00FB1ACF /* RouteRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteRecord.m; sourceTree = "<group>"; };
 		5DAA1EFC15EF93D000BB3A71 /* RouteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteCell.xib; sourceTree = "<group>"; };
@@ -182,7 +184,6 @@
 		5DCFB37615611B070036B36A /* Proximity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Proximity.m; sourceTree = "<group>"; };
 		5DD523FC1547FF7C00011A3E /* SQLiteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteDB.h; sourceTree = "<group>"; };
 		5DD523FD1547FF7C00011A3E /* SQLiteDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteDB.m; sourceTree = "<group>"; };
-		5DD52406154800BC00011A3E /* NextStop.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = NextStop.sqlite; sourceTree = "<group>"; };
 		5DF2645015BAD5BF00FD2E6B /* NSObject+MKMapViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MKMapViewDelegate.h"; sourceTree = "<group>"; };
 		5DF2645115BAD5BF00FD2E6B /* NSObject+MKMapViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MKMapViewDelegate.m"; sourceTree = "<group>"; };
 		5DF5F20515BB95E8006B0882 /* StopAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopAnnotationView.h; sourceTree = "<group>"; };
@@ -409,7 +410,7 @@
 		5DD524051548007600011A3E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5DD52406154800BC00011A3E /* NextStop.sqlite */,
+				5DA5EFB2160F32FB00E49BF4 /* NextStop.sqlite */,
 				5D9AAB1A15ADB11600E2E077 /* NextStop.xcdatamodeld */,
 				5D5CA6541605A04B0006D433 /* BusGray.png */,
 				5D5CA6551605A04B0006D433 /* BusGray@2x.png */,
@@ -520,7 +521,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DB59C891546C8E500417818 /* InfoPlist.strings in Resources */,
-				5DD52407154800BC00011A3E /* NextStop.sqlite in Resources */,
 				5DA15B22154ED00800FCEE13 /* Localizable.strings in Resources */,
 				5DB0AE101578C83E00D43B2E /* Taringa.gpx in Resources */,
 				5DB0AE111578C83E00D43B2E /* Toowoong.gpx in Resources */,
@@ -543,6 +543,7 @@
 				5D0BDD3A160A04C100DF3AB9 /* Default-568h@2x.png in Resources */,
 				5DB23092160B4C1900F8755B /* Close.png in Resources */,
 				5DB23093160B4C1900F8755B /* Close@2x.png in Resources */,
+				5DA5EFB3160F32FB00E49BF4 /* NextStop.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DB59CA11546C8E500417818 /* InfoPlist.strings in Resources */,
+				5DA5EFB4160F32FB00E49BF4 /* NextStop.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

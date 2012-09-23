@@ -21,8 +21,13 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 
 @property (strong, nonatomic) Proximity *proximity;
 
-@property (assign, nonatomic) NSInteger directionId;
-@property (assign, nonatomic) NSInteger targetId;
+@property (assign, nonatomic) NSNumber *direction;
+@property (assign, nonatomic) CLLocationDegrees latitude;
+@property (assign, nonatomic) CLLocationDegrees longitude;
+@property (assign, nonatomic) CLLocationDegrees latitudeDelta;
+@property (assign, nonatomic) CLLocationDegrees longitudeDelta;
+@property (copy, nonatomic) NSString *routeId;
+@property (copy, nonatomic) NSString *targetId;
 
 - (ProximityCenter *)proximityCenter;
 
@@ -35,18 +40,19 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 
 // Public
 @dynamic destination;
+@dynamic monitorProximityToTarget;
+@dynamic routeManagedObject;
+
+@synthesize directionRecord = _directionRecord;
+@synthesize target = _target;
+
+// Private
+@dynamic direction;
 @dynamic latitude;
 @dynamic longitude;
 @dynamic latitudeDelta;
 @dynamic longitudeDelta;
-@dynamic monitorProximityToTarget;
-@dynamic routeManagedObject;
-
-@synthesize direction = _direction;
-@synthesize target = _target;
-
-// Private
-@dynamic directionId;
+@dynamic routeId;
 @dynamic targetId;
 
 @synthesize proximity = _proximity;
@@ -74,11 +80,11 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
     return directions;
 }
 
-- (id)initWithDirection:(DirectionRecord *)direction managedObjectContext:(NSManagedObjectContext *)context {
+- (id)initWithDirectionRecord:(DirectionRecord *)directionRecord managedObjectContext:(NSManagedObjectContext *)context {
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:kEntityName inManagedObjectContext:context];
     self = [self initWithEntity:entityDescription insertIntoManagedObjectContext:context];
     if (self) {
-        self.direction = direction;
+        self.directionRecord = directionRecord;
     }
     return self;
 }
@@ -87,18 +93,19 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
     self.monitorProximityToTarget = NO;
 }
 
-- (DirectionRecord *)direction {
-    if (!_direction) {
-        if (self.directionId) {
-            _direction = [DirectionRecord directionMatchingPrimaryKey:self.directionId];
+- (DirectionRecord *)directionRecord {
+    if (!_directionRecord) {
+        if (self.direction && self.routeId) {
+            _directionRecord = [DirectionRecord directionMatchingDirection:[self.direction integerValue] routeId:self.routeId];
         }
     }
-    return _direction;
+    return _directionRecord;
 }
 
-- (void)setDirection:(DirectionRecord *)direction {
-    _direction = direction;
-    self.directionId = direction.primaryKey;
+- (void)setDirectionRecord:(DirectionRecord *)directionRecord {
+    _directionRecord = directionRecord;
+    self.direction = [NSNumber numberWithInteger:directionRecord.direction];
+    self.routeId = directionRecord.routeId;
 }
 
 - (BOOL)isMonitoringProximityToTarget {
@@ -124,7 +131,7 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 - (StopRecord *)target {
     if (!_target) {
         if (self.targetId) {
-            _target = [StopRecord stopMatchingPrimaryKey:self.targetId];
+            _target = [StopRecord stopMatchingStopId:self.targetId];
         }
     }
     return _target;
@@ -132,7 +139,7 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 
 - (void)setTarget:(StopRecord *)target {
     _target = target;
-    self.targetId = target.primaryKey;
+    self.targetId = target.stopId;
     [self stopMonitoringProximityToTarget];
     [self startMonitoringProximityToTarget];
 }
@@ -154,11 +161,11 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 }
 
 - (NSString *)headsign {
-    return [self.direction localizedHeadsign];
+    return [self.directionRecord localizedHeadsign];
 }
 
 - (NSArray *)stops {
-    return self.direction.stops;
+    return self.directionRecord.stops;
 }
 
 - (void)setRegion:(MKCoordinateRegion)region {

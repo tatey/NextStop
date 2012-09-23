@@ -94,7 +94,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 #pragma mark - RouteNewViewControllerDelegate
 
 - (void)routeNewViewController:(RouteNewViewController *)routeNewViewController didSelectRoute:(RouteRecord *)route {
-    RouteManagedObject *routeManagedObject = [RouteManagedObject routeMatchingOrInsertingRoute:route managedObjectContext:self.managedObjectContext];
+    RouteManagedObject *routeManagedObject = [RouteManagedObject routeMatchingOrInsertingRouteRecord:route managedObjectContext:self.managedObjectContext];
     [self dismissViewControllerAnimated:YES completion:^{
         NSIndexPath *indexPath = [self.routes indexPathForObject:routeManagedObject];
         [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
