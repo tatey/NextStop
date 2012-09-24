@@ -40,6 +40,7 @@ static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
     RouteRecord *routeRecord = [self.routes objectAtRandomIndex];
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, SEARCH_BAR_HEIGHT)];
     self.searchBar.delegate = self;
+    self.searchBar.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     self.searchBar.placeholder = [NSString stringWithFormat:NSLocalizedString(@"route_search.search.placeholder", nil), routeRecord.shortName, [routeRecord mediumName]];
     // Search controller
     self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];

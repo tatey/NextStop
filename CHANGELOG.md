@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Current
+
+* [Change] Default to keypad with numbers when adding new route.
+
 ## 0.4.0 / 2012-09-23
 
 * [New] Search for a destination by address. The closest stop is automatically selected by line of sight.
