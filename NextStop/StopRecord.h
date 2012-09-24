@@ -9,6 +9,7 @@
 @property (readonly) NSString *stopId;
 
 + (NSArray *)stopsBelongingToDirection:(DirectionRecord *)direction;
++ (NSArray *)stopsBelongingToDirection:(DirectionRecord *)direction likeName:(NSString *)name;
 + (id)stopMatchingStopId:(NSString *)stopId;
 
 - (BOOL)isEqualToStop:(StopRecord *)stop;

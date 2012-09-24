@@ -9,7 +9,14 @@
                 "INNER JOIN directions ON directions_stops.direction = directions.direction AND directions_stops.route_id = directions.route_id " \
                 "WHERE directions.direction = ? AND directions.route_id = ?; "                                                                    \
 
-#define QUERY2 @"SELECT stops.* "          \
+#define QUERY2 @"SELECT stops.* "                                                                                                                 \
+                "FROM stops "                                                                                                                     \
+                "INNER JOIN directions_stops ON directions_stops.stop_id = stops.stop_id "                                                        \
+                "INNER JOIN directions ON directions_stops.direction = directions.direction AND directions_stops.route_id = directions.route_id " \
+                "WHERE directions.direction = ? AND directions.route_id = ? "                                                                     \
+                "AND stops.stop_name LIKE ?; "                                                                                                         \
+
+#define QUERY3 @"SELECT stops.* "          \
                 "FROM stops "              \
                 "WHERE stops.stop_id = ? " \
                 "LIMIT 1; "                \
@@ -41,9 +48,23 @@
     return [stops copy];
 }
 
-+ (id)stopMatchingStopId:(NSString *)stopId {
++ (NSArray *)stopsBelongingToDirection:(DirectionRecord *)direction likeName:(NSString *)name {
     SQLiteDB *db = [SQLiteDB sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY2];
+    sqlite3_bind_int(stmt, 1, direction.direction);
+    sqlite3_bind_text(stmt, 2, [direction.routeId UTF8String], -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 3, SQLiteDBWildcardUTF8String(name), -1, SQLITE_STATIC);
+    NSMutableArray *stops = [NSMutableArray array];
+    [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
+        StopRecord *stop = [[self alloc] initWithStatement:stmt];
+        [stops addObject:stop];
+    }];
+    return [stops copy];
+}
+
++ (id)stopMatchingStopId:(NSString *)stopId {
+    SQLiteDB *db = [SQLiteDB sharedDB];
+    sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY3];
     sqlite3_bind_text(stmt, 1, [stopId UTF8String], -1, SQLITE_STATIC);
     __block StopRecord *stop = nil;
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
