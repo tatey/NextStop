@@ -112,6 +112,8 @@ static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     RouteRecord *routeRecord = nil;
     if (tableView == self.searchController.searchResultsTableView) {
