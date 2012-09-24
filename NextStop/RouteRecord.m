@@ -16,10 +16,6 @@
                 "WHERE (routes.short_name LIKE ? OR routes.long_name LIKE ?) " \
                 "LIMIT 50; "                                                   \
 
-static const char * RouteRecordStringToWildcardUTF8String(NSString *string) {
-    return [[NSString stringWithFormat:@"%%%@%%", string] UTF8String];
-}
-
 @interface RouteRecord () {
 @private
     __strong NSString *_longName;
@@ -58,8 +54,8 @@ static const char * RouteRecordStringToWildcardUTF8String(NSString *string) {
 + (NSArray *)routesMatchingShortNameOrLongName:(NSString *)searchText {
     SQLiteDB *db = [SQLiteDB sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY3];
-    sqlite3_bind_text(stmt, 1, RouteRecordStringToWildcardUTF8String(searchText), -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 2, RouteRecordStringToWildcardUTF8String(searchText), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 1, SQLiteDBWildcardUTF8String(searchText), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, SQLiteDBWildcardUTF8String(searchText), -1, SQLITE_STATIC);
     NSMutableArray *routes = [NSMutableArray array];
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
         RouteRecord *route = [[self alloc] initWithStatement:stmt];
