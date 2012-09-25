@@ -27,7 +27,7 @@
 "direction_show.alerts.messages.targeted" = "You will get notified before you reach your stop, even if you put this device to sleep.";
 "direction_show.alerts.titles.found_no_result" = "No results found";
 "direction_show.alerts.titles.found_no_stop" = "No stops within %dkm found";
-"direction_show.search.placeholder" = "Address";
+"direction_show.search.placeholder" = "Stop or address";
 "route.alerts.titles.approaching" = "Stop is approaching";
 "route.alerts.messages.approaching" = "Prepare to get off soon.";
 "routes.title" = "Routes";
