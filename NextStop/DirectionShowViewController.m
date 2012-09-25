@@ -54,6 +54,8 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
     // Modal search display controller
     self.modalSearchDisplayController = [[ModalSearchDisplayController alloc] initWithViewController:self.parentViewController];
     self.modalSearchDisplayController.delegate = self;
+    self.modalSearchDisplayController.searchResultsDataSource = self;
+    self.modalSearchDisplayController.searchResultsDelegate = self;
     // Tracking bar button item
     self.trackingBarButtonItem = [[MKUserTrackingBarButtonItem alloc] initWithMapView:self.mapView];
     self.trackingBarButtonItem.target = self;
@@ -72,6 +74,7 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
 
 - (void)viewDidUnload {
     self.geocoder = nil;
+    self.filteredStops = nil;
     self.mapView = nil;
     self.locationAuthorizationAlertView = nil;
     self.modalSearchDisplayController = nil;
@@ -245,6 +248,10 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
 
 #pragma mark UISearchBarDelegate
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    self.filteredStops = [StopRecord stopsBelongingToDirection:self.directionManagedObject.directionRecord likeName:searchText];
+}
+
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [self.modalSearchDisplayController setActive:NO animated:YES];
 }
@@ -294,6 +301,33 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
         }
         application.networkActivityIndicatorVisible = NO;
     }];
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.filteredStops count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *ReuseId = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseId];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ReuseId];
+    }
+    StopRecord *stopRecord = [self.filteredStops objectAtIndex:indexPath.row];
+    cell.textLabel.text = stopRecord.name;
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    StopRecord *stopRecord = [self.filteredStops objectAtIndex:indexPath.row];
+    [self.modalSearchDisplayController setActive:NO animated:YES];
+    [self zoomToAnnotation:stopRecord animated:YES];
+    [self.mapView selectAnnotation:stopRecord animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

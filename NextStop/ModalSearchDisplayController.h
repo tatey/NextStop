@@ -7,10 +7,13 @@
 
 @property (assign, nonatomic, getter=isActive) BOOL active;
 @property (weak, nonatomic) id <ModalSearchDisplayControllerDelegate> delegate;
+@property (weak, nonatomic) id <UITableViewDataSource> searchResultsDataSource;
+@property (weak, nonatomic) id <UITableViewDelegate> searchResultsDelegate;
 @property (weak, nonatomic) UIViewController *viewController;
 
 @property (strong, nonatomic) UIButton *dimmingButton;
 @property (strong, nonatomic) UISearchBar *searchBar;
+@property (strong, nonatomic) UITableView *tableView;
 
 - (id)initWithViewController:(UIViewController *)viewController;
 

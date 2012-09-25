@@ -11,9 +11,10 @@
 @class DirectionManagedObject;
 @class RouteShowViewControllerItem;
 
-@interface DirectionShowViewController : UIViewController <DestionationAnnotationViewDelegate, ModalSearchDisplayControllerDelegate, MKMapViewDelegate, StopAnnotationViewDelegate, UISearchBarDelegate>
+@interface DirectionShowViewController : UIViewController <DestionationAnnotationViewDelegate, ModalSearchDisplayControllerDelegate, MKMapViewDelegate, StopAnnotationViewDelegate, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) DirectionManagedObject *directionManagedObject;
+@property (strong, nonatomic) NSArray *filteredStops;
 @property (strong, nonatomic) CLGeocoder *geocoder;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) MKMapView *mapView;
