@@ -1,3 +1,4 @@
+#import <QuartzCore/QuartzCore.h>
 #import "ModalSearchDisplayController.h"
 
 #define SEARCHBAR_HEIGHT 44
@@ -34,7 +35,12 @@
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, SEARCHBAR_HEIGHT)];
     self.searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.searchBar.backgroundImage = [UIImage imageNamed:@"SearchBarBackground.png"];
+    self.searchBar.clipsToBounds = YES;
     self.searchBar.showsCancelButton = YES;
+    self.searchBar.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.searchBar.layer.shadowOffset = CGSizeMake(0, 1);
+    self.searchBar.layer.shadowRadius = 1.0;
+    self.searchBar.layer.shadowOpacity = 0.275;
     for (id view in self.searchBar.subviews) {
         if ([view isKindOfClass:[UITextField class]]) {
             [view addTarget:self action:@selector(searchBarTextDidChange:) forControlEvents:UIControlEventEditingChanged];
@@ -115,7 +121,9 @@
 
 - (void)searchBarTextDidChange:(UITextField *)textField {
     [self.tableView reloadData];
-    self.tableView.hidden = [textField.text length] <= 0 || [self.tableView.visibleCells count] <= 0;
+    BOOL hidden = [textField.text length] <= 0 || [self.tableView.visibleCells count] <= 0;
+    self.searchBar.clipsToBounds = hidden;
+    self.tableView.hidden = hidden;
 }
 
 #pragma mark - Notifications
