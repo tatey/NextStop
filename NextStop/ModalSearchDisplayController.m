@@ -25,8 +25,8 @@
     [self.dimmingButton addTarget:self action:@selector(dimmingButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.dimmingButton];
     // Table view
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero];
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SEARCHBAR_HEIGHT, self.view.bounds.size.width, self.view.bounds.size.height - SEARCHBAR_HEIGHT)];
+    self.tableView.autoresizesSubviews = UIViewAutoresizingNone;
     self.tableView.dataSource = self.searchResultsDataSource;
     self.tableView.delegate = self.searchResultsDelegate;
     self.tableView.hidden = YES;
@@ -60,6 +60,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
@@ -67,10 +68,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)viewWillLayoutSubviews {
-    self.tableView.frame = CGRectMake(0, SEARCHBAR_HEIGHT, self.view.bounds.size.width, self.view.bounds.size.height - SEARCHBAR_HEIGHT);
 }
 
 - (void)setActive:(BOOL)active {
@@ -97,7 +94,7 @@
     self.searchBar.frame = visibleSearchBarFrame;
     self.dimmingButton.alpha = 1.0;
     CGRect visibleTableViewFrame = self.tableView.frame;
-    visibleTableViewFrame.origin.y = 0;
+    visibleTableViewFrame.origin.y = SEARCHBAR_HEIGHT;
     self.tableView.frame = visibleTableViewFrame;
     self.tableView.alpha = 1.0;
 }
@@ -108,7 +105,7 @@
     self.searchBar.frame = hiddenSearchBarFrame;
     self.dimmingButton.alpha = 0.0;
     CGRect hiddenTableViewFrame = self.tableView.frame;
-    hiddenTableViewFrame.origin.y = -hiddenSearchBarFrame.size.height;
+    hiddenTableViewFrame.origin.y = -SEARCHBAR_HEIGHT;
     self.tableView.frame = hiddenTableViewFrame;
     self.tableView.alpha = 0.0;
 }
@@ -127,6 +124,14 @@
 }
 
 #pragma mark - Notifications
+
+- (void)keyboardDidShow:(NSNotification *)notification {
+    NSDictionary *userInfo = [notification userInfo];
+    CGFloat height = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+    UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, height, 0);
+    self.tableView.contentInset = insets;
+    self.tableView.scrollIndicatorInsets = insets;    
+}
 
 - (void)keyboardWillShow:(NSNotification *)notification {
     NSDictionary *userInfo = [notification userInfo];
