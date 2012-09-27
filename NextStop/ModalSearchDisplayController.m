@@ -130,7 +130,7 @@
     CGFloat height = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
     UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, height, 0);
     self.tableView.contentInset = insets;
-    self.tableView.scrollIndicatorInsets = insets;    
+    self.tableView.scrollIndicatorInsets = insets;
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {
