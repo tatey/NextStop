@@ -1,5 +1,6 @@
 #import <CoreLocation/CoreLocation.h>
 #import "DirectionRecord.h"
+#import "NameFormatter.h"
 #import "StopRecord.h"
 #import "SQLiteDB.h"
 
@@ -27,7 +28,11 @@
     CLLocationDegrees _longitude;
     __strong NSString *_name;
     __strong NSString *_stopId;
+    __strong NSString *_subtitle;
+    __strong NSString *_title;
 }
+
+@property (strong, nonatomic) NameFormatter *nameFormatter;
 
 - (id)initWithStatement:(sqlite3_stmt *)stmt;
 
@@ -92,18 +97,29 @@
     return _stopId;
 }
 
-- (NSString *)description {
-    return [NSString stringWithFormat:@"<%@: %p, latitude: %f, longitude: %f, name: %@, stopId: %@>", NSStringFromClass([self class]), self, _latitude, _longitude, _name, _stopId];
+- (NameFormatter *)nameFormatter {
+    if (!_nameFormatter) {
+        _nameFormatter = [[NameFormatter alloc] initWithName:self.name];
+    }
+    return _nameFormatter;
 }
 
 - (BOOL)isEqualToStop:(StopRecord *)stop {
     return [self.stopId isEqualToString:stop.stopId];
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<%@: %p, latitude: %f, longitude: %f, name: %@, stopId: %@>", NSStringFromClass([self class]), self, _latitude, _longitude, _name, _stopId];
+}
+
 #pragma mark - MKAnnotation
 
 - (NSString *)title {
-    return self.name;
+    return self.nameFormatter.title;
+}
+
+- (NSString *)subtitle {
+    return self.nameFormatter.subtitle;
 }
 
 - (CLLocationCoordinate2D)coordinate {
