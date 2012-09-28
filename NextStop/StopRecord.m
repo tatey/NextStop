@@ -15,7 +15,8 @@
                 "INNER JOIN directions_stops ON directions_stops.stop_id = stops.stop_id "                                                        \
                 "INNER JOIN directions ON directions_stops.direction = directions.direction AND directions_stops.route_id = directions.route_id " \
                 "WHERE directions.direction = ? AND directions.route_id = ? "                                                                     \
-                "AND stops.stop_name LIKE ?; "                                                                                                         \
+                "AND stops.stop_name LIKE ? "                                                                                                     \
+                "ORDER BY stops.stop_name ASC; "                                                                                                  \
 
 #define QUERY3 @"SELECT stops.* "          \
                 "FROM stops "              \

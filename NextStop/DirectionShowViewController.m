@@ -8,6 +8,7 @@
 #import "NSObject+MKMapViewDelegate.h"
 #import "RouteShowViewControllerItem.h"
 #import "StopRecord.h"
+#import "StopReordCell.h"
 
 static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManagedObject.monitorProximityToTarget";
 
@@ -310,13 +311,12 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *ReuseId = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseId];
+    static NSString *StopRecordCellReuseId = @"StopRecordCell";
+    StopReordCell *cell = [tableView dequeueReusableCellWithIdentifier:StopRecordCellReuseId];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ReuseId];
+        cell = [[StopReordCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:StopRecordCellReuseId];
     }
-    StopRecord *stopRecord = [self.filteredStops objectAtIndex:indexPath.row];
-    cell.textLabel.text = stopRecord.name;
+    cell.stopRecord = [self.filteredStops objectAtIndex:indexPath.row];
     return cell;
 }
 

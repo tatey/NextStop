@@ -20,6 +20,7 @@
 		5D2BFDBB1547F3B400D9F53E /* RouteIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */; };
 		5D2BFDBC1547F3B400D9F53E /* RouteIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */; };
 		5D3A56C61615D22F0019CF8A /* NameFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A56C51615D22F0019CF8A /* NameFormatter.m */; };
+		5D3A56CA1615D4020019CF8A /* StopReordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A56C91615D4020019CF8A /* StopReordCell.m */; };
 		5D4CA1BA15FE276600915A70 /* RouteShowViewControllerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4CA1B915FE276600915A70 /* RouteShowViewControllerItem.m */; };
 		5D4CB10B15F31B640059784A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB10915F31B640059784A /* Icon.png */; };
 		5D4CB10C15F31B640059784A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB10A15F31B640059784A /* Icon@2x.png */; };
@@ -109,6 +110,8 @@
 		5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteIndexViewController.m; sourceTree = "<group>"; };
 		5D3A56C41615D22F0019CF8A /* NameFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameFormatter.h; sourceTree = "<group>"; };
 		5D3A56C51615D22F0019CF8A /* NameFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameFormatter.m; sourceTree = "<group>"; };
+		5D3A56C81615D4020019CF8A /* StopReordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopReordCell.h; sourceTree = "<group>"; };
+		5D3A56C91615D4020019CF8A /* StopReordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopReordCell.m; sourceTree = "<group>"; };
 		5D4CA1B615FE1CAB00915A70 /* RouteShowViewControllerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteShowViewControllerItem.h; sourceTree = "<group>"; };
 		5D4CA1B915FE276600915A70 /* RouteShowViewControllerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteShowViewControllerItem.m; sourceTree = "<group>"; };
 		5D4CB10915F31B640059784A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -451,6 +454,8 @@
 				5DA512B515F1E62A00EF91DC /* RouteRecordCell.m */,
 				5DF5F20515BB95E8006B0882 /* StopAnnotationView.h */,
 				5DF5F20615BB95E8006B0882 /* StopAnnotationView.m */,
+				5D3A56C81615D4020019CF8A /* StopReordCell.h */,
+				5D3A56C91615D4020019CF8A /* StopReordCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -615,6 +620,7 @@
 				5D0BDD49160A1ABC00DF3AB9 /* DisappearingAlertView.m in Sources */,
 				5D658A6D160B369E00ECE4C7 /* Defaults.m in Sources */,
 				5D3A56C61615D22F0019CF8A /* NameFormatter.m in Sources */,
+				5D3A56CA1615D4020019CF8A /* StopReordCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
