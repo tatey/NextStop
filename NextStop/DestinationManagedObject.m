@@ -4,8 +4,9 @@ static NSString *const kEntityName = @"Destination";
 
 @implementation DestinationManagedObject
 
+@dynamic addressLine1;
+@dynamic addressLine2;
 @dynamic direction;
-@dynamic formattedAddress;
 @dynamic latitude;
 @dynamic longitude;
 
@@ -20,7 +21,9 @@ static NSString *const kEntityName = @"Destination";
 
 - (void)setPropertiesWithPlacemark:(CLPlacemark *)placemark {
     [self setCoordinate:placemark.location.coordinate];
-    self.formattedAddress = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+    NSArray *addressLines = [placemark.addressDictionary valueForKey:@"FormattedAddressLines"];
+    self.addressLine1 = [addressLines objectAtIndex:0];
+    self.addressLine2 = [addressLines objectAtIndex:1];
 }
 
 #pragma mark - MKAnnotation
@@ -35,11 +38,11 @@ static NSString *const kEntityName = @"Destination";
 }
 
 - (NSString *)title {
-    return NSLocalizedString(@"destination_managed_object.title", nil);
+    return self.addressLine1;
 }
 
 - (NSString *)subtitle {
-    return self.formattedAddress;
+    return self.addressLine2;
 }
 
 @end

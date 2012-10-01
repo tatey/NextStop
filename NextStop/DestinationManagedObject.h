@@ -7,8 +7,9 @@
 
 @interface DestinationManagedObject : NSManagedObject <MKAnnotation>
 
+@property (copy, nonatomic) NSString *addressLine1;
+@property (copy, nonatomic) NSString *addressLine2;
 @property (strong, nonatomic) DirectionManagedObject *direction;
-@property (copy, nonatomic) NSString *formattedAddress;
 @property (assign, nonatomic) CLLocationDegrees latitude;
 @property (assign, nonatomic) CLLocationDegrees longitude;
 

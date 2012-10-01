@@ -10,7 +10,6 @@
 "notifications.body.approaching" = "Stop is approaching.";
 
 // Models
-"destination_managed_object.title" = "Destination";
 "direction_record.direction.inbound" = "Inbound";
 "direction_record.direction.outbound" = "Outbound";
 "direction_record.direction.counterclockwise" = "Counter Clockwise";
