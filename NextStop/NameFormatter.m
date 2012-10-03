@@ -24,6 +24,12 @@
             self.subtitle = [NSString stringWithFormat:@"%@%@", [name substringToIndex:range.location + range.length], [[name substringToIndex:range.location + range.length +1] uppercaseString]];
             return self;
         }
+        range = [name rangeOfString:@" Platform "];
+        if (range.location != NSNotFound) {
+            self.title = [name substringToIndex:range.location];
+            self.subtitle = [NSString stringWithFormat:@"Platform %@", [name substringFromIndex:range.location + range.length]];
+            return self;
+        }
         self.title = name;
         self.subtitle = nil;
     }
