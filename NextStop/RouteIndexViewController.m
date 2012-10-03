@@ -87,7 +87,13 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
         [self.tableView moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
     }
     if (type == NSFetchedResultsChangeDelete) {
-        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+        UITableViewRowAnimation animation;
+        if ([self.tableView.visibleCells count] > [[[self.routes sections] objectAtIndex:0] numberOfObjects]) {
+            animation = UITableViewRowAnimationLeft;
+        } else {
+            animation = UITableViewRowAnimationTop;
+        }
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:animation];
     }
 }
 
