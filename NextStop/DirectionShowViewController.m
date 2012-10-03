@@ -171,7 +171,23 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
 - (void)mapView:(MKMapView *)mapView didFailToLocateUserWithError:(NSError *)error {
     if (error.domain == kCLErrorDomain && error.code == kCLErrorDenied) {
         [self applicationWillEnterForeground:nil];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alerts.title.error", nil)
+                                                        message:[error localizedDescription]
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"controls.ok", nil)
+                                              otherButtonTitles:nil];
+        [alert show];
     }
+}
+
+- (void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alerts.title.error", nil)
+                                                    message:[error localizedDescription]
+                                                   delegate:nil
+                                          cancelButtonTitle:NSLocalizedString(@"controls.ok", nil)
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)mapView:(MKMapView *)mapView didDeselectStopAnnotationView:(StopAnnotationView *)stopAnnotationView {
