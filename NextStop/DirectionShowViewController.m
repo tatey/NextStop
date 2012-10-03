@@ -193,6 +193,16 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
     return destinationAnnotationView;
 }
 
+- (void)mapViewWillStartLoadingMap:(MKMapView *)mapView {
+    UIApplication *application = [UIApplication sharedApplication];
+    application.networkActivityIndicatorVisible = YES;
+}
+
+- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
+    UIApplication *application = [UIApplication sharedApplication];
+    application.networkActivityIndicatorVisible = NO;
+}
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForStopRecord:(StopRecord *)stopRecord {
     static NSString *ReuseId = @"StopAnnotationView";
     StopAnnotationView *stopAnnotationView = (StopAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:ReuseId];
