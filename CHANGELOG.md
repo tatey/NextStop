@@ -2,7 +2,15 @@
 
 ## Current
 
+* [New] Search for stops in route and direction.
+* [New] Show error message when map fails to load or fails to find user's location.
 * [Change] Default to keypad with numbers when adding new route.
+* [Change] "New Route" scene lists all routes.
+* [Change] Show callout over target when switching from compass to normal after tapping tracking button in "Route Scene".
+* [Change] Formatted stop names for easier reading.
+* [Change] Formatted destination address for easier reading.
+* [Change] Show network activity indicator when loading map titles.
+* [Change] Delete animation changes depending on number of visible cells in "Routes" scene.
 
 ## 0.4.0 / 2012-09-23
 
