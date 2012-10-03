@@ -137,6 +137,7 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
         [self.mapView setUserTrackingMode:MKUserTrackingModeNone animated:NO];
         if (self.directionManagedObject.target) {
             [self zoomToAnnotation:self.directionManagedObject.target animated:YES];
+            [self.mapView selectAnnotation:self.directionManagedObject.target animated:YES];
         } else {
             [self zoomToAnnotations:[self.directionManagedObject stops] animated:YES];
         }
