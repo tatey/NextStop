@@ -303,7 +303,7 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
             } else {
                 [self.managedObjectContext deleteObject:destination];
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"direction_show.alerts.titles.found_no_stop", nil), DIRECTION_RECORD_MAX_STOP_DISTANCE_METERS / 1000]
-                                                                    message:nil
+                                                                    message:NSLocalizedString(@"direction_show.alerts.messages.found_no_stop", nil)
                                                                    delegate:nil
                                                           cancelButtonTitle:NSLocalizedString(@"controls.ok", nil)
                                                           otherButtonTitles:nil];

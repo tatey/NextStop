@@ -24,11 +24,12 @@
 // View Controllers
 "direction_show.alerts.messages.not_authorized" = "Enable Location Services. Next Stop uses your current location to notify you when you reach your stop.";
 "direction_show.alerts.messages.targeted" = "You will get notified before you reach your stop, even if you put this device to sleep.";
-"direction_show.alerts.titles.found_no_result" = "No results found";
-"direction_show.alerts.titles.found_no_stop" = "No stops within %dkm found";
+"direction_show.alerts.titles.found_no_result" = "No result found";
+"direction_show.alerts.titles.found_no_stop" = "No stops found within %dkm of the address";
+"direction_show.alerts.messages.found_no_stop" = "Try adding the suburb or city to the address.";
 "direction_show.search.placeholder" = "Stop or address";
 "route.alerts.titles.approaching" = "Stop is approaching";
-"route.alerts.messages.approaching" = "Prepare to get off soon.";
+"route.alerts.messages.approaching" = "Get ready to hop off.";
 "routes.title" = "Routes";
 "route_search.title" = "New Route";
 "route_search.search.placeholder" = "Try %@ or %@";
