@@ -56,29 +56,6 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 @dynamic routeId;
 @dynamic targetId;
 
-+ (void)startMonitoringProximityToTargetsInManagedObjectContext:(NSManagedObjectContext *)context {
-    NSArray *directions = [self directionsMonitoringProximityToTargetInManagedObjectContext:context];
-    for (DirectionManagedObject *direction in directions) {
-        [direction startMonitoringProximityToTarget];
-    }
-}
-
-+ (NSArray *)directionsMonitoringProximityToTargetInManagedObjectContext:(NSManagedObjectContext *)context {
-    NSEntityDescription *entity = [NSEntityDescription entityForName:kEntityName inManagedObjectContext:context];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"monitorProximityToTarget == %@", [NSNumber numberWithBool:YES]];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    request.entity = entity;
-    request.predicate = predicate;
-    NSArray *directions = nil;
-    NSError *error = nil;
-    directions = [context executeFetchRequest:request error:&error];
-    if (!directions) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    return directions;
-}
-
 - (id)initWithDirectionRecord:(DirectionRecord *)directionRecord managedObjectContext:(NSManagedObjectContext *)context {
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:kEntityName inManagedObjectContext:context];
     self = [self initWithEntity:entityDescription insertIntoManagedObjectContext:context];

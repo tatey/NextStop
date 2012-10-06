@@ -18,8 +18,6 @@
 @property (strong, nonatomic) RouteManagedObject *routeManagedObject;
 @property (strong, nonatomic) StopRecord *target;
 
-+ (void)startMonitoringProximityToTargetsInManagedObjectContext:(NSManagedObjectContext *)context;
-
 - (id)initWithDirectionRecord:(DirectionRecord *)directionRecord managedObjectContext:(NSManagedObjectContext *)context;
 
 - (void)replaceDestinationWithDestination:(DestinationManagedObject *)destination;
