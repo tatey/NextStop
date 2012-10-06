@@ -11,6 +11,7 @@
 * [Change] Formatted destination address for easier reading.
 * [Change] Show network activity indicator when loading map titles.
 * [Change] Delete animation changes depending on number of visible cells in "Routes" scene.
+* [Change] Switch from "Cellular towers" to region monitoring.
 
 ## 0.4.0 / 2012-09-23
 
