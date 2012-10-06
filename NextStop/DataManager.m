@@ -6,15 +6,6 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-+ (id)defaultManager {
-    static dispatch_once_t predicate;
-    static id defaultManager = nil;
-    dispatch_once(&predicate, ^{
-        defaultManager = [[DataManager alloc] init];
-    });
-    return defaultManager;
-}
-
 - (NSManagedObjectContext *)managedObjectContext {
     if (_managedObjectContext != nil) {
         return _managedObjectContext;

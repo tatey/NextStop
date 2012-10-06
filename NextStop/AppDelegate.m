@@ -9,7 +9,6 @@
 @interface AppDelegate ()
 
 @property (strong, nonatomic) BackgroundNotifier *backgroundNotifier; 
-@property (weak, nonatomic) DataManager *dataManager;
 @property (weak, nonatomic) ProximityCenter *proximityCenter;
 @property (strong, nonatomic) UIViewController *rootViewController;
 
@@ -18,11 +17,11 @@
 @implementation AppDelegate
 
 // Public
+@synthesize dataManager = _dataManager;
 @synthesize window = _window;
 
 // Private
 @synthesize backgroundNotifier = _backgroundNotifier;
-@synthesize dataManager = _dataManager;
 @synthesize proximityCenter = _proximityCenter;
 @synthesize rootViewController = _rootViewController;
 
@@ -52,7 +51,7 @@
 
 - (DataManager *)dataManager {
     if (!_dataManager) {
-        _dataManager = [DataManager defaultManager];
+        _dataManager = [[DataManager alloc] init];
     }
     return _dataManager;
 }
