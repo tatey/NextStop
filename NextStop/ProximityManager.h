@@ -9,7 +9,7 @@
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) ProximitySetManagedObject *proximities;
+@property (strong, nonatomic) ProximitySetManagedObject *proximitySet;
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)context;
 

@@ -22,11 +22,11 @@
     return _locationManager;
 }
 
-- (ProximitySetManagedObject *)proximities {
-    if (!_proximities) {
-        _proximities = [ProximitySetManagedObject proximitySetInManagedObjectContext:self.managedObjectContext];
+- (ProximitySetManagedObject *)proximitySet {
+    if (!_proximitySet) {
+        _proximitySet = [ProximitySetManagedObject proximitySetInManagedObjectContext:self.managedObjectContext];
     }
-    return _proximities;
+    return _proximitySet;
 }
 
 - (void)startMonitoringProximity:(ProximityManagedObject *)proximity {
@@ -43,15 +43,19 @@
 }
 
 - (void)addProximity:(ProximityManagedObject *)proximity {
-    [self.proximities addProximity:proximity];
-    if ([self.proximities count] > 0) {
-        [self.locationManager startUpdatingLocation];
-    }
+    [self.proximitySet addProximity:proximity];
+    [self toggleUpdatingLocation:[self.proximitySet count]];
 }
 
 - (void)removeProximity:(ProximityManagedObject *)proximity {
-    [self.proximities removeProximity:proximity];
-    if ([self.proximities count] == 0) {
+    [self.proximitySet removeProximity:proximity];
+    [self toggleUpdatingLocation:[self.proximitySet count]];
+}
+
+- (void)toggleUpdatingLocation:(NSInteger)proximityCount {
+    if (proximityCount > 0) {
+        [self.locationManager startUpdatingLocation];
+    } else {
         [self.locationManager stopUpdatingLocation];
     }
 }
@@ -67,7 +71,7 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-    for (ProximityManagedObject *proximity in self.proximities) {
+    for (ProximityManagedObject *proximity in self.proximitySet) {
         if ([proximity notificationRadiusContainsCoordinate:newLocation.coordinate]) {
             [proximity targetContainedWithinNotificationRadius];
         }
