@@ -73,10 +73,11 @@
 		5DB9257F1600B0EE00AE27C3 /* ModalSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB9257E1600B0ED00AE27C3 /* ModalSearchDisplayController.m */; };
 		5DBDD34715B83A74001287AB /* Indooroopilly.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DBDD34615B83A74001287AB /* Indooroopilly.gpx */; };
 		5DBDD34A15B83A7F001287AB /* Brisbane.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DBDD34915B83A7F001287AB /* Brisbane.gpx */; };
-		5DCFB37415611AED0036B36A /* ProximityCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFB37315611AED0036B36A /* ProximityCenter.m */; };
-		5DCFB37715611B070036B36A /* Proximity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFB37615611B070036B36A /* Proximity.m */; };
 		5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteDB.m */; };
 		5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteDB.m */; };
+		5DE277611620095E00575BCD /* ProximityManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE277601620095E00575BCD /* ProximityManagedObject.m */; };
+		5DE277651620098C00575BCD /* ProximitySetManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE277641620098C00575BCD /* ProximitySetManagedObject.m */; };
+		5DE27768162009F200575BCD /* ProximityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE27767162009F200575BCD /* ProximityManager.m */; };
 		5DF2645215BAD5BF00FD2E6B /* NSObject+MKMapViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF2645115BAD5BF00FD2E6B /* NSObject+MKMapViewDelegate.m */; };
 		5DF5F20715BB95E8006B0882 /* StopAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF5F20615BB95E8006B0882 /* StopAnnotationView.m */; };
 /* End PBXBuildFile section */
@@ -184,12 +185,14 @@
 		5DB9257E1600B0ED00AE27C3 /* ModalSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalSearchDisplayController.m; sourceTree = "<group>"; };
 		5DBDD34615B83A74001287AB /* Indooroopilly.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Indooroopilly.gpx; sourceTree = "<group>"; };
 		5DBDD34915B83A7F001287AB /* Brisbane.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Brisbane.gpx; sourceTree = "<group>"; };
-		5DCFB37215611AED0036B36A /* ProximityCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProximityCenter.h; sourceTree = "<group>"; };
-		5DCFB37315611AED0036B36A /* ProximityCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProximityCenter.m; sourceTree = "<group>"; };
-		5DCFB37515611B070036B36A /* Proximity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Proximity.h; sourceTree = "<group>"; };
-		5DCFB37615611B070036B36A /* Proximity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Proximity.m; sourceTree = "<group>"; };
 		5DD523FC1547FF7C00011A3E /* SQLiteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteDB.h; sourceTree = "<group>"; };
 		5DD523FD1547FF7C00011A3E /* SQLiteDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteDB.m; sourceTree = "<group>"; };
+		5DE2775F1620095E00575BCD /* ProximityManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProximityManagedObject.h; sourceTree = "<group>"; };
+		5DE277601620095E00575BCD /* ProximityManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProximityManagedObject.m; sourceTree = "<group>"; };
+		5DE277631620098C00575BCD /* ProximitySetManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProximitySetManagedObject.h; sourceTree = "<group>"; };
+		5DE277641620098C00575BCD /* ProximitySetManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProximitySetManagedObject.m; sourceTree = "<group>"; };
+		5DE27766162009F200575BCD /* ProximityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProximityManager.h; sourceTree = "<group>"; };
+		5DE27767162009F200575BCD /* ProximityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProximityManager.m; sourceTree = "<group>"; };
 		5DF2645015BAD5BF00FD2E6B /* NSObject+MKMapViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MKMapViewDelegate.h"; sourceTree = "<group>"; };
 		5DF2645115BAD5BF00FD2E6B /* NSObject+MKMapViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MKMapViewDelegate.m"; sourceTree = "<group>"; };
 		5DF5F20515BB95E8006B0882 /* StopAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopAnnotationView.h; sourceTree = "<group>"; };
@@ -276,10 +279,8 @@
 				5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */,
 				5D9AAB1415ADAE8C00E2E077 /* DataManager.h */,
 				5D9AAB1515ADAE8C00E2E077 /* DataManager.m */,
-				5DCFB37515611B070036B36A /* Proximity.h */,
-				5DCFB37615611B070036B36A /* Proximity.m */,
-				5DCFB37215611AED0036B36A /* ProximityCenter.h */,
-				5DCFB37315611AED0036B36A /* ProximityCenter.m */,
+				5DE27766162009F200575BCD /* ProximityManager.h */,
+				5DE27767162009F200575BCD /* ProximityManager.m */,
 				5DD523FC1547FF7C00011A3E /* SQLiteDB.h */,
 				5DD523FD1547FF7C00011A3E /* SQLiteDB.m */,
 			);
@@ -306,6 +307,10 @@
 				5DA3A3BC16043DD0003229B0 /* DestinationManagedObject.m */,
 				5D864EDC15B564C9007ADCA8 /* DirectionManagedObject.h */,
 				5D864EDD15B564C9007ADCA8 /* DirectionManagedObject.m */,
+				5DE2775F1620095E00575BCD /* ProximityManagedObject.h */,
+				5DE277601620095E00575BCD /* ProximityManagedObject.m */,
+				5DE277631620098C00575BCD /* ProximitySetManagedObject.h */,
+				5DE277641620098C00575BCD /* ProximitySetManagedObject.m */,
 				5D05CD0015A59E1F0011A165 /* RouteManagedObject.h */,
 				5D05CD0115A59E1F0011A165 /* RouteManagedObject.m */,
 			);
@@ -595,8 +600,6 @@
 				5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */,
 				5D05F316154ACA7F004E7773 /* StopRecord.m in Sources */,
 				5DA866A81556C25E00FB1ACF /* RouteRecord.m in Sources */,
-				5DCFB37415611AED0036B36A /* ProximityCenter.m in Sources */,
-				5DCFB37715611B070036B36A /* Proximity.m in Sources */,
 				5D54CDFA15668DA1005D0170 /* NSObject+KVOSEL.m in Sources */,
 				5D7D8A831568C5D0004DFB54 /* BackgroundNotifier.m in Sources */,
 				5D05CD0215A59E1F0011A165 /* RouteManagedObject.m in Sources */,
@@ -621,6 +624,9 @@
 				5D658A6D160B369E00ECE4C7 /* Defaults.m in Sources */,
 				5D3A56C61615D22F0019CF8A /* NameFormatter.m in Sources */,
 				5D3A56CA1615D4020019CF8A /* StopReordCell.m in Sources */,
+				5DE277611620095E00575BCD /* ProximityManagedObject.m in Sources */,
+				5DE277651620098C00575BCD /* ProximitySetManagedObject.m in Sources */,
+				5DE27768162009F200575BCD /* ProximityManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

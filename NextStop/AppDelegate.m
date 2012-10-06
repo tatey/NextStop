@@ -3,13 +3,12 @@
 #import "DataManager.h"
 #import "Defaults.h"
 #import "DirectionManagedObject.h"
-#import "ProximityCenter.h"
+#import "ProximityManager.h"
 #import "RouteIndexViewController.h"
 
 @interface AppDelegate ()
 
 @property (strong, nonatomic) BackgroundNotifier *backgroundNotifier; 
-@property (weak, nonatomic) ProximityCenter *proximityCenter;
 @property (strong, nonatomic) UIViewController *rootViewController;
 
 @end
@@ -18,20 +17,15 @@
 
 // Public
 @synthesize dataManager = _dataManager;
+@synthesize proximityManager = _proximityManager;
 @synthesize window = _window;
 
 // Private
 @synthesize backgroundNotifier = _backgroundNotifier;
-@synthesize proximityCenter = _proximityCenter;
 @synthesize rootViewController = _rootViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.backgroundNotifier = [[BackgroundNotifier alloc] initWithApplication:application];
-    if ([launchOptions objectForKey:UIApplicationLaunchOptionsLocationKey]) {
-        self.proximityCenter.proximityCenterMode = ProximityCenterPowerBestMode;
-    } else {
-        self.proximityCenter.proximityCenterMode = ProximityCenterPrecisionBestMode;
-    }
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = self.rootViewController;
@@ -42,11 +36,6 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     [self.dataManager save];
     [Defaults syncronize];
-    self.proximityCenter.proximityCenterMode = ProximityCenterPowerBestMode;
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    self.proximityCenter.proximityCenterMode = ProximityCenterPrecisionBestMode;
 }
 
 - (DataManager *)dataManager {
@@ -56,12 +45,11 @@
     return _dataManager;
 }
 
-- (ProximityCenter *)proximityCenter {
-    if (!_proximityCenter) {
-        _proximityCenter = [ProximityCenter defaultCenter];
-        [DirectionManagedObject startMonitoringProximityToTargetsInManagedObjectContext:self.dataManager.managedObjectContext];
+- (ProximityManager *)proximityManager {
+    if (!_proximityManager) {
+        _proximityManager = [[ProximityManager alloc] initWithManagedObjectContext:self.dataManager.managedObjectContext];
     }
-    return _proximityCenter;
+    return _proximityManager;
 }
 
 - (UIViewController *)rootViewController {

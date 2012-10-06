@@ -1,9 +1,11 @@
+#import "AppDelegate.h"
 #import "CoordinateRegion.h"
 #import "DestinationManagedObject.h"
 #import "DirectionManagedObject.h"
 #import "DirectionRecord.h"
-#import "ProximityCenter.h"
 #import "RouteManagedObject.h"
+#import "ProximityManager.h"
+#import "ProximityManagedObject.h"
 #import "Strings.h"
 #import "StopRecord.h"
 
@@ -19,7 +21,7 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
     __strong NSArray *_stops;
 }
 
-@property (strong, nonatomic) Proximity *proximity;
+@property (strong, nonatomic) ProximityManagedObject *proximity;
 
 @property (assign, nonatomic) NSNumber *direction;
 @property (assign, nonatomic) CLLocationDegrees latitude;
@@ -28,8 +30,6 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 @property (assign, nonatomic) CLLocationDegrees longitudeDelta;
 @property (copy, nonatomic) NSString *routeId;
 @property (copy, nonatomic) NSString *targetId;
-
-- (ProximityCenter *)proximityCenter;
 
 - (void)startMonitoringProximityToTarget;
 - (void)stopMonitoringProximityToTarget;
@@ -52,10 +52,9 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 @dynamic longitude;
 @dynamic latitudeDelta;
 @dynamic longitudeDelta;
+@dynamic proximity;
 @dynamic routeId;
 @dynamic targetId;
-
-@synthesize proximity = _proximity;
 
 + (void)startMonitoringProximityToTargetsInManagedObjectContext:(NSManagedObjectContext *)context {
     NSArray *directions = [self directionsMonitoringProximityToTargetInManagedObjectContext:context];
@@ -140,13 +139,15 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 - (void)setTarget:(StopRecord *)target {
     _target = target;
     self.targetId = target.stopId;
-    [self stopMonitoringProximityToTarget];
-    [self startMonitoringProximityToTarget];
+    if (self.monitorProximityToTarget) {
+        [self stopMonitoringProximityToTarget];
+        [self startMonitoringProximityToTarget];
+    }
 }
 
 - (void)replaceDestinationWithDestination:(DestinationManagedObject *)destination {
     if (self.destination) {
-        [self.managedObjectContext deleteObject:self.destination];        
+        [self.managedObjectContext deleteObject:self.destination];
     }
     destination.direction = self;
     self.destination = destination;
@@ -184,26 +185,25 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
     return MKCoordinateRegionMake(centerCoordinate, span);
 }
 
-- (ProximityCenter *)proximityCenter {
-    return [ProximityCenter defaultCenter];
-}
-
 - (void)startMonitoringProximityToTarget {
     if (!self.isMonitoringProximityToTarget || !self.target) return;
-    self.proximity = [[Proximity alloc] initWithDelegate:self notificationRadius:NOTIFICATION_RADIUS precisionRadius:PRECISION_RADIUS target:self.target.coordinate];
-    [self.proximityCenter addProximity:self.proximity];
+    self.proximity = [[ProximityManagedObject alloc] initWithDirectionManagedObject:self target:self.target.coordinate notificationRadius:NOTIFICATION_RADIUS precisionRadius:PRECISION_RADIUS identifier:[self identifier] managedObjectContext:self.managedObjectContext];
+    [UIAppDelegate.proximityManager startMonitoringProximity:self.proximity];
 }
 
 - (void)stopMonitoringProximityToTarget {
-    [self.proximityCenter removeProximity:self.proximity];
+    [UIAppDelegate.proximityManager stopMonitoringProximity:self.proximity];
+    [self.managedObjectContext deleteObject:self.proximity];
     self.proximity = nil;
 }
 
-#pragma mark - ProximityDelegate
-
-- (void)proximityDidApproachTarget:(Proximity *)proximity {
+- (void)proximityDidApproachTarget {
     self.monitorProximityToTarget = NO;
     [[NSNotificationCenter defaultCenter] postNotificationName:NXDirectionManagedObjectDidApproachTargetNotification object:self];
+}
+
+- (NSString *)identifier {
+    return [NSString stringWithFormat:@"me.nextstop.direction.%@.%@", self.directionRecord.headsign, self.directionRecord.routeId];
 }
 
 @end

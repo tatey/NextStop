@@ -2,7 +2,6 @@
 #import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
-#import "Proximity.h"
 
 @class DestinationManagedObject;
 @class DirectionRecord;
@@ -11,7 +10,7 @@
 
 @protocol DirectionManagedObjectDelegate;
 
-@interface DirectionManagedObject : NSManagedObject <ProximityDelegate>
+@interface DirectionManagedObject : NSManagedObject
 
 @property (strong, nonatomic) DestinationManagedObject *destination;
 @property (strong, nonatomic) DirectionRecord *directionRecord;
@@ -31,6 +30,8 @@
 
 - (void)setRegion:(MKCoordinateRegion)region;
 - (MKCoordinateRegion)region;
+
+- (void)proximityDidApproachTarget;
 
 @end
 
