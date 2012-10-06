@@ -13,6 +13,8 @@
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)context;
 
+- (void)resume;
+
 - (void)startMonitoringProximity:(ProximityManagedObject *)proximity;
 - (void)stopMonitoringProximity:(ProximityManagedObject *)proximity;
 

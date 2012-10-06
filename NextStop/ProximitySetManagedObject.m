@@ -1,3 +1,4 @@
+#import "ProximityManagedObject.h"
 #import "ProximitySetManagedObject.h"
 
 static NSString *const kEntityName = @"ProximitySet";
@@ -25,6 +26,7 @@ static NSString *const kEntityName = @"ProximitySet";
 }
 
 - (void)addProximity:(ProximityManagedObject *)proximity {
+    proximity.proximitySet = self;
     [self.proximities addObject:proximity];
 }
 

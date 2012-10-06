@@ -3,6 +3,7 @@
 #import <Foundation/Foundation.h>
 
 @class DirectionManagedObject;
+@class ProximitySetManagedObject;
 
 @interface ProximityManagedObject : NSManagedObject
 
@@ -10,6 +11,7 @@
 @property (readonly) NSString *identifier;
 @property (readonly) CLLocationDistance notificationRadius;
 @property (readonly) CLLocationDistance precisionRadius;
+@property (strong, nonatomic) ProximitySetManagedObject *proximitySet;
 @property (readonly) CLLocationCoordinate2D target;
 
 + (id)proximityMatchingIdentifier:(NSString *)identifier managedObjectContext:(NSManagedObjectContext *)context;

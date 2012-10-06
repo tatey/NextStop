@@ -29,6 +29,10 @@
     return _proximitySet;
 }
 
+- (void)resume {
+    [self toggleUpdatingLocation:[self.proximitySet count]];
+}
+
 - (void)startMonitoringProximity:(ProximityManagedObject *)proximity {
     if ([proximity precisionRadiusContainsCoordinate:self.locationManager.location.coordinate]) {
         [self addProximity:proximity];

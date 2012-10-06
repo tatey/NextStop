@@ -17,6 +17,7 @@ static NSString *const kPrecisionRadiusKey = @"precisionRadius";
 @dynamic identifier;
 @dynamic notificationRadius;
 @dynamic precisionRadius;
+@dynamic proximitySet;
 
 + (id)proximityMatchingIdentifier:(NSString *)identifier managedObjectContext:(NSManagedObjectContext *)context {
     NSEntityDescription *entity = [NSEntityDescription entityForName:kEntityName inManagedObjectContext:context];
