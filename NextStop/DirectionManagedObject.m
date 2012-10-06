@@ -10,7 +10,7 @@
 #import "StopRecord.h"
 
 #define NOTIFICATION_RADIUS 500 // Meters
-#define PRECISION_RADIUS 5000 // Meters
+#define PRECISION_RADIUS 2500 // Meters
 
 static NSString *const kEntityName = @"Direction";
 
