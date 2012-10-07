@@ -31,6 +31,7 @@ static NSString *const kRouteManagedObjectUpdatedAtKeyPath = @"routeManagedObjec
     [self removeObserver:self forKeyPath:kRouteManagedObjectIsMonitorProximityToTarget];
     [self removeObserver:self forKeyPath:kRouteManagedObjectRouteLongNameKeyPath];
     [self removeObserver:self forKeyPath:kRouteManagedObjectRouteShortNameKeyPath];
+    [self removeObserver:self forKeyPath:kRouteManagedObjectUpdatedAtKeyPath];
 }
 
 #pragma mark - Notifications
