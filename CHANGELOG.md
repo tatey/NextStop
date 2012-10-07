@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Current
+## 0.5.0 / 2012-10-08
 
 * [New] Search for stops in route and direction.
 * [New] Launching from local notification goes straight to stop in "Route Scene" instead of previously loaded scene.
