@@ -7,6 +7,7 @@
 * [New] Show error message when map fails to load or fails to find user's location.
 * [Change] Default to keypad with numbers when adding new route.
 * [Change] "New Route" scene lists all routes.
+* [Change] Change previously monitored route pin color to grey/white to stop confusion with destination pin.
 * [Change] Show callout over target when switching from compass to normal after tapping tracking button in "Route Scene".
 * [Change] Formatted stop names for easier reading.
 * [Change] Formatted destination address for easier reading.
