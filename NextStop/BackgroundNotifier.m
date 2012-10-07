@@ -30,6 +30,7 @@
     localNotification.userInfo = @{@"routeId": routeManagedObject.routeRecord.routeId};
     localNotification.alertAction = NSLocalizedString(@"notifications.action.approaching", nil);
     localNotification.alertBody = NSLocalizedString(@"notifications.body.approaching", nil);
+    localNotification.alertLaunchImage = @"DefaultMap.png";
     localNotification.soundName = UILocalNotificationDefaultSoundName;
     [self.application presentLocalNotificationNow:localNotification];
 }
