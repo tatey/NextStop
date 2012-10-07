@@ -15,14 +15,6 @@
 
 @implementation AppDelegate
 
-// Public
-@synthesize dataManager = _dataManager;
-@synthesize proximityManager = _proximityManager;
-@synthesize window = _window;
-
-// Private
-@synthesize backgroundNotifier = _backgroundNotifier;
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     if (application.applicationState == UIApplicationStateBackground) {
         self.backgroundNotifier = [[BackgroundNotifier alloc] initWithApplication:application];
