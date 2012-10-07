@@ -34,9 +34,9 @@ static NSString *const kEntityName = @"Route";
     return [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:sectionNameKeyPath cacheName:name];
 }
 
-+ (id)routeMatchingRouteRecord:(RouteRecord *)routeRecord managedObjectContext:(NSManagedObjectContext *)context {
++ (id)routeMatchingRouteId:(NSString *)routeId managedObjectContext:(NSManagedObjectContext *)context {
     NSEntityDescription *entity = [NSEntityDescription entityForName:kEntityName inManagedObjectContext:context];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"routeId == %@", routeRecord.routeId];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"routeId == %@", routeId];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     request.entity = entity;
     request.predicate = predicate;
@@ -46,7 +46,11 @@ static NSString *const kEntityName = @"Route";
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-    return [routes lastObject];
+    return [routes lastObject];    
+}
+
++ (id)routeMatchingRouteRecord:(RouteRecord *)routeRecord managedObjectContext:(NSManagedObjectContext *)context {
+    return [self routeMatchingRouteId:routeRecord.routeId managedObjectContext:context];
 }
 
 + (id)routeMatchingOrInsertingRouteRecord:(RouteRecord *)routeRecord managedObjectContext:(NSManagedObjectContext *)context {

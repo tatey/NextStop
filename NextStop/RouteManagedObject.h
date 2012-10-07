@@ -13,6 +13,7 @@
 @property (strong, nonatomic) NSDate *updatedAt;
 
 + (NSFetchedResultsController *)routesInManagedObjectContext:(NSManagedObjectContext *)context sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)name;
++ (id)routeMatchingRouteId:(NSString *)routeId managedObjectContext:(NSManagedObjectContext *)context;
 + (id)routeMatchingRouteRecord:(RouteRecord *)routeRecord managedObjectContext:(NSManagedObjectContext *)context;
 + (id)routeMatchingOrInsertingRouteRecord:(RouteRecord *)routeRecord managedObjectContext:(NSManagedObjectContext *)context;
 
