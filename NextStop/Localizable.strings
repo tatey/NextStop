@@ -5,8 +5,8 @@
 "controls.ok" = "OK";
 
 // Notifications
-"notifications.action.approaching" = "Check";
-"notifications.body.approaching" = "Stop is approaching.";
+"notifications.action.approaching" = "map";
+"notifications.body.approaching" = "Get ready to hop off";
 
 // Models
 "direction_record.direction.inbound" = "Inbound";
@@ -25,10 +25,10 @@
 "direction_show.alerts.messages.targeted" = "You will get notified before you reach your stop, even if you put this device to sleep.";
 "direction_show.alerts.titles.found_no_result" = "No result found";
 "direction_show.alerts.titles.found_no_stop" = "No stops found within %dkm of the address";
-"direction_show.alerts.messages.found_no_stop" = "Try adding the suburb or city to the address.";
+"direction_show.alerts.messages.found_no_stop" = "Try adding the suburb or city to the address";
 "direction_show.search.placeholder" = "Stop or address";
-"route.alerts.titles.approaching" = "Stop is approaching";
-"route.alerts.messages.approaching" = "Get ready to hop off.";
+"route.alerts.titles.approaching" = "Next Stop";
+"route.alerts.messages.approaching" = "Get ready to hop off";
 "routes.title" = "Routes";
 "route_search.title" = "New Route";
 "route_search.search.placeholder" = "Try %@ or %@";
