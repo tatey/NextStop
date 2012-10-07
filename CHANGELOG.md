@@ -3,6 +3,7 @@
 ## Current
 
 * [New] Search for stops in route and direction.
+* [New] Launching from local notification goes straight to stop in "Route Scene" instead of previously loaded scene.
 * [New] Show error message when map fails to load or fails to find user's location.
 * [Change] Default to keypad with numbers when adding new route.
 * [Change] "New Route" scene lists all routes.
