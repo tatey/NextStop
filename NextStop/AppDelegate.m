@@ -24,7 +24,11 @@
 @synthesize backgroundNotifier = _backgroundNotifier;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.backgroundNotifier = [[BackgroundNotifier alloc] initWithApplication:application];
+    if (application.applicationState == UIApplicationStateBackground) {
+        self.backgroundNotifier = [[BackgroundNotifier alloc] initWithApplication:application];
+    }
+    self.dataManager = [[DataManager alloc] init];
+    self.proximityManager = [[ProximityManager alloc] initWithManagedObjectContext:self.dataManager.managedObjectContext];
     [self.proximityManager resume];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -48,22 +52,13 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    self.backgroundNotifier = [[BackgroundNotifier alloc] initWithApplication:application];
     [self.dataManager save];
     [Defaults syncronize];
 }
 
-- (DataManager *)dataManager {
-    if (!_dataManager) {
-        _dataManager = [[DataManager alloc] init];
-    }
-    return _dataManager;
-}
-
-- (ProximityManager *)proximityManager {
-    if (!_proximityManager) {
-        _proximityManager = [[ProximityManager alloc] initWithManagedObjectContext:self.dataManager.managedObjectContext];
-    }
-    return _proximityManager;
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    self.backgroundNotifier = nil;
 }
 
 @end

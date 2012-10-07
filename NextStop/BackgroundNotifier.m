@@ -24,7 +24,6 @@
 #pragma mark - Notifications
 
 - (void)directionManagedObjectDidApproachTarget:(NSNotification *)notification {
-    if (self.application.applicationState != UIApplicationStateBackground) return;
     DirectionManagedObject *directionManagedObject = notification.object;
     RouteManagedObject *routeManagedObject = directionManagedObject.routeManagedObject;
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
