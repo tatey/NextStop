@@ -3,7 +3,7 @@
 
 @protocol StopAnnotationViewDelegate;
 
-@interface StopAnnotationView : MKPinAnnotationView
+@interface StopAnnotationView : MKAnnotationView
 
 @property (weak, nonatomic) id <StopAnnotationViewDelegate> delegate;
 @property (assign, nonatomic, getter = isMonitored) BOOL monitored;

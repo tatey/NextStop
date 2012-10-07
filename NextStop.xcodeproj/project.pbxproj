@@ -15,6 +15,8 @@
 		5D0E03C9162152D300C820B4 /* DefaultMap-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E03C6162152D300C820B4 /* DefaultMap-568h@2x.png */; };
 		5D0E03CA162152D300C820B4 /* DefaultMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E03C7162152D300C820B4 /* DefaultMap.png */; };
 		5D0E03CB162152D300C820B4 /* DefaultMap@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E03C8162152D300C820B4 /* DefaultMap@2x.png */; };
+		5D0E03D116216F1B00C820B4 /* PinGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E03CD16216F1B00C820B4 /* PinGreen@2x.png */; };
+		5D0E03D316216F1B00C820B4 /* PinPurple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E03CF16216F1B00C820B4 /* PinPurple@2x.png */; };
 		5D17FB261605F44100D77A9B /* SearchBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D17FB241605F44100D77A9B /* SearchBarBackground.png */; };
 		5D17FB271605F44100D77A9B /* SearchBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D17FB251605F44100D77A9B /* SearchBarBackground@2x.png */; };
 		5D1B5EE71605AA8500149AC0 /* NSArray+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1B5EE61605AA8500149AC0 /* NSArray+Random.m */; };
@@ -24,6 +26,7 @@
 		5D2BFDBC1547F3B400D9F53E /* RouteIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */; };
 		5D3A56C61615D22F0019CF8A /* NameFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A56C51615D22F0019CF8A /* NameFormatter.m */; };
 		5D3A56CA1615D4020019CF8A /* StopReordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A56C91615D4020019CF8A /* StopReordCell.m */; };
+		5D44C639162175E0002E49C6 /* PinGray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D44C638162175E0002E49C6 /* PinGray@2x.png */; };
 		5D4CA1BA15FE276600915A70 /* RouteShowViewControllerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4CA1B915FE276600915A70 /* RouteShowViewControllerItem.m */; };
 		5D4CB10B15F31B640059784A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB10915F31B640059784A /* Icon.png */; };
 		5D4CB10C15F31B640059784A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB10A15F31B640059784A /* Icon@2x.png */; };
@@ -106,6 +109,8 @@
 		5D0E03C6162152D300C820B4 /* DefaultMap-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultMap-568h@2x.png"; sourceTree = "<group>"; };
 		5D0E03C7162152D300C820B4 /* DefaultMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultMap.png; sourceTree = "<group>"; };
 		5D0E03C8162152D300C820B4 /* DefaultMap@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultMap@2x.png"; sourceTree = "<group>"; };
+		5D0E03CD16216F1B00C820B4 /* PinGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PinGreen@2x.png"; sourceTree = "<group>"; };
+		5D0E03CF16216F1B00C820B4 /* PinPurple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PinPurple@2x.png"; sourceTree = "<group>"; };
 		5D16A87F1607713E00F3897E /* CoordinateRegion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoordinateRegion.h; sourceTree = "<group>"; };
 		5D17FB241605F44100D77A9B /* SearchBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SearchBarBackground.png; sourceTree = "<group>"; };
 		5D17FB251605F44100D77A9B /* SearchBarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SearchBarBackground@2x.png"; sourceTree = "<group>"; };
@@ -119,6 +124,7 @@
 		5D3A56C51615D22F0019CF8A /* NameFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameFormatter.m; sourceTree = "<group>"; };
 		5D3A56C81615D4020019CF8A /* StopReordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopReordCell.h; sourceTree = "<group>"; };
 		5D3A56C91615D4020019CF8A /* StopReordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopReordCell.m; sourceTree = "<group>"; };
+		5D44C638162175E0002E49C6 /* PinGray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PinGray@2x.png"; sourceTree = "<group>"; };
 		5D4CA1B615FE1CAB00915A70 /* RouteShowViewControllerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteShowViewControllerItem.h; sourceTree = "<group>"; };
 		5D4CA1B915FE276600915A70 /* RouteShowViewControllerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteShowViewControllerItem.m; sourceTree = "<group>"; };
 		5D4CB10915F31B640059784A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -447,6 +453,9 @@
 				5D0E03C8162152D300C820B4 /* DefaultMap@2x.png */,
 				5D4CB10915F31B640059784A /* Icon.png */,
 				5D4CB10A15F31B640059784A /* Icon@2x.png */,
+				5D44C638162175E0002E49C6 /* PinGray@2x.png */,
+				5D0E03CD16216F1B00C820B4 /* PinGreen@2x.png */,
+				5D0E03CF16216F1B00C820B4 /* PinPurple@2x.png */,
 				5DAA1EFC15EF93D000BB3A71 /* RouteCell.xib */,
 				5DA512B115F1E5F600EF91DC /* RouteRecordCell.xib */,
 				5D17FB241605F44100D77A9B /* SearchBarBackground.png */,
@@ -571,6 +580,9 @@
 				5D0E03C9162152D300C820B4 /* DefaultMap-568h@2x.png in Resources */,
 				5D0E03CA162152D300C820B4 /* DefaultMap.png in Resources */,
 				5D0E03CB162152D300C820B4 /* DefaultMap@2x.png in Resources */,
+				5D0E03D116216F1B00C820B4 /* PinGreen@2x.png in Resources */,
+				5D0E03D316216F1B00C820B4 /* PinPurple@2x.png in Resources */,
+				5D44C639162175E0002E49C6 /* PinGray@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

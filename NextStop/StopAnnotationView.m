@@ -23,8 +23,11 @@
         self.monitored = NO;
         self.targeted = NO;
         self.monitorSwitch = [[UISwitch alloc] init];
+        self.monitorSwitch.onTintColor = [UIColor colorWithRed:0.0588 green:0.4667 blue:0.0588 alpha:1.0000];
         [self.monitorSwitch addTarget:self action:@selector(monitorSwitchDidChangeValue:) forControlEvents:UIControlEventValueChanged];
         self.leftCalloutAccessoryView = self.monitorSwitch;
+        self.centerOffset = CGPointMake(8, -15);
+        self.calloutOffset = CGPointMake(-8, 0);
     }
     return self;
 }
@@ -45,13 +48,15 @@
 }
 
 - (void)changePinColor {
+    UIImage *image = nil;
     if (self.monitored && self.targeted) {
-        self.pinColor = MKPinAnnotationColorGreen;
+        image = [UIImage imageNamed:@"PinGreen.png"];
     } else if (self.targeted) {
-        self.pinColor = MKPinAnnotationColorRed;
+        image = [UIImage imageNamed:@"PinGray.png"];
     } else {
-        self.pinColor = MKPinAnnotationColorPurple;
+        image = [UIImage imageNamed:@"PinPurple.png"];
     }
+    self.image = image;
 }
 
 #pragma mark - Actions
