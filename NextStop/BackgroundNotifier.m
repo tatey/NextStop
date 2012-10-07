@@ -1,4 +1,7 @@
 #import "BackgroundNotifier.h"
+#import "DirectionManagedObject.h"
+#import "RouteManagedObject.h"
+#import "RouteRecord.h"
 #import "Strings.h"
 
 @implementation BackgroundNotifier
@@ -18,12 +21,18 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)directionManagedObjectDidApproachTarget:(id)sender {
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertAction = NSLocalizedString(@"notifications.action.approaching", nil);
-    notification.alertBody = NSLocalizedString(@"notifications.body.approaching", nil);
-    notification.soundName = UILocalNotificationDefaultSoundName;
-    [self.application presentLocalNotificationNow:notification];
+#pragma mark - Notifications
+
+- (void)directionManagedObjectDidApproachTarget:(NSNotification *)notification {
+    if (self.application.applicationState != UIApplicationStateBackground) return;
+    DirectionManagedObject *directionManagedObject = notification.object;
+    RouteManagedObject *routeManagedObject = directionManagedObject.routeManagedObject;
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    localNotification.userInfo = @{@"routeId": routeManagedObject.routeRecord.routeId};
+    localNotification.alertAction = NSLocalizedString(@"notifications.action.approaching", nil);
+    localNotification.alertBody = NSLocalizedString(@"notifications.body.approaching", nil);
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    [self.application presentLocalNotificationNow:localNotification];
 }
 
 @end
