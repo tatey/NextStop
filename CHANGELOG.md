@@ -3,6 +3,7 @@
 ## Current / Unreleased
 
 * [Fix] "Sticky pins" when opening previously used route.
+* [New] Added routes TX2, 700, 702, 703, 706, 707, 709, 745 and 705.
 
 ## 0.5.0 / 2012-10-08
 
