@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Current / Unreleased
+
+* [Fix] "Sticky pins" when opening previously used route.
+
 ## 0.5.0 / 2012-10-08
 
 * [New] Search for stops in route and direction.
