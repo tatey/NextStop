@@ -1,13 +1,14 @@
+#import "DataManager.h"
 #import "ProximityManagedObject.h"
 #import "ProximityManager.h"
 #import "ProximitySetManagedObject.h"
 
 @implementation ProximityManager
 
-- (id)initWithManagedObjectContext:(NSManagedObjectContext *)context {
+- (id)initWithDataManager:(DataManager *)dataManager {
     self = [self init];
     if (self) {
-        self.managedObjectContext = context;
+        self.dataManager = dataManager;
     }
     return self;
 }
@@ -24,7 +25,7 @@
 
 - (ProximitySetManagedObject *)proximitySet {
     if (!_proximitySet) {
-        _proximitySet = [ProximitySetManagedObject proximitySetInManagedObjectContext:self.managedObjectContext];
+        _proximitySet = [ProximitySetManagedObject proximitySetInManagedObjectContext:self.dataManager.managedObjectContext];
     }
     return _proximitySet;
 }
@@ -39,11 +40,13 @@
     } else {
         [self.locationManager startMonitoringForRegion:[proximity precisionRegion]];
     }
+    [self.dataManager save];
 }
 
 - (void)stopMonitoringProximity:(ProximityManagedObject *)proximity {
     [self.locationManager stopMonitoringForRegion:[proximity precisionRegion]];
     [self removeProximity:proximity];
+    [self.dataManager save];
 }
 
 - (void)addProximity:(ProximityManagedObject *)proximity {
@@ -67,7 +70,7 @@
 #pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
-    ProximityManagedObject *proximity = [ProximityManagedObject proximityMatchingIdentifier:region.identifier managedObjectContext:self.managedObjectContext];
+    ProximityManagedObject *proximity = [ProximityManagedObject proximityMatchingIdentifier:region.identifier managedObjectContext:self.dataManager.managedObjectContext];
     if (proximity) {
         [self.locationManager stopMonitoringForRegion:region];
         [self addProximity:proximity];

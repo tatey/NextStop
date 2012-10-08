@@ -20,7 +20,7 @@
         self.backgroundNotifier = [[BackgroundNotifier alloc] initWithApplication:application];
     }
     self.dataManager = [[DataManager alloc] init];
-    self.proximityManager = [[ProximityManager alloc] initWithManagedObjectContext:self.dataManager.managedObjectContext];
+    self.proximityManager = [[ProximityManager alloc] initWithDataManager:self.dataManager];
     [self.proximityManager resume];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
