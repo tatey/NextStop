@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Current / Unreleased
+## 0.5.2 / 2012-10-09
 
 * [Fix] Fixed the positioning of a pin's callout bubble after the map region changed.
 * [Fix] The callout bubble for the pin representing the destination would be behind pin representing the monitored stop.
