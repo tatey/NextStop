@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Current / Unreleased
+
+* [Fix] Fixed the positioning of a pin's callout bubble after the map region changed.
+* [Fix] The callout bubble for the pin representing the destination would be behind pin representing the monitored stop.
+* [Fix] Fixed another case where the pin for the monitored stop could appear be "stuck".
+
 ## 0.5.1 / 2012-10-08
 
 * [Fix] "Sticky pins" when opening previously used route.
