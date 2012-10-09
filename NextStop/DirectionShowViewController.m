@@ -207,12 +207,12 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
     [alert show];
 }
 
-- (void)mapView:(MKMapView *)mapView didDeselectStopAnnotationView:(StopAnnotationView *)stopAnnotationView {
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
     [_cachedStopAnnotationView.superview bringSubviewToFront:_cachedStopAnnotationView];
 }
 
-- (void)mapView:(MKMapView *)mapView didSelectStopAnnotationView:(StopAnnotationView *)stopAnnotationView {
-    if (_cachedStopAnnotationView == stopAnnotationView) return;
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    if (_cachedStopAnnotationView == view) return;
     [_cachedStopAnnotationView.superview sendSubviewToBack:_cachedStopAnnotationView];
 }
 
