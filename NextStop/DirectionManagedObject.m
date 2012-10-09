@@ -107,11 +107,7 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 - (StopRecord *)target {
     if (!_target) {
         if (self.targetId) {
-            for (StopRecord *stop in self.directionRecord.stops) {
-                if ([stop isStopIdEqualToStopId:self.targetId]) {
-                    _target = stop;
-                }
-            }
+            _target = [StopRecord stopMatchingStopId:self.targetId];
         }
     }
     return _target;
@@ -173,10 +169,9 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 }
 
 - (void)stopMonitoringProximityToTarget {
-    ProximityManagedObject *proximity = self.proximity;
+    [UIAppDelegate.proximityManager stopMonitoringProximity:self.proximity];
+    [self.managedObjectContext deleteObject:self.proximity];
     self.proximity = nil;
-    [self.managedObjectContext deleteObject:proximity];
-    [UIAppDelegate.proximityManager stopMonitoringProximity:proximity];
 }
 
 - (void)proximityDidApproachTarget {

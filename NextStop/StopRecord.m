@@ -18,6 +18,11 @@
                 "AND stops.stop_name LIKE ? "                                                                                                     \
                 "ORDER BY stops.stop_name ASC; "                                                                                                  \
 
+#define QUERY3 @"SELECT stops.* "          \
+                "FROM stops "              \
+                "WHERE stops.stop_id = ? " \
+                "LIMIT 1; "                \
+
 @interface StopRecord () {
 @private 
     CLLocationDegrees _latitude;
@@ -63,6 +68,17 @@
     return [stops copy];
 }
 
++ (id)stopMatchingStopId:(NSString *)stopId {
+    SQLiteDB *db = [SQLiteDB sharedDB];
+    sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY3];
+    sqlite3_bind_text(stmt, 1, [stopId UTF8String], -1, SQLITE_STATIC);
+    __block StopRecord *stop = nil;
+    [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
+        stop = [[self alloc] initWithStatement:stmt];
+    }];
+    return stop;
+}
+
 - (id)initWithStatement:(sqlite3_stmt *)stmt {
     self = [self init];
     if (self) {
@@ -90,11 +106,7 @@
 }
 
 - (BOOL)isEqualToStop:(StopRecord *)stop {
-    return [self isStopIdEqualToStopId:stop.stopId];
-}
-
-- (BOOL)isStopIdEqualToStopId:(NSString *)stopId {
-    return [self.stopId isEqualToString:stopId];
+    return [self.stopId isEqualToString:stop.stopId];
 }
 
 - (NSString *)description {
