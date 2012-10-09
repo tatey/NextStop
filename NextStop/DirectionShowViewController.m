@@ -69,7 +69,7 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
         [self.mapView setRegion:[self.directionManagedObject region] animated:NO];
     }
     if (self.directionManagedObject.target) {
-        [self.mapView selectAnnotation:self.directionManagedObject.target animated:NO];
+        [self.mapView selectAnnotation:[self stopRecordMatchingStopRecord:self.directionManagedObject.target] animated:NO];
     }
 }
 
@@ -137,7 +137,7 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
         [self.mapView setUserTrackingMode:MKUserTrackingModeNone animated:NO];
         if (self.directionManagedObject.target) {
             [self zoomToAnnotation:self.directionManagedObject.target animated:YES];
-            [self.mapView selectAnnotation:self.directionManagedObject.target animated:YES];
+            [self.mapView selectAnnotation:[self stopRecordMatchingStopRecord:self.directionManagedObject.target] animated:YES];
         } else {
             [self zoomToAnnotations:[self.directionManagedObject stops] animated:YES];
         }
@@ -165,6 +165,18 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
 
 - (void)directionManagedObjectMonitorDidChangeValue {
     [_cachedStopAnnotationView setMonitored:self.directionManagedObject.isMonitoringProximityToTarget animated:YES];
+}
+
+- (StopRecord *)stopRecordMatchingStopRecord:(StopRecord *)other {
+    for (id <MKAnnotation> annotation in self.mapView.annotations) {
+        if ([annotation isKindOfClass:[StopRecord class]]) {
+            StopRecord *stop = annotation;
+            if ([stop isEqualToStop:other]) {
+                return stop;
+            }
+        }
+    }
+    return nil;
 }
 
 #pragma mark - MKMapViewDelegate
