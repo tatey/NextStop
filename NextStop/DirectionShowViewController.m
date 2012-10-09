@@ -10,6 +10,8 @@
 #import "StopRecord.h"
 #import "StopReordCell.h"
 
+#define REGION_CHANGE_DURATION 0.75
+
 static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManagedObject.monitorProximityToTarget";
 
 @implementation DirectionShowViewController {
@@ -137,7 +139,9 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
         [self.mapView setUserTrackingMode:MKUserTrackingModeNone animated:NO];
         if (self.directionManagedObject.target) {
             [self zoomToAnnotation:self.directionManagedObject.target animated:YES];
-            [self.mapView selectAnnotation:[self stopRecordMatchingStopRecord:self.directionManagedObject.target] animated:YES];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, REGION_CHANGE_DURATION * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
+                [self.mapView selectAnnotation:[self stopRecordMatchingStopRecord:self.directionManagedObject.target] animated:YES];
+            });
         } else {
             [self zoomToAnnotations:[self.directionManagedObject stops] animated:YES];
         }
@@ -312,7 +316,9 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
                 [self.directionManagedObject replaceDestinationWithDestination:destination];
                 [self.mapView addAnnotation:destination];
                 [self zoomToAnnotations:@[destination, stop] animated:YES];
-                [self.mapView selectAnnotation:stop animated:YES];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, REGION_CHANGE_DURATION * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
+                    [self.mapView selectAnnotation:stop animated:YES];
+                });
             } else {
                 [self.managedObjectContext deleteObject:destination];
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"direction_show.alerts.titles.found_no_stop", nil), DIRECTION_RECORD_MAX_STOP_DISTANCE_METERS / 1000]
@@ -364,8 +370,8 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     StopRecord *stopRecord = [self.filteredStops objectAtIndex:indexPath.row];
     [self.modalSearchDisplayController setActive:NO animated:YES];
-    [self zoomToAnnotation:stopRecord animated:YES];
-    [self.mapView selectAnnotation:stopRecord animated:YES];
+    [self zoomToAnnotation:stopRecord animated:NO];
+    [self.mapView selectAnnotation:stopRecord animated:NO];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
