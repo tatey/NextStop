@@ -11,7 +11,6 @@
 @property (strong, nonatomic) RouteManagedObject *routeManagedObject;
 @property (strong, nonatomic) UIBarButtonItem *searchBarButtonItem;
 @property (assign, nonatomic) NSInteger selectedIndex;
-@property (strong, nonatomic) UIToolbar *toolbar;
 
 - (id)initWithRouteMananger:(RouteManagedObject *)routeManagedObject managedObjectContext:(NSManagedObjectContext *)context;
 

@@ -14,7 +14,6 @@
 @synthesize routeManagedObject = _routeManagedObject;
 @synthesize searchBarButtonItem = _searchBarButtonItem;
 @synthesize selectedIndex = _selectedIndex;
-@synthesize toolbar = _toolbar;
 
 - (id)initWithRouteMananger:(RouteManagedObject *)routeManagedObject managedObjectContext:(NSManagedObjectContext *)context {
     self = [self init];
@@ -28,9 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Toolbar
-    self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - TOOLBAR_HEIGHT, self.view.bounds.size.width, TOOLBAR_HEIGHT)];
-    self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth;
-    [self.view addSubview:self.toolbar];
+    self.navigationController.toolbarHidden = NO;
     // Direction control
     self.directionsControl = [[UISegmentedControl alloc] initWithItems:[self.routeManagedObject headsigns]];
     self.directionsControl.segmentedControlStyle = UISegmentedControlStyleBar;
@@ -60,15 +57,12 @@
     }
     self.directionsControl = nil;
     self.searchBarButtonItem = nil;
-    self.toolbar = nil;
     [super viewDidUnload];
 }
 
 - (void)viewDidLayoutSubviews {
     for (UIViewController *viewController in self.childViewControllers) {
-        CGRect frame = self.view.bounds;
-        frame.size.height = frame.size.height - TOOLBAR_HEIGHT;
-        viewController.view.frame = frame;
+        viewController.view.frame = self.view.bounds;
     }
 }
 
@@ -99,10 +93,11 @@
     DirectionShowViewController *newViewController = [self.childViewControllers objectAtIndex:selectedIndex];
     if (animated) {
         self.navigationController.navigationBar.userInteractionEnabled = NO;
+        self.navigationController.toolbar.userInteractionEnabled = NO;
         [self transitionFromViewController:oldViewController toViewController:newViewController duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-            [self.view bringSubviewToFront:self.toolbar];
         } completion:^(BOOL finished) {
             self.navigationController.navigationBar.userInteractionEnabled = YES;
+            self.navigationController.toolbar.userInteractionEnabled = YES;
         }];
     } else {
         [oldViewController.view removeFromSuperview];
@@ -120,9 +115,11 @@
 - (void)setToolbarItemsWithRouteShowViewControllerItem:(RouteShowViewControllerItem *)routeShowViewControllerItem {
     UIBarButtonItem *flexibleSpaceBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *directionControlBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.directionsControl];
-    self.toolbar.items = nil;
-    self.toolbar.items = @[routeShowViewControllerItem.leftBarButtonItem, flexibleSpaceBarButtonItem, directionControlBarButtonItem, flexibleSpaceBarButtonItem];
-    
+    BOOL animate = !self.toolbarItems;
+    if (!animate) {
+        self.toolbarItems = nil;
+    }
+    [self setToolbarItems:@[routeShowViewControllerItem.leftBarButtonItem, flexibleSpaceBarButtonItem, directionControlBarButtonItem, flexibleSpaceBarButtonItem] animated:animate];
 }
 
 #pragma mark - Actions
