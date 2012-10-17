@@ -27,6 +27,41 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="YbM-ok-ShU">
+                            <rect key="frame" x="0.0" y="242" width="320" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="v0.5.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eC0-1Z-uw7">
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="42" id="3Hz-T0-F1H"/>
+                                        <constraint firstAttribute="height" constant="12" id="nZB-2i-wY9"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="0.29803922772407532" green="0.34117648005485535" blue="0.41960787773132324" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <size key="shadowOffset" width="0.0" height="1"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Designed and built by Tate Johnson" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGR-ZW-9N7">
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="17" id="wkY-Pw-YXA"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" red="0.29803922772407532" green="0.34117648005485535" blue="0.41960787773132324" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <size key="shadowOffset" width="0.0" height="1"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="eC0-1Z-uw7" secondAttribute="bottom" constant="3" id="4Nf-qb-qyG"/>
+                                <constraint firstItem="TGR-ZW-9N7" firstAttribute="top" secondItem="YbM-ok-ShU" secondAttribute="top" constant="3" id="ATs-Z5-twZ"/>
+                                <constraint firstItem="TGR-ZW-9N7" firstAttribute="leading" secondItem="YbM-ok-ShU" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="G1H-oe-zcT"/>
+                                <constraint firstItem="TGR-ZW-9N7" firstAttribute="centerX" secondItem="eC0-1Z-uw7" secondAttribute="centerX" type="default" id="gJZ-x8-DAT"/>
+                                <constraint firstAttribute="trailing" secondItem="TGR-ZW-9N7" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pfJ-2s-9zp"/>
+                            </constraints>
+                        </view>
                         <sections>
                             <tableViewSection id="Lqh-qW-WQr">
                                 <cells>
@@ -105,7 +140,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection footerTitle="Designed and built by Tate Johnson" id="aqb-iW-5yo">
+                            <tableViewSection id="aqb-iW-5yo">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="9dg-3X-3bN">
                                         <rect key="frame" x="0.0" y="186" width="320" height="46"/>
@@ -145,6 +180,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="versionLabel" destination="eC0-1Z-uw7" id="pui-g9-JLi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAt-0w-Cv7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -156,6 +194,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cancelBarButtonItemTapped:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
