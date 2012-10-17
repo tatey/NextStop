@@ -36,7 +36,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     // Toolbar
     UIBarButtonItem *flexibleSpaceBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *aboutBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(aboutBarButtonItemTapped:)];
+    UIBarButtonItem *aboutBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"About.png"] style:UIBarButtonItemStylePlain target:self action:@selector(aboutBarButtonItemTapped:)];
     self.navigationController.toolbarHidden = NO;
     self.toolbarItems = @[flexibleSpaceBarButtonItem, flexibleSpaceBarButtonItem, flexibleSpaceBarButtonItem, aboutBarButtonItem];
     // Routes

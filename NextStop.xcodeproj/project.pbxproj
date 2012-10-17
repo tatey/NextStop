@@ -45,6 +45,8 @@
 		5D84A49F162EBB84002A959B /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D84A49E162EBB84002A959B /* AboutViewController.m */; };
 		5D864EDB15B55CD4007ADCA8 /* DirectionRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D864EDA15B55CD4007ADCA8 /* DirectionRecord.m */; };
 		5D864EDE15B564C9007ADCA8 /* DirectionManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D864EDD15B564C9007ADCA8 /* DirectionManagedObject.m */; };
+		5D918A24162ED9A100450C3D /* About.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D918A22162ED9A100450C3D /* About.png */; };
+		5D918A25162ED9A100450C3D /* About@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D918A23162ED9A100450C3D /* About@2x.png */; };
 		5D9AAB1615ADAE8C00E2E077 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9AAB1515ADAE8C00E2E077 /* DataManager.m */; };
 		5D9AAB1915ADAFBE00E2E077 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9AAB1815ADAFBE00E2E077 /* CoreData.framework */; };
 		5D9AAB1C15ADB11600E2E077 /* NextStop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D9AAB1A15ADB11600E2E077 /* NextStop.xcdatamodeld */; };
@@ -156,6 +158,8 @@
 		5D864EDA15B55CD4007ADCA8 /* DirectionRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionRecord.m; sourceTree = "<group>"; };
 		5D864EDC15B564C9007ADCA8 /* DirectionManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionManagedObject.h; sourceTree = "<group>"; };
 		5D864EDD15B564C9007ADCA8 /* DirectionManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionManagedObject.m; sourceTree = "<group>"; };
+		5D918A22162ED9A100450C3D /* About.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = About.png; sourceTree = "<group>"; };
+		5D918A23162ED9A100450C3D /* About@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "About@2x.png"; sourceTree = "<group>"; };
 		5D9AAB1415ADAE8C00E2E077 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		5D9AAB1515ADAE8C00E2E077 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		5D9AAB1815ADAFBE00E2E077 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -451,6 +455,8 @@
 				5D84A49B162EB86C002A959B /* NextStop.storyboard */,
 				5DA5EFB2160F32FB00E49BF4 /* NextStop.sqlite */,
 				5D9AAB1A15ADB11600E2E077 /* NextStop.xcdatamodeld */,
+				5D918A22162ED9A100450C3D /* About.png */,
+				5D918A23162ED9A100450C3D /* About@2x.png */,
 				5D5CA6541605A04B0006D433 /* BusGray.png */,
 				5D5CA6551605A04B0006D433 /* BusGray@2x.png */,
 				5D5CA6561605A04B0006D433 /* BusGreen.png */,
@@ -600,6 +606,8 @@
 				5DD345FE162D446A00DA4C82 /* PyrmontCenter.gpx in Resources */,
 				5DD345FF162D446A00DA4C82 /* PyrmontNorth.gpx in Resources */,
 				5D84A49C162EB86C002A959B /* NextStop.storyboard in Resources */,
+				5D918A24162ED9A100450C3D /* About.png in Resources */,
+				5D918A25162ED9A100450C3D /* About@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
