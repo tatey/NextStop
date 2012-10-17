@@ -79,11 +79,21 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 #pragma mark - Actions
 
 - (void)aboutBarButtonItemTapped:(UIBarButtonItem *)aboutBarButtonItem {
-
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"NextStop" bundle:nil];
+    UINavigationController *navigationController = [storyboard instantiateInitialViewController];
+    AboutViewController *aboutViewController = (AboutViewController *)navigationController.topViewController;
+    aboutViewController.delegate = self;
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 - (void)addBarButtonItemTapped:(UIBarButtonItem *)addBarButtonItem {
     [self presentRouteNewViewControllerCancelable:[[self.routes fetchedObjects] count] > 0 animated:YES completion:nil];
+}
+
+#pragma mark - AboutViewControllerDelegate
+
+- (void)aboutViewControlerDidFinish:(AboutViewController *)controller {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate

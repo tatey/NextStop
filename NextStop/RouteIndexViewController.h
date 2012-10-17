@@ -1,8 +1,9 @@
 #import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
+#import "AboutViewController.h"
 #import "RouteNewViewController.h"
 
-@interface RouteIndexViewController : UITableViewController <NSFetchedResultsControllerDelegate, RouteNewViewControllerDelegate>
+@interface RouteIndexViewController : UITableViewController <AboutViewControllerDelegate, NSFetchedResultsControllerDelegate, RouteNewViewControllerDelegate>
 
 @property (strong, nonatomic) UIBarButtonItem *addBarButtonItem;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
