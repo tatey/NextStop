@@ -139,7 +139,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="More Info" id="8Nv-ZO-nxb">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Iej-uI-4c7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="Iej-uI-4c7">
                             <connections>
                                 <action selector="cancelBarButtonItemTapped:" destination="gSe-Lz-dVn" id="lb6-kL-r1S"/>
                             </connections>
