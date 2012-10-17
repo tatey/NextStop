@@ -34,6 +34,11 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     self.navigationItem.rightBarButtonItem = self.addBarButtonItem;
     // Edit button item
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    // Toolbar
+    UIBarButtonItem *flexibleSpaceBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *aboutBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(aboutBarButtonItemTapped:)];
+    self.navigationController.toolbarHidden = NO;
+    self.toolbarItems = @[flexibleSpaceBarButtonItem, flexibleSpaceBarButtonItem, flexibleSpaceBarButtonItem, aboutBarButtonItem];
     // Routes
     self.routes = [RouteManagedObject routesInManagedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:kFetchedResultsControllerCacheName];
     self.routes.delegate = self;
@@ -72,6 +77,10 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 }
 
 #pragma mark - Actions
+
+- (void)aboutBarButtonItemTapped:(UIBarButtonItem *)aboutBarButtonItem {
+
+}
 
 - (void)addBarButtonItemTapped:(UIBarButtonItem *)addBarButtonItem {
     [self presentRouteNewViewControllerCancelable:[[self.routes fetchedObjects] count] > 0 animated:YES completion:nil];
