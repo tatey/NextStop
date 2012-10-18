@@ -78,7 +78,8 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-    for (ProximityManagedObject *proximity in self.proximitySet) {
+    NSSet *proximities = [self.proximitySet.proximities copy];
+    for (ProximityManagedObject *proximity in proximities) {
         if ([proximity notificationRadiusContainsCoordinate:newLocation.coordinate]) {
             [proximity targetContainedWithinNotificationRadius];
         }

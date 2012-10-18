@@ -3,7 +3,7 @@
 
 @class ProximityManagedObject;
 
-@interface ProximitySetManagedObject : NSManagedObject <NSFastEnumeration>
+@interface ProximitySetManagedObject : NSManagedObject
 
 @property (copy, nonatomic) NSMutableSet *proximities;
 

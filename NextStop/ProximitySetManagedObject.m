@@ -38,8 +38,4 @@ static NSString *const kEntityName = @"ProximitySet";
     return [self.proximities count];
 }
 
-- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(__unsafe_unretained id [])buffer count:(NSUInteger)len {
-    return [self.proximities countByEnumeratingWithState:state objects:buffer count:len];
-}
-
 @end
