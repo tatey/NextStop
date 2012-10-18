@@ -31,6 +31,7 @@ static NSString *const kEntityName = @"ProximitySet";
 }
 
 - (void)removeProximity:(ProximityManagedObject *)proximity {
+    proximity.proximitySet = nil;
     [self.proximities removeObject:proximity];
 }
 

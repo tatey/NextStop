@@ -169,9 +169,10 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 }
 
 - (void)stopMonitoringProximityToTarget {
-    [UIAppDelegate.proximityManager stopMonitoringProximity:self.proximity];
-    [self.managedObjectContext deleteObject:self.proximity];
+    ProximityManagedObject *proximity = self.proximity;
     self.proximity = nil;
+    [self.managedObjectContext deleteObject:proximity];
+    [UIAppDelegate.proximityManager stopMonitoringProximity:proximity];
 }
 
 - (void)proximityDidApproachTarget {
