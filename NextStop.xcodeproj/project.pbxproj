@@ -40,6 +40,8 @@
 		5D5CA65E1605A16B0006D433 /* BusWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D5CA65C1605A16B0006D433 /* BusWhite.png */; };
 		5D5CA65F1605A16B0006D433 /* BusWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D5CA65D1605A16B0006D433 /* BusWhite@2x.png */; };
 		5D658A6D160B369E00ECE4C7 /* Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D658A6C160B369E00ECE4C7 /* Defaults.m */; };
+		5D6822501632930D00EF756C /* EmptyRoute.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D68224F1632930D00EF756C /* EmptyRoute.png */; };
+		5D6822531632932600EF756C /* EmptyRouteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D6822521632932600EF756C /* EmptyRouteView.xib */; };
 		5D7D8A831568C5D0004DFB54 /* BackgroundNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */; };
 		5D84A49C162EB86C002A959B /* NextStop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D84A49B162EB86C002A959B /* NextStop.storyboard */; };
 		5D84A49F162EBB84002A959B /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D84A49E162EBB84002A959B /* AboutViewController.m */; };
@@ -63,6 +65,7 @@
 		5DA866A91556C25E00FB1ACF /* RouteRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA866A71556C25E00FB1ACF /* RouteRecord.m */; };
 		5DAA1EFD15EF93D000BB3A71 /* RouteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DAA1EFC15EF93D000BB3A71 /* RouteCell.xib */; };
 		5DAA1F0115EF94FB00BB3A71 /* RouteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA1F0015EF94FB00BB3A71 /* RouteCell.m */; };
+		5DAE5AFB1632C649000B91FE /* EmptyRoute@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DAE5AFA1632C649000B91FE /* EmptyRoute@2x.png */; };
 		5DB0AE101578C83E00D43B2E /* Taringa.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DB0AE0E1578C83E00D43B2E /* Taringa.gpx */; };
 		5DB0AE111578C83E00D43B2E /* Toowoong.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DB0AE0F1578C83E00D43B2E /* Toowoong.gpx */; };
 		5DB23092160B4C1900F8755B /* Close.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB23090160B4C1900F8755B /* Close.png */; };
@@ -149,6 +152,8 @@
 		5D5CA65D1605A16B0006D433 /* BusWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BusWhite@2x.png"; sourceTree = "<group>"; };
 		5D658A6B160B369E00ECE4C7 /* Defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defaults.h; sourceTree = "<group>"; };
 		5D658A6C160B369E00ECE4C7 /* Defaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defaults.m; sourceTree = "<group>"; };
+		5D68224F1632930D00EF756C /* EmptyRoute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EmptyRoute.png; sourceTree = "<group>"; };
+		5D6822521632932600EF756C /* EmptyRouteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyRouteView.xib; sourceTree = "<group>"; };
 		5D7D8A811568C5D0004DFB54 /* BackgroundNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundNotifier.h; sourceTree = "<group>"; };
 		5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundNotifier.m; sourceTree = "<group>"; };
 		5D84A49B162EB86C002A959B /* NextStop.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NextStop.storyboard; sourceTree = "<group>"; };
@@ -183,6 +188,7 @@
 		5DAA1EFC15EF93D000BB3A71 /* RouteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteCell.xib; sourceTree = "<group>"; };
 		5DAA1EFF15EF94FB00BB3A71 /* RouteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteCell.h; sourceTree = "<group>"; };
 		5DAA1F0015EF94FB00BB3A71 /* RouteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteCell.m; sourceTree = "<group>"; };
+		5DAE5AFA1632C649000B91FE /* EmptyRoute@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EmptyRoute@2x.png"; sourceTree = "<group>"; };
 		5DB0AE0E1578C83E00D43B2E /* Taringa.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Taringa.gpx; sourceTree = "<group>"; };
 		5DB0AE0F1578C83E00D43B2E /* Toowoong.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Toowoong.gpx; sourceTree = "<group>"; };
 		5DB23090160B4C1900F8755B /* Close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Close.png; sourceTree = "<group>"; };
@@ -471,11 +477,14 @@
 				5D0E03C6162152D300C820B4 /* DefaultMap-568h@2x.png */,
 				5D0E03C7162152D300C820B4 /* DefaultMap.png */,
 				5D0E03C8162152D300C820B4 /* DefaultMap@2x.png */,
+				5D68224F1632930D00EF756C /* EmptyRoute.png */,
+				5DAE5AFA1632C649000B91FE /* EmptyRoute@2x.png */,
 				5D4CB10915F31B640059784A /* Icon.png */,
 				5D4CB10A15F31B640059784A /* Icon@2x.png */,
 				5D44C638162175E0002E49C6 /* PinGray@2x.png */,
 				5D0E03CD16216F1B00C820B4 /* PinGreen@2x.png */,
 				5D0E03CF16216F1B00C820B4 /* PinPurple@2x.png */,
+				5D6822521632932600EF756C /* EmptyRouteView.xib */,
 				5DAA1EFC15EF93D000BB3A71 /* RouteCell.xib */,
 				5DA512B115F1E5F600EF91DC /* RouteRecordCell.xib */,
 				5D17FB241605F44100D77A9B /* SearchBarBackground.png */,
@@ -608,6 +617,9 @@
 				5D84A49C162EB86C002A959B /* NextStop.storyboard in Resources */,
 				5D918A24162ED9A100450C3D /* About.png in Resources */,
 				5D918A25162ED9A100450C3D /* About@2x.png in Resources */,
+				5D6822501632930D00EF756C /* EmptyRoute.png in Resources */,
+				5D6822531632932600EF756C /* EmptyRouteView.xib in Resources */,
+				5DAE5AFB1632C649000B91FE /* EmptyRoute@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

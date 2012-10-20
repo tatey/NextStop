@@ -15,7 +15,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 }
 
 @synthesize addBarButtonItem = _addBarButtonItem;
-@synthesize emptyRoutesView = _emptyRoutesView;
+@synthesize emptyRouteView = _emptyRouteView;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize routes = _routes;
 @synthesize tableView = _tableView;
@@ -33,7 +33,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     // Add bar button item
     self.addBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addBarButtonItemTapped:)];
     self.addBarButtonItem.style = UIBarButtonItemStyleBordered;
-    self.navigationItem.rightBarButtonItem = self.addBarButtonItem;
+    self.navigationItem.leftBarButtonItem = self.addBarButtonItem;
     // Toolbar
     UIBarButtonItem *flexibleSpaceBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *aboutBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"About.png"] style:UIBarButtonItemStylePlain target:self action:@selector(aboutBarButtonItemTapped:)];
@@ -63,6 +63,10 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     [super viewDidUnload];
 }
 
+- (void)viewWillLayoutSubviews {
+    self.emptyRouteView.frame = self.view.bounds;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
@@ -82,27 +86,27 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     }
 }
 
-- (void)addEmptyRoutesView {
-    if (self.emptyRoutesView) return;
-    self.emptyRoutesView = [[UIView alloc] initWithFrame:self.view.bounds];
-    self.emptyRoutesView.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:self.emptyRoutesView];
-    self.navigationItem.leftBarButtonItem = nil;
+- (void)addEmptyRouteView {
+    if (self.emptyRouteView) return;
+    self.emptyRouteView = [[[NSBundle mainBundle] loadNibNamed:@"EmptyRouteView" owner:nil options:nil] lastObject];
+    [self.view addSubview:self.emptyRouteView];
+    self.emptyRouteView.center = self.view.center;
+    self.navigationItem.rightBarButtonItem = nil;
     [self setEditing:NO animated:NO];
 }
 
-- (void)removeEmptyRoutesView {
-    if (!self.emptyRoutesView) return;
-    [self.emptyRoutesView removeFromSuperview];
-    self.emptyRoutesView = nil;
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+- (void)removeEmptyRouteView {
+    if (!self.emptyRouteView) return;
+    [self.emptyRouteView removeFromSuperview];
+    self.emptyRouteView = nil;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)toggleEmptyRoutesView {
     if ([[self.routes fetchedObjects] count] == 0) {
-        [self addEmptyRoutesView];
+        [self addEmptyRouteView];
     } else {
-        [self removeEmptyRoutesView];
+        [self removeEmptyRouteView];
     }
 }
 
