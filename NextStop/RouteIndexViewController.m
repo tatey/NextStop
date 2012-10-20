@@ -15,8 +15,10 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 }
 
 @synthesize addBarButtonItem = _addBarButtonItem;
+@synthesize emptyRoutesView = _emptyRoutesView;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize routes = _routes;
+@synthesize tableView = _tableView;
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)context {
     self = [self init];
@@ -32,8 +34,6 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     self.addBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addBarButtonItemTapped:)];
     self.addBarButtonItem.style = UIBarButtonItemStyleBordered;
     self.navigationItem.rightBarButtonItem = self.addBarButtonItem;
-    // Edit button item
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     // Toolbar
     UIBarButtonItem *flexibleSpaceBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *aboutBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"About.png"] style:UIBarButtonItemStylePlain target:self action:@selector(aboutBarButtonItemTapped:)];
@@ -48,8 +48,13 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 		abort();
     }
     // Table view
-    [self.tableView registerNib:[UINib nibWithNibName:@"RouteCell" bundle:nil] forCellReuseIdentifier:kRouteCellReuseId];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     self.tableView.rowHeight = ROW_HEIGHT;
+    [self.tableView registerNib:[UINib nibWithNibName:@"RouteCell" bundle:nil] forCellReuseIdentifier:kRouteCellReuseId];
+    [self.view addSubview:self.tableView];
+    [self toggleEmptyRoutesView];
 }
 
 - (void)viewDidUnload {
@@ -58,10 +63,11 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     [super viewDidUnload];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if ([[self.routes fetchedObjects] count] == 0) {
-        [self presentRouteNewViewControllerCancelable:NO animated:YES completion:nil];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    if (indexPath) {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:animated];
     }
 }
 
@@ -69,11 +75,35 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     return NSLocalizedString(@"routes.title", nil);
 }
 
-- (void)presentRouteNewViewControllerCancelable:(BOOL)cancelable animated:(BOOL)animated completion:(void (^)(void))completion {
-    RouteNewViewController *routeNewViewController = [[RouteNewViewController alloc] initWithDelegate:self];
-    routeNewViewController.cancelable = cancelable;
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:routeNewViewController];
-    [self presentViewController:navigationController animated:animated completion:completion];
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    if (self.tableView.editing != editing) {
+        [self.tableView setEditing:editing animated:animated];
+    }
+}
+
+- (void)addEmptyRoutesView {
+    if (self.emptyRoutesView) return;
+    self.emptyRoutesView = [[UIView alloc] initWithFrame:self.view.bounds];
+    self.emptyRoutesView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:self.emptyRoutesView];
+    self.navigationItem.leftBarButtonItem = nil;
+    [self setEditing:NO animated:NO];
+}
+
+- (void)removeEmptyRoutesView {
+    if (!self.emptyRoutesView) return;
+    [self.emptyRoutesView removeFromSuperview];
+    self.emptyRoutesView = nil;
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+}
+
+- (void)toggleEmptyRoutesView {
+    if ([[self.routes fetchedObjects] count] == 0) {
+        [self addEmptyRoutesView];
+    } else {
+        [self removeEmptyRoutesView];
+    }
 }
 
 #pragma mark - Actions
@@ -87,7 +117,9 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 }
 
 - (void)addBarButtonItemTapped:(UIBarButtonItem *)addBarButtonItem {
-    [self presentRouteNewViewControllerCancelable:[[self.routes fetchedObjects] count] > 0 animated:YES completion:nil];
+    RouteNewViewController *routeNewViewController = [[RouteNewViewController alloc] initWithDelegate:self];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:routeNewViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 #pragma mark - AboutViewControllerDelegate
@@ -101,6 +133,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
     if (type == NSFetchedResultsChangeInsert) {
         [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationTop];
+        [self toggleEmptyRoutesView];
     }
     if (type == NSFetchedResultsChangeMove) {
         [self.tableView moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
@@ -113,6 +146,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
             animation = UITableViewRowAnimationTop;
         }
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:animation];
+        [self toggleEmptyRoutesView];
     }
 }
 
@@ -157,6 +191,14 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     RouteManagedObject *routeManagedObject = [self.routes objectAtIndexPath:indexPath];
     RouteShowViewController *routeShowViewController = [[RouteShowViewController alloc] initWithRouteMananger:routeManagedObject managedObjectContext:self.managedObjectContext];
     [self.navigationController pushViewController:routeShowViewController animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self setEditing:NO animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self setEditing:YES animated:YES];
 }
 
 @end
