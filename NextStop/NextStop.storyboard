@@ -27,41 +27,6 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="YbM-ok-ShU">
-                            <rect key="frame" x="0.0" y="242" width="320" height="37"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="v0.5.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eC0-1Z-uw7">
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="42" id="3Hz-T0-F1H"/>
-                                        <constraint firstAttribute="height" constant="12" id="nZB-2i-wY9"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                    <color key="textColor" red="0.29803922772407532" green="0.34117648005485535" blue="0.41960787773132324" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <size key="shadowOffset" width="0.0" height="1"/>
-                                </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Designed and built by Tate Johnson" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGR-ZW-9N7">
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="17" id="wkY-Pw-YXA"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <color key="textColor" red="0.29803922772407532" green="0.34117648005485535" blue="0.41960787773132324" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <size key="shadowOffset" width="0.0" height="1"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="eC0-1Z-uw7" secondAttribute="bottom" constant="3" id="4Nf-qb-qyG"/>
-                                <constraint firstItem="TGR-ZW-9N7" firstAttribute="top" secondItem="YbM-ok-ShU" secondAttribute="top" constant="3" id="ATs-Z5-twZ"/>
-                                <constraint firstItem="TGR-ZW-9N7" firstAttribute="leading" secondItem="YbM-ok-ShU" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="G1H-oe-zcT"/>
-                                <constraint firstItem="TGR-ZW-9N7" firstAttribute="centerX" secondItem="eC0-1Z-uw7" secondAttribute="centerX" type="default" id="gJZ-x8-DAT"/>
-                                <constraint firstAttribute="trailing" secondItem="TGR-ZW-9N7" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pfJ-2s-9zp"/>
-                            </constraints>
-                        </view>
                         <sections>
                             <tableViewSection id="Lqh-qW-WQr">
                                 <cells>
@@ -143,7 +108,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="aqb-iW-5yo">
+                            <tableViewSection footerTitle="v0.5.0" id="aqb-iW-5yo">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="9dg-3X-3bN">
                                         <rect key="frame" x="0.0" y="186" width="320" height="46"/>
@@ -152,7 +117,7 @@
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Legal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t94-V5-FY6">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t94-V5-FY6">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="260" id="etJ-0l-aSm"/>
                                                     </constraints>
@@ -167,6 +132,9 @@
                                             <constraint firstItem="t94-V5-FY6" firstAttribute="centerY" secondItem="9dg-3X-3bN" secondAttribute="centerY" type="default" id="RhQ-9r-Uxf"/>
                                             <constraint firstItem="t94-V5-FY6" firstAttribute="centerX" secondItem="9dg-3X-3bN" secondAttribute="centerX" type="default" id="vhk-ee-3Um"/>
                                         </constraints>
+                                        <connections>
+                                            <segue destination="gKH-AZ-hwl" kind="push" id="xHk-Pf-1Fm"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -183,9 +151,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="versionLabel" destination="eC0-1Z-uw7" id="pui-g9-JLi"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAt-0w-Cv7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -194,17 +159,40 @@
         <!--Table View Controller - FAQ-->
         <scene sceneID="tQo-Sx-5Bv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ty-HU-RDw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="4Ys-rf-MLF" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="2S8-oX-OJO">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
+                            <tableViewSection headerTitle="Which cities are supported?" id="sTW-cC-3DA">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="76" id="XFv-u6-Noy">
+                                        <rect key="frame" x="0.0" y="46" width="320" height="78"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="75"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Translink operated bus services in Brisbane, Logan, Gold Coast and Sunshine Coast. Support for more cities is planned." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="274" translatesAutoresizingMaskIntoConstraints="NO" id="sv8-9Z-5jJ">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="sv8-9Z-5jJ" firstAttribute="leading" secondItem="XFv-u6-Noy" secondAttribute="leading" constant="20" type="default" id="m1h-T5-2rb"/>
+                                            <constraint firstItem="sv8-9Z-5jJ" firstAttribute="top" secondItem="XFv-u6-Noy" secondAttribute="top" constant="12" id="yfH-EU-6sP"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="Can I close the app after selecting a stop?" id="sOy-tc-d5I">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="58" id="o2f-Yo-GnX">
-                                        <rect key="frame" x="0.0" y="67" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="191" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="57"/>
@@ -229,7 +217,7 @@
                             <tableViewSection headerTitle="My stop is missing. What can I do?" id="YCt-Ro-qcD">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="108" id="he7-Ep-qzx">
-                                        <rect key="frame" x="0.0" y="194" width="320" height="110"/>
+                                        <rect key="frame" x="0.0" y="318" width="320" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="107"/>
@@ -257,7 +245,7 @@
                             <tableViewSection headerTitle="I didn't hear the notification. What happened?" id="Y7I-4n-KJU">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="94" id="7Jc-jA-Dvo">
-                                        <rect key="frame" x="0.0" y="371" width="320" height="96"/>
+                                        <rect key="frame" x="0.0" y="495" width="320" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="93"/>
@@ -280,30 +268,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Which cities are supported?" id="sTW-cC-3DA">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="76" id="XFv-u6-Noy">
-                                        <rect key="frame" x="0.0" y="513" width="320" height="78"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="75"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Translink services in Brisbane, Logan, Gold Coast and Sunshine Coast. Support for more cities is planned." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="274" translatesAutoresizingMaskIntoConstraints="NO" id="sv8-9Z-5jJ">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="sv8-9Z-5jJ" firstAttribute="leading" secondItem="XFv-u6-Noy" secondAttribute="leading" constant="20" type="default" id="m1h-T5-2rb"/>
-                                            <constraint firstItem="sv8-9Z-5jJ" firstAttribute="top" secondItem="XFv-u6-Noy" secondAttribute="top" constant="12" id="yfH-EU-6sP"/>
-                                        </constraints>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="4Ys-rf-MLF" id="ayc-ZQ-0dD"/>
@@ -312,8 +276,60 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="FAQ" id="xec-n3-0U7"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ty-HU-RDw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="762" y="61"/>
+        </scene>
+        <!--Table View Controller - About-->
+        <scene sceneID="ev3-5H-ber">
+            <objects>
+                <tableViewController id="gKH-AZ-hwl" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Qpl-mo-f1G">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="gVy-KI-AcR">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="202" id="uoG-0l-JNO">
+                                        <rect key="frame" x="0.0" y="10" width="320" height="204"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="201"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Yqk-0N-x94">
+                                                    <string key="text">Designed and built by Tate Johnson, an independent software developer and consumer of public transport.
+
+All route and stop data is sourced from and copyright Translink Transit Authority. Next Stop is not affiliated with or endorsed by the Translink Transit Authority. 
+
+Data is current as of 24 September, 2012.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Yqk-0N-x94" firstAttribute="leading" secondItem="uoG-0l-JNO" secondAttribute="leading" constant="20" type="default" id="58q-a8-WfF"/>
+                                            <constraint firstItem="Yqk-0N-x94" firstAttribute="top" secondItem="uoG-0l-JNO" secondAttribute="top" constant="12" id="iB5-ZF-P7f"/>
+                                            <constraint firstAttribute="trailing" secondItem="Yqk-0N-x94" secondAttribute="trailing" constant="20" type="default" id="r6k-6a-V8q"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="gKH-AZ-hwl" id="jce-fm-n8g"/>
+                            <outlet property="delegate" destination="gKH-AZ-hwl" id="pJr-7e-mme"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="About" id="fbt-ml-RHU"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j6g-DH-ebg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="762" y="746"/>
         </scene>
     </scenes>
     <classes>
@@ -321,7 +337,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cancelBarButtonItemTapped:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">

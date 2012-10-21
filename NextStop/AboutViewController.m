@@ -7,10 +7,6 @@
 
 @implementation AboutViewController
 
-- (void)viewDidLoad {
-    self.versionLabel.text = VERSION;
-}
-
 - (void)contactUs {
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *composeViewController = [[MFMailComposeViewController alloc] init];
@@ -49,6 +45,14 @@
     } else if (indexPath.section == 1 && indexPath.row == 1) {
         [self leaveAReview];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    if (section == 2) {
+        return VERSION;
+    } else {
+        return nil;
     }
 }
 

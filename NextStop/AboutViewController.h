@@ -7,7 +7,6 @@
 @interface AboutViewController : UITableViewController <MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) id <AboutViewControllerDelegate> delegate;
-@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 
 - (IBAction)cancelBarButtonItemTapped:(UIBarButtonItem *)cancelBarButtonItem;
 
