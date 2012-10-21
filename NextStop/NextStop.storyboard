@@ -214,10 +214,36 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="I didn't hear the notification. What happened?" id="Y7I-4n-KJU">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="94" id="7Jc-jA-Dvo">
+                                        <rect key="frame" x="0.0" y="318" width="320" height="96"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="93"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="sYa-4W-yqU">
+                                                    <string key="text">Your iPhone may be on silent. Your iPhone must be on loud if you want to hear the notification. You should always feel a vibration.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="sYa-4W-yqU" firstAttribute="leading" secondItem="7Jc-jA-Dvo" secondAttribute="leading" constant="20" type="default" id="6Cq-C8-0d3"/>
+                                            <constraint firstItem="sYa-4W-yqU" firstAttribute="top" secondItem="7Jc-jA-Dvo" secondAttribute="top" constant="12" id="bc7-ti-UfT"/>
+                                            <constraint firstAttribute="trailing" secondItem="sYa-4W-yqU" secondAttribute="trailing" constant="20" type="default" id="nOF-HN-jqu"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="My stop is missing. What can I do?" id="YCt-Ro-qcD">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="108" id="he7-Ep-qzx">
-                                        <rect key="frame" x="0.0" y="318" width="320" height="110"/>
+                                        <rect key="frame" x="0.0" y="481" width="320" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="107"/>
@@ -242,17 +268,20 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="I didn't hear the notification. What happened?" id="Y7I-4n-KJU">
+                            <tableViewSection headerTitle="Stops on my route change depending on the time of day. Which stop do I select?" id="EIu-fG-qwg">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="94" id="7Jc-jA-Dvo">
-                                        <rect key="frame" x="0.0" y="495" width="320" height="96"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="93" id="UvE-xZ-Enw">
+                                        <rect key="frame" x="0.0" y="679" width="320" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="93"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="92"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="sYa-4W-yqU">
-                                                    <string key="text">Your iPhone may be on silent. Your iPhone must be on loud if you want to hear the notification. You should always feel a vibration.</string>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="L1s-Od-qVw">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="69" id="kjZ-hq-rKc"/>
+                                                    </constraints>
+                                                    <string key="text">Next Stop does not store timetable information. As a result, all stops are shown for a given route regardless of the time of day.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -261,9 +290,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="sYa-4W-yqU" firstAttribute="leading" secondItem="7Jc-jA-Dvo" secondAttribute="leading" constant="20" type="default" id="6Cq-C8-0d3"/>
-                                            <constraint firstItem="sYa-4W-yqU" firstAttribute="top" secondItem="7Jc-jA-Dvo" secondAttribute="top" constant="12" id="bc7-ti-UfT"/>
-                                            <constraint firstAttribute="trailing" secondItem="sYa-4W-yqU" secondAttribute="trailing" constant="20" type="default" id="nOF-HN-jqu"/>
+                                            <constraint firstAttribute="trailing" secondItem="L1s-Od-qVw" secondAttribute="trailing" constant="20" type="default" id="4NT-3v-3ww"/>
+                                            <constraint firstItem="L1s-Od-qVw" firstAttribute="top" secondItem="UvE-xZ-Enw" secondAttribute="top" constant="12" id="V4P-dm-5uq"/>
+                                            <constraint firstItem="L1s-Od-qVw" firstAttribute="leading" secondItem="UvE-xZ-Enw" secondAttribute="leading" constant="20" type="default" id="qw0-T9-zUJ"/>
                                         </constraints>
                                     </tableViewCell>
                                 </cells>
