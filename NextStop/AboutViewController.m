@@ -2,11 +2,13 @@
 
 #define APP_STORE_URL @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=<APP_ID>"
 #define RECIPIENT @"support@nextstop.me"
+#define SUBJECT [NSString stringWithFormat:@"Next Stop %@ Feedback", VERSION]
+#define VERSION [NSString stringWithFormat:@"v%@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]]
 
 @implementation AboutViewController
 
 - (void)viewDidLoad {
-    self.versionLabel.text = [NSString stringWithFormat:@"v%@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
+    self.versionLabel.text = VERSION;
 }
 
 - (void)contactUs {
@@ -14,6 +16,7 @@
         MFMailComposeViewController *composeViewController = [[MFMailComposeViewController alloc] init];
         composeViewController.mailComposeDelegate = self;
         [composeViewController setToRecipients:@[RECIPIENT]];
+        [composeViewController setSubject:SUBJECT];
         [self presentViewController:composeViewController animated:YES completion:nil];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"about.alerts.titles.contact_us", nil), RECIPIENT] message:NSLocalizedString(@"about.alerts.messages.contact_us", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"controls.ok", nil) otherButtonTitles:nil];
