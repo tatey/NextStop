@@ -210,7 +210,7 @@
                                             <rect key="frame" x="10" y="1" width="300" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Yes, you will receive a push-style notification before it's time to get off." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="3Au-HJ-J0Q">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Yes, you will get a push-style notification before it's time to get off." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="3Au-HJ-J0Q">
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -226,16 +226,45 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Which cities are supported?" id="Y7I-4n-KJU">
+                            <tableViewSection headerTitle="My stop is missing. What can I do?" id="YCt-Ro-qcD">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="76" id="7Jc-jA-Dvo">
-                                        <rect key="frame" x="0.0" y="173" width="320" height="78"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="108" id="he7-Ep-qzx">
+                                        <rect key="frame" x="0.0" y="194" width="320" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="75"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="107"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Translink services in Brisbane, Logan, Gold Coast and Sunshine Coast. Support for additional cities is planned." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="274" translatesAutoresizingMaskIntoConstraints="NO" id="sYa-4W-yqU">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="rUT-kL-SOr">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="86" id="gTT-Qw-LUq"/>
+                                                    </constraints>
+                                                    <string key="text">Stops may be missing if they change after an update to Next Stop is released. Missing stops should be resolved in the next update. Try selecting another stop close by in the mean time.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="rUT-kL-SOr" firstAttribute="leading" secondItem="he7-Ep-qzx" secondAttribute="leading" constant="20" type="default" id="GPX-I1-YM6"/>
+                                            <constraint firstItem="rUT-kL-SOr" firstAttribute="top" secondItem="he7-Ep-qzx" secondAttribute="top" constant="12" id="Obn-Pr-Vg5"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="I didn't hear the notification. What happened?" id="Y7I-4n-KJU">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="94" id="7Jc-jA-Dvo">
+                                        <rect key="frame" x="0.0" y="371" width="320" height="96"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="93"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="sYa-4W-yqU">
+                                                    <string key="text">Your iPhone may be on silent. Your iPhone must be on loud if you want to hear the notification. You should always feel a vibration.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -245,7 +274,32 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="sYa-4W-yqU" firstAttribute="leading" secondItem="7Jc-jA-Dvo" secondAttribute="leading" constant="20" type="default" id="6Cq-C8-0d3"/>
-                                            <constraint firstItem="sYa-4W-yqU" firstAttribute="top" secondItem="7Jc-jA-Dvo" secondAttribute="top" constant="12" id="s0f-ed-aVu"/>
+                                            <constraint firstItem="sYa-4W-yqU" firstAttribute="top" secondItem="7Jc-jA-Dvo" secondAttribute="top" constant="12" id="bc7-ti-UfT"/>
+                                            <constraint firstAttribute="trailing" secondItem="sYa-4W-yqU" secondAttribute="trailing" constant="20" type="default" id="nOF-HN-jqu"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Which cities are supported?" id="sTW-cC-3DA">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="76" id="XFv-u6-Noy">
+                                        <rect key="frame" x="0.0" y="513" width="320" height="78"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="75"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Translink services in Brisbane, Logan, Gold Coast and Sunshine Coast. Support for more cities is planned." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="274" translatesAutoresizingMaskIntoConstraints="NO" id="sv8-9Z-5jJ">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="sv8-9Z-5jJ" firstAttribute="leading" secondItem="XFv-u6-Noy" secondAttribute="leading" constant="20" type="default" id="m1h-T5-2rb"/>
+                                            <constraint firstItem="sv8-9Z-5jJ" firstAttribute="top" secondItem="XFv-u6-Noy" secondAttribute="top" constant="12" id="yfH-EU-6sP"/>
                                         </constraints>
                                     </tableViewCell>
                                 </cells>
