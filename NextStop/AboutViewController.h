@@ -1,9 +1,10 @@
 #import <Foundation/Foundation.h>
+#import <MessageUI/MessageUI.h>
 #import <UIKit/UIKit.h>
 
 @protocol AboutViewControllerDelegate;
 
-@interface AboutViewController : UITableViewController
+@interface AboutViewController : UITableViewController <MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) id <AboutViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *versionLabel;

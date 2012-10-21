@@ -21,6 +21,8 @@
 "direction_record.direction.west" = "West";
 
 // View Controllers
+"about.alerts.titles.contact_us" = "We tried to open an email to %@";
+"about.alerts.messages.contact_us" = "Email hasn't been setup on your iPhone. Try sending from your computer. We'd love to have your feedback.";
 "direction_show.alerts.messages.not_authorized" = "Enable Location Services. Next Stop uses your current location to notify you when you reach your stop.";
 "direction_show.alerts.messages.targeted" = "You will get notified before you reach your stop, even if you put this device to sleep.";
 "direction_show.alerts.titles.found_no_result" = "No result found";

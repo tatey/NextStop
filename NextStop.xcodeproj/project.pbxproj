@@ -27,6 +27,7 @@
 		5D3A56C61615D22F0019CF8A /* NameFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A56C51615D22F0019CF8A /* NameFormatter.m */; };
 		5D3A56CA1615D4020019CF8A /* StopReordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A56C91615D4020019CF8A /* StopReordCell.m */; };
 		5D44C639162175E0002E49C6 /* PinGray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D44C638162175E0002E49C6 /* PinGray@2x.png */; };
+		5D4A6FEA16338B8A00E91EF0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4A6FE916338B8A00E91EF0 /* MessageUI.framework */; };
 		5D4CA1BA15FE276600915A70 /* RouteShowViewControllerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4CA1B915FE276600915A70 /* RouteShowViewControllerItem.m */; };
 		5D4CB10B15F31B640059784A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB10915F31B640059784A /* Icon.png */; };
 		5D4CB10C15F31B640059784A /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D4CB10A15F31B640059784A /* Icon@2x.png */; };
@@ -134,6 +135,7 @@
 		5D3A56C81615D4020019CF8A /* StopReordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopReordCell.h; sourceTree = "<group>"; };
 		5D3A56C91615D4020019CF8A /* StopReordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopReordCell.m; sourceTree = "<group>"; };
 		5D44C638162175E0002E49C6 /* PinGray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PinGray@2x.png"; sourceTree = "<group>"; };
+		5D4A6FE916338B8A00E91EF0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		5D4CA1B615FE1CAB00915A70 /* RouteShowViewControllerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteShowViewControllerItem.h; sourceTree = "<group>"; };
 		5D4CA1B915FE276600915A70 /* RouteShowViewControllerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteShowViewControllerItem.m; sourceTree = "<group>"; };
 		5D4CB10915F31B640059784A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				5DB59CBC1546D21200417818 /* CoreLocation.framework in Frameworks */,
 				5DB59C811546C8E500417818 /* Foundation.framework in Frameworks */,
 				5DB59CB21546CA7B00417818 /* MapKit.framework in Frameworks */,
+				5D4A6FEA16338B8A00E91EF0 /* MessageUI.framework in Frameworks */,
 				5DB59C7F1546C8E500417818 /* UIKit.framework in Frameworks */,
 				5DB59CE91547B5F500417818 /* libsqlite3.0.dylib in Frameworks */,
 			);
@@ -392,6 +395,7 @@
 				5DB59CBB1546D21200417818 /* CoreLocation.framework */,
 				5DB59C801546C8E500417818 /* Foundation.framework */,
 				5DB59CB11546CA7B00417818 /* MapKit.framework */,
+				5D4A6FE916338B8A00E91EF0 /* MessageUI.framework */,
 				5DB59C961546C8E500417818 /* SenTestingKit.framework */,
 				5DB59C7E1546C8E500417818 /* UIKit.framework */,
 				5DB59CE81547B5F500417818 /* libsqlite3.0.dylib */,
