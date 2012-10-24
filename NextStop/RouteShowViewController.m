@@ -104,6 +104,8 @@
         [self.view addSubview:newViewController.view];
         [self.view sendSubviewToBack:newViewController.view];
     }
+    oldViewController.selected = NO;
+    newViewController.selected = YES;
     _selectedIndex = selectedIndex;
     [self setToolbarItemsWithRouteShowViewControllerItem:newViewController.routeShowViewControllerItem];
 }

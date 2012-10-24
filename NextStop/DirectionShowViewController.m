@@ -25,6 +25,7 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
 @synthesize locationAuthorizationAlertView = _locationAuthorizationAlertView;
 @synthesize modalSearchDisplayController = _modalSearchDisplayController;
 @synthesize trackingBarButtonItem = _trackingBarButtonItem;
+@synthesize selected = _selected;
 
 - (id)init {
     self = [super init];
@@ -188,7 +189,7 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
 - (void)mapView:(MKMapView *)mapView didFailToLocateUserWithError:(NSError *)error {
     if (error.domain == kCLErrorDomain && error.code == kCLErrorDenied) {
         [self applicationWillEnterForeground:nil];
-    } else {
+    } else if (self.selected) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alerts.title.error", nil)
                                                         message:[error localizedDescription]
                                                        delegate:nil
@@ -199,6 +200,7 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
 }
 
 - (void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error {
+    if (!self.selected) return;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alerts.title.error", nil)
                                                     message:[error localizedDescription]
                                                    delegate:nil

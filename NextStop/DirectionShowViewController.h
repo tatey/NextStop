@@ -22,6 +22,7 @@
 @property (strong, nonatomic) ModalSearchDisplayController *modalSearchDisplayController;
 @property (strong, nonatomic) RouteShowViewControllerItem *routeShowViewControllerItem;
 @property (strong, nonatomic) MKUserTrackingBarButtonItem *trackingBarButtonItem;
+@property (assign, nonatomic) BOOL selected;
 
 - (id)initWithDirectionManagedObject:(DirectionManagedObject *)directionManagedObject managedObjectContext:(NSManagedObjectContext *)context;
 
