@@ -5,6 +5,7 @@
 #import "DirectionRecord.h"
 #import "DisappearingAlertView.h"
 #import "DirectionShowViewController.h"
+#import "ErrorFormatter.h"
 #import "NSObject+MKMapViewDelegate.h"
 #import "RouteShowViewControllerItem.h"
 #import "StopRecord.h"
@@ -190,23 +191,18 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
     if (error.domain == kCLErrorDomain && error.code == kCLErrorDenied) {
         [self applicationWillEnterForeground:nil];
     } else if (self.selected) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alerts.title.error", nil)
-                                                        message:[error localizedDescription]
-                                                       delegate:nil
-                                              cancelButtonTitle:NSLocalizedString(@"controls.ok", nil)
-                                              otherButtonTitles:nil];
+        ErrorFormatter *formatter = [[ErrorFormatter alloc] initWithError:error];
+        UIAlertView *alert = [formatter alert];
         [alert show];
     }
 }
 
 - (void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error {
-    if (!self.selected) return;
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alerts.title.error", nil)
-                                                    message:[error localizedDescription]
-                                                   delegate:nil
-                                          cancelButtonTitle:NSLocalizedString(@"controls.ok", nil)
-                                          otherButtonTitles:nil];
-    [alert show];
+    if (self.selected) {
+        ErrorFormatter *formatter = [[ErrorFormatter alloc] initWithError:error];
+        UIAlertView *alert = [formatter alert];
+        [alert show];
+    }
 }
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
@@ -331,21 +327,9 @@ static NSString *const kDirectionManagedObjectMonitorKeyPath = @"directionManage
                 [alertView show];
             }
         } else {
-            UIAlertView *alertView = nil;
-            if ([error code] == 8 || [error code] == 9) {
-                alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"direction_show.alerts.titles.found_no_result", nil)]
-                                                       message:nil
-                                                      delegate:nil
-                                             cancelButtonTitle:NSLocalizedString(@"controls.ok", nil)
-                                             otherButtonTitles:nil];
-            } else {
-                alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alerts.title.error", nil)
-                                                       message:[error localizedDescription]
-                                                      delegate:nil
-                                             cancelButtonTitle:NSLocalizedString(@"controls.ok", nil)
-                                             otherButtonTitles:nil];
-            }
-            [alertView show];
+            ErrorFormatter *formatter = [[ErrorFormatter alloc] initWithError:error];
+            UIAlertView *alert = [formatter alert];
+            [alert show];
         }
         application.networkActivityIndicatorVisible = NO;
     }];

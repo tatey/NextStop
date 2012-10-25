@@ -4,6 +4,17 @@
 // Controls
 "controls.ok" = "OK";
 
+// Errors
+"errors.title" = "Error";
+"errors.kCLErrorDomain.0.title" = "Unknown Location";
+"errors.kCLErrorDomain.0.message" = "Next Stop couldn't get a good reading. Long tunnel?";
+"errors.kCLErrorDomain.2.title" = "No Internet";
+"errors.kCLErrorDomain.2.message" = "Internet is unavailable or an error occured";
+"errors.kCLErrorDomain.8.title" = "No results found";
+"errors.kCLErrorDomain.8.message" = "";
+"errors.kCLErrorDomain.9.title" = "No results found";
+"errors.kCLErrorDomain.8.message" = "";
+
 // Notifications
 "notifications.action.approaching" = "map";
 "notifications.body.approaching" = "Get ready to hop off";
@@ -25,7 +36,6 @@
 "about.alerts.messages.contact_us" = "Email hasn't been setup on your iPhone. Try sending from your computer. We'd love to have your feedback.";
 "direction_show.alerts.messages.not_authorized" = "Enable Location Services in Settings. Next Stop uses your current location to notify you when you reach your stop.";
 "direction_show.alerts.messages.targeted" = "You will get notified before you reach your stop, even if you put this iPhone to sleep.";
-"direction_show.alerts.titles.found_no_result" = "No result found";
 "direction_show.alerts.titles.found_no_stop" = "No stops found within %dkm of the address";
 "direction_show.alerts.messages.found_no_stop" = "Try adding the suburb or city to the address";
 "direction_show.search.placeholder" = "Stop or address";
