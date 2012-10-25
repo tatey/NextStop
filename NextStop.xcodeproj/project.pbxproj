@@ -53,6 +53,7 @@
 		5D9AAB1615ADAE8C00E2E077 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9AAB1515ADAE8C00E2E077 /* DataManager.m */; };
 		5D9AAB1915ADAFBE00E2E077 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9AAB1815ADAFBE00E2E077 /* CoreData.framework */; };
 		5D9AAB1C15ADB11600E2E077 /* NextStop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D9AAB1A15ADB11600E2E077 /* NextStop.xcdatamodeld */; };
+		5D9C60EB1639415C00CBFC99 /* ErrorFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C60EA1639415C00CBFC99 /* ErrorFormatter.m */; };
 		5DA15B22154ED00800FCEE13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DA15B21154ED00800FCEE13 /* Localizable.strings */; };
 		5DA37E8B15EA25ED0090FDB0 /* RouteShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA37E8A15EA25ED0090FDB0 /* RouteShowViewController.m */; };
 		5DA37E8F15EA262D0090FDB0 /* DirectionShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA37E8E15EA262D0090FDB0 /* DirectionShowViewController.m */; };
@@ -171,6 +172,8 @@
 		5D9AAB1515ADAE8C00E2E077 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		5D9AAB1815ADAFBE00E2E077 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5D9AAB1B15ADB11600E2E077 /* NextStop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NextStop.xcdatamodel; sourceTree = "<group>"; };
+		5D9C60E91639415C00CBFC99 /* ErrorFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorFormatter.h; sourceTree = "<group>"; };
+		5D9C60EA1639415C00CBFC99 /* ErrorFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorFormatter.m; sourceTree = "<group>"; };
 		5DA15B21154ED00800FCEE13 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		5DA37E8915EA25ED0090FDB0 /* RouteShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteShowViewController.h; sourceTree = "<group>"; };
 		5DA37E8A15EA25ED0090FDB0 /* RouteShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteShowViewController.m; sourceTree = "<group>"; };
@@ -274,6 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				5D16A87F1607713E00F3897E /* CoordinateRegion.h */,
+				5D9C60E91639415C00CBFC99 /* ErrorFormatter.h */,
+				5D9C60EA1639415C00CBFC99 /* ErrorFormatter.m */,
 				5DA3A3D116045351003229B0 /* Haversin.h */,
 				5DB9257D1600B0ED00AE27C3 /* ModalSearchDisplayController.h */,
 				5DB9257E1600B0ED00AE27C3 /* ModalSearchDisplayController.m */,
@@ -693,6 +698,7 @@
 				5DE277651620098C00575BCD /* ProximitySetManagedObject.m in Sources */,
 				5DE27768162009F200575BCD /* ProximityManager.m in Sources */,
 				5D84A49F162EBB84002A959B /* AboutViewController.m in Sources */,
+				5D9C60EB1639415C00CBFC99 /* ErrorFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
