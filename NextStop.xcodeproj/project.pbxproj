@@ -68,8 +68,6 @@
 		5DAA1EFD15EF93D000BB3A71 /* RouteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DAA1EFC15EF93D000BB3A71 /* RouteCell.xib */; };
 		5DAA1F0115EF94FB00BB3A71 /* RouteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA1F0015EF94FB00BB3A71 /* RouteCell.m */; };
 		5DAE5AFB1632C649000B91FE /* EmptyRoute@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DAE5AFA1632C649000B91FE /* EmptyRoute@2x.png */; };
-		5DB0AE101578C83E00D43B2E /* Taringa.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DB0AE0E1578C83E00D43B2E /* Taringa.gpx */; };
-		5DB0AE111578C83E00D43B2E /* Toowoong.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DB0AE0F1578C83E00D43B2E /* Toowoong.gpx */; };
 		5DB23092160B4C1900F8755B /* Close.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB23090160B4C1900F8755B /* Close.png */; };
 		5DB23093160B4C1900F8755B /* Close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB23091160B4C1900F8755B /* Close@2x.png */; };
 		5DB59C7F1546C8E500417818 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59C7E1546C8E500417818 /* UIKit.framework */; };
@@ -86,10 +84,6 @@
 		5DB59CBC1546D21200417818 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CBB1546D21200417818 /* CoreLocation.framework */; };
 		5DB59CE91547B5F500417818 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CE81547B5F500417818 /* libsqlite3.0.dylib */; };
 		5DB9257F1600B0EE00AE27C3 /* ModalSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB9257E1600B0ED00AE27C3 /* ModalSearchDisplayController.m */; };
-		5DBDD34715B83A74001287AB /* Indooroopilly.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DBDD34615B83A74001287AB /* Indooroopilly.gpx */; };
-		5DBDD34A15B83A7F001287AB /* Brisbane.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DBDD34915B83A7F001287AB /* Brisbane.gpx */; };
-		5DD345FE162D446A00DA4C82 /* PyrmontCenter.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DD345FC162D446A00DA4C82 /* PyrmontCenter.gpx */; };
-		5DD345FF162D446A00DA4C82 /* PyrmontNorth.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 5DD345FD162D446A00DA4C82 /* PyrmontNorth.gpx */; };
 		5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteDB.m */; };
 		5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteDB.m */; };
 		5DE277611620095E00575BCD /* ProximityManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE277601620095E00575BCD /* ProximityManagedObject.m */; };
@@ -593,10 +587,6 @@
 			files = (
 				5DB59C891546C8E500417818 /* InfoPlist.strings in Resources */,
 				5DA15B22154ED00800FCEE13 /* Localizable.strings in Resources */,
-				5DB0AE101578C83E00D43B2E /* Taringa.gpx in Resources */,
-				5DB0AE111578C83E00D43B2E /* Toowoong.gpx in Resources */,
-				5DBDD34715B83A74001287AB /* Indooroopilly.gpx in Resources */,
-				5DBDD34A15B83A7F001287AB /* Brisbane.gpx in Resources */,
 				5DAA1EFD15EF93D000BB3A71 /* RouteCell.xib in Resources */,
 				5DA512B215F1E5F600EF91DC /* RouteRecordCell.xib in Resources */,
 				5D4CB10B15F31B640059784A /* Icon.png in Resources */,
@@ -621,8 +611,6 @@
 				5D0E03D116216F1B00C820B4 /* PinGreen@2x.png in Resources */,
 				5D0E03D316216F1B00C820B4 /* PinPurple@2x.png in Resources */,
 				5D44C639162175E0002E49C6 /* PinGray@2x.png in Resources */,
-				5DD345FE162D446A00DA4C82 /* PyrmontCenter.gpx in Resources */,
-				5DD345FF162D446A00DA4C82 /* PyrmontNorth.gpx in Resources */,
 				5D84A49C162EB86C002A959B /* NextStop.storyboard in Resources */,
 				5D918A24162ED9A100450C3D /* About.png in Resources */,
 				5D918A25162ED9A100450C3D /* About@2x.png in Resources */,
