@@ -31,6 +31,7 @@ db.execute <<-SQL
     "direction" INTEGER NOT NULL,
     "route_id" INTENGER NOT NULL,
     "stop_id" TEXT NOT NULL,
+    "stop_sequence" INTEGER NOT NULL,
     PRIMARY KEY("direction", "route_id", "stop_id")
   );
 SQL
@@ -41,12 +42,20 @@ db.execute <<-SQL
   FROM "trips";
 SQL
 
-db.execute <<-SQL
-  INSERT INTO "directions_stops" ("direction", "route_id", "stop_id")
-  SELECT DISTINCT "trips".direction, "trips".route_id, "stop_times".stop_id
-  FROM "stop_times"
-  INNER JOIN "trips" ON "trips".trip_id = "stop_times".trip_id
-SQL
+db.execute('SELECT "routes".route_id FROM "routes";').flatten.each do |route_id|
+  db.execute("SELECT DISTINCT \"trips\".direction FROM \"trips\" WHERE \"trips\".route_id = \"#{route_id}\";").flatten.each do |direction_id|
+    db.execute <<-SQL
+      INSERT INTO "directions_stops" ("direction", "route_id", "stop_id", "stop_sequence")
+      SELECT "trips".direction, "trips".route_id, "stop_times".stop_id, "stop_times".stop_sequence
+      FROM "routes"
+      INNER JOIN "trips" ON "trips".route_id = "routes".route_id
+      INNER JOIN "stop_times" ON "stop_times".trip_id = "trips".trip_id
+      WHERE "routes".route_id = "#{route_id}" AND "trips".direction = #{direction_id}
+      GROUP BY "stop_times".stop_id
+      ORDER BY "stop_times".stop_sequence;
+    SQL
+  end
+end
 
 db.execute <<-SQL
   DROP TABLE "stop_times";
