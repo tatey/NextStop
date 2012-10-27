@@ -50,7 +50,10 @@
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
+		<string>location-services</string>
+		<string>gps</string>
 		<string>armv7</string>
+		<string>front-facing-camera</string>
 	</array>
 	<key>UIStatusBarTintParameters</key>
 	<dict>
