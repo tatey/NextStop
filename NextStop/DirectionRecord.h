@@ -1,3 +1,4 @@
+#import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
 
 #define DIRECTION_RECORD_MAX_STOP_DISTANCE_METERS 10000

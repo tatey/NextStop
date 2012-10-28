@@ -1,4 +1,3 @@
-#import <CoreLocation/CoreLocation.h>
 #import "DirectionRecord.h"
 #import "Haversin.h"
 #import "RouteRecord.h"
