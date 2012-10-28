@@ -2,21 +2,21 @@
 #import "DirectionRecord.h"
 #import "NameFormatter.h"
 #import "StopRecord.h"
-#import "SQLiteDB.h"
 
-#define QUERY1 @"SELECT stops.* "                                                                                                                 \
-                "FROM stops "                                                                                                                     \
-                "INNER JOIN directions_stops ON directions_stops.stop_id = stops.stop_id "                                                        \
-                "INNER JOIN directions ON directions_stops.direction = directions.direction AND directions_stops.route_id = directions.route_id " \
-                "WHERE directions.direction = ? AND directions.route_id = ?; "                                                                    \
+#define QUERY1 @"SELECT stops.* "                                                          \
+                "FROM stops "                                                              \
+                "INNER JOIN directions_stops ON directions_stops.stop_id = stops.stop_id " \
+                "  AND directions_stops.direction = ? "                                    \
+                "  AND directions_stops.route_id = ? "                                     \
+                "ORDER BY directions_stops.stop_sequence ASC; "                            \
 
-#define QUERY2 @"SELECT stops.* "                                                                                                                 \
-                "FROM stops "                                                                                                                     \
-                "INNER JOIN directions_stops ON directions_stops.stop_id = stops.stop_id "                                                        \
-                "INNER JOIN directions ON directions_stops.direction = directions.direction AND directions_stops.route_id = directions.route_id " \
-                "WHERE directions.direction = ? AND directions.route_id = ? "                                                                     \
-                "AND stops.stop_name LIKE ? "                                                                                                     \
-                "ORDER BY stops.stop_name ASC; "                                                                                                  \
+#define QUERY2 @"SELECT stops.* "                                                          \
+                "FROM stops "                                                              \
+                "INNER JOIN directions_stops ON directions_stops.stop_id = stops.stop_id " \
+                "  AND directions_stops.direction = ? "                                    \
+                "  AND directions_stops.route_id = ? "                                     \
+                "WHERE stops.stop_name LIKE ? "                                            \
+                "ORDER BY stops.stop_name ASC; "                                           \
 
 #define QUERY3 @"SELECT stops.* "          \
                 "FROM stops "              \

@@ -24,6 +24,7 @@
 		5D1B5F1D1605BA8800149AC0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1B5F1B1605BA8800149AC0 /* Default@2x.png */; };
 		5D2BFDBB1547F3B400D9F53E /* RouteIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */; };
 		5D2BFDBC1547F3B400D9F53E /* RouteIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */; };
+		5D2C3B18163CFA3F005C3920 /* StopSequenceService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2C3B17163CFA3F005C3920 /* StopSequenceService.m */; };
 		5D3A56C61615D22F0019CF8A /* NameFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A56C51615D22F0019CF8A /* NameFormatter.m */; };
 		5D3A56CA1615D4020019CF8A /* StopReordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A56C91615D4020019CF8A /* StopReordCell.m */; };
 		5D44C639162175E0002E49C6 /* PinGray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D44C638162175E0002E49C6 /* PinGray@2x.png */; };
@@ -125,6 +126,8 @@
 		5D1B5F1B1605BA8800149AC0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5D2BFDB91547F3B400D9F53E /* RouteIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteIndexViewController.h; sourceTree = "<group>"; };
 		5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteIndexViewController.m; sourceTree = "<group>"; };
+		5D2C3B16163CFA3F005C3920 /* StopSequenceService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopSequenceService.h; sourceTree = "<group>"; };
+		5D2C3B17163CFA3F005C3920 /* StopSequenceService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopSequenceService.m; sourceTree = "<group>"; };
 		5D3A56C41615D22F0019CF8A /* NameFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameFormatter.h; sourceTree = "<group>"; };
 		5D3A56C51615D22F0019CF8A /* NameFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameFormatter.m; sourceTree = "<group>"; };
 		5D3A56C81615D4020019CF8A /* StopReordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopReordCell.h; sourceTree = "<group>"; };
@@ -314,6 +317,8 @@
 				5D9AAB1515ADAE8C00E2E077 /* DataManager.m */,
 				5DE27766162009F200575BCD /* ProximityManager.h */,
 				5DE27767162009F200575BCD /* ProximityManager.m */,
+				5D2C3B16163CFA3F005C3920 /* StopSequenceService.h */,
+				5D2C3B17163CFA3F005C3920 /* StopSequenceService.m */,
 				5DD523FC1547FF7C00011A3E /* SQLiteDB.h */,
 				5DD523FD1547FF7C00011A3E /* SQLiteDB.m */,
 			);
@@ -687,6 +692,7 @@
 				5DE27768162009F200575BCD /* ProximityManager.m in Sources */,
 				5D84A49F162EBB84002A959B /* AboutViewController.m in Sources */,
 				5D9C60EB1639415C00CBFC99 /* ErrorFormatter.m in Sources */,
+				5D2C3B18163CFA3F005C3920 /* StopSequenceService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
