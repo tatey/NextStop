@@ -1,11 +1,12 @@
 # CHANGELOG
 
-## Current / Unreleased
+## 0.6.0 / 2012-10-29
 
-* [Change] Next stop notification is sent shortly after leaving the previous stop. Maximum is 1KM.
+* [Change] Next stop notification is sent shortly after leaving the previous stop. Previously sent at a fixed arbitary distance of 500m. Maximum is 1KM.
 * [Change] Opening Next Stop for the first time prompts you to add the route you are travelling on.
+* [Change] Improve reading route codes when scrolling fast by changing positioning of icon.
 * [Change] Error messages are meaningful sentences, not obscure code numbers.
-* [New] "More Info" page has "FAQ", "About" and a way to contact support.
+* [New] "More Info" page. Contains "FAQ", "About" and built-in support.
 
 ## 0.5.2 / 2012-10-09
 
