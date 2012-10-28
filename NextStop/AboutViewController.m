@@ -4,16 +4,10 @@
 #endif
 #import "AboutViewController.h"
 
-#define VERSION [NSString stringWithFormat:@"v%@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]]
-
-#define CONTACT_US_MAIL_RECIPIENT @"support@nextstop.me"
-#define CONTACT_US_MAIL_SUBJECT [NSString stringWithFormat:@"Next Stop %@ Feedback", VERSION]
-
-#define TELL_A_FRIEND_MAIL_SUBJECT @"Check out Next Stop"
-#define TELL_A_FRIEND_TEXT @"I am never going to miss my bus stop again."
-#define TELL_A_FRIEND_URL @"http://nextstop.me"
-
+#define APP_URL @"http://nextstop.me"
 #define APP_STORE_URL @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=<APP_ID>"
+#define SUPPORT_EMAIL @"support@nextstop.me"
+#define VERSION [NSString stringWithFormat:@"v%@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]]
 
 @implementation AboutViewController
 
@@ -21,11 +15,11 @@
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *composeViewController = [[MFMailComposeViewController alloc] init];
         composeViewController.mailComposeDelegate = self;
-        [composeViewController setToRecipients:@[CONTACT_US_MAIL_RECIPIENT]];
-        [composeViewController setSubject:CONTACT_US_MAIL_SUBJECT];
+        [composeViewController setToRecipients:@[SUPPORT_EMAIL]];
+        [composeViewController setSubject:[NSString stringWithFormat:NSLocalizedString(@"about.contact_us.subject", nil), VERSION]];
         [self presentViewController:composeViewController animated:YES completion:nil];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"about.alerts.titles.no_contact_us", nil), CONTACT_US_MAIL_RECIPIENT]
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"about.alerts.titles.no_contact_us", nil), SUPPORT_EMAIL]
                                                         message:NSLocalizedString(@"about.alerts.messages.no_contact_us", nil)
                                                        delegate:nil
                                               cancelButtonTitle:NSLocalizedString(@"controls.ok", nil)
@@ -47,8 +41,8 @@
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *composeViewController = [[MFMailComposeViewController alloc] init];
         composeViewController.mailComposeDelegate = self;
-        [composeViewController setSubject:TELL_A_FRIEND_MAIL_SUBJECT];
-        [composeViewController setMessageBody:[NSString stringWithFormat:@"%@ %@", TELL_A_FRIEND_TEXT, TELL_A_FRIEND_URL] isHTML:NO];
+        [composeViewController setSubject:NSLocalizedString(@"about.tell_a_friend.subject", nil)];
+        [composeViewController setMessageBody:[NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"about.tell_a_friend.message", nil), APP_URL] isHTML:NO];
         [self presentViewController:composeViewController animated:YES completion:nil];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"about.alerts.titles.no_tell_a_friend_email", nil)
@@ -63,8 +57,8 @@
 - (void)tellAFriendFacebook {
     if ([SLComposeViewController class]) {
         SLComposeViewController *composeViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        [composeViewController setInitialText:TELL_A_FRIEND_TEXT];
-        [composeViewController addURL:[NSURL URLWithString:TELL_A_FRIEND_URL]];
+        [composeViewController setInitialText:NSLocalizedString(@"about.tell_a_friend.message", nil)];
+        [composeViewController addURL:[NSURL URLWithString:APP_URL]];
         [self presentViewController:composeViewController animated:YES completion:nil];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"about.alerts.titles.facebook", nil)
@@ -78,8 +72,8 @@
 
 - (void)tellAFriendTwitter {
     TWTweetComposeViewController *composeViewController = [[TWTweetComposeViewController alloc] init];
-    [composeViewController setInitialText:TELL_A_FRIEND_TEXT];
-    [composeViewController addURL:[NSURL URLWithString:TELL_A_FRIEND_URL]];
+    [composeViewController setInitialText:NSLocalizedString(@"about.tell_a_friend.message", nil)];
+    [composeViewController addURL:[NSURL URLWithString:APP_URL]];
     [self presentViewController:composeViewController animated:YES completion:nil];
 }
 
