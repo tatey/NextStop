@@ -33,24 +33,24 @@
 "direction_record.direction.west" = "West";
 
 // View Controllers
-"about.actions.buttons.email" = "Email";
-"about.actions.buttons.facebook" = "Facebook";
-"about.actions.buttons.twitter" = "Twitter";
-"about.actions.titles.tell_a_friend" = "Tell a Friend";
-"about.alerts.titles.no_contact_us" = "We tried to open an email to %@";
-"about.alerts.messages.no_contact_us" = "Email hasn't been setup on your iPhone. Try sending from your computer. We'd love to have your feedback.";
-"about.alerts.titles.no_tell_a_friend_email" = "We tried to open an email";
-"about.alerts.messages.no_tell_a_friend_email" = "Email hasn't been setup on your iPhone. Try sending from your computer.";
-"about.alerts.titles.facebook" = "Sorry, Facebook is iOS 6+";
-"about.alerts.messages.facebook" = "Try sending an email or tweet instead.";
-"about.contact_us.subject" = "Next Stop %@ Feedback";
-"about.tell_a_friend.message" = "I am never going to miss my bus stop again.";
-"about.tell_a_friend.subject" = "Check out Next Stop";
 "direction_show.alerts.messages.not_authorized" = "Enable Location Services in Settings. Next Stop uses your current location to notify you when you reach your stop.";
 "direction_show.alerts.messages.targeted" = "You will get notified before you reach your stop, even if you put this iPhone to sleep.";
 "direction_show.alerts.titles.found_no_stop" = "No stops found within %dkm of the address";
 "direction_show.alerts.messages.found_no_stop" = "Try adding the suburb or city to the address";
 "direction_show.search.placeholder" = "Stop or address";
+"more_info.actions.buttons.email" = "Email";
+"more_info.actions.buttons.facebook" = "Facebook";
+"more_info.actions.buttons.twitter" = "Twitter";
+"more_info.actions.titles.tell_a_friend" = "Tell a Friend";
+"more_info.alerts.titles.no_contact_us" = "We tried to open an email to %@";
+"more_info.alerts.messages.no_contact_us" = "Email hasn't been setup on your iPhone. Try sending from your computer. We'd love to have your feedback.";
+"more_info.alerts.titles.no_tell_a_friend_email" = "We tried to open an email";
+"more_info.alerts.messages.no_tell_a_friend_email" = "Email hasn't been setup on your iPhone. Try sending from your computer.";
+"more_info.alerts.titles.facebook" = "Sorry, Facebook is iOS 6+";
+"more_info.alerts.messages.facebook" = "Try sending an email or tweet instead.";
+"more_info.contact_us.subject" = "Next Stop %@ Feedback";
+"more_info.tell_a_friend.message" = "I am never going to miss my bus stop again.";
+"more_info.tell_a_friend.subject" = "Check out Next Stop";
 "route.alerts.titles.approaching" = "Next Stop";
 "route.alerts.messages.approaching" = "Get ready to hop off";
 "routes.title" = "Routes";

@@ -48,7 +48,7 @@
 		5D6822531632932600EF756C /* EmptyRouteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D6822521632932600EF756C /* EmptyRouteView.xib */; };
 		5D7D8A831568C5D0004DFB54 /* BackgroundNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */; };
 		5D84A49C162EB86C002A959B /* NextStop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D84A49B162EB86C002A959B /* NextStop.storyboard */; };
-		5D84A49F162EBB84002A959B /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D84A49E162EBB84002A959B /* AboutViewController.m */; };
+		5D84A49F162EBB84002A959B /* MoreInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D84A49E162EBB84002A959B /* MoreInfoViewController.m */; };
 		5D864EDB15B55CD4007ADCA8 /* DirectionRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D864EDA15B55CD4007ADCA8 /* DirectionRecord.m */; };
 		5D864EDE15B564C9007ADCA8 /* DirectionManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D864EDD15B564C9007ADCA8 /* DirectionManagedObject.m */; };
 		5D918A24162ED9A100450C3D /* About.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D918A22162ED9A100450C3D /* About.png */; };
@@ -161,8 +161,8 @@
 		5D7D8A811568C5D0004DFB54 /* BackgroundNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundNotifier.h; sourceTree = "<group>"; };
 		5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundNotifier.m; sourceTree = "<group>"; };
 		5D84A49B162EB86C002A959B /* NextStop.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NextStop.storyboard; sourceTree = "<group>"; };
-		5D84A49D162EBB84002A959B /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
-		5D84A49E162EBB84002A959B /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		5D84A49D162EBB84002A959B /* MoreInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreInfoViewController.h; sourceTree = "<group>"; };
+		5D84A49E162EBB84002A959B /* MoreInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreInfoViewController.m; sourceTree = "<group>"; };
 		5D864ED915B55CD4007ADCA8 /* DirectionRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionRecord.h; sourceTree = "<group>"; };
 		5D864EDA15B55CD4007ADCA8 /* DirectionRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionRecord.m; sourceTree = "<group>"; };
 		5D864EDC15B564C9007ADCA8 /* DirectionManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionManagedObject.h; sourceTree = "<group>"; };
@@ -364,10 +364,10 @@
 		5DA512C015F1F45500EF91DC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5D84A49D162EBB84002A959B /* AboutViewController.h */,
-				5D84A49E162EBB84002A959B /* AboutViewController.m */,
 				5DA37E8D15EA262D0090FDB0 /* DirectionShowViewController.h */,
 				5DA37E8E15EA262D0090FDB0 /* DirectionShowViewController.m */,
+				5D84A49D162EBB84002A959B /* MoreInfoViewController.h */,
+				5D84A49E162EBB84002A959B /* MoreInfoViewController.m */,
 				5D2BFDB91547F3B400D9F53E /* RouteIndexViewController.h */,
 				5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */,
 				5D5CA6421604DAF10006D433 /* RouteNewViewController.h */,
@@ -698,7 +698,7 @@
 				5DE277611620095E00575BCD /* ProximityManagedObject.m in Sources */,
 				5DE277651620098C00575BCD /* ProximitySetManagedObject.m in Sources */,
 				5DE27768162009F200575BCD /* ProximityManager.m in Sources */,
-				5D84A49F162EBB84002A959B /* AboutViewController.m in Sources */,
+				5D84A49F162EBB84002A959B /* MoreInfoViewController.m in Sources */,
 				5D9C60EB1639415C00CBFC99 /* ErrorFormatter.m in Sources */,
 				5D2C3B18163CFA3F005C3920 /* StopSequenceService.m in Sources */,
 			);

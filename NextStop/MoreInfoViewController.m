@@ -2,25 +2,25 @@
 #ifdef SOCIAL_EXTERN
     #import <Social/Social.h>
 #endif
-#import "AboutViewController.h"
+#import "MoreInfoViewController.h"
 
 #define APP_URL @"http://nextstop.me"
 #define APP_STORE_URL @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=<APP_ID>"
 #define SUPPORT_EMAIL @"support@nextstop.me"
 #define VERSION [NSString stringWithFormat:@"v%@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]]
 
-@implementation AboutViewController
+@implementation MoreInfoViewController
 
 - (void)contactUs {
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *composeViewController = [[MFMailComposeViewController alloc] init];
         composeViewController.mailComposeDelegate = self;
         [composeViewController setToRecipients:@[SUPPORT_EMAIL]];
-        [composeViewController setSubject:[NSString stringWithFormat:NSLocalizedString(@"about.contact_us.subject", nil), VERSION]];
+        [composeViewController setSubject:[NSString stringWithFormat:NSLocalizedString(@"more_info.contact_us.subject", nil), VERSION]];
         [self presentViewController:composeViewController animated:YES completion:nil];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"about.alerts.titles.no_contact_us", nil), SUPPORT_EMAIL]
-                                                        message:NSLocalizedString(@"about.alerts.messages.no_contact_us", nil)
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"more_info.alerts.titles.no_contact_us", nil), SUPPORT_EMAIL]
+                                                        message:NSLocalizedString(@"more_info.alerts.messages.no_contact_us", nil)
                                                        delegate:nil
                                               cancelButtonTitle:NSLocalizedString(@"controls.ok", nil)
                                               otherButtonTitles:nil];
@@ -29,11 +29,11 @@
 }
 
 - (void)tellAFriend {
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"about.actions.titles.tell_a_friend", nil)
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"more_info.actions.titles.tell_a_friend", nil)
                                                        delegate:self
                                               cancelButtonTitle:NSLocalizedString(@"controls.cancel", nil)
                                          destructiveButtonTitle:nil
-                                              otherButtonTitles:NSLocalizedString(@"about.actions.buttons.email", nil), NSLocalizedString(@"about.actions.buttons.twitter", nil), NSLocalizedString(@"about.actions.buttons.facebook", nil), nil];
+                                              otherButtonTitles:NSLocalizedString(@"more_info.actions.buttons.email", nil), NSLocalizedString(@"more_info.actions.buttons.twitter", nil), NSLocalizedString(@"more_info.actions.buttons.facebook", nil), nil];
     [sheet showInView:self.view];
 }
 
@@ -41,12 +41,12 @@
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *composeViewController = [[MFMailComposeViewController alloc] init];
         composeViewController.mailComposeDelegate = self;
-        [composeViewController setSubject:NSLocalizedString(@"about.tell_a_friend.subject", nil)];
-        [composeViewController setMessageBody:[NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"about.tell_a_friend.message", nil), APP_URL] isHTML:NO];
+        [composeViewController setSubject:NSLocalizedString(@"more_info.tell_a_friend.subject", nil)];
+        [composeViewController setMessageBody:[NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"more_info.tell_a_friend.message", nil), APP_URL] isHTML:NO];
         [self presentViewController:composeViewController animated:YES completion:nil];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"about.alerts.titles.no_tell_a_friend_email", nil)
-                                                        message:NSLocalizedString(@"about.alerts.messages.no_tell_a_friend_email", nil)
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"more_info.alerts.titles.no_tell_a_friend_email", nil)
+                                                        message:NSLocalizedString(@"more_info.alerts.messages.no_tell_a_friend_email", nil)
                                                        delegate:nil
                                               cancelButtonTitle:NSLocalizedString(@"controls.ok", nil)
                                               otherButtonTitles:nil];
@@ -57,12 +57,12 @@
 - (void)tellAFriendFacebook {
     if ([SLComposeViewController class]) {
         SLComposeViewController *composeViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        [composeViewController setInitialText:NSLocalizedString(@"about.tell_a_friend.message", nil)];
+        [composeViewController setInitialText:NSLocalizedString(@"more_info.tell_a_friend.message", nil)];
         [composeViewController addURL:[NSURL URLWithString:APP_URL]];
         [self presentViewController:composeViewController animated:YES completion:nil];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"about.alerts.titles.facebook", nil)
-                                                        message:NSLocalizedString(@"about.alerts.messages.facebook", nil)
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"more_info.alerts.titles.facebook", nil)
+                                                        message:NSLocalizedString(@"more_info.alerts.messages.facebook", nil)
                                                        delegate:nil
                                               cancelButtonTitle:NSLocalizedString(@"controls.ok", nil)
                                               otherButtonTitles:nil];
@@ -72,7 +72,7 @@
 
 - (void)tellAFriendTwitter {
     TWTweetComposeViewController *composeViewController = [[TWTweetComposeViewController alloc] init];
-    [composeViewController setInitialText:NSLocalizedString(@"about.tell_a_friend.message", nil)];
+    [composeViewController setInitialText:NSLocalizedString(@"more_info.tell_a_friend.message", nil)];
     [composeViewController addURL:[NSURL URLWithString:APP_URL]];
     [self presentViewController:composeViewController animated:YES completion:nil];
 }
@@ -84,7 +84,7 @@
 #pragma mark - Actions
 
 - (IBAction)cancelBarButtonItemTapped:(UIBarButtonItem *)cancelBarButtonItem {
-    [self.delegate aboutViewControlerDidFinish:self];
+    [self.delegate moreInfoViewControlerDidFinish:self];
 }
 
 #pragma mark - MFMailComposeViewControllerDelegate

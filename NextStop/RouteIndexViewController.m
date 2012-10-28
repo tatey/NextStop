@@ -115,7 +115,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
 - (void)aboutBarButtonItemTapped:(UIBarButtonItem *)aboutBarButtonItem {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"NextStop" bundle:nil];
     UINavigationController *navigationController = [storyboard instantiateInitialViewController];
-    AboutViewController *aboutViewController = (AboutViewController *)navigationController.topViewController;
+    MoreInfoViewController *aboutViewController = (MoreInfoViewController *)navigationController.topViewController;
     aboutViewController.delegate = self;
     [self presentViewController:navigationController animated:YES completion:nil];
 }
@@ -126,9 +126,9 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     [self presentViewController:navigationController animated:YES completion:nil];
 }
 
-#pragma mark - AboutViewControllerDelegate
+#pragma mark - MoreInfoViewControllerDelegate
 
-- (void)aboutViewControlerDidFinish:(AboutViewController *)controller {
+- (void)moreInfoViewControlerDidFinish:(MoreInfoViewController *)controller {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
