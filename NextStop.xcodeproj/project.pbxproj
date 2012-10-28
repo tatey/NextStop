@@ -23,8 +23,10 @@
 		5D1B5F1C1605BA8800149AC0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1B5F1A1605BA8800149AC0 /* Default.png */; };
 		5D1B5F1D1605BA8800149AC0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1B5F1B1605BA8800149AC0 /* Default@2x.png */; };
 		5D2BFDBB1547F3B400D9F53E /* RouteIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */; };
-		5D2BFDBC1547F3B400D9F53E /* RouteIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */; };
 		5D2C3B18163CFA3F005C3920 /* StopSequenceService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2C3B17163CFA3F005C3920 /* StopSequenceService.m */; };
+		5D2C3B1B163D26CF005C3920 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2C3B1A163D26CF005C3920 /* Twitter.framework */; };
+		5D2C3B1D163D2A84005C3920 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2C3B1C163D2A84005C3920 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5D2C3B1E163D33E3005C3920 /* RouteIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */; };
 		5D3A56C61615D22F0019CF8A /* NameFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A56C51615D22F0019CF8A /* NameFormatter.m */; };
 		5D3A56CA1615D4020019CF8A /* StopReordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A56C91615D4020019CF8A /* StopReordCell.m */; };
 		5D44C639162175E0002E49C6 /* PinGray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D44C638162175E0002E49C6 /* PinGray@2x.png */; };
@@ -128,6 +130,8 @@
 		5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteIndexViewController.m; sourceTree = "<group>"; };
 		5D2C3B16163CFA3F005C3920 /* StopSequenceService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopSequenceService.h; sourceTree = "<group>"; };
 		5D2C3B17163CFA3F005C3920 /* StopSequenceService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopSequenceService.m; sourceTree = "<group>"; };
+		5D2C3B1A163D26CF005C3920 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		5D2C3B1C163D2A84005C3920 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5D3A56C41615D22F0019CF8A /* NameFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameFormatter.h; sourceTree = "<group>"; };
 		5D3A56C51615D22F0019CF8A /* NameFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameFormatter.m; sourceTree = "<group>"; };
 		5D3A56C81615D4020019CF8A /* StopReordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopReordCell.h; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 				5DB59C811546C8E500417818 /* Foundation.framework in Frameworks */,
 				5DB59CB21546CA7B00417818 /* MapKit.framework in Frameworks */,
 				5D4A6FEA16338B8A00E91EF0 /* MessageUI.framework in Frameworks */,
+				5D2C3B1D163D2A84005C3920 /* Social.framework in Frameworks */,
+				5D2C3B1B163D26CF005C3920 /* Twitter.framework in Frameworks */,
 				5DB59C7F1546C8E500417818 /* UIKit.framework in Frameworks */,
 				5DB59CE91547B5F500417818 /* libsqlite3.0.dylib in Frameworks */,
 			);
@@ -401,6 +407,8 @@
 				5DB59CB11546CA7B00417818 /* MapKit.framework */,
 				5D4A6FE916338B8A00E91EF0 /* MessageUI.framework */,
 				5DB59C961546C8E500417818 /* SenTestingKit.framework */,
+				5D2C3B1C163D2A84005C3920 /* Social.framework */,
+				5D2C3B1A163D26CF005C3920 /* Twitter.framework */,
 				5DB59C7E1546C8E500417818 /* UIKit.framework */,
 				5DB59CE81547B5F500417818 /* libsqlite3.0.dylib */,
 			);
@@ -700,10 +708,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D2BFDBC1547F3B400D9F53E /* RouteIndexViewController.m in Sources */,
 				5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */,
 				5D05F317154ACA7F004E7773 /* StopRecord.m in Sources */,
 				5DA866A91556C25E00FB1ACF /* RouteRecord.m in Sources */,
+				5D2C3B1E163D33E3005C3920 /* RouteIndexViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,7 +4,7 @@
 
 @protocol AboutViewControllerDelegate;
 
-@interface AboutViewController : UITableViewController <MFMailComposeViewControllerDelegate>
+@interface AboutViewController : UITableViewController <MFMailComposeViewControllerDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) id <AboutViewControllerDelegate> delegate;
 
