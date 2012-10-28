@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1536</int>
-		<string key="IBDocument.SystemVersion">12C54</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2840</string>
+		<string key="IBDocument.SystemVersion">12C60</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2843</string>
 		<string key="IBDocument.AppKitVersion">1187.34</string>
 		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">1926</string>
+			<string key="NS.object.0">1929</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
@@ -43,7 +43,7 @@
 							<object class="IBUILabel" id="674232638">
 								<reference key="NSNextResponder" ref="491608937"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{10, 2}, {169, 21}}</string>
+								<string key="NSFrame">{{36, 2}, {169, 21}}</string>
 								<reference key="NSSuperview" ref="491608937"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="342584847"/>
@@ -78,9 +78,10 @@
 							<object class="IBUILabel" id="766738088">
 								<reference key="NSNextResponder" ref="491608937"/>
 								<int key="NSvFlags">294</int>
-								<string key="NSFrame">{{41, 22}, {269, 42}}</string>
+								<string key="NSFrame">{{36, 22}, {269, 42}}</string>
 								<reference key="NSSuperview" ref="491608937"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -89,8 +90,8 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">GoMa, Culturual Centre, Roma St, Chapel Hill, Kenmore, Moggill</string>
 								<object class="NSColor" key="IBUITextColor">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
+									<int key="NSColorSpace">2</int>
+									<bytes key="NSRGB">MC40OTgwMzkyNDU2IDAuNDk4MDM5MjQ1NiAwLjQ5ODAzOTI0NTYAA</bytes>
 								</object>
 								<reference key="IBUIHighlightedColor" ref="1021783522"/>
 								<int key="IBUIBaselineAdjustment">0</int>
@@ -111,7 +112,7 @@
 							<object class="IBUIImageView" id="342584847">
 								<reference key="NSNextResponder" ref="491608937"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{10, 33}, {21, 21}}</string>
+								<string key="NSFrame">{{9, 23}, {18, 18}}</string>
 								<reference key="NSSuperview" ref="491608937"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="766738088"/>
@@ -234,7 +235,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">19</int>
+			<int key="maxID">28</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -271,9 +272,9 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="BusGray.png">{21, 21}</string>
-			<string key="BusWhite.png">{21, 21}</string>
+			<string key="BusGray.png">{18, 18}</string>
+			<string key="BusWhite.png">{18, 18}</string>
 		</dictionary>
-		<string key="IBCocoaTouchPluginVersion">1926</string>
+		<string key="IBCocoaTouchPluginVersion">1929</string>
 	</data>
 </archive>
