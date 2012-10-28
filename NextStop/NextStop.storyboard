@@ -321,7 +321,7 @@
                                                     <rect key="frame" x="10" y="11" width="280" height="170"/>
                                                     <string key="text">Designed and built by Tate Johnson, an independent software developer and consumer of public transport.
 
-All route and stop data is sourced from and copyright Translink Transit Authority. Next Stop is not affiliated with or endorsed by the Translink Transit Authority. Data is current as of 24 September, 2012.</string>
+All route and stop data is sourced from and copyright Translink Transit Authority. Next Stop is not affiliated with or endorsed by the Translink Transit Authority. Data is current as of 26 November, 2012.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
