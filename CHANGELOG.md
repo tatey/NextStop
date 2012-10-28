@@ -2,9 +2,10 @@
 
 ## Current / Unreleased
 
-* [New] "More Info" page has "FAQ", "About" and a way to contact support.
-* [Change] Opening Next Stop for the first time prompts you to add your route.
+* [Change] Next stop notification is sent shortly after leaving the previous stop. Maximum is 1KM.
+* [Change] Opening Next Stop for the first time prompts you to add the route you are travelling on.
 * [Change] Error messages are meaningful sentences, not obscure code numbers.
+* [New] "More Info" page has "FAQ", "About" and a way to contact support.
 
 ## 0.5.2 / 2012-10-09
 
