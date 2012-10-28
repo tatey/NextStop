@@ -299,10 +299,10 @@
             </objects>
             <point key="canvasLocation" x="762" y="61"/>
         </scene>
-        <!--Table View Controller - About-->
+        <!--About View Controller - About-->
         <scene sceneID="ev3-5H-ber">
             <objects>
-                <tableViewController id="gKH-AZ-hwl" sceneMemberID="viewController">
+                <tableViewController id="gKH-AZ-hwl" customClass="AboutViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Qpl-mo-f1G">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -334,11 +334,11 @@ All route and stop data is sourced from and copyright Translink Transit Authorit
                             </tableViewSection>
                             <tableViewSection id="9TO-8v-rRb">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="pUt-1N-4Do" detailTextLabel="VkE-xk-fgS" rowHeight="42" style="IBUITableViewCellStyleValue2" id="jDw-sh-B3s">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="pUt-1N-4Do" detailTextLabel="VkE-xk-fgS" rowHeight="42" style="IBUITableViewCellStyleValue2" id="jDw-sh-B3s">
                                         <rect key="frame" x="0.0" y="225" width="320" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="41"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="41"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Twitter" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pUt-1N-4Do">
@@ -359,11 +359,11 @@ All route and stop data is sourced from and copyright Translink Transit Authorit
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="6lO-lO-cxg" detailTextLabel="Iu1-JQ-HCg" rowHeight="42" style="IBUITableViewCellStyleValue2" id="dpd-rH-XrG">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="6lO-lO-cxg" detailTextLabel="Iu1-JQ-HCg" rowHeight="42" style="IBUITableViewCellStyleValue2" id="dpd-rH-XrG">
                                         <rect key="frame" x="0.0" y="268" width="320" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="41"/>
+                                            <rect key="frame" x="10" y="0.0" width="300" height="41"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Web" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6lO-lO-cxg">
@@ -399,6 +399,17 @@ All route and stop data is sourced from and copyright Translink Transit Authorit
             <point key="canvasLocation" x="762" y="746"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AboutViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
+        </class>
+        <class className="MoreInfoViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoreInfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelBarButtonItemTapped:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

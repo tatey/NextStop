@@ -27,6 +27,7 @@
 		5D2C3B1B163D26CF005C3920 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2C3B1A163D26CF005C3920 /* Twitter.framework */; };
 		5D2C3B1D163D2A84005C3920 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2C3B1C163D2A84005C3920 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5D2C3B1E163D33E3005C3920 /* RouteIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BFDBA1547F3B400D9F53E /* RouteIndexViewController.m */; };
+		5D2C3B2B163D48D0005C3920 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2C3B2A163D48D0005C3920 /* AboutViewController.m */; };
 		5D3A56C61615D22F0019CF8A /* NameFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A56C51615D22F0019CF8A /* NameFormatter.m */; };
 		5D3A56CA1615D4020019CF8A /* StopReordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A56C91615D4020019CF8A /* StopReordCell.m */; };
 		5D44C639162175E0002E49C6 /* PinGray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D44C638162175E0002E49C6 /* PinGray@2x.png */; };
@@ -132,6 +133,8 @@
 		5D2C3B17163CFA3F005C3920 /* StopSequenceService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopSequenceService.m; sourceTree = "<group>"; };
 		5D2C3B1A163D26CF005C3920 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		5D2C3B1C163D2A84005C3920 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		5D2C3B29163D48D0005C3920 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		5D2C3B2A163D48D0005C3920 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		5D3A56C41615D22F0019CF8A /* NameFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameFormatter.h; sourceTree = "<group>"; };
 		5D3A56C51615D22F0019CF8A /* NameFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameFormatter.m; sourceTree = "<group>"; };
 		5D3A56C81615D4020019CF8A /* StopReordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopReordCell.h; sourceTree = "<group>"; };
@@ -364,6 +367,8 @@
 		5DA512C015F1F45500EF91DC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5D2C3B29163D48D0005C3920 /* AboutViewController.h */,
+				5D2C3B2A163D48D0005C3920 /* AboutViewController.m */,
 				5DA37E8D15EA262D0090FDB0 /* DirectionShowViewController.h */,
 				5DA37E8E15EA262D0090FDB0 /* DirectionShowViewController.m */,
 				5D84A49D162EBB84002A959B /* MoreInfoViewController.h */,
@@ -701,6 +706,7 @@
 				5D84A49F162EBB84002A959B /* MoreInfoViewController.m in Sources */,
 				5D9C60EB1639415C00CBFC99 /* ErrorFormatter.m in Sources */,
 				5D2C3B18163CFA3F005C3920 /* StopSequenceService.m in Sources */,
+				5D2C3B2B163D48D0005C3920 /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
