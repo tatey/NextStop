@@ -33,6 +33,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     // Add bar button item
     self.addBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addBarButtonItemTapped:)];
     self.addBarButtonItem.style = UIBarButtonItemStyleBordered;
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     self.navigationItem.rightBarButtonItem = self.addBarButtonItem;
     // Toolbar
     UIBarButtonItem *flexibleSpaceBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
