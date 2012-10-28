@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface Defaults : NSObject
+@interface AppDefaults : NSObject
 
 + (void)didShowFirstTimeTargetNotification;
 + (BOOL)shouldShowFirstTimeTargetNotification;

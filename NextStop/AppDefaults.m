@@ -1,8 +1,8 @@
-#import "Defaults.h"
+#import "AppDefaults.h"
 
 static NSString *const kFirstTimeTargetNotificationKey = @"FirstTimeTargetNotification";
 
-@implementation Defaults
+@implementation AppDefaults
 
 + (void)didShowFirstTimeTargetNotification {
     [[NSUserDefaults standardUserDefaults] setValue:@NO forKey:kFirstTimeTargetNotificationKey];

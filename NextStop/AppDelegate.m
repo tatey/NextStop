@@ -1,7 +1,7 @@
+#import "AppDefaults.h"
 #import "AppDelegate.h"
 #import "BackgroundNotifier.h"
 #import "DataManager.h"
-#import "Defaults.h"
 #import "ProximityManager.h"
 #import "RouteIndexViewController.h"
 #import "RouteShowViewController.h"
@@ -46,7 +46,7 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     self.backgroundNotifier = [[BackgroundNotifier alloc] initWithApplication:application];
     [self.dataManager save];
-    [Defaults syncronize];
+    [AppDefaults syncronize];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
