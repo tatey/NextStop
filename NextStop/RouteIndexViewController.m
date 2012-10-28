@@ -33,12 +33,12 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     // Add bar button item
     self.addBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addBarButtonItemTapped:)];
     self.addBarButtonItem.style = UIBarButtonItemStyleBordered;
-    self.navigationItem.leftBarButtonItem = self.addBarButtonItem;
+    self.navigationItem.rightBarButtonItem = self.addBarButtonItem;
     // Toolbar
     UIBarButtonItem *flexibleSpaceBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *aboutBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"About.png"] style:UIBarButtonItemStylePlain target:self action:@selector(aboutBarButtonItemTapped:)];
     self.navigationController.toolbarHidden = NO;
-    self.toolbarItems = @[flexibleSpaceBarButtonItem, flexibleSpaceBarButtonItem, flexibleSpaceBarButtonItem, aboutBarButtonItem];
+    self.toolbarItems = @[aboutBarButtonItem, flexibleSpaceBarButtonItem, flexibleSpaceBarButtonItem, flexibleSpaceBarButtonItem];
     // Routes
     self.routes = [RouteManagedObject routesInManagedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:kFetchedResultsControllerCacheName];
     self.routes.delegate = self;
@@ -91,7 +91,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     self.emptyRouteView = [[[NSBundle mainBundle] loadNibNamed:@"EmptyRouteView" owner:nil options:nil] lastObject];
     [self.view addSubview:self.emptyRouteView];
     self.emptyRouteView.center = self.view.center;
-    self.navigationItem.rightBarButtonItem = nil;
+    self.navigationItem.leftBarButtonItem = nil;
     [self setEditing:NO animated:NO];
 }
 
@@ -99,7 +99,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     if (!self.emptyRouteView) return;
     [self.emptyRouteView removeFromSuperview];
     self.emptyRouteView = nil;
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
 - (void)toggleEmptyRoutesView {

@@ -30,7 +30,7 @@ static NSString *kRouteRecordCellReuseId = @"RouteRecordCell";
     // Cancel bar button item
     self.cancelBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelBarButtonItemTapped:)];
     self.cancelBarButtonItem.style = UIBarButtonItemStyleBordered;
-    self.navigationItem.leftBarButtonItem = self.cancelBarButtonItem;
+    self.navigationItem.rightBarButtonItem = self.cancelBarButtonItem;
     // Routes
     self.routes = [RouteRecord routes];
     // Search bar
