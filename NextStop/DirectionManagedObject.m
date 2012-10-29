@@ -10,7 +10,7 @@
 #import "Strings.h"
 #import "StopRecord.h"
 
-#define PRECISION_RADIUS 2000 // Meters
+#define PRECISION_RADIUS 1250 // Meters
 
 static NSString *const kEntityName = @"Direction";
 
