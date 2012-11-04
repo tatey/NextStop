@@ -10,8 +10,6 @@
 #import "Strings.h"
 #import "StopRecord.h"
 
-#define PRECISION_RADIUS 1250 // Meters
-
 static NSString *const kEntityName = @"Direction";
 
 static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget";
@@ -166,7 +164,7 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
     if (!self.isMonitoringProximityToTarget || !self.target) return;
     CLLocationDistance rawDistance = [StopSequenceService distanceBetweenClosestPreviouStopFromStop:self.target inDirection:self.directionRecord];
     CLLocationDistance notificationDistance = [StopSequenceService notificationDistanceFromRawDistance:rawDistance];
-    self.proximity = [[ProximityManagedObject alloc] initWithDirectionManagedObject:self target:self.target.coordinate notificationRadius:notificationDistance precisionRadius:PRECISION_RADIUS identifier:[self identifier] managedObjectContext:self.managedObjectContext];
+    self.proximity = [[ProximityManagedObject alloc] initWithDirectionManagedObject:self target:self.target.coordinate notificationRadius:notificationDistance precisionRadius:notificationDistance + 500 identifier:[self identifier] managedObjectContext:self.managedObjectContext];
     [UIAppDelegate.proximityManager startMonitoringProximity:self.proximity];
 }
 
