@@ -12,8 +12,8 @@
 	<array>
 		<string>Icon.png</string>
 		<string>Icon@2x.png</string>
-		<string>Default.png</string>
-		<string>Default@2x.png</string>
+		<string>IconSettings.png</string>
+		<string>IconSettings@2x.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -26,6 +26,8 @@
 				<string>Default.png</string>
 				<string>Default@2x.png</string>
 			</array>
+			<key>UIPrerenderedIcon</key>
+			<true/>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
@@ -48,6 +50,8 @@
 	<array>
 		<string>location</string>
 	</array>
+	<key>UIPrerenderedIcon</key>
+	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>location-services</string>

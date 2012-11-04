@@ -88,6 +88,8 @@
 		5DB59CBC1546D21200417818 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CBB1546D21200417818 /* CoreLocation.framework */; };
 		5DB59CE91547B5F500417818 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB59CE81547B5F500417818 /* libsqlite3.0.dylib */; };
 		5DB9257F1600B0EE00AE27C3 /* ModalSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB9257E1600B0ED00AE27C3 /* ModalSearchDisplayController.m */; };
+		5DC98B4C164605D100BAF8E2 /* IconSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DC98B4A164605D100BAF8E2 /* IconSettings.png */; };
+		5DC98B4D164605D100BAF8E2 /* IconSettings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DC98B4B164605D100BAF8E2 /* IconSettings@2x.png */; };
 		5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteDB.m */; };
 		5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteDB.m */; };
 		5DE277611620095E00575BCD /* ProximityManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE277601620095E00575BCD /* ProximityManagedObject.m */; };
@@ -223,6 +225,8 @@
 		5DB9257E1600B0ED00AE27C3 /* ModalSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalSearchDisplayController.m; sourceTree = "<group>"; };
 		5DBDD34615B83A74001287AB /* Indooroopilly.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Indooroopilly.gpx; sourceTree = "<group>"; };
 		5DBDD34915B83A7F001287AB /* Brisbane.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Brisbane.gpx; sourceTree = "<group>"; };
+		5DC98B4A164605D100BAF8E2 /* IconSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconSettings.png; sourceTree = "<group>"; };
+		5DC98B4B164605D100BAF8E2 /* IconSettings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconSettings@2x.png"; sourceTree = "<group>"; };
 		5DD345FC162D446A00DA4C82 /* PyrmontCenter.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PyrmontCenter.gpx; sourceTree = "<group>"; };
 		5DD345FD162D446A00DA4C82 /* PyrmontNorth.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PyrmontNorth.gpx; sourceTree = "<group>"; };
 		5DD523FC1547FF7C00011A3E /* SQLiteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteDB.h; sourceTree = "<group>"; };
@@ -502,6 +506,8 @@
 				5DAE5AFA1632C649000B91FE /* EmptyRoute@2x.png */,
 				5D4CB10915F31B640059784A /* Icon.png */,
 				5D4CB10A15F31B640059784A /* Icon@2x.png */,
+				5DC98B4A164605D100BAF8E2 /* IconSettings.png */,
+				5DC98B4B164605D100BAF8E2 /* IconSettings@2x.png */,
 				5D44C638162175E0002E49C6 /* PinGray@2x.png */,
 				5D0E03CD16216F1B00C820B4 /* PinGreen@2x.png */,
 				5D0E03CF16216F1B00C820B4 /* PinPurple@2x.png */,
@@ -635,6 +641,8 @@
 				5D6822501632930D00EF756C /* EmptyRoute.png in Resources */,
 				5D6822531632932600EF756C /* EmptyRouteView.xib in Resources */,
 				5DAE5AFB1632C649000B91FE /* EmptyRoute@2x.png in Resources */,
+				5DC98B4C164605D100BAF8E2 /* IconSettings.png in Resources */,
+				5DC98B4D164605D100BAF8E2 /* IconSettings@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
