@@ -107,7 +107,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection footerTitle="v0.5.0" id="aqb-iW-5yo">
+                            <tableViewSection footerTitle="" id="aqb-iW-5yo">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="4Uz-cm-pAt" style="IBUITableViewCellStyleDefault" id="m7x-0B-C0J">
                                         <rect key="frame" x="0.0" y="230" width="320" height="45"/>
@@ -354,7 +354,7 @@ All route and stop data is sourced from and copyright Translink Transit Authorit
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="9TO-8v-rRb">
+                            <tableViewSection footerTitle="v0.5.0" id="9TO-8v-rRb">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="pUt-1N-4Do" detailTextLabel="VkE-xk-fgS" rowHeight="42" style="IBUITableViewCellStyleValue2" id="jDw-sh-B3s">
                                         <rect key="frame" x="0.0" y="225" width="320" height="43"/>
@@ -407,9 +407,6 @@ All route and stop data is sourced from and copyright Translink Transit Authorit
                                         </view>
                                     </tableViewCell>
                                 </cells>
-                            </tableViewSection>
-                            <tableViewSection id="Utj-3o-sXI">
-                                <cells/>
                             </tableViewSection>
                         </sections>
                         <connections>

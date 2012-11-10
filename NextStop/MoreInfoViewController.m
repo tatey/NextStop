@@ -3,11 +3,11 @@
     #import <Social/Social.h>
 #endif
 #import "MoreInfoViewController.h"
+#import "Strings.h"
 
 #define APP_URL @"http://nextstop.me"
 #define APP_STORE_URL @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=<APP_ID>"
 #define SUPPORT_EMAIL @"support@nextstop.me"
-#define VERSION [NSString stringWithFormat:@"v%@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]]
 
 @implementation MoreInfoViewController
 
@@ -16,7 +16,7 @@
         MFMailComposeViewController *composeViewController = [[MFMailComposeViewController alloc] init];
         composeViewController.mailComposeDelegate = self;
         [composeViewController setToRecipients:@[SUPPORT_EMAIL]];
-        [composeViewController setSubject:[NSString stringWithFormat:NSLocalizedString(@"more_info.contact_us.subject", nil), VERSION]];
+        [composeViewController setSubject:[NSString stringWithFormat:NSLocalizedString(@"more_info.contact_us.subject", nil), APP_VERSION]];
         [self presentViewController:composeViewController animated:YES completion:nil];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"more_info.alerts.titles.no_contact_us", nil), SUPPORT_EMAIL]
@@ -121,14 +121,6 @@
     } else if (indexPath.section == 1 && indexPath.row == 2) {
         [self leaveAReview];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    }
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    if (section == 2) {
-        return VERSION;
-    } else {
-        return nil;
     }
 }
 

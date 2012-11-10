@@ -1,4 +1,5 @@
 #import "AboutViewController.h"
+#import "Strings.h"
 
 #define WEB_URL @"http://nextstop.me"
 #define TWITTER_URL @"http://twitter.com/nxstop"
@@ -14,6 +15,14 @@
     } else if (indexPath.section == 1 && indexPath.row == 1) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:WEB_URL]];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    if (section == 1) {
+        return APP_VERSION;
+    } else {
+        return nil;
     }
 }
 
