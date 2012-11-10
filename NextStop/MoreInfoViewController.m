@@ -1,8 +1,11 @@
+#import "AppDefaults.h"
+#import "DDFileLogger.h"
+#import "FileLoggerManager.h"
+#import "MoreInfoViewController.h"
 #import <Twitter/Twitter.h>
 #ifdef SOCIAL_EXTERN
     #import <Social/Social.h>
 #endif
-#import "MoreInfoViewController.h"
 #import "Strings.h"
 
 #define APP_URL @"http://nextstop.me"
@@ -17,6 +20,13 @@
         composeViewController.mailComposeDelegate = self;
         [composeViewController setToRecipients:@[SUPPORT_EMAIL]];
         [composeViewController setSubject:[NSString stringWithFormat:NSLocalizedString(@"more_info.contact_us.subject", nil), APP_VERSION]];
+        if ([AppDefaults canSendDiagnostics]) {
+            NSArray *paths = [[[[FileLoggerManager sharedInstance] fileLogger] logFileManager] sortedLogFilePaths];
+            if ([paths count] > 0) {
+                NSData *data = [NSData dataWithContentsOfFile:[paths objectAtIndex:0]];
+                [composeViewController addAttachmentData:data mimeType:@"plain/text" fileName:@"diagnostics.txt"];                
+            }
+        }
         [self presentViewController:composeViewController animated:YES completion:nil];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"more_info.alerts.titles.no_contact_us", nil), SUPPORT_EMAIL]
