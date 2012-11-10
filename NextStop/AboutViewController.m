@@ -4,15 +4,20 @@
 #define WEB_URL @"http://nextstop.me"
 #define TWITTER_URL @"http://twitter.com/nxstop"
 
+#define LINK_SECTION 1
+#define LINK_SECTION_TWITTER_ROW 0
+#define LINK_SECTION_WEB_ROW 1
+
 @implementation AboutViewController
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1 && indexPath.row == 0) {
+    if (indexPath.section != LINK_SECTION) return;
+    if (indexPath.row == LINK_SECTION_TWITTER_ROW) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:TWITTER_URL]];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    } else if (indexPath.section == 1 && indexPath.row == 1) {
+    } else if (indexPath.row == LINK_SECTION_WEB_ROW) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:WEB_URL]];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
