@@ -17,6 +17,9 @@
 		5D0E03CB162152D300C820B4 /* DefaultMap@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E03C8162152D300C820B4 /* DefaultMap@2x.png */; };
 		5D0E03D116216F1B00C820B4 /* PinGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E03CD16216F1B00C820B4 /* PinGreen@2x.png */; };
 		5D0E03D316216F1B00C820B4 /* PinPurple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D0E03CF16216F1B00C820B4 /* PinPurple@2x.png */; };
+		5D144A76164DFD7A009E1C75 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D144A75164DFD7A009E1C75 /* DDFileLogger.m */; };
+		5D144A77164DFD7D009E1C75 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D144A72164DFCF3009E1C75 /* DDLog.m */; };
+		5D144A7B164DFDED009E1C75 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D144A79164DFDEA009E1C75 /* DDTTYLogger.m */; };
 		5D1685E3164E486100C93D34 /* LocationSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1685E2164E486100C93D34 /* LocationSerializer.m */; };
 		5D17FB261605F44100D77A9B /* SearchBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D17FB241605F44100D77A9B /* SearchBarBackground.png */; };
 		5D17FB271605F44100D77A9B /* SearchBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D17FB251605F44100D77A9B /* SearchBarBackground@2x.png */; };
@@ -126,6 +129,12 @@
 		5D0E03C8162152D300C820B4 /* DefaultMap@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultMap@2x.png"; sourceTree = "<group>"; };
 		5D0E03CD16216F1B00C820B4 /* PinGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PinGreen@2x.png"; sourceTree = "<group>"; };
 		5D0E03CF16216F1B00C820B4 /* PinPurple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PinPurple@2x.png"; sourceTree = "<group>"; };
+		5D144A71164DFCF3009E1C75 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDLog.h; path = Vendors/CocoaLumberjack/Lumberjack/DDLog.h; sourceTree = "<group>"; };
+		5D144A72164DFCF3009E1C75 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDLog.m; path = Vendors/CocoaLumberjack/Lumberjack/DDLog.m; sourceTree = "<group>"; };
+		5D144A74164DFD7A009E1C75 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDFileLogger.h; path = Vendors/CocoaLumberjack/Lumberjack/DDFileLogger.h; sourceTree = "<group>"; };
+		5D144A75164DFD7A009E1C75 /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDFileLogger.m; path = Vendors/CocoaLumberjack/Lumberjack/DDFileLogger.m; sourceTree = "<group>"; };
+		5D144A78164DFDEA009E1C75 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDTTYLogger.h; path = Vendors/CocoaLumberjack/Lumberjack/DDTTYLogger.h; sourceTree = "<group>"; };
+		5D144A79164DFDEA009E1C75 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDTTYLogger.m; path = Vendors/CocoaLumberjack/Lumberjack/DDTTYLogger.m; sourceTree = "<group>"; };
 		5D1685E1164E486100C93D34 /* LocationSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSerializer.h; sourceTree = "<group>"; };
 		5D1685E2164E486100C93D34 /* LocationSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSerializer.m; sourceTree = "<group>"; };
 		5D16A87F1607713E00F3897E /* CoordinateRegion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoordinateRegion.h; sourceTree = "<group>"; };
@@ -286,6 +295,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D144A6E164DFCBD009E1C75 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				5D144A70164DFCCF009E1C75 /* CocoaLumberjack */,
+			);
+			name = Vendors;
+			sourceTree = "<group>";
+		};
+		5D144A70164DFCCF009E1C75 /* CocoaLumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				5D144A71164DFCF3009E1C75 /* DDLog.h */,
+				5D144A72164DFCF3009E1C75 /* DDLog.m */,
+				5D144A74164DFD7A009E1C75 /* DDFileLogger.h */,
+				5D144A75164DFD7A009E1C75 /* DDFileLogger.m */,
+				5D144A78164DFDEA009E1C75 /* DDTTYLogger.h */,
+				5D144A79164DFDEA009E1C75 /* DDTTYLogger.m */,
+			);
+			name = CocoaLumberjack;
+			sourceTree = "<group>";
+		};
 		5D1685E0164E485400C93D34 /* Serializers */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +449,7 @@
 			children = (
 				5DB59C841546C8E500417818 /* NextStop */,
 				5DB59C9C1546C8E500417818 /* NextStopTests */,
+				5D144A6E164DFCBD009E1C75 /* Vendors */,
 				5DB59C7D1546C8E500417818 /* Frameworks */,
 				5DB59C7B1546C8E500417818 /* Products */,
 			);
@@ -743,6 +774,9 @@
 				5D9C60EB1639415C00CBFC99 /* ErrorFormatter.m in Sources */,
 				5D2C3B18163CFA3F005C3920 /* StopSequenceService.m in Sources */,
 				5D2C3B2B163D48D0005C3920 /* AboutViewController.m in Sources */,
+				5D144A76164DFD7A009E1C75 /* DDFileLogger.m in Sources */,
+				5D144A77164DFD7D009E1C75 /* DDLog.m in Sources */,
+				5D144A7B164DFDED009E1C75 /* DDTTYLogger.m in Sources */,
 				5D1685E3164E486100C93D34 /* LocationSerializer.m in Sources */,
 				5DACDB5B164E4BF000035F86 /* JSONSerializer.m in Sources */,
 				5DACDB62164E5F7E00035F86 /* ProximitySerializer.m in Sources */,
