@@ -71,6 +71,7 @@
 		5DA866A91556C25E00FB1ACF /* RouteRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA866A71556C25E00FB1ACF /* RouteRecord.m */; };
 		5DAA1EFD15EF93D000BB3A71 /* RouteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DAA1EFC15EF93D000BB3A71 /* RouteCell.xib */; };
 		5DAA1F0115EF94FB00BB3A71 /* RouteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA1F0015EF94FB00BB3A71 /* RouteCell.m */; };
+		5DACDB5B164E4BF000035F86 /* JSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DACDB5A164E4BF000035F86 /* JSONSerializer.m */; };
 		5DAE5AFB1632C649000B91FE /* EmptyRoute@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DAE5AFA1632C649000B91FE /* EmptyRoute@2x.png */; };
 		5DB23092160B4C1900F8755B /* Close.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB23090160B4C1900F8755B /* Close.png */; };
 		5DB23093160B4C1900F8755B /* Close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB23091160B4C1900F8755B /* Close@2x.png */; };
@@ -199,6 +200,8 @@
 		5DAA1EFC15EF93D000BB3A71 /* RouteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteCell.xib; sourceTree = "<group>"; };
 		5DAA1EFF15EF94FB00BB3A71 /* RouteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteCell.h; sourceTree = "<group>"; };
 		5DAA1F0015EF94FB00BB3A71 /* RouteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteCell.m; sourceTree = "<group>"; };
+		5DACDB59164E4BF000035F86 /* JSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONSerializer.h; sourceTree = "<group>"; };
+		5DACDB5A164E4BF000035F86 /* JSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONSerializer.m; sourceTree = "<group>"; };
 		5DAE5AFA1632C649000B91FE /* EmptyRoute@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EmptyRoute@2x.png"; sourceTree = "<group>"; };
 		5DB0AE0E1578C83E00D43B2E /* Taringa.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Taringa.gpx; sourceTree = "<group>"; };
 		5DB0AE0F1578C83E00D43B2E /* Toowoong.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Toowoong.gpx; sourceTree = "<group>"; };
@@ -290,6 +293,8 @@
 				5D9C60E91639415C00CBFC99 /* ErrorFormatter.h */,
 				5D9C60EA1639415C00CBFC99 /* ErrorFormatter.m */,
 				5DA3A3D116045351003229B0 /* Haversin.h */,
+				5DACDB59164E4BF000035F86 /* JSONSerializer.h */,
+				5DACDB5A164E4BF000035F86 /* JSONSerializer.m */,
 				5DB9257D1600B0ED00AE27C3 /* ModalSearchDisplayController.h */,
 				5DB9257E1600B0ED00AE27C3 /* ModalSearchDisplayController.m */,
 				5D3A56C41615D22F0019CF8A /* NameFormatter.h */,
@@ -715,6 +720,7 @@
 				5D9C60EB1639415C00CBFC99 /* ErrorFormatter.m in Sources */,
 				5D2C3B18163CFA3F005C3920 /* StopSequenceService.m in Sources */,
 				5D2C3B2B163D48D0005C3920 /* AboutViewController.m in Sources */,
+				5DACDB5B164E4BF000035F86 /* JSONSerializer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
