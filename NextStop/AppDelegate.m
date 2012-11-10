@@ -2,6 +2,8 @@
 #import "AppDelegate.h"
 #import "BackgroundNotifier.h"
 #import "DataManager.h"
+#import "DDFileLogger.h"
+#import "DDTTYLogger.h"
 #import "ProximityManager.h"
 #import "RouteIndexViewController.h"
 #import "RouteShowViewController.h"
@@ -19,6 +21,9 @@
     if (application.applicationState == UIApplicationStateBackground) {
         self.backgroundNotifier = [[BackgroundNotifier alloc] initWithApplication:application];
     }
+    self.fileLogger = [[DDFileLogger alloc] init];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    [DDLog addLogger:self.fileLogger];
     self.dataManager = [[DataManager alloc] init];
     self.proximityManager = [[ProximityManager alloc] initWithDataManager:self.dataManager];
     [self.proximityManager resume];

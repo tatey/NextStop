@@ -1,6 +1,7 @@
 #import "DataManager.h"
 #import "ProximityManagedObject.h"
 #import "ProximityManager.h"
+#import "ProximityManagerLogger.h"
 #import "ProximitySetManagedObject.h"
 
 @implementation ProximityManager
@@ -35,6 +36,10 @@
 }
 
 - (void)startMonitoringProximity:(ProximityManagedObject *)proximity {
+    ProximityManagerLogger *logger = [[ProximityManagerLogger alloc] init];
+    [logger setMessage:@"Monitor Start"];
+    [logger setProximity:proximity];
+    [logger log];
     if ([proximity precisionRadiusContainsCoordinate:self.locationManager.location.coordinate]) {
         [self addProximity:proximity];
     } else {
@@ -44,6 +49,10 @@
 }
 
 - (void)stopMonitoringProximity:(ProximityManagedObject *)proximity {
+    ProximityManagerLogger *logger = [[ProximityManagerLogger alloc] init];
+    [logger setMessage:@"Monitor Stop"];
+    [logger setProximity:proximity];
+    [logger log];
     [self.locationManager stopMonitoringForRegion:[proximity precisionRegion]];
     [self removeProximity:proximity];
     [self.dataManager save];

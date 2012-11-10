@@ -76,6 +76,7 @@
 		5DAA1EFD15EF93D000BB3A71 /* RouteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DAA1EFC15EF93D000BB3A71 /* RouteCell.xib */; };
 		5DAA1F0115EF94FB00BB3A71 /* RouteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA1F0015EF94FB00BB3A71 /* RouteCell.m */; };
 		5DACDB5B164E4BF000035F86 /* JSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DACDB5A164E4BF000035F86 /* JSONSerializer.m */; };
+		5DACDB5F164E5D0A00035F86 /* ProximityManagerLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DACDB5E164E5D0A00035F86 /* ProximityManagerLogger.m */; };
 		5DACDB62164E5F7E00035F86 /* ProximitySerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DACDB61164E5F7E00035F86 /* ProximitySerializer.m */; };
 		5DACDB65164E615200035F86 /* RegionSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DACDB64164E615200035F86 /* RegionSerializer.m */; };
 		5DAE5AFB1632C649000B91FE /* EmptyRoute@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DAE5AFA1632C649000B91FE /* EmptyRoute@2x.png */; };
@@ -216,6 +217,8 @@
 		5DAA1F0015EF94FB00BB3A71 /* RouteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteCell.m; sourceTree = "<group>"; };
 		5DACDB59164E4BF000035F86 /* JSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONSerializer.h; sourceTree = "<group>"; };
 		5DACDB5A164E4BF000035F86 /* JSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONSerializer.m; sourceTree = "<group>"; };
+		5DACDB5D164E5D0A00035F86 /* ProximityManagerLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProximityManagerLogger.h; sourceTree = "<group>"; };
+		5DACDB5E164E5D0A00035F86 /* ProximityManagerLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProximityManagerLogger.m; sourceTree = "<group>"; };
 		5DACDB60164E5F7E00035F86 /* ProximitySerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProximitySerializer.h; sourceTree = "<group>"; };
 		5DACDB61164E5F7E00035F86 /* ProximitySerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProximitySerializer.m; sourceTree = "<group>"; };
 		5DACDB63164E615200035F86 /* RegionSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionSerializer.h; sourceTree = "<group>"; };
@@ -351,6 +354,8 @@
 				5DB9257E1600B0ED00AE27C3 /* ModalSearchDisplayController.m */,
 				5D3A56C41615D22F0019CF8A /* NameFormatter.h */,
 				5D3A56C51615D22F0019CF8A /* NameFormatter.m */,
+				5DACDB5D164E5D0A00035F86 /* ProximityManagerLogger.h */,
+				5DACDB5E164E5D0A00035F86 /* ProximityManagerLogger.m */,
 				5D4CA1B615FE1CAB00915A70 /* RouteShowViewControllerItem.h */,
 				5D4CA1B915FE276600915A70 /* RouteShowViewControllerItem.m */,
 			);
@@ -779,6 +784,7 @@
 				5D144A7B164DFDED009E1C75 /* DDTTYLogger.m in Sources */,
 				5D1685E3164E486100C93D34 /* LocationSerializer.m in Sources */,
 				5DACDB5B164E4BF000035F86 /* JSONSerializer.m in Sources */,
+				5DACDB5F164E5D0A00035F86 /* ProximityManagerLogger.m in Sources */,
 				5DACDB62164E5F7E00035F86 /* ProximitySerializer.m in Sources */,
 				5DACDB65164E615200035F86 /* RegionSerializer.m in Sources */,
 			);
