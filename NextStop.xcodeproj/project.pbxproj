@@ -254,8 +254,6 @@
 		5DBDD34915B83A7F001287AB /* Brisbane.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Brisbane.gpx; sourceTree = "<group>"; };
 		5DC98B4A164605D100BAF8E2 /* IconSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconSettings.png; sourceTree = "<group>"; };
 		5DC98B4B164605D100BAF8E2 /* IconSettings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconSettings@2x.png"; sourceTree = "<group>"; };
-		5DD345FC162D446A00DA4C82 /* PyrmontCenter.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PyrmontCenter.gpx; sourceTree = "<group>"; };
-		5DD345FD162D446A00DA4C82 /* PyrmontNorth.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PyrmontNorth.gpx; sourceTree = "<group>"; };
 		5DD523FC1547FF7C00011A3E /* SQLiteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteDB.h; sourceTree = "<group>"; };
 		5DD523FD1547FF7C00011A3E /* SQLiteDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteDB.m; sourceTree = "<group>"; };
 		5DE2775F1620095E00575BCD /* ProximityManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProximityManagedObject.h; sourceTree = "<group>"; };
@@ -524,8 +522,6 @@
 				5DA15B21154ED00800FCEE13 /* Localizable.strings */,
 				5DBDD34915B83A7F001287AB /* Brisbane.gpx */,
 				5DBDD34615B83A74001287AB /* Indooroopilly.gpx */,
-				5DD345FC162D446A00DA4C82 /* PyrmontCenter.gpx */,
-				5DD345FD162D446A00DA4C82 /* PyrmontNorth.gpx */,
 				5DB0AE0E1578C83E00D43B2E /* Taringa.gpx */,
 				5DB0AE0F1578C83E00D43B2E /* Toowoong.gpx */,
 			);
