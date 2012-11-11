@@ -18,7 +18,7 @@
         self.fileLogger = [[DDFileLogger alloc] init];
         self.fileLogger.rollingFrequency = -1; // Do not roll based on time
         self.fileLogger.maximumFileSize = (1024 * 10); // 10kb
-        self.fileLogger.logFileManager.maximumNumberOfLogFiles = 2;
+        self.fileLogger.logFileManager.maximumNumberOfLogFiles = 1;
     }
     return self;
 }
