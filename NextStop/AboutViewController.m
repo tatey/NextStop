@@ -24,7 +24,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    if (section == 1) {
+    if (section == LINK_SECTION) {
         return APP_VERSION;
     } else {
         return nil;
