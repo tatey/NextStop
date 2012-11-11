@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.6.2 / 2012-11-11
+
+* [New] Attach diagnotics when using "Contact Us". Diagnostics contains location information for troubleshooting. You can opt-out of diagnostics at any time.
+* [Fix] Fixed crashing when deleting a route with a monitored stop.
+* [Change] Slight tweak to app icon.
+
 ## 0.6.1 / 2012-11-04
 
 * [Change] App icon.
