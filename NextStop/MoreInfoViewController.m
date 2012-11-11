@@ -23,8 +23,11 @@
         if ([AppDefaults canSendDiagnostics]) {
             NSArray *paths = [[[[FileLoggerManager sharedInstance] fileLogger] logFileManager] sortedLogFilePaths];
             if ([paths count] > 0) {
-                NSData *data = [NSData dataWithContentsOfFile:[paths objectAtIndex:0]];
-                [composeViewController addAttachmentData:data mimeType:@"plain/text" fileName:@"diagnostics.txt"];                
+                NSMutableData *data = [NSMutableData data];
+                for (NSString *path in paths) {
+                    [data appendData:[NSData dataWithContentsOfFile:path]];
+                }
+                [composeViewController addAttachmentData:data mimeType:@"plain/text" fileName:@"diagnostics.txt"];
             }
         }
         [self presentViewController:composeViewController animated:YES completion:nil];
