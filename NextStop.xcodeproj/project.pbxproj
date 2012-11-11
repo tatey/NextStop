@@ -394,8 +394,6 @@
 				5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */,
 				5D2C3B16163CFA3F005C3920 /* StopSequenceService.h */,
 				5D2C3B17163CFA3F005C3920 /* StopSequenceService.m */,
-				5DD523FC1547FF7C00011A3E /* SQLiteDB.h */,
-				5DD523FD1547FF7C00011A3E /* SQLiteDB.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -594,6 +592,8 @@
 				5DACDB72164E9E4700035F86 /* FileLoggerManager.m */,
 				5DE27766162009F200575BCD /* ProximityManager.h */,
 				5DE27767162009F200575BCD /* ProximityManager.m */,
+				5DD523FC1547FF7C00011A3E /* SQLiteDB.h */,
+				5DD523FD1547FF7C00011A3E /* SQLiteDB.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
