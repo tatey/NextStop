@@ -27,7 +27,7 @@
                 for (NSString *path in paths) {
                     [data appendData:[NSData dataWithContentsOfFile:path]];
                 }
-                [composeViewController addAttachmentData:data mimeType:@"plain/text" fileName:@"diagnostics.txt"];
+                [composeViewController addAttachmentData:data mimeType:@"text/plain" fileName:@"diagnostics.txt"];
             }
         }
         [self presentViewController:composeViewController animated:YES completion:nil];
