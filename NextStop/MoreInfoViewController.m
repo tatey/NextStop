@@ -8,6 +8,15 @@
 #endif
 #import "Strings.h"
 
+#import <sys/utsname.h>
+
+static NSString* machineName() {
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    return [NSString stringWithCString:systemInfo.machine
+                              encoding:NSUTF8StringEncoding];
+}
+
 #define APP_URL @"http://nextstop.me"
 #define APP_STORE_URL @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=<APP_ID>"
 #define SUPPORT_EMAIL @"support@nextstop.me"
@@ -20,6 +29,7 @@
         composeViewController.mailComposeDelegate = self;
         [composeViewController setToRecipients:@[SUPPORT_EMAIL]];
         [composeViewController setSubject:[NSString stringWithFormat:NSLocalizedString(@"more_info.contact_us.subject", nil), APP_VERSION]];
+        [composeViewController setMessageBody:[NSString stringWithFormat:@"\n\n\n-----\n%@\n%@\n-----", [[UIDevice currentDevice] systemVersion], machineName()] isHTML:NO];
         if ([AppDefaults canSendDiagnostics]) {
             NSArray *paths = [[[[FileLoggerManager sharedInstance] fileLogger] logFileManager] sortedLogFilePaths];
             if ([paths count] > 0) {
