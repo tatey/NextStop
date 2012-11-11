@@ -10,8 +10,8 @@
     __strong NSIndexPath *_selectedIndexPath;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     NSInteger row = [AppDefaults canSendDiagnostics] ? DIAGNOSTIC_SECTION_ENABLE_ROW : DIAGNOSTIC_SECTION_DISABLE_ROW;
     _selectedIndexPath = [NSIndexPath indexPathForRow:row inSection:DIAGNOSTIC_SECTION];
     [self check:YES rowAtIndexPath:_selectedIndexPath];
