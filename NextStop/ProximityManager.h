@@ -17,5 +17,6 @@
 
 - (void)startMonitoringProximity:(ProximityManagedObject *)proximity;
 - (void)stopMonitoringProximity:(ProximityManagedObject *)proximity;
+- (void)stopMonitoringProximityWithoutSave:(ProximityManagedObject *)proximity;
 
 @end

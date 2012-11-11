@@ -54,9 +54,19 @@
     [logger setMessage:@"Will Stop Monitoring"];
     [logger setProximity:proximity];
     [logger log];
+    [self stopMonitoringProximityWithoutSave:proximity];
+    [self.dataManager save];
+}
+
+- (void)stopMonitoringProximityWithoutSave:(ProximityManagedObject *)proximity {
+    if (proximity) {
+        ProximityManagerLogger *logger = [[ProximityManagerLogger alloc] init];
+        [logger setMessage:@"Will Stop Monitoring Without Save"];
+        [logger setProximity:proximity];
+        [logger log];
+    }
     [self.locationManager stopMonitoringForRegion:[proximity precisionRegion]];
     [self removeProximity:proximity];
-    [self.dataManager save];
 }
 
 - (void)addProximity:(ProximityManagedObject *)proximity {

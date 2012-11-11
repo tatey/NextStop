@@ -64,7 +64,8 @@ static NSString *const kMonitorProximityToTargetKey = @"monitorProximityToTarget
 }
 
 - (void)prepareForDeletion {
-    self.monitorProximityToTarget = NO;
+    ProximityManagedObject *proximity = self.proximity;
+    [UIAppDelegate.proximityManager stopMonitoringProximityWithoutSave:proximity];
 }
 
 - (DirectionRecord *)directionRecord {
