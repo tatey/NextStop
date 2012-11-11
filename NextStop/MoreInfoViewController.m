@@ -29,7 +29,7 @@ static NSString* machineName() {
         composeViewController.mailComposeDelegate = self;
         [composeViewController setToRecipients:@[SUPPORT_EMAIL]];
         [composeViewController setSubject:[NSString stringWithFormat:NSLocalizedString(@"more_info.contact_us.subject", nil), APP_VERSION]];
-        [composeViewController setMessageBody:[NSString stringWithFormat:@"\n\n\n-----\n%@\n%@\n-----", [[UIDevice currentDevice] systemVersion], machineName()] isHTML:NO];
+        [composeViewController setMessageBody:[NSString stringWithFormat:@"\n\n\n-----\n%@\n%@", [[UIDevice currentDevice] systemVersion], machineName()] isHTML:NO];
         if ([AppDefaults canSendDiagnostics]) {
             NSArray *paths = [[[[FileLoggerManager sharedInstance] fileLogger] logFileManager] sortedLogFilePaths];
             if ([paths count] > 0) {
