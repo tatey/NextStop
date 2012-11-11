@@ -14,6 +14,7 @@
 - (void)setMessage:(NSString *)message;
 - (void)setProximity:(ProximityManagedObject *)proximity;
 - (void)setRegion:(CLRegion *)region;
+- (void)setError:(NSError *)error;
 
 - (void)log;
 

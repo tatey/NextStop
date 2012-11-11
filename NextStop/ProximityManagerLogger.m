@@ -33,6 +33,11 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
     [self.serializer setObject:[RegionSerializer serialize:region] forKey:@"region"];
 }
 
+- (void)setError:(NSError *)error {
+    [self.serializer setObject:[error userInfo] forKey:@"error_user_info"];
+    [self.serializer setObject:[error localizedDescription] forKey:@"error_description"];
+}
+
 - (void)log {
     DDLogInfo([self.serializer string]);
 }

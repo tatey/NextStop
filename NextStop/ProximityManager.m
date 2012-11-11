@@ -37,7 +37,8 @@
 
 - (void)startMonitoringProximity:(ProximityManagedObject *)proximity {
     ProximityManagerLogger *logger = [[ProximityManagerLogger alloc] init];
-    [logger setMessage:@"Monitor Start"];
+    [logger setMessage:@"Will Start Monitoring"];
+    [logger setCurrentLocation:self.locationManager.location];
     [logger setProximity:proximity];
     [logger log];
     if ([proximity precisionRadiusContainsCoordinate:self.locationManager.location.coordinate]) {
@@ -50,7 +51,7 @@
 
 - (void)stopMonitoringProximity:(ProximityManagedObject *)proximity {
     ProximityManagerLogger *logger = [[ProximityManagerLogger alloc] init];
-    [logger setMessage:@"Monitor Stop"];
+    [logger setMessage:@"Will Stop Monitoring"];
     [logger setProximity:proximity];
     [logger log];
     [self.locationManager stopMonitoringForRegion:[proximity precisionRegion]];
@@ -78,9 +79,26 @@
 
 #pragma mark - CLLocationManagerDelegate
 
+- (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
+    ProximityManagerLogger *logger = [[ProximityManagerLogger alloc] init];
+    [logger setMessage:@"Monitoring Did Fail For Region"];
+    [logger setError:error];
+    [logger setRegion:region];
+    [logger log];
+}
+
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    ProximityManagerLogger *logger = [[ProximityManagerLogger alloc] init];
+    [logger setMessage:@"Did Enter Region"];
+    [logger setCurrentLocation:self.locationManager.location];
+    [logger setRegion:region];
+    [logger log];
     ProximityManagedObject *proximity = [ProximityManagedObject proximityMatchingIdentifier:region.identifier managedObjectContext:self.dataManager.managedObjectContext];
     if (proximity) {
+        ProximityManagerLogger *logger = [[ProximityManagerLogger alloc] init];
+        [logger setMessage:@"Will Switch From Region Monitoring to GPS"];
+        [logger setProximity:proximity];
+        [logger log];
         [self.locationManager stopMonitoringForRegion:region];
         [self addProximity:proximity];
     }
@@ -90,6 +108,11 @@
     NSSet *proximities = [self.proximitySet.proximities copy];
     for (ProximityManagedObject *proximity in proximities) {
         if ([proximity notificationRadiusContainsCoordinate:newLocation.coordinate]) {
+            ProximityManagerLogger *logger = [[ProximityManagerLogger alloc] init];
+            [logger setMessage:@"Will Notify Proximity Within Notification Radius"];
+            [logger setCurrentLocation:newLocation];
+            [logger setProximity:proximity];
+            [logger log];
             [proximity targetContainedWithinNotificationRadius];
         }
     }
