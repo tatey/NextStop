@@ -392,12 +392,6 @@
 			children = (
 				5D7D8A811568C5D0004DFB54 /* BackgroundNotifier.h */,
 				5D7D8A821568C5D0004DFB54 /* BackgroundNotifier.m */,
-				5D9AAB1415ADAE8C00E2E077 /* DataManager.h */,
-				5D9AAB1515ADAE8C00E2E077 /* DataManager.m */,
-				5DACDB71164E9E4700035F86 /* FileLoggerManager.h */,
-				5DACDB72164E9E4700035F86 /* FileLoggerManager.m */,
-				5DE27766162009F200575BCD /* ProximityManager.h */,
-				5DE27767162009F200575BCD /* ProximityManager.m */,
 				5D2C3B16163CFA3F005C3920 /* StopSequenceService.h */,
 				5D2C3B17163CFA3F005C3920 /* StopSequenceService.m */,
 				5DD523FC1547FF7C00011A3E /* SQLiteDB.h */,
@@ -501,6 +495,7 @@
 				5D6EB68A15A99CBC007260F8 /* Controllers */,
 				5D6EB68C15A99D0B007260F8 /* Extensions */,
 				5D4CA1B415FE1C8700915A70 /* Libraries */,
+				5DEF2BE7164F2559009B771E /* Managers */,
 				5D47CC0A15C7FDD8009ACE61 /* Models */,
 				5D1685E0164E485400C93D34 /* Serializers */,
 				5D6EB68B15A99CDB007260F8 /* Services */,
@@ -588,6 +583,19 @@
 				5D17FB251605F44100D77A9B /* SearchBarBackground@2x.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		5DEF2BE7164F2559009B771E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				5D9AAB1415ADAE8C00E2E077 /* DataManager.h */,
+				5D9AAB1515ADAE8C00E2E077 /* DataManager.m */,
+				5DACDB71164E9E4700035F86 /* FileLoggerManager.h */,
+				5DACDB72164E9E4700035F86 /* FileLoggerManager.m */,
+				5DE27766162009F200575BCD /* ProximityManager.h */,
+				5DE27767162009F200575BCD /* ProximityManager.m */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		5DF5F20415BB95C7006B0882 /* Views */ = {
