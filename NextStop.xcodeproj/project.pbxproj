@@ -100,8 +100,8 @@
 		5DB9257F1600B0EE00AE27C3 /* ModalSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB9257E1600B0ED00AE27C3 /* ModalSearchDisplayController.m */; };
 		5DC98B4C164605D100BAF8E2 /* IconSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DC98B4A164605D100BAF8E2 /* IconSettings.png */; };
 		5DC98B4D164605D100BAF8E2 /* IconSettings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DC98B4B164605D100BAF8E2 /* IconSettings@2x.png */; };
-		5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteDB.m */; };
-		5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteDB.m */; };
+		5DD523FE1547FF7C00011A3E /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteManager.m */; };
+		5DD523FF1547FF7C00011A3E /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD523FD1547FF7C00011A3E /* SQLiteManager.m */; };
 		5DE277611620095E00575BCD /* ProximityManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE277601620095E00575BCD /* ProximityManagedObject.m */; };
 		5DE277651620098C00575BCD /* ProximitySetManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE277641620098C00575BCD /* ProximitySetManagedObject.m */; };
 		5DE27768162009F200575BCD /* ProximityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE27767162009F200575BCD /* ProximityManager.m */; };
@@ -257,8 +257,8 @@
 		5DBDD34915B83A7F001287AB /* Brisbane.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Brisbane.gpx; sourceTree = "<group>"; };
 		5DC98B4A164605D100BAF8E2 /* IconSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconSettings.png; sourceTree = "<group>"; };
 		5DC98B4B164605D100BAF8E2 /* IconSettings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconSettings@2x.png"; sourceTree = "<group>"; };
-		5DD523FC1547FF7C00011A3E /* SQLiteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteDB.h; sourceTree = "<group>"; };
-		5DD523FD1547FF7C00011A3E /* SQLiteDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteDB.m; sourceTree = "<group>"; };
+		5DD523FC1547FF7C00011A3E /* SQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteManager.h; sourceTree = "<group>"; };
+		5DD523FD1547FF7C00011A3E /* SQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteManager.m; sourceTree = "<group>"; };
 		5DE2775F1620095E00575BCD /* ProximityManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProximityManagedObject.h; sourceTree = "<group>"; };
 		5DE277601620095E00575BCD /* ProximityManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProximityManagedObject.m; sourceTree = "<group>"; };
 		5DE277631620098C00575BCD /* ProximitySetManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProximitySetManagedObject.h; sourceTree = "<group>"; };
@@ -592,8 +592,8 @@
 				5DACDB72164E9E4700035F86 /* FileLoggerManager.m */,
 				5DE27766162009F200575BCD /* ProximityManager.h */,
 				5DE27767162009F200575BCD /* ProximityManager.m */,
-				5DD523FC1547FF7C00011A3E /* SQLiteDB.h */,
-				5DD523FD1547FF7C00011A3E /* SQLiteDB.m */,
+				5DD523FC1547FF7C00011A3E /* SQLiteManager.h */,
+				5DD523FD1547FF7C00011A3E /* SQLiteManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -759,7 +759,7 @@
 				5DB59C8B1546C8E500417818 /* main.m in Sources */,
 				5DB59C8F1546C8E500417818 /* AppDelegate.m in Sources */,
 				5D2BFDBB1547F3B400D9F53E /* RouteIndexViewController.m in Sources */,
-				5DD523FE1547FF7C00011A3E /* SQLiteDB.m in Sources */,
+				5DD523FE1547FF7C00011A3E /* SQLiteManager.m in Sources */,
 				5D05F316154ACA7F004E7773 /* StopRecord.m in Sources */,
 				5DA866A81556C25E00FB1ACF /* RouteRecord.m in Sources */,
 				5D54CDFA15668DA1005D0170 /* NSObject+KVOSEL.m in Sources */,
@@ -810,7 +810,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DD523FF1547FF7C00011A3E /* SQLiteDB.m in Sources */,
+				5DD523FF1547FF7C00011A3E /* SQLiteManager.m in Sources */,
 				5D05F317154ACA7F004E7773 /* StopRecord.m in Sources */,
 				5DA866A91556C25E00FB1ACF /* RouteRecord.m in Sources */,
 				5D2C3B1E163D33E3005C3920 /* RouteIndexViewController.m in Sources */,

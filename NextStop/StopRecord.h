@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
-#import "SQLiteDB.h"
+#import "SQLiteManager.h"
 
 @class DirectionRecord;
 

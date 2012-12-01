@@ -2,7 +2,7 @@
 #import "Haversin.h"
 #import "RouteRecord.h"
 #import "StopRecord.h"
-#import "SQLiteDB.h"
+#import "SQLiteManager.h"
 
 #define QUERY1 @"SELECT directions.* "            \
                 "FROM directions "                \
@@ -31,7 +31,7 @@
 @synthesize headsign = _headsign;
 
 + (NSArray *)directionsBelongingToRoute:(RouteRecord *)route {
-    SQLiteDB *db = [SQLiteDB sharedDB];
+    SQLiteManager *db = [SQLiteManager sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY1];
     sqlite3_bind_text(stmt, 1, [route.routeId UTF8String], -1, SQLITE_STATIC);
     NSMutableArray *directions = [NSMutableArray array];
@@ -43,7 +43,7 @@
 }
 
 + (id)directionMatchingDirection:(DirectionRecordDirection)direction routeId:(NSString *)routeId {
-    SQLiteDB *db = [SQLiteDB sharedDB];
+    SQLiteManager *db = [SQLiteManager sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY2];
     sqlite3_bind_int(stmt, 1, direction);
     sqlite3_bind_text(stmt, 2, [routeId UTF8String], -1, SQLITE_STATIC);

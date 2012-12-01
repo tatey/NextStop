@@ -2,7 +2,7 @@
 #import "Haversin.h"
 #import "StopSequenceService.h"
 #import "StopRecord.h"
-#import "SQLiteDB.h"
+#import "SQLiteManager.h"
 
 #define QUERY @"SELECT stops.* "                                                 \
                "FROM stops "                                                     \
@@ -50,7 +50,7 @@
 }
 
 + (NSArray *)previousStopsFromStop:(StopRecord *)stop inDirection:(DirectionRecord *)direction {
-    SQLiteDB *db = [SQLiteDB sharedDB];
+    SQLiteManager *db = [SQLiteManager sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY];
     sqlite3_bind_int(stmt, 1, direction.direction);
     sqlite3_bind_text(stmt, 2, [direction.routeId UTF8String], -1, SQLITE_STATIC);

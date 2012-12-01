@@ -42,7 +42,7 @@
 @implementation StopRecord
 
 + (NSArray *)stopsBelongingToDirection:(DirectionRecord *)direction {
-    SQLiteDB *db = [SQLiteDB sharedDB];
+    SQLiteManager *db = [SQLiteManager sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY1];
     sqlite3_bind_int(stmt, 1, direction.direction);
     sqlite3_bind_text(stmt, 2, [direction.routeId UTF8String], -1, SQLITE_STATIC);
@@ -55,7 +55,7 @@
 }
 
 + (NSArray *)stopsBelongingToDirection:(DirectionRecord *)direction likeName:(NSString *)name {
-    SQLiteDB *db = [SQLiteDB sharedDB];
+    SQLiteManager *db = [SQLiteManager sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY2];
     sqlite3_bind_int(stmt, 1, direction.direction);
     sqlite3_bind_text(stmt, 2, [direction.routeId UTF8String], -1, SQLITE_STATIC);
@@ -69,7 +69,7 @@
 }
 
 + (id)stopMatchingStopId:(NSString *)stopId {
-    SQLiteDB *db = [SQLiteDB sharedDB];
+    SQLiteManager *db = [SQLiteManager sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY3];
     sqlite3_bind_text(stmt, 1, [stopId UTF8String], -1, SQLITE_STATIC);
     __block StopRecord *stop = nil;

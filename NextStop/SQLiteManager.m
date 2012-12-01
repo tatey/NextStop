@@ -1,10 +1,10 @@
-#import "SQLiteDB.h"
+#import "SQLiteManager.h"
 
-@implementation SQLiteDB
+@implementation SQLiteManager
 
-+ (SQLiteDB *)sharedDB {
++ (SQLiteManager *)sharedDB {
     static dispatch_once_t predicate;
-	static SQLiteDB *sharedDB = nil;
+	static SQLiteManager *sharedDB = nil;
 	dispatch_once(&predicate, ^{ 
         sharedDB = [[self alloc] initWithPath:[self defaultPath]]; 
     });

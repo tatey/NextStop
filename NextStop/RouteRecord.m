@@ -1,6 +1,6 @@
 #import "NSArray+Random.h"
 #import "RouteRecord.h"
-#import "SQLiteDB.h"
+#import "SQLiteManager.h"
 
 #define QUERY1 @"SELECT routes.* "           \
                 "FROM routes "               \
@@ -29,7 +29,7 @@
 @implementation RouteRecord
 
 + (RouteRecord *)routeMatchingRouteId:(NSString *)routeId {
-    SQLiteDB *db = [SQLiteDB sharedDB];
+    SQLiteManager *db = [SQLiteManager sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY1];
     sqlite3_bind_text(stmt, 1, [routeId UTF8String], -1, SQLITE_STATIC);
     __block RouteRecord *route = nil;
@@ -40,7 +40,7 @@
 }
 
 + (NSArray *)routes {
-    SQLiteDB *db = [SQLiteDB sharedDB];
+    SQLiteManager *db = [SQLiteManager sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY2];
     NSMutableArray *routes = [NSMutableArray array];
     [db performAndFinalizeStatement:stmt blockForEachRow:^(sqlite3_stmt *stmt) {
@@ -51,7 +51,7 @@
 }
 
 + (NSArray *)routesMatchingShortNameOrLongName:(NSString *)searchText {
-    SQLiteDB *db = [SQLiteDB sharedDB];
+    SQLiteManager *db = [SQLiteManager sharedDB];
     sqlite3_stmt *stmt = [db prepareStatementWithQuery:QUERY3];
     sqlite3_bind_text(stmt, 1, SQLiteDBWildcardUTF8String(searchText), -1, SQLITE_STATIC);
     sqlite3_bind_text(stmt, 2, SQLiteDBWildcardUTF8String(searchText), -1, SQLITE_STATIC);

@@ -5,12 +5,12 @@ static const char *SQLiteDBWildcardUTF8String(NSString *string) {
     return [[NSString stringWithFormat:@"%%%@%%", string] UTF8String];
 }
 
-@interface SQLiteDB : NSObject {
+@interface SQLiteManager : NSObject {
 @private
     sqlite3 *_db;
 }
 
-+ (SQLiteDB *)sharedDB;
++ (SQLiteManager *)sharedDB;
 
 + (NSString *)defaultPath;
 
