@@ -332,18 +332,18 @@
                         <sections>
                             <tableViewSection id="gVy-KI-AcR">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="193" id="uoG-0l-JNO">
-                                        <rect key="frame" x="0.0" y="10" width="320" height="195"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="171" id="uoG-0l-JNO">
+                                        <rect key="frame" x="0.0" y="10" width="320" height="173"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="192"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yqk-0N-x94">
-                                                    <rect key="frame" x="10" y="11" width="280" height="170"/>
+                                                    <rect key="frame" x="10" y="11" width="280" height="148"/>
                                                     <string key="text">Designed and built by Tate Johnson, an independent software developer and regular commuter on public transport.
 
-All route and stop data is sourced from and copyright Translink Transit Authority. Next Stop is not affiliated with or endorsed by the Translink Transit Authority. Data is current as of 26 November, 2012.</string>
+All route and stop data is sourced from and copyright Translink Transit Authority. Next Stop is not affiliated with or endorsed by the Translink Transit Authority.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -357,7 +357,7 @@ All route and stop data is sourced from and copyright Translink Transit Authorit
                             <tableViewSection footerTitle="v0.5.0" id="9TO-8v-rRb">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="pUt-1N-4Do" detailTextLabel="VkE-xk-fgS" rowHeight="42" style="IBUITableViewCellStyleValue2" id="jDw-sh-B3s">
-                                        <rect key="frame" x="0.0" y="225" width="320" height="43"/>
+                                        <rect key="frame" x="0.0" y="203" width="320" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="41"/>
@@ -382,7 +382,7 @@ All route and stop data is sourced from and copyright Translink Transit Authorit
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="6lO-lO-cxg" detailTextLabel="Iu1-JQ-HCg" rowHeight="42" style="IBUITableViewCellStyleValue2" id="dpd-rH-XrG">
-                                        <rect key="frame" x="0.0" y="268" width="320" height="43"/>
+                                        <rect key="frame" x="0.0" y="246" width="320" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="41"/>
