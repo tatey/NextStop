@@ -18,7 +18,7 @@ static NSString* machineName() {
 }
 
 #define APP_URL @"http://nextstop.me"
-#define APP_STORE_URL @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=<APP_ID>"
+#define APP_STORE_URL @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=583674519"
 #define SUPPORT_EMAIL @"support@nextstop.me"
 
 @implementation MoreInfoViewController
