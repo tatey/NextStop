@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.0 / 2012-12-02
+
+* Initial public release.
+
 ## 0.6.2 / 2012-11-11
 
 * [New] Attach diagnotics when using "Contact Us". Diagnostics contains location information for troubleshooting. You can opt-out of diagnostics at any time.
