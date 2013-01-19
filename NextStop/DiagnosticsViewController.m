@@ -31,6 +31,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section != DIAGNOSTIC_SECTION) return;
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == _selectedIndexPath.row) return;
     [self check:YES rowAtIndexPath:indexPath];
     [self check:NO rowAtIndexPath:_selectedIndexPath];
     [AppDefaults sendDiagnostics:indexPath.row == DIAGNOSTIC_SECTION_ENABLE_ROW];
