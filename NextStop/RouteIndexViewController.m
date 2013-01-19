@@ -50,6 +50,7 @@ static NSString *const kFetchedResultsControllerCacheName = @"me.nextstop.caches
     }
     // Table view
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.rowHeight = ROW_HEIGHT;

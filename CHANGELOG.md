@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Current / Unreleased
+
+* [Fix] Seeing last route on "Routes" screen.
+
 ## 1.0.0 / 2012-12-02
 
 * Initial public release.
