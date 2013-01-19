@@ -32,17 +32,18 @@ db.execute <<-SQL
     "route_id" INTENGER NOT NULL,
     "stop_id" TEXT NOT NULL,
     "stop_sequence" INTEGER NOT NULL,
-    PRIMARY KEY("direction", "route_id", "stop_id")
+    PRIMARY KEY("direction", "route_id", "stop_id", "stop_sequence")
   );
 SQL
 
-db.execute <<-SQL
-  INSERT INTO "directions" ("direction", "headsign", "route_id")
-  SELECT DISTINCT "trips".direction, "trips".headsign, "trips".route_id
-  FROM "trips";
-SQL
+db.execute('SELECT "routes".route_id FROM "routes" WHERE "routes".route_type = 2;').flatten.each do |route_id|
+  db.execute <<-SQL
+    INSERT INTO "directions" ("direction", "headsign", "route_id")
+    SELECT DISTINCT "trips".direction, "trips".headsign, "trips".route_id
+    FROM "trips"
+    WHERE "trips".route_id = '#{route_id}';
+  SQL
 
-db.execute('SELECT "routes".route_id FROM "routes";').flatten.each do |route_id|
   db.execute("SELECT DISTINCT \"trips\".direction FROM \"trips\" WHERE \"trips\".route_id = \"#{route_id}\";").flatten.each do |direction_id|
     db.execute <<-SQL
       INSERT INTO "directions_stops" ("direction", "route_id", "stop_id", "stop_sequence")

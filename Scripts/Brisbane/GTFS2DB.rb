@@ -59,6 +59,14 @@ db.execute <<-SQL
 SQL
 
 db.execute <<-SQL
+  CREATE INDEX "index_stop_times_on_stop_id" ON "stop_times" ("stop_id");
+SQL
+
+db.execute <<-SQL
+  CREATE INDEX "index_stop_times_on_trip_id" ON "stop_times" ("trip_id");
+SQL
+
+db.execute <<-SQL
   DROP TABLE IF EXISTS "stops";
 SQL
 
@@ -137,3 +145,7 @@ stop_times_schema.conform(stop_times_csv, skip_first: true).each do |stop_time|
     ("#{stop_time.arrival_time}", #{stop_time.stop_sequence}, "#{stop_time.stop_id}", "#{stop_time.trip_id}");
   SQL
 end
+
+db.execute <<-SQL
+  VACUUM;
+SQL
